@@ -1,0 +1,22 @@
+<header class="d-flex justify-content-center">
+    <div class="col-xl- container_margin d-flex justify-content-between align-items-center">
+        <div class="header_logo">Logo</div>
+        <nav class="header_menu d-flex">
+            <ul class="container_header_menu">
+                <li v-for="list in menu_list">
+                    <router-link class="text_style" :to="list.path">{{list.name}}</router-link>
+                </li>
+            </ul>
+        </nav>
+        <a class="header_button text_style">Take the Test</a>
+        <div class="header_badge_language">
+            <b-dropdown id="ddown-divider" :text="language_now.name" variant="basic" offset="0"
+                 menu-class="rounded-menu"  class="m-2 border btn-lang-border">
+                <b-dropdown-item v-for="lang in language_array" active-class="dropdown-item" :key="lang.name + lang.path">
+                    {{lang.full_name}}
+                </b-dropdown-item>
+            </b-dropdown>
+        </div>
+    </div>
+</header>
+
