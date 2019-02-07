@@ -1,4 +1,37 @@
 <section class="how-does-it-work">
-    <h1>how-does-it-work Component</h1>
+    <div class="container_how-does-it-work">
+        <div class="text_style title_block_how-does-it-work text-lg-center">
+            How Does <span style="color:#5B93E8">It Work</span>
+        </div>
+        <div class="text_style description_block_how-does-it-work">
+            Just 3 easy steps to get result
+        </div>
+        <div class="block_information_how-does-it-work">
+            <div class="item_block_information_how-does-it-work"
+                 v-for="(item, index) in information_how_does_it_work">
+                <div class="image_block_for_information">
+                    <div class="number" >
+                        {{index + 1}}
+                    </div>
+                    <div :style="{order: item.order,
+                      marginRight: item.order > -1 ? '0': '30px',
+                       marginLeft: item.order > -1 ? '0': '30px'}">
+                        <div class="text_style title_for_information">
+                            {{item.title}}
+                        </div>
+                        <div class="text_style description_for_information" style="font-weight: 500">
+                            {{item.description}}
+                        </div>
+                    </div>
+                </div>
+                <div class="image_block_for_information_image"
+                     :style="{order: item.order,
+                      marginRight: item.order > -1 ? '0': '30px',
+                       marginLeft: item.order < 0 ? '0': '30px'}">
+                    <div class="image_elips"></div>
+                    <div class="image_for_information" :style="{backgroundImage: `url(${item.path_image})`}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
-

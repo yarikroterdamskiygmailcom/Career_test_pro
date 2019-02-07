@@ -1,4 +1,32 @@
 <section class="all-aptitude-test">
-    <h1>all-aptitude-test Component</h1>
+    <div class="all-aptitude-test_container d-flex justify-content-between">
+        <div class="block_all-aptitude_information">
+            <div class="text_style title_block_benefits">
+                <span style="color:#F9892E">All Aptitude Test Package</span>
+            </div>
+            <div class="small_text">
+                Get more now, for less!
+            </div>
+            <a class="button_to text_style">
+                Take the Test
+            </a>
+        </div>
+        <div class="block_best_value d-flex justify-content-between">
+            <div class="all-aptitude-list">
+                <ul>
+                    <li v-for="item in test_list">{{item}}</li>
+                </ul>
+            </div>
+            <div class="best_value">
+                <div class="d-flex justify-content-between">
+                    <div class="m-2">$</div>
+                    <div class="m-2">39.95</div>
+                </div>
+                <div class="best_value_text">
+                    Best Value
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 

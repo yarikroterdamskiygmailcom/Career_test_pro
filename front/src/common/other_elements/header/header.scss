@@ -1,5 +1,9 @@
 header{
     border-bottom: 1px solid #F4F8FF;
+    position: fixed;
+    width: 100vw;
+    z-index: 100;
+    background: white;
 }
 .container_margin{
     width: 1140px;

@@ -1,4 +1,26 @@
 <section class="goal-and-benefits">
-    <h1>goal-and-benefits Component</h1>
+    <div class="container_benefits">
+        <div class="text_style title_block_benefits">
+            Goals and <span style="color:#F9892E">Benefits</span>
+        </div>
+        <div class="description_block_benefits">
+            Extensive report, step by step, fully anonymous
+        </div>
+        <div class="block_information">
+            <div class="item_block_information" v-for="item in information_benefits_list">
+                <div class="image_block_for_information">
+                    <div class="image_elips"></div>
+                    <div class="image_for_information" :style="{backgroundImage: `url(${item.path_image})`}"></div>
+                </div>
+                <div style="margin-left: 24px">
+                    <div class="text_style title_for_information">
+                        {{item.title}}
+                    </div>
+                    <div class="text_style description_for_information" style="font-weight: 500">
+                        {{item.description}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
-
