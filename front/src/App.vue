@@ -33,12 +33,4 @@
         overflow-x: hidden;
     }
 
-    .text_style{
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-        font-size: 16px;
-        text-align: center;
-    }
 </style>

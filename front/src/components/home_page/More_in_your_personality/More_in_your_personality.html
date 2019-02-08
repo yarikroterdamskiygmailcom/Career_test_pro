@@ -1,34 +1,38 @@
-<section class="more-in-your-personality">
-    <div class="container_margin">
-        <div class="container_data">
+<section class="more-in-your-personality d-flex justify-content-center align-items-baseline">
+    <div class="container_margin d-flex justify-content-center align-items-center flex-column">
+        <div class="container_data d-flex align-items-center">
             <div class="text_container">
-                <div class="more-in-your-personality_text">
+                <div class="title_block">
                     Do you want to <span style="color:#F9892E">gain more<br>
                     insight</span> in your personality?
                 </div>
-                <div class="small_text">
+                <div class="small_text more-in-your-personality_small_text">
                     Our test will give you clear areas of interest<br>
                     and professions which suits you best!
                 </div>
                 <div class="d-flex justify-content-between">
-                    <a class="button_to text_style">
+                    <router-link :to="'tests'" class="button_to d-flex justify-content-center
+                    align-items-center text-decoration-none
+                    custom_button">
                         Take the Test
-                    </a>
-                    <a class="button_to text_style orange_style">
-                        Take the Test
+                    </router-link>
+                    <a class="button_to d-flex justify-content-center align-items-center
+                     text-decoration-none orange_style custom_button"
+                          target="_blank"
+                          href="http://www.careertestpro.com/images/sample-report-career-test-pro.pdf">
+                          See a Sample Report
                     </a>
                 </div>
             </div>
-            <div class="block_img">
+            <div class="block_img d-flex justify-content-center position-relative">
                 <img src="./../../../assets/home_page/more_in_your_persanality.png">
-                <div class="image_div"></div>
+                <div class="image_div background_image position-absolute"></div>
             </div>
         </div>
-        <div class="container_scroll_down d-flex justify-content-center flex-lg-column align-items-center">
+        <div class="container_scroll_down d-flex justify-content-center flex-lg-column align-items-center"
+             v-scroll-to="'#benefits'">
             <div>Scroll down</div>
-            <div class="button_scroll">
-
-            </div>
+            <div class="button_scroll background_image"></div>
         </div>
     </div>
 </section>

@@ -3,11 +3,19 @@ export default {
     components: {},
     props: [],
     data() {
-        return {}
+        return {
+            name:'',
+            email:'',
+            message:'',
+        }
     },
     computed: {},
     mounted() {
 
     },
-    methods: {}
+    methods: {
+        send(){
+
+        }
+    }
 }

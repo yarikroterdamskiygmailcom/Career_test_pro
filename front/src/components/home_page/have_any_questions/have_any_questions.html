@@ -1,4 +1,27 @@
 <section class="have-any-questions">
-    <h1>have-any-questions Component</h1>
+    <div class="d-flex justify-content-center flex-column align-items-center">
+        <div class="have-any-questions_information">
+            <div class="title_block">
+                Have Any <span style="color:#F9892E">Questions?</span>
+            </div>
+            <div class="small_text text-sm-center">
+                Please, feel free to contact us!
+            </div>
+        </div>
+        <div class="have-any-questions_image_and_input d-flex justify-content-center">
+            <div class="have-any-questions_block_image position-relative d-flex justify-content-center">
+                <div class="have-any-questions_image position-absolute"></div>
+                <div class="have-any-questions_elips"></div>
+            </div>
+            <div class="have-any-questions_block_input d-flex flex-column">
+                <input type="text" v-model="name" placeholder="Enter your Name">
+                <input type="text" v-model="email" placeholder="Enter your Email">
+                <textarea v-model="message" placeholder="Enter your massage"></textarea>
+                <a class="button_to send_button d-flex justify-content-center align-items-center">
+                    Send
+                </a>
+            </div>
+        </div>
+    </div>
 </section>
 

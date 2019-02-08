@@ -1,7 +1,5 @@
 .how-does-it-work {
     width: 100%;
-    display: flex;
-    justify-content: center;
 }
 .container_how-does-it-work{
     width: 761px;
@@ -12,17 +10,11 @@
     line-height: 51px;
     font-size: 28px;
     letter-spacing: 0.05em;
-    text-transform: uppercase;
     color: #333333;
 }
 .description_block_how-does-it-work{
     margin-bottom: 80px;
-    font-weight: 500;
     font-size: 16px;
-    text-align: center;
-}
-.block_information_how-does-it-work{
-    //display: flex;
 }
 .image_block_for_information{
     width: 411px;
@@ -31,16 +23,11 @@
     background: #FFFFFF;
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
-    display: flex;
-}
-.image_block_for_information_image{
-    position: relative;
 }
 .image_elips{
     width: 320px;
     height: 320px;
     background: #F4F8FF;
-    position: relative;
     top: 0;
     border-radius: 50%;
 }
@@ -53,37 +40,22 @@
     z-index: 12;
 }
 .item_block_information_how-does-it-work{
-    display: flex;
-    align-items: center;
     margin-bottom: 81px;
 }
 .number{
     width: 22px;
     height: 74px;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    line-height: normal;
     font-size: 60px;
-    text-align: center;
     color: #5B93E8;
     margin-right: 34px;
 }
 .title_for_information{
-    font-family: Montserrat;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
     font-size: 20px;
-    text-align: center;
     margin-bottom: 16px;
     color: #333333;
 }
 .description_for_information{
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 500;
     line-height: 23px;
     font-size: 14px;
-    text-align: center;
 }

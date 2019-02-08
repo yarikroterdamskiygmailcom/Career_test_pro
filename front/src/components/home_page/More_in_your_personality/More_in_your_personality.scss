@@ -2,43 +2,24 @@
     padding-top: 86px;
     min-height: 902px;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
 }
-
-.container_margin {
-    width: 1140px;
-    margin: 0 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
 .container_data {
     padding-top: 145px;
-    display: flex;
-    align-items: center;
 }
 
 .container_data .block_img {
-    position: relative;
     width: 500px;
     height: 530px;
-    display: flex;
-    justify-content: center;
 }
-
+.custom_button{
+    width: 240px;
+}
 .container_data .image_div {
     height: 488px;
     width: 488px;
-    position: absolute;
     top: 51px;
     background-image: url("./../../../assets/home_page/Ellipse.png");
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     z-index: -1;
 }
 
@@ -46,31 +27,7 @@
     width: 448px;
     height: 530px;
 }
-.more-in-your-personality_text{
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 800;
-    line-height: 51px;
-    font-size: 28px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #333333;
-}
-//146 image
-.button_to{
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    text-decoration: none;
-    color:black;
-    background: #85B1F5;
-    width: 240px;
-    height: 44px;
-    padding: 0 30px;
-    border-radius: 22px;
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
-    margin:0 40px 0 0;
-}
+
 .button_to.orange_style{
     background: #FFFFFF;
     border: 2px solid #F9892E;
@@ -81,33 +38,25 @@
     margin-right: 126px;
     margin-left: 23px;
 }
-.small_text{
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 29px;
-    font-size: 16px;
-    color: #333333;
-    margin-top: 30px;
-    margin-bottom: 40px
-}
 .button_scroll{
     margin-top: 15px;
-    background: #FFFFFF;
+    background: #FFFFFF url("./../../../assets/home_page/arrow_down.png") no-repeat center;
     box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.18);
     border-radius: 22px;
     width: 61px;
     height: 44px;
-    background-image: url("./../../../assets/home_page/arrow_down.png");
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .container_scroll_down{
-    margin-top: 147px;
-    font-family: Montserrat;
-    font-style: normal;
+    margin-top: 91px;
+    cursor: pointer;
     font-weight: 600;
     line-height: normal;
     font-size: 16px;
+}
+
+.more-in-your-personality_small_text{
+    font-size: 16px;
+    margin-top: 30px;
+    margin-bottom: 40px;
 }

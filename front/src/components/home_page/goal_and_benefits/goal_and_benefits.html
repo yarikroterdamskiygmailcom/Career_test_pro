@@ -1,22 +1,27 @@
-<section class="goal-and-benefits">
-    <div class="container_benefits">
-        <div class="text_style title_block_benefits">
+<section class="goal-and-benefits position-relative d-flex justify-content-center" id="benefits">
+    <div class="elem_elipse"></div>
+    <div class="elem_elipse elem_elipse1"></div>
+    <div class="container_margin container_benefits">
+        <div class="title_block_benefits text-center text-uppercase">
             Goals and <span style="color:#F9892E">Benefits</span>
         </div>
-        <div class="description_block_benefits">
+        <div class="description_block_benefits text-center">
             Extensive report, step by step, fully anonymous
         </div>
-        <div class="block_information">
-            <div class="item_block_information" v-for="item in information_benefits_list">
-                <div class="image_block_for_information">
+        <div class="d-flex flex-wrap">
+            <div class="item_block_information d-flex align-items-center"
+                 v-for="item in information_benefits_list">
+                <div class="position-relative">
                     <div class="image_elips"></div>
-                    <div class="image_for_information" :style="{backgroundImage: `url(${item.path_image})`}"></div>
+                    <div class="image_for_information position-absolute"
+                         :style="{backgroundImage: `url(${item.path_image})`}">
+                    </div>
                 </div>
                 <div style="margin-left: 24px">
-                    <div class="text_style title_for_information">
+                    <div class="title_for_information">
                         {{item.title}}
                     </div>
-                    <div class="text_style description_for_information" style="font-weight: 500">
+                    <div class="small_text description_for_information text-left">
                         {{item.description}}
                     </div>
                 </div>
