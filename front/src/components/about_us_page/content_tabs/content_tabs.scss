@@ -1,0 +1,42 @@
+.content-tabs {
+
+}
+
+.tab_content_information{
+    width: 570px;
+    padding-right: 48px;
+    margin-bottom: 246px;
+}
+
+.image_size{
+    width: 562px;
+    height: 562px;
+}
+.tab_content_image{
+    background-repeat: no-repeat;
+    top: 55px;
+    width: 572px;
+    height: 570px;
+}
+
+.title_tab{
+    font-weight: 600;
+}
+.content_tab{
+    font-weight: 500;
+    line-height: 23px;
+    font-size: 14px;
+}
+.tab_content_elips{
+    background: #F4F8FF;
+    border-radius: 50%;
+}
+
+ul.content_tab{
+    padding-left: 20px;
+    list-style-image: url("./../../../assets/home_page/arrow_ok.png");
+    margin-top: 43px;
+}
+ul.content_tab li{
+    margin-bottom: 30px;
+}

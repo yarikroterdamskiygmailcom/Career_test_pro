@@ -18,7 +18,7 @@ export default new VueRouter({
         { path: '/contact-us',     component: contact_us_page },
         { path: '/faq',            component: faq_page },
         { path: '/confirm-detail', component: confirm_page },
-        { path: '/tests',   component: tests_page },
+        { path: '/tests',          component: tests_page },
         { path: '/tests/:steps',   component: tests_page },
         { path: '/final',          component: final_page },
     ],
