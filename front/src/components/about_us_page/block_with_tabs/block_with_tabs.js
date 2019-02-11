@@ -3,7 +3,6 @@ export default {
     components: {
         'content_tabs_component': content_tabs
     },
-    props: [],
     data() {
         return {
             list_tabs: [

@@ -1,6 +1,4 @@
 export default {
-    components: {},
-    props: [],
     data() {
         return {
             test_list:[
@@ -11,9 +9,4 @@ export default {
             ]
         }
     },
-    computed: {},
-    mounted() {
-
-    },
-    methods: {}
 }

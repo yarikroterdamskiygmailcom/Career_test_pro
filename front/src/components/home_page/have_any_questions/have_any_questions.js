@@ -1,21 +1,19 @@
+import Request from "../../../api/mail_request";
+
 export default {
     name: 'have-any-questions',
-    components: {},
-    props: [],
     data() {
         return {
-            name:'',
-            email:'',
-            message:'',
+            data:{
+                name:'',
+                email:'',
+                message:'',
+            }
         }
     },
-    computed: {},
-    mounted() {
-
-    },
     methods: {
-        send(){
-
+        send_mail(){
+            Request.send_mail(this.data)
         }
     }
 }

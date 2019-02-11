@@ -7,7 +7,7 @@ const state = {
     language_now: {
         name: 'EN',
         full_name: 'English',
-        path: '/ru'
+        path: '/en'
     },
     menu_list: [
         {
@@ -21,7 +21,7 @@ const state = {
             path: '/blog'
         },{
             name:  'contact-us',
-            path: '/home'
+            path: '/contact-us'
         },{
             name:  'About Us',
             path: '/about-us'

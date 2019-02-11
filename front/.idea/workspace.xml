@@ -5,17 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1fbf7729-d031-4ca6-8b1c-0c4031f8e25d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/api/axios.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/mail_request.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/about_us_page/AboutUs.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/about_us_page/AboutUs.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/about_us_page/block_with_tabs/block_with_tabs.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/about_us_page/block_with_tabs/block_with_tabs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/other_elements/footer/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/other_elements/footer/footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/other_elements/header/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/other_elements/header/header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/about_us_page/block_with_tabs/block_with_tabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/about_us_page/block_with_tabs/block_with_tabs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/about_us_page/block_with_tabs/block_with_tabs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/about_us_page/block_with_tabs/block_with_tabs.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home_page/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home_page/HomePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home_page/More_in_your_personality/More_in_your_personality.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home_page/More_in_your_personality/More_in_your_personality.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/about_us_page/content_tabs/content_tabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/about_us_page/content_tabs/content_tabs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/contact_us_page/ContactUs.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contact_us_page/ContactUs.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/contact_us_page/send_message_and_contacts/send_message_and_contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contact_us_page/send_message_and_contacts/send_message_and_contacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/contact_us_page/send_message_and_contacts/send_message_and_contacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contact_us_page/send_message_and_contacts/send_message_and_contacts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/contact_us_page/send_message_and_contacts/send_message_and_contacts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contact_us_page/send_message_and_contacts/send_message_and_contacts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home_page/More_in_your_personality/More_in_your_personality.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home_page/More_in_your_personality/More_in_your_personality.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home_page/all_aptitude_test/all_aptitude_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home_page/all_aptitude_test/all_aptitude_test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home_page/goal_and_benefits/goal_and_benefits.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home_page/goal_and_benefits/goal_and_benefits.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home_page/how_does_it_work/how_does_it_work.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home_page/how_does_it_work/how_does_it_work.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/modules/multilanguage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/modules/multilanguage.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,103 +34,54 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5616348">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/App.vue">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/about_us_page/block_with_tabs/block_with_tabs.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="435">
-                  <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/components/about_us_page/content_tabs/content_tabs.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="16" column="71" selection-start-line="16" selection-start-column="71" selection-end-line="16" selection-end-column="71" />
-                  <folding>
-                    <element signature="n#style#0;n#span#0;n#p#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/about_us_page/content_tabs/content_tabs.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/about_us_page/AboutUs.vue">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/about_us_page/block_with_tabs/block_with_tabs.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="649">
-                  <caret line="82" column="25" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="25" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/about_us_page/content_tabs/content_tabs.scss">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="334">
-                  <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/home_page/all_aptitude_test/all_aptitude_test.scss">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="269">
-                  <caret line="31" column="68" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="68" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-                  <folding>
-                    <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/contact_us_page/send_message_and_contacts/send_message_and_contacts.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#section#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/contact_us_page/send_message_and_contacts/send_message_and_contacts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/common/other_elements/footer/footer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/common/other_elements/header/header.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -135,21 +96,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/common/other_elements/header/header.js" />
-        <option value="$PROJECT_DIR$/src/common/other_elements/footer/footer.js" />
         <option value="$PROJECT_DIR$/src/common/other_elements/header/header.scss" />
         <option value="$PROJECT_DIR$/src/common/other_elements/header/header.html" />
-        <option value="$PROJECT_DIR$/src/components/home_page/goal_and_benefits/goal_and_benefits.js" />
-        <option value="$PROJECT_DIR$/src/components/home_page/how_does_it_work/how_does_it_work.js" />
-        <option value="$PROJECT_DIR$/src/components/home_page/all_aptitude_test/all_aptitude_test.js" />
-        <option value="$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/src/components/home_page/More_in_your_personality/More_in_your_personality.js" />
         <option value="$PROJECT_DIR$/src/components/home_page/how_does_it_work/how_does_it_work.scss" />
         <option value="$PROJECT_DIR$/src/components/home_page/how_does_it_work/how_does_it_work.html" />
         <option value="$PROJECT_DIR$/src/components/home_page/goal_and_benefits/goal_and_benefits.html" />
         <option value="$PROJECT_DIR$/src/components/home_page/goal_and_benefits/goal_and_benefits.scss" />
-        <option value="$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.html" />
         <option value="$PROJECT_DIR$/src/components/home_page/More_in_your_personality/More_in_your_personality.html" />
         <option value="$PROJECT_DIR$/src/components/home_page/all_aptitude_test/all_aptitude_test.scss" />
         <option value="$PROJECT_DIR$/src/components/home_page/all_aptitude_test/all_aptitude_test.html" />
@@ -157,16 +110,32 @@
         <option value="$PROJECT_DIR$/src/router/index.js" />
         <option value="$PROJECT_DIR$/src/components/home_page/More_in_your_personality/More_in_your_personality.scss" />
         <option value="$PROJECT_DIR$/src/components/home_page/HomePage.vue" />
-        <option value="$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.scss" />
         <option value="$PROJECT_DIR$/src/components/about_us_page/block_with_tabs/block_with_tabs.html" />
         <option value="$PROJECT_DIR$/src/components/about_us_page/block_with_tabs/block_with_tabs.scss" />
-        <option value="$PROJECT_DIR$/src/components/about_us_page/content_tabs/content_tabs.js" />
         <option value="$PROJECT_DIR$/src/components/about_us_page/content_tabs/index.vue" />
         <option value="$PROJECT_DIR$/src/components/about_us_page/AboutUs.vue" />
-        <option value="$PROJECT_DIR$/src/App.vue" />
         <option value="$PROJECT_DIR$/src/components/about_us_page/content_tabs/content_tabs.scss" />
-        <option value="$PROJECT_DIR$/src/components/about_us_page/block_with_tabs/block_with_tabs.js" />
         <option value="$PROJECT_DIR$/src/components/about_us_page/content_tabs/content_tabs.html" />
+        <option value="$PROJECT_DIR$/src/store/modules/multilanguage.js" />
+        <option value="$PROJECT_DIR$/src/components/contact_us_page/ContactUs.vue" />
+        <option value="$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.scss" />
+        <option value="$PROJECT_DIR$/src/App.vue" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/api/axios.config.js" />
+        <option value="$PROJECT_DIR$/src/api/request.js" />
+        <option value="$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.html" />
+        <option value="$PROJECT_DIR$/src/components/contact_us_page/send_message_and_contacts/send_message_and_contacts.scss" />
+        <option value="$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.js" />
+        <option value="$PROJECT_DIR$/src/components/home_page/goal_and_benefits/goal_and_benefits.js" />
+        <option value="$PROJECT_DIR$/src/components/home_page/all_aptitude_test/all_aptitude_test.js" />
+        <option value="$PROJECT_DIR$/src/components/home_page/how_does_it_work/how_does_it_work.js" />
+        <option value="$PROJECT_DIR$/src/components/home_page/More_in_your_personality/More_in_your_personality.js" />
+        <option value="$PROJECT_DIR$/src/components/about_us_page/block_with_tabs/block_with_tabs.js" />
+        <option value="$PROJECT_DIR$/src/components/about_us_page/content_tabs/content_tabs.js" />
+        <option value="$PROJECT_DIR$/src/components/contact_us_page/send_message_and_contacts/send_message_and_contacts.html" />
+        <option value="$PROJECT_DIR$/src/components/contact_us_page/send_message_and_contacts/send_message_and_contacts.js" />
+        <option value="$PROJECT_DIR$/src/common/other_elements/footer/footer.js" />
+        <option value="$PROJECT_DIR$/src/common/other_elements/header/header.js" />
       </list>
     </option>
   </component>
@@ -199,59 +168,22 @@
               <item name="front" type="b2602c69:ProjectViewProjectNode" />
               <item name="front" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="front" type="b2602c69:ProjectViewProjectNode" />
               <item name="front" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="about_us_page" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="other_elements" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="front" type="b2602c69:ProjectViewProjectNode" />
               <item name="front" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="about_us_page" type="462c0819:PsiDirectoryNode" />
-              <item name="block_with_tabs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="about_us_page" type="462c0819:PsiDirectoryNode" />
-              <item name="content_tabs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="home_page" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="home_page" type="462c0819:PsiDirectoryNode" />
-              <item name="all_aptitude_test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="home_page" type="462c0819:PsiDirectoryNode" />
-              <item name="have_any_questions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="other_elements" type="462c0819:PsiDirectoryNode" />
+              <item name="header" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -264,6 +196,7 @@
     <property name="last_opened_file_path" value="$USER_HOME$/chemagin-maruseev" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.SCSS" />
   </component>
   <component name="RecentsManager">
@@ -299,17 +232,18 @@
       <workItem from="1549524029633" duration="28212000" />
       <workItem from="1549610281396" duration="13722000" />
       <workItem from="1549626101006" duration="17631000" />
-      <workItem from="1549870442126" duration="8293000" />
+      <workItem from="1549870442126" duration="27805000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67858000" />
+    <option name="totallyTimeSpent" value="87370000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.160487" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2246818" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -324,7 +258,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.16198704" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.30237582" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -335,20 +269,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/common/other_elements/footer/footer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/other_elements/header/header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/common/other_elements/header/index.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -366,13 +286,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/modules/multilanguage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="49" column="29" lean-forward="true" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/home_page/background_goal_and_benefits.svg" />
     <entry file="file://$PROJECT_DIR$/src/components/home_page/goal_and_benefits/index.vue">
       <provider selected="true" editor-type-id="text-editor">
@@ -381,42 +294,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/home_page/goal_and_benefits/goal_and_benefits.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="86" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="12" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/home_page/how_does_it_work/how_does_it_work.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="619">
           <caret line="52" column="65" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="12" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/home_page/More_in_your_personality/More_in_your_personality.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -437,13 +318,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/home_page/all_aptitude_test/all_aptitude_test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" selection-start-column="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -451,25 +325,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/home_page/all_aptitude_test/all_aptitude_test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="36" selection-start-line="36" selection-end-line="36" />
           <folding>
             <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -484,31 +345,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/home_page/goal_and_benefits/goal_and_benefits.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" selection-start-column="26" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#0;n#section#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/home_page/goal_and_benefits/goal_and_benefits.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -529,13 +369,6 @@
     <entry file="file://$PROJECT_DIR$/src/components/about_us_page/block_with_tabs/index.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/about_us_page/content_tabs/index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -550,17 +383,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/about_us_page/content_tabs/content_tabs.scss">
+    <entry file="file://$PROJECT_DIR$/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/about_us_page/block_with_tabs/block_with_tabs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -571,30 +400,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/about_us_page/block_with_tabs/block_with_tabs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="649">
-          <caret line="82" column="25" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/about_us_page/AboutUs.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -602,20 +407,194 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/about_us_page/content_tabs/content_tabs.js">
+    <entry file="file://$PROJECT_DIR$/src/components/about_us_page/content_tabs/content_tabs.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+        <state relative-caret-position="334">
+          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/home_page/goal_and_benefits/goal_and_benefits.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/modules/multilanguage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#62#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/about_us_page/content_tabs/content_tabs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="71" selection-start-line="16" selection-start-column="71" selection-end-line="16" selection-end-column="71" />
+        <state>
+          <caret column="61" lean-forward="true" selection-start-column="61" selection-end-column="61" />
           <folding>
             <element signature="n#style#0;n#span#0;n#p#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/about_us_page/block_with_tabs/block_with_tabs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/contact_us_page/ContactUs.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/axios.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="53" column="23" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/mail_request.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/contact_us_page/send_message_and_contacts/send_message_and_contacts.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/home_page/how_does_it_work/how_does_it_work.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/home_page/More_in_your_personality/More_in_your_personality.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/home_page/have_any_questions/have_any_questions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/home_page/all_aptitude_test/all_aptitude_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/home_page/goal_and_benefits/goal_and_benefits.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/about_us_page/block_with_tabs/block_with_tabs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1176">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/about_us_page/content_tabs/content_tabs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/contact_us_page/send_message_and_contacts/send_message_and_contacts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/contact_us_page/send_message_and_contacts/send_message_and_contacts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/other_elements/footer/footer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/other_elements/header/header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>

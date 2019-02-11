@@ -1,7 +1,6 @@
 import {mapGetters} from 'vuex';
 
 export default {
-    props: [],
     data() {
         return{}
     },
@@ -12,9 +11,4 @@ export default {
             language_array:  'multilanguage/get_language_array',
             sotial_networks: 'multilanguage/get_sotial_networks',
         }),
-
-    mounted() {
-
-    },
-    methods: {}
 }

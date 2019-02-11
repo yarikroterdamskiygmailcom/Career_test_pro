@@ -51,6 +51,7 @@
         margin-bottom: 20px;
     }
     .button_to{
+        cursor: pointer;
         color:black;
         background: #85B1F5;
         height: 44px;
@@ -95,5 +96,23 @@
     .elem_elipse1{
         bottom: 0;
         transform: rotate(180deg);
+    }
+
+
+    .have-any-questions_block_input input, .have-any-questions_block_input textarea {
+        background: #FFFFFF;
+        border: 1px solid #DFDFDF;
+        height: 44px;
+        padding: 0 30px;
+        width: 400px;
+        box-sizing: border-box;
+        border-radius: 22px;
+        margin-bottom: 24px;
+        color: #8B8B8B;
+    }
+
+    .have-any-questions_block_input textarea {
+        height: 250px;
+        padding-top: 10px;
     }
 </style>

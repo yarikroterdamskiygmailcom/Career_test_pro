@@ -1,7 +1,5 @@
 export default {
     name: 'how-does-it-work',
-    components: {},
-    props: [],
     data() {
         return {
             information_how_does_it_work:[
@@ -24,9 +22,4 @@ export default {
             ]
         }
     },
-    computed: {},
-    mounted() {
-
-    },
-    methods: {}
 }

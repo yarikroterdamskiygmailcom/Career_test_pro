@@ -1,7 +1,5 @@
 export default {
     name: 'goal-and-benefits',
-    components: {},
-    props: [],
     data() {
         return {
             information_benefits_list: [
@@ -31,9 +29,4 @@ export default {
             ]
         }
     },
-    computed: {},
-    mounted() {
-
-    },
-    methods: {}
 }
