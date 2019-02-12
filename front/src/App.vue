@@ -13,10 +13,9 @@
     import Header from './common/other_elements/header/index.vue'
 
     export default {
-        data() {
-            return {
-                msg: 'Welcome to Your Vue.js App'
-            }
+        name: 'app',
+        data () {
+            return {}
         },
         components: {
             'footer-component': Footer,

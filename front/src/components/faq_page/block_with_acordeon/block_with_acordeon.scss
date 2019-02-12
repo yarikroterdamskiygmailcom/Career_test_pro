@@ -1,3 +1,29 @@
 .block-with-acordeon {
-
 }
+.custom_title{
+    margin-bottom: 20px;
+}
+.custom_small_title{
+    margin-bottom: 61px;
+}
+.faq_image_block{
+    width: 237px;
+    height: 212px;
+    margin-bottom: 77px;
+}
+.faq_ellipse{
+    width: 212px;
+    height: 212px;
+    background: #F4F8FF;
+    border-radius: 50%;
+}
+.faq_image{
+    background-image: url("./../../../assets/faq/faq.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 254px;
+    height: 165px;
+    left: -23px;
+    top: 27px;
+}
+
