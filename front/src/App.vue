@@ -98,7 +98,8 @@
     }
 
 
-    .have-any-questions_block_input input, .have-any-questions_block_input textarea {
+    .have-any-questions_block_input input, .have-any-questions_block_input textarea,
+    .input-information input{
         background: #FFFFFF;
         border: 1px solid #DFDFDF;
         height: 44px;
@@ -108,6 +109,10 @@
         border-radius: 22px;
         margin-bottom: 24px;
         color: #8B8B8B;
+    }
+    .input-information input::placeholder,
+    .input-information input{
+        color: #333333
     }
 
     .have-any-questions_block_input textarea {

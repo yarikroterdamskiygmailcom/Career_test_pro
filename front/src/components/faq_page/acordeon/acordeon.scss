@@ -26,8 +26,19 @@
 
 }
 .acordeon_content{
-    transition: 0.5s all;overflow: hidden;min-height: auto;
+    transition: 0.5s all;
+    overflow: hidden;
+    min-height: auto;
+    line-height: 23px;
+    font-size: 14px;
 }
 .acordeon_content > div{
     padding: 34px;
+}
+.acordeon_content ul{
+    padding-left: 55px;
+    list-style-image: url("./../../../assets/home_page/arrow_ok.png");
+}
+.acordeon_content ul li {
+    margin-bottom: 34px;
 }

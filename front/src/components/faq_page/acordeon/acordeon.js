@@ -16,7 +16,6 @@ export default {
         open(index){
             this.$emit('open_item_acordeon', {
                 index: index,
-                elem: this.$refs
             })
         },
         act(data){

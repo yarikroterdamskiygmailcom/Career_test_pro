@@ -1,4 +1,23 @@
-<section class="input-information">
-    <h1>input-information Component</h1>
-</section>
-
+<div class="container_payment d-flex justify-content-center">
+    <section class="input-information d-flex align-items-center flex-column">
+        <div class="small_text custom_small">Information</div>
+        <input type="text" v-model="data.name" placeholder="Enter your Name">
+        <input type="text" v-model="data.email" placeholder="Enter your Email">
+        <b-dropdown id="ddown-divider" :text="data.gender" variant="basic" offset="0" style="margin-bottom: 24px;"
+                    menu-class="rounded-menu" class=" border btn-lang-border confirm_input">
+            <b-dropdown-item v-for="item in gender" @click="data.gender = item" active-class="dropdown-item"
+                             :key="item">
+                {{item}}
+            </b-dropdown-item>
+        </b-dropdown>
+        <b-dropdown id="ddown-divider" :text="data.age" variant="basic" offset="0" style="margin-bottom: 24px;"
+                    menu-class="rounded-menu" class=" border btn-lang-border confirm_input">
+            <b-dropdown-item v-for="item in age" active-class="dropdown-item" @click="data.age = item">
+                {{item}}
+            </b-dropdown-item>
+        </b-dropdown>
+        <div class="small_text custom_small" v-model="data.price">Total Price</div>
+        <input type="text" v-model="data.price" disabled  style="font-weight: 600">
+    </section>
+    <payment_component :data_in_input_information="data"></payment_component>
+</div>

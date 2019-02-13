@@ -1,4 +1,28 @@
-<section class="payment">
-    <h1>payment Component</h1>
+<section class="input-information payment d-flex align-items-center flex-column">
+    <div class="small_text custom_small">Information</div>
+    <div class="card_and_mobile_container d-flex justify-content-between" style="width: 100%">
+        <div class="card_block">
+            <div class="styled-input-single d-flex align-items-center" v-for="(item, index) in cards">
+                <input type="radio" name="fieldset-1" @click="radio_count(item, cards)"
+                       :id="'radio-example-one'+index" />
+                <label :for="'radio-example-one'+index">{{item.name}}</label>
+            </div>
+        </div>
+        <div class="mobile">
+            <div class="styled-input-single d-flex align-items-center"
+                v-for="(item, index) in category">
+                <input type="radio" name="fieldset-1" @click="radio_count(item, category)"
+                       :id="'radio-example-one'+index" />
+                <label :for="'radio-example-one'+index">{{item.name}}</label>
+            </div>
+        </div>
+    </div>
+    <div class="small_text custom_small">
+        Do you have a Voucher Code?
+    </div>
+    <input type="text"  placeholder="Enter your Email">
+    <div class="button_to custom_button d-flex align-items-center justify-content-center" style="font-weight: 600">
+        Checkout
+    </div>
 </section>
 

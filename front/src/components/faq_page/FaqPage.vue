@@ -22,8 +22,9 @@
                         active:false,
                         name:'Which method does CareertestPro use?',
                         content: '<p>CareertestPro is based on the theory of the Holland Codes or the Holland ' +
-                            'Occupational Themes (RIASEC). This theoretical framework was developed by J.L. Holland ' +
-                            'and refers to a theory of careers and vocational choice based upon personality types. Each' +
+                            'Occupational Themes (RIASEC).</p><p> This theoretical framework was developed by J.L. Holland ' +
+                            'and refers to a theory of careers and vocational choice based upon personality types.</p>' +
+                            '<p> Each' +
                             ' letter of the RIASEC code stands for a particular personality type, being:</p>',
                         list: [
                             'Realistic personality type (Doers);',
@@ -35,16 +36,16 @@
                         ],
                         content2: '<p>All RIASEC Personality types are discussed separately with regard to your personal' +
                             ' score on skills, (work) values, activities, personal behavior and professions. The RIASEC' +
-                            ' method is one of the most extensively researched and used test in personality psychology. ' +
+                            ' method is one of the most extensively researched and used test in personality psychology.</p><p> ' +
                             'The theory assumes that everyone has an inner predisposition for certain professions.' +
                             ' By means of six different personality characteristics, which are described above, your ' +
-                            'unique personality profile is comprised. Due to the fact that each person is unique, ' +
+                            'unique personality profile is comprised.</p><p> Due to the fact that each person is unique, ' +
                             'everyone will generate a different personality profile. The career test on ' +
                             'CareertestPro creates a personalized three-lettercode, based on 3 of the ' +
-                            '6 RIASEC personality types. This three-letter code is based on a primary ' +
+                            '6 RIASEC personality types.</p><p> This three-letter code is based on a primary ' +
                             'personality type, a secondary personality type and a tertiary personality ' +
                             'type. Obviously, the primary personality type is the one you high-scored. ' +
-                            'The secondary is your second score, and self-evident, the tertiary your third. ' +
+                            'The secondary is your second score, and self-evident, the tertiary your third. </p><p>' +
                             'Based on this three-letter code occupations are specified that specifically apply' +
                             ' to you. Here you can check a <span style="color:#F9892E">CareertestPro sample report.</span>' +
                             ' And <span style="color:#F9892E">click here to take the test!</span>'
