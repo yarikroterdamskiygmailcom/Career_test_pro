@@ -27,3 +27,15 @@ Route::group([
     Route::post('logout', 'RegisterController@logout');
 
 });
+
+Route::group([
+    'namespace' => 'API',
+    'middleware' => 'api',
+    'prefix' => 'password'
+], function () {
+    Route::post('create', 'PasswordResetController@create');
+    Route::get('find/{token}', 'PasswordResetController@find');
+    Route::post('reset', 'PasswordResetController@reset');
+});
+
+Route::post('sendmail', 'API\EmailsController@contactUsEmail');
