@@ -1,0 +1,57 @@
+.all-aptitude-test {
+    height: 530px;
+    width: 100%;
+    position: relative;
+    background: #F4F8FF;
+}
+.all-aptitude-test_container{
+    width: 1140px;
+    margin: 0 15px;
+}
+.custom_elem{
+    height: 531px;
+    clip-path: ellipse(75% 48% at 50% -30%);
+}
+.block_best_value{
+    padding: 51px;
+    background: white;
+    box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.07);
+    border-radius: 20px
+}
+.custom_button{
+    width: 330px;
+}
+.all-aptitude-list ul{
+    padding: 0;
+    margin: 0;
+    //width: 198px;
+}
+.all-aptitude-list ul{
+    line-height: 38px;
+    font-size: 14px;
+    list-style-image: url("./../../../assets/home_page/arrow_ok.png");
+}
+.all-aptitude-list ul li{
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+.best_value{
+    font-weight: 600;
+    font-size: 50px;
+    margin-left: 30px;
+}
+.best_value_text{
+    font-size: 26px;
+    margin-top: 22px;
+    color: #4876D0;
+}
+
+.title_block_benefits{
+    font-weight: 800;
+    line-height: 51px;
+    font-size: 28px;
+    letter-spacing: 0.05em;
+    color: #333333;
+}
+

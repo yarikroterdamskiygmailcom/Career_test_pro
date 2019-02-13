@@ -1,0 +1,66 @@
+.more-in-your-personality {
+    min-height: 902px;
+    width: 100%;
+}
+.container_data {
+    padding-top: 145px;
+}
+
+.container_data .block_img {
+    width: 500px;
+    height: 530px;
+}
+.custom_button{
+    width: 240px;
+}
+.button_to.orange_style{
+    background: #FFFFFF;
+    border: 2px solid #F9892E;
+    margin: 0;
+}
+.container_data .image_div {
+    height: 488px;
+    width: 488px;
+    top: 51px;
+    background-image: url("./../../../assets/home_page/Ellipse.png");
+    background-size: cover;
+    z-index: -1;
+}
+
+.container_data .block_img img {
+    width: 448px;
+    height: 530px;
+}
+
+.button_to.orange_style{
+    background: #FFFFFF;
+    border: 2px solid #F9892E;
+    margin: 0;
+}
+.text_container{
+    width: 529px;
+    margin-right: 126px;
+    margin-left: 23px;
+}
+.button_scroll{
+    margin-top: 15px;
+    background: #FFFFFF url("./../../../assets/home_page/arrow_down.png") no-repeat center;
+    box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.18);
+    border-radius: 22px;
+    width: 61px;
+    height: 44px;
+}
+
+.container_scroll_down{
+    margin-top: 91px;
+    cursor: pointer;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 16px;
+}
+
+.more-in-your-personality_small_text{
+    font-size: 16px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
