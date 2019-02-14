@@ -9,5 +9,13 @@ export default {
     mounted() {
 
     },
-    methods: {}
+    methods: {
+        close_modal(){
+            this.$store.dispatch('modal_data/action_active_modal', {
+                name: 'confirm_modal',
+                active: false,
+                modal_data: {},
+            });
+        }
+    }
 }

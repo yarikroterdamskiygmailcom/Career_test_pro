@@ -74,16 +74,6 @@ const getters = {
 
 const actions = {
 
-  contactForm({commit}, data) {
-      let  headers = {
-        'Content-Type': 'application/x-www-form-urlencode',
-      };
-      axios
-        .post('https://app.causeffect.nl/public/api/feedback_form.php', data, headers)
-        .then(function (response) {
-            commit('change_state', response);
-        });
-    }
 };
 
 

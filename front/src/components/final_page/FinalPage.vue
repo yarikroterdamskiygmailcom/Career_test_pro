@@ -64,11 +64,6 @@
     .custom_button{
         width: 193px;
     }
-    .button_to.orange_style{
-        background: #FFFFFF;
-        border: 2px solid #F9892E;
-        margin: 0;
-    }
     .check_content{
         padding: 70px 63px 70px 55px;
     }

@@ -5,12 +5,16 @@
             <router-view></router-view>
         </div>
         <footer-component></footer-component>
+        <Confirm_modal v-if="confirm_modal.active" :data="confirm_modal"></Confirm_modal>
     </div>
 </template>
 
 <script>
     import Footer from './common/other_elements/footer/footer.vue'
     import Header from './common/other_elements/header/index.vue'
+    import Confirm_modal from './common/modals/confirm_modal_in_confirm_page/index.vue'
+
+    import {mapGetters} from "vuex";
 
     export default {
         name: 'app',
@@ -20,6 +24,12 @@
         components: {
             'footer-component': Footer,
             'header-component': Header,
+            "Confirm_modal":Confirm_modal
+        },
+        computed:{
+            ...mapGetters({
+                confirm_modal: 'modal_data/get_confirm_modal'
+            })
         }
     }
 </script>
@@ -57,6 +67,32 @@
         padding: 0 30px;
         border-radius: 22px;
         box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+    }
+    .button_to.orange_style{
+          background: #FFFFFF;
+          border: 2px solid #F9892E;
+          margin: 0;
+    }
+    .button_to:hover{
+        background: #5B93E8;
+    }
+    .button_to.orange_style:hover{
+        background: #FFF0DB;
+    }
+    .button_to.orange_style:active{
+        background: #FFE3CC;
+    }
+    .button_to:active{
+        background: #4876D0;
+    }
+    .button_to.orange_style[disabled]{
+        background: #FFFFFF;
+    }
+    .button_to[disabled]{
+        background: #85B1F5;
+    }
+    a:hover{
+        color: black;
     }
     .title_block{
         font-weight: 800;
@@ -114,9 +150,37 @@
     .input-information input{
         color: #333333
     }
-
+    .input-information input[disabled="true"].disabled::placeholder{
+        box-sizing: border-box;
+        border-radius: 22px;
+        color:#8B8B8B;
+    }
     .have-any-questions_block_input textarea {
         height: 250px;
         padding-top: 10px;
+    }
+
+
+
+    .header_badge_language #ddown-divider .dropdown-item:hover, .dropdown-item:focus,
+    .header_badge_language #ddown-divider .dropdown-item,
+    .input-information .confirm_input.dropdown .dropdown-item{
+        color: #000000;
+        text-decoration: none;
+        background-color: transparent;
+        outline: none;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+    .error{
+        color:#FD5656
+    }
+    input.error,
+    textarea.error{
+        border: 1px solid #FD5656
     }
 </style>

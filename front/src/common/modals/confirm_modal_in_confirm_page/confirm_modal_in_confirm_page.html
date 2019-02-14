@@ -1,4 +1,19 @@
-<section class="confirm-modal-in-confirm-page">
-    <h1>confirm-modal-in-confirm-page Component</h1>
+<section class="confirm-modal-in-confirm-page d-flex justify-content-center align-items-center position-fixed "
+         @click.self="close_modal()">
+
+    <div class="content_modal d-flex align-items-center flex-column position-relative">
+        <div class="image_close position-absolute image" @click.self="close_modal()"></div>
+        <div class="custom_small">
+            You are almost done!
+        </div>
+        <div  class="custom_small" style="margin-bottom: 60px">
+            By clicking “Ok” you’ll be redirected to the payment screen
+        </div>
+        <div class="modal_image position-relative">
+            <div class="image_ellipse"></div>
+            <div class="image_in_modal position-absolute image"></div>
+        </div>
+        <div class="button_to custom_button d-flex align-items-center justify-content-center">Ok</div>
+    </div>
 </section>
 

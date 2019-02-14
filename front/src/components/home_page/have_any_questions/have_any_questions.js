@@ -1,4 +1,5 @@
 import Request from "../../../api/mail_request";
+import Validator from "../../../validator/validator";
 
 export default {
     name: 'have-any-questions',
@@ -8,12 +9,27 @@ export default {
                 name:'',
                 email:'',
                 message:'',
-            }
+            },
+            error:{
+                name:{},
+                email:{},
+                message:{},
+            },
+            disabled_button: false
         }
     },
     methods: {
         send_mail(){
-            Request.send_mail(this.data)
+            const error =  this.error;
+            error.name = Validator.set(this.data.name, ['required']);
+            error.email = Validator.set(this.data.email, ['required', 'email']);
+            error.message = Validator.set(this.data.message, ['required']);
+            !error.email.errors && !error.name.errors && !error.name.errors
+                ?
+                Request.send_mail(this.data)
+                :
+                this.disabled_button = true
+
         }
-    }
+    },
 }

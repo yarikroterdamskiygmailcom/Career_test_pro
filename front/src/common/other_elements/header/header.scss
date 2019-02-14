@@ -40,21 +40,6 @@ header{
     border-top: 2px solid #4876D0;
 }
 
-.header_button{
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    text-decoration: none;
-    color:black;
-    background: #85B1F5;
-    width: 190px;
-    height: 44px;
-    padding: 0 30px;
-    border-radius: 22px;
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
-    margin:0 20px 0 50px;
-}
-
 .btn-lang-border{
     border-color: #DFDFDF;
     box-sizing: border-box;
@@ -68,21 +53,8 @@ header{
     line-height: normal;
     font-size: 14px;
 }
-.header_badge_language .back-lang-color{
+.header_badge_language .back-lang-color {
     background-color: #F4F8FF;
-}
-.header_badge_language #ddown-divider .dropdown-item:hover, .dropdown-item:focus,
-.header_badge_language #ddown-divider .dropdown-item {
-    color: #000000;
-    text-decoration: none;
-    background-color: transparent;
-    outline: none;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    line-height: normal;
-    font-size: 14px;
-    padding: 12px 20px;
 }
 .header_logo{
     width: 60px;
