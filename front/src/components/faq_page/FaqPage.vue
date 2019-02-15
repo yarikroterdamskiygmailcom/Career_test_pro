@@ -45,10 +45,7 @@
                             '6 RIASEC personality types.</p><p> This three-letter code is based on a primary ' +
                             'personality type, a secondary personality type and a tertiary personality ' +
                             'type. Obviously, the primary personality type is the one you high-scored. ' +
-                            'The secondary is your second score, and self-evident, the tertiary your third. </p><p>' +
-                            'Based on this three-letter code occupations are specified that specifically apply' +
-                            ' to you. Here you can check a <span style="color:#F9892E">CareertestPro sample report.</span>' +
-                            ' And <span style="color:#F9892E">click here to take the test!</span>'
+                            'The secondary is your second score, and self-evident, the tertiary your third. </p><p>'
                     },{
                         active:false,
                         name:'Who can take the career test on CareertestPro?',
@@ -114,6 +111,7 @@
     #faq{
         width: 100%;
         margin-top: 91px;
+        margin-bottom: 264px;
     }
     .container_faq_acordeon{
         width: 855px;

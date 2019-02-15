@@ -22,9 +22,10 @@ export default {
         send_mail(){
             const error =  this.error;
             error.name = Validator.set(this.data.name, ['required']);
-            error.email = Validator.set(this.data.email, ['required', 'email']);
+            error.email = Validator.set(this.data.email, ['required']);
+            error.email =  !error.email.errors  ? Validator.set(this.data.email, ['email']) : error.email;
             error.message = Validator.set(this.data.message, ['required']);
-            !error.email.errors && !error.name.errors && !error.name.errors
+            !error.email.errors && !error.name.errors && !error.message.errors
                 ?
                 Request.send_mail(this.data)
                 :

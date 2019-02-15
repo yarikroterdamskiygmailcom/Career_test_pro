@@ -20,7 +20,7 @@ const state = {
             name:  'Blog',
             path: '/blog'
         },{
-            name:  'contact-us',
+            name:  'Contact Us',
             path: '/contact-us'
         },{
             name:  'About Us',

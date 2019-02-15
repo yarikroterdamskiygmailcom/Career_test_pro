@@ -15,16 +15,27 @@ export default {
                 age: 'Enter your age',
                 price: '$39.95'
             },
+            error:{
+                name:{},
+                email:{},
+                age:{},
+                gender:{},
+            },
             gender:['male', 'female'],
             age: []
         }
     },
-    computed: {},
+    computed: {
+    },
     created() {
         for(let i = 18; i <= 100; i++){
             this.age.push(i);
             i == 100 && this.age.push('+');
         }
     },
-    methods: {}
+    methods: {
+        errors: function(data){
+            this.error = {...data};
+        }
+    }
 }

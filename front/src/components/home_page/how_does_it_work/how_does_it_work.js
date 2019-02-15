@@ -6,7 +6,7 @@ export default {
                 {
                     title:'Click “Take the Test” button',
                     description: 'After that you’ll get on the test page',
-                    path_image: './../../../../src/assets/home_page/click_take_the_test.png',
+                    path_image: './../../../../src/assets/home_page/click_take_the_test.svg',
                     order: 1
                 },{
                     title:'Start making your test',
@@ -16,7 +16,7 @@ export default {
                 },{
                     title:'Get report on your email',
                     description: 'Just download it in one click',
-                    path_image: './../../../../src/assets/home_page/get_report.png',
+                    path_image: './../../../../src/assets/home_page/get_report.svg',
                     order: 1
                 },
             ]

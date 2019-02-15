@@ -1,23 +1,71 @@
 <div class="container_payment d-flex justify-content-center">
     <section class="input-information d-flex align-items-center flex-column">
         <div class="small_text custom_small">Information</div>
-        <input type="text" v-model="data.name" placeholder="Enter your Name">
-        <input type="text" v-model="data.email" placeholder="Enter your Email">
-        <b-dropdown id="ddown-divider" :text="data.gender" variant="basic" offset="0" style="margin-bottom: 24px;"
-                    menu-class="rounded-menu" class=" border btn-lang-border confirm_input">
-            <b-dropdown-item v-for="item in gender" @click="data.gender = item" active-class="dropdown-item"
-                             :key="item">
-                {{item}}
-            </b-dropdown-item>
-        </b-dropdown>
-        <b-dropdown id="ddown-divider" :text="data.age" variant="basic" offset="0" style="margin-bottom: 24px;"
-                    menu-class="rounded-menu" class=" border btn-lang-border confirm_input">
-            <b-dropdown-item v-for="item in age" active-class="dropdown-item" @click="data.age = item">
-                {{item}}
-            </b-dropdown-item>
-        </b-dropdown>
-        <div class="small_text custom_small" v-model="data.price">Total Price</div>
-        <input type="text" v-model="data.price" disabled  style="font-weight: 600">
+        <div class="margin_input confirm_margin" :class="{margin_input_no_active: !error.name.errors}">
+            <input type="text" v-model="data.name" :class="{error:error.name.errors}"
+                   placeholder="Enter your Name">
+            <div class="error" v-if="error.name.errors">
+                <div>{{error.name.message.required}}</div>
+            </div>
+        </div>
+        <div class="margin_input confirm_margin" :class="{margin_input_no_active: !error.email.errors}">
+            <input type="text" v-model="data.email"  :class="{error:error.email.errors}"
+                   placeholder="Enter your Email">
+            <div class="error" v-if="error.email.errors">
+                <div>{{error.email.message.required}}</div>
+                <div>{{error.email.message.email}}</div>
+            </div>
+        </div>
+        <div class="margin_input confirm_margin" :class="{margin_input_no_active: !error.gender.errors}" style="width: 100%;">
+            <b-dropdown id="ddown-divider"
+                        :text="data.gender"
+                        variant="basic"
+                        offset="0"
+
+                        :class="{error:error.gender.errors}"
+                        menu-class="rounded-menu"
+                        class=" border btn-lang-border confirm_input">
+                <b-dropdown-item
+                        v-for="item in gender"
+                        @click="data.gender = item"
+                        active-class="dropdown-item"
+                        :key="item">
+                    {{item}}
+                </b-dropdown-item>
+            </b-dropdown>
+            <div class="error" v-if="error.gender.errors">
+                <div>{{error.gender.message.dropdown}}</div>
+            </div>
+        </div>
+        <div class="margin_input confirm_margin" :class="{margin_input_no_active: !error.age.errors}" style="width: 100%;">
+            <b-dropdown id="ddown-divider"
+                        :text="data.age.toString()"
+                        variant="basic"
+                        offset="0"
+                        :class="{error:error.age.errors}"
+                        menu-class="rounded-menu"
+                        class=" border btn-lang-border confirm_input">
+                <b-dropdown-item
+                        v-for="item in age"
+                        active-class="dropdown-item"
+                        @click="data.age = item"
+                        :key="item">
+                    {{item}}
+                </b-dropdown-item>
+            </b-dropdown>
+            <div class="error" v-if="error.age.errors">
+                <div>{{error.age.message.dropdown}}</div>
+            </div>
+        </div>
+        <div class="d-flex flex-grow-1 align-items-center custom_button
+         justify-content-end
+         flex-column align-items-center">
+            <div class="small_text custom_small" v-model="data.price">Total Price</div>
+            <div class="justify-content-end">
+                <input type="text" v-model="data.price" disabled  style="font-weight: 600">
+            </div>
+        </div>
     </section>
-    <payment_component :data_in_input_information="data"></payment_component>
+    <payment_component :data_in_input_information="data"
+    @error_data_payment_button="errors($event)"></payment_component>
 </div>

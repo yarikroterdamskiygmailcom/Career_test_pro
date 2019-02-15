@@ -25,11 +25,34 @@
         <div class="our_email_img position-absolute contact_image_for_page"></div>
         <div class="title_block title">Our Email</div>
         <div class="have-any-questions_block_input d-flex flex-column">
-            <input type="text" v-model="data.name" placeholder="Enter your Name">
-            <input type="text" v-model="data.email" placeholder="Enter your Email">
-            <textarea v-model="data.message" placeholder="Enter your massage"></textarea>
-            <a class="button_to send_button d-flex justify-content-center align-items-center"
-            @click="send_mail()">
+            <div class="margin_input" :class="{margin_input_no_active: !error.name.errors}">
+                <input type="text" v-model="data.name" :class="{error:error.name.errors}"
+                       placeholder="Enter your Name">
+                <div class="error" v-if="error.name.errors">
+                    <div>{{error.name.message.required}}</div>
+                </div>
+            </div>
+            <div class="margin_input" :class="{margin_input_no_active: !error.email.errors}">
+                <input type="text" v-model="data.email"  :class="{error:error.email.errors}"
+                       placeholder="Enter your Email">
+                <div class="error" v-if="error.email.errors">
+                    <div>{{error.email.message.required}}</div>
+                    <div>{{error.email.message.email}}</div>
+                </div>
+            </div>
+            <div class="margin_input" :class="{margin_input_no_active: !error.message.errors}">
+                <textarea v-model="data.message"  :class="{error:error.message.errors}"
+                     placeholder="Enter your massage" style="resize: none">
+                </textarea>
+                <div class="error" v-if="error.message.errors">
+                    <div>{{error.message.message.required}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-grow-1 align-items-end custom_button">
+            <a class="button_to align-self-end  d-flex custom_button
+             align-items-center justify-content-center"
+               @click="send_mail()">
                 Send
             </a>
         </div>

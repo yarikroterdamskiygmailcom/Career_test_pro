@@ -62,6 +62,7 @@
     .button_to{
         cursor: pointer;
         color:black;
+        font-weight: 600;
         background: #85B1F5;
         height: 44px;
         padding: 0 30px;
@@ -78,18 +79,24 @@
     }
     .button_to.orange_style:hover{
         background: #FFF0DB;
+        box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
+
     }
     .button_to.orange_style:active{
         background: #FFE3CC;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+
     }
     .button_to:active{
         background: #4876D0;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
     }
     .button_to.orange_style[disabled]{
         background: #FFFFFF;
     }
     .button_to[disabled]{
         background: #85B1F5;
+        opacity: 0.5;
     }
     a:hover{
         color: black;
@@ -143,9 +150,19 @@
         width: 400px;
         box-sizing: border-box;
         border-radius: 22px;
-        margin-bottom: 24px;
         color: #8B8B8B;
     }
+    .have-any-questions_block_input input:focus, .have-any-questions_block_input textarea:focus,
+    .input-information input:focus{
+        border: 1px solid #85B1F5!important;
+        outline: none;
+    }
+    .have-any-questions_block_input input:hover, .have-any-questions_block_input textarea:hover,
+    .input-information input:hover{
+        border: 1px solid #D8E1F0;
+        outline: none;
+    }
+
     .input-information input::placeholder,
     .input-information input{
         color: #333333
@@ -154,14 +171,33 @@
         box-sizing: border-box;
         border-radius: 22px;
         color:#8B8B8B;
+        opacity: 0.5;
     }
     .have-any-questions_block_input textarea {
         height: 250px;
         padding-top: 10px;
     }
-
-
-
+    .margin_input{
+        margin-bottom: 8px;
+    }
+    .margin_input_no_active{
+        margin-bottom: 24px;
+    }
+    .confirm_margin.margin_input_no_active{
+        margin-bottom: 33px;
+    }
+    .margin_input .error{
+        padding-left: 30px;
+        padding-top: 7px;
+    }
+    .margin_input .btn-lang-border.error{
+        padding: 0;
+    }
+    .margin_input input.error{
+        padding-top: 0;
+    }.margin_input textarea.error{
+        padding-top: 14px
+    }
     .header_badge_language #ddown-divider .dropdown-item:hover, .dropdown-item:focus,
     .header_badge_language #ddown-divider .dropdown-item,
     .input-information .confirm_input.dropdown .dropdown-item{
@@ -177,10 +213,12 @@
         padding: 12px 20px;
     }
     .error{
-        color:#FD5656
+        color:#FD5656;
+        font-size: 12px;
     }
     input.error,
-    textarea.error{
-        border: 1px solid #FD5656
+    textarea.error,
+    .margin_input .btn-lang-border.error{
+        border: 1px solid #FD5656!important;
     }
 </style>

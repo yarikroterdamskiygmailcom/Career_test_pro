@@ -3,8 +3,11 @@
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
     margin-bottom: 40px;
+    cursor: pointer;
 }
-
+.acordeon_title{
+    font-weight: 600;
+}
 .arrow_acordeon {
     background-image: url("./../../../assets/faq/arrow_down.png");
     background-repeat: no-repeat;

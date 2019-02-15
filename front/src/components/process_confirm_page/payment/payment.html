@@ -1,5 +1,5 @@
-<section class="input-information payment d-flex align-items-center flex-column">
-    <div class="small_text custom_small">Information</div>
+<section class="input-information payment d-flex align-items-center flex-column" style="margin: 0;">
+    <div class="small_text custom_small" style="margin-top: 0">Payment Method</div>
     <form class="card_and_mobile_container d-flex justify-content-between" style="width: 100%">
         <div class="card_block">
             <div class="styled-input-single d-flex align-items-center" v-for="(item, index) in cards" >
@@ -18,13 +18,29 @@
             </div>
         </div>
     </form>
-    <div class="small_text custom_small">
+    <div class="margin_input align-self-start"
+         :class="{margin_input_no_active: !error.card.errors}">
+        <div class="error" v-if="error.card.errors">
+            <div v-if="error.card">{{error.card.message.radio}}</div>
+        </div>
+    </div>
+
+    <div class="small_text custom_small"
+         :style="{'margin-top': error.card.errors ? '-2px' : '7px'}">
         Do you have a Voucher Code?
     </div>
-    <input type="text" class="disabled" placeholder="Enter your Voucher Code" v-disabled_input="cards.concat(cards1)">
-    <div class="button_to custom_button d-flex align-items-center justify-content-center"
-        @click="open_confirm_modal()"   style="font-weight: 600">
-        Checkout
+    <div class="margin_input">
+        <input type="text" class="disabled" v-model="data.code" :class="{error:error.code.errors}"
+               placeholder="Enter your Voucher Code" v-disabled_input="cards.concat(cards1)">
+        <div class="error" v-if="error.code.errors">
+            <div v-if="error.code">{{error.email.message.required}}</div>
+        </div>
+    </div>
+    <div class="d-flex flex-grow-1 align-items-end custom_button">
+        <a class="button_to custom_button d-flex align-items-center justify-content-center"
+            @click="open_confirm_modal()"   style="font-weight: 600">
+            Checkout
+        </a>
     </div>
 </section>
 
