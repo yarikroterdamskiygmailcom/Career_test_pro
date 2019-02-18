@@ -1,7 +1,7 @@
 export default {
     name: 'information-steps-modal',
     components: {},
-    props: [],
+    props: ['data'],
     data() {
         return {}
     },
@@ -9,5 +9,13 @@ export default {
     mounted() {
 
     },
-    methods: {}
+    methods: {
+        close_modal(){
+            this.$store.dispatch('modal_data/action_active_modal', {
+                name: 'test_modal',
+                active: false,
+                modal_data: {},
+            });
+        }
+    }
 }

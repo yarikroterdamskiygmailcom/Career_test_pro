@@ -4,6 +4,11 @@ export default {
     data() {
         return{}
     },
+    methods:{
+        language(item){
+            console.log(item)
+        }
+    },
     computed:
         mapGetters({
             language_now:    'multilanguage/get_language_now',

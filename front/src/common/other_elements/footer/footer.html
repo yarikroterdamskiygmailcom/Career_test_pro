@@ -14,8 +14,8 @@
         <div class="footer_badge_language">
             <b-dropdown id="ddown-divider" :text="language_now.name" variant="basic" offset="0"
                         menu-class="rounded-menu"  class="m-2 border btn-lang-border">
-                <b-dropdown-item v-for="lang in language_array" active-class="dropdown-item" :key="lang.name + lang.path">
-                    {{lang.full_name}}
+                <b-dropdown-item v-for="lang in language_array" active-class="dropdown-item" :key="lang.name + lang.language">
+                    {{lang.language}}
                 </b-dropdown-item>
             </b-dropdown>
             <div class="container_sotial_networks">

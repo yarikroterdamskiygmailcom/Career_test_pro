@@ -1,13 +1,15 @@
 // initial state
 
-import axios from 'axios';
+import list_language from './../../api/multilanguage_request';
+import questions from "../../api/questions";
 
 
 const state = {
+    active: false,
     language_now: {
-        name: 'EN',
-        full_name: 'English',
-        path: '/en'
+        id: 1,
+        language: "English",
+        code: "en"
     },
     menu_list: [
         {
@@ -66,6 +68,9 @@ const getters = {
     get_sotial_networks (state) {
         return state.sotial_networks
     },
+    get_status_project(state){
+        return state.active
+    }
 }
 
 /**
@@ -73,9 +78,31 @@ const getters = {
  **/
 
 const actions = {
+    action_change_state({commit}, value){
+        commit('change_state', {
+            data: value,
+            name: 'language_array'
+        });
+        const data = (function(){
+            let data;
+            value.forEach(item =>{
+                if(item.language == 'English') {
+                    data = item;
+                    return;
+                }
+            });
+            return data;
+        })();
+        commit('change_state', {
+            data: data,
+            name: 'language_now'
+        });
+        questions.get_questions(data.id, this, commit)
+    },
+    action_change_language({commit}, value){
 
+    }
 };
-
 
 /**
  * ----- MUTATIONS -----
@@ -83,8 +110,8 @@ const actions = {
 
 const mutations = {
     change_state (state, value) {
-    state = value;
-  }
+        state[value.name] = value.data;
+    }
 };
 
 export default {

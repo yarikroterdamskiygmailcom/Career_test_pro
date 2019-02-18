@@ -1,4 +1,24 @@
-<section class="information-and-start">
-    <h1>information-and-start Component</h1>
+<section class="information-and-start d-flex justify-content-center">
+    <div class="content_information_start_test d-flex flex-column align-items-center">
+        <div class="title_block custom_title">
+            Start To Do <span style="color:#F9892E">What You Like!</span>
+        </div>
+        <div class="small custom_small_title">
+            Take your time to pass the test
+        </div>
+        <div class="information">
+            <div class="information_title">
+                Shortly <span style="color:#F9892E">Before Start</span>
+            </div>
+            <div class="content" v-html="information"></div>
+        </div>
+        <div class="ready">
+            So, are you ready?
+        </div>
+        <div class="button_to custom_button d-flex align-items-center justify-content-center"
+        @click="start_test()">
+            Let’s Go!
+        </div>
+    </div>
 </section>
 

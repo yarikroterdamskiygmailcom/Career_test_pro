@@ -1,11 +1,17 @@
 <template>
     <div id="app" class="text_style">
-        <header-component></header-component>
-        <div class="router">
-            <router-view></router-view>
+        <div v-if="active_status">
+            <header-component></header-component>
+            <div class="router">
+                <router-view></router-view>
+            </div>
+            <footer-component></footer-component>
+            <Confirm_modal v-if="confirm_modal.active" :data="confirm_modal"></Confirm_modal>
+            <information_steps_modal v-if="test_modal.active" :data="test_modal"></information_steps_modal>
         </div>
-        <footer-component></footer-component>
-        <Confirm_modal v-if="confirm_modal.active" :data="confirm_modal"></Confirm_modal>
+        <div class="spinner d-flex justify-content-center align-items-center" v-if="!active_status">
+            <div></div>
+        </div>
     </div>
 </template>
 
@@ -13,22 +19,30 @@
     import Footer from './common/other_elements/footer/footer.vue'
     import Header from './common/other_elements/header/index.vue'
     import Confirm_modal from './common/modals/confirm_modal_in_confirm_page/index.vue'
+    import Information_steps_modal from './common/modals/information_steps_modal/index.vue'
 
     import {mapGetters} from "vuex";
+    import list_language from "./api/multilanguage_request";
 
     export default {
         name: 'app',
         data () {
             return {}
         },
+        created(){
+            list_language.list_language(this)
+        },
         components: {
             'footer-component': Footer,
             'header-component': Header,
-            "Confirm_modal":Confirm_modal
+            "Confirm_modal":Confirm_modal,
+            "information_steps_modal":Information_steps_modal,
         },
         computed:{
             ...mapGetters({
-                confirm_modal: 'modal_data/get_confirm_modal'
+                confirm_modal: 'modal_data/get_confirm_modal',
+                test_modal:'modal_data/get_test_modal',
+                active_status: 'multilanguage/get_status_project'
             })
         }
     }
@@ -220,5 +234,16 @@
     textarea.error,
     .margin_input .btn-lang-border.error{
         border: 1px solid #FD5656!important;
+    }
+    .spinner > div{
+        background-image: url("./assets/spinner.svg");
+        width: 100px;
+        height: 100px;
+        background-size: contain;
+    }
+    .spinner{
+        width: 100vw;
+        height: 100vh;
+        background: white;
     }
 </style>
