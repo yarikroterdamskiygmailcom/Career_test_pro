@@ -1,10 +1,10 @@
 export class QuestionStore {
     static getStep(index) {
-        return window.localStorage[`step:${index}`];
+        return !window.localStorage[`step:${index}`] ? null : JSON.parse(window.localStorage[`step:${index}`]);
     }
 
     static saveStep(data, index) {
-        window.localStorage[`step:${index}`] = data;
+        window.localStorage[`step:${index}`] = JSON.stringify(data);
     }
 
     static destroyQuestion() {

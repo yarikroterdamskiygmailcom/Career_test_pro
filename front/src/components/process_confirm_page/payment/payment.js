@@ -1,4 +1,5 @@
 import Validator from '../../../validator/validator'
+import counter from "../../test_page/counter";
 export default {
     name: 'payment',
     props: ['data_in_input_information'],
@@ -37,11 +38,27 @@ export default {
                     errors: false
                 }
             },
-            disabled_button:false
+            disabled_button:false,
+            result: null
         }
     },
 
-
+    created(){
+        let spinner = {
+            data:false,
+            name: 'active'
+        };
+        this.$store.dispatch('multilanguage/action_spinner', spinner);
+        counter.count_result()
+            .then(response => {
+                // console.log('then', response);
+                this.result = response;
+                spinner.data = true;
+                // this.$store.dispatch('multilanguage/action_spinner', spinner);
+                console.log(this)
+            })
+            .catch(err => console.log(err))
+    },
 
     methods: {
 
@@ -58,7 +75,7 @@ export default {
 
             error.name =   Validator.set(inf.name, ['required']);
             error.email =  Validator.set(inf.email, ['required']);
-            error.email =  !error.email.errors  ? Validator.set(this.data.email, ['email']) : error.email;
+            error.email =  !error.email.errors  ? Validator.set(inf.email, ['email']) : error.email;
             error.gender = Validator.set(inf.gender, ['dropdown'], 'Enter your gender');
             error.age =    Validator.set(inf.age, ['dropdown'], 'Enter your age');
             error.card =   Validator.set(this.cards.concat(this.cards1), ['radio'], 'status');
@@ -66,7 +83,6 @@ export default {
             if(this.count(this.cards.concat(this.cards1)) === 'Voucher'){
                 error.code = Validator.set(this.data.code, ['required']);
             }
-
             if(
                 !error.email.errors &&
                 !error.name.errors &&
@@ -83,6 +99,7 @@ export default {
                         card: this.count(
                             this.cards.concat(this.cards1)
                         ),
+                        result: this.result
                     },
                 });
             } else {
@@ -108,8 +125,6 @@ export default {
 
 
     directives: {
-
-
         disabled_input: {
             data_vue:this,
             methods:{

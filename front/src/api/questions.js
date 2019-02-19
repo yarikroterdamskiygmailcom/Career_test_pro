@@ -7,7 +7,7 @@ export default  {
             .then(response =>{
                 let count = 1;
                 for (let i = 0; i < response.data.length; i + 30) {
-                    let string_array = JSON.stringify(response.data.splice(i, 30));
+                    let string_array = response.data.splice(i, 30);
                     !QuestionStore.getStep(count) ? QuestionStore.saveStep(string_array, count) : null;
                     count++;
                 }
@@ -16,7 +16,7 @@ export default  {
                     name: 'active'
                 })
             })
-            .catch(err => console.log(err));
+            // .catch(err => console.log(err));
     },
     change_language(){
         return axios.get('api/languages');

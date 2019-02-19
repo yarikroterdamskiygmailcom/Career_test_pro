@@ -101,9 +101,11 @@ const actions = {
     },
     action_change_language({commit}, value){
 
+    },
+    action_spinner({commit}, value){
+        commit('change_state', value)
     }
 };
-
 /**
  * ----- MUTATIONS -----
  * */

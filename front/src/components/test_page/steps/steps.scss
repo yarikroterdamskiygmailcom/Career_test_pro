@@ -1,3 +1,44 @@
 .steps {
+    margin-top: 90px;
+}
+.step_content{
+    width: 890px;
+}
+.custom_button{
+    width: 190px;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 16px;
+}
+.item_question{
+    margin-bottom: 30px;
+}
+.borders{
+    border: 1px solid #DFDFDF;
+    box-sizing: border-box;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.number_questions{
+    width: 80px;
+    padding: 10px;
+    //margin-right: 30px;
+}
+.content_question{
+    width: 558px;
+    padding: 10px 30px;
+}
+.select_questions{
+    width: 192px;
+}
+.select_questions >div{
+    width: 44px;
+    height: 44px;
+}
+.select_questions >div.active{
+    border: 1px solid #4876D0;
+    background-image: url("./../../../assets/tests/arrov_ok.svg");
+    background-repeat: no-repeat;
+    background-position: center;
 
 }

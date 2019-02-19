@@ -1,3 +1,5 @@
+import counter from "../../../components/test_page/counter";
+
 export default {
     name: 'confirm-modal-in-confirm-page',
     components: {},
@@ -6,9 +8,7 @@ export default {
         return {}
     },
     computed: {},
-    mounted() {
-
-    },
+    mounted() {},
     methods: {
         close_modal(){
             this.$store.dispatch('modal_data/action_active_modal', {
@@ -16,6 +16,9 @@ export default {
                 active: false,
                 modal_data: {},
             });
+        },
+        confirm(){
+
         }
     }
 }

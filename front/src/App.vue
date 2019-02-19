@@ -44,7 +44,12 @@
                 test_modal:'modal_data/get_test_modal',
                 active_status: 'multilanguage/get_status_project'
             })
-        }
+        },
+        watch:{
+            '$route' (to, from) {
+                window.scrollTo(0, 0);
+            }
+        },
     }
 </script>
 
