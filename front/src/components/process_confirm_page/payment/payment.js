@@ -44,20 +44,11 @@ export default {
     },
 
     created(){
-        let spinner = {
-            data:false,
+        this.result = counter.count_result(this);
+        this.$store.dispatch('multilanguage/action_spinner', {
+            data:true,
             name: 'active'
-        };
-        this.$store.dispatch('multilanguage/action_spinner', spinner);
-        counter.count_result()
-            .then(response => {
-                // console.log('then', response);
-                this.result = response;
-                spinner.data = true;
-                // this.$store.dispatch('multilanguage/action_spinner', spinner);
-                console.log(this)
-            })
-            .catch(err => console.log(err))
+        });
     },
 
     methods: {
@@ -79,7 +70,6 @@ export default {
             error.gender = Validator.set(inf.gender, ['dropdown'], 'Enter your gender');
             error.age =    Validator.set(inf.age, ['dropdown'], 'Enter your age');
             error.card =   Validator.set(this.cards.concat(this.cards1), ['radio'], 'status');
-
             if(this.count(this.cards.concat(this.cards1)) === 'Voucher'){
                 error.code = Validator.set(this.data.code, ['required']);
             }
@@ -91,6 +81,7 @@ export default {
                 !error.card.errors &&
                 !error.code.errors
             ) {
+                this.$emit('error_data_payment_button', this.error);
                 this.$store.dispatch('modal_data/action_active_modal', {
                     name: 'confirm_modal',
                     active: true,
@@ -116,12 +107,7 @@ export default {
             });
             return name;
         }
-
-
     },
-
-
-
 
 
     directives: {

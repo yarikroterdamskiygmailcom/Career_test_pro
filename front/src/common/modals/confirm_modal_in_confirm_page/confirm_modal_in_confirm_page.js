@@ -3,12 +3,10 @@ import counter from "../../../components/test_page/counter";
 export default {
     name: 'confirm-modal-in-confirm-page',
     components: {},
-    props: [],
+    props: ['data'],
     data() {
         return {}
     },
-    computed: {},
-    mounted() {},
     methods: {
         close_modal(){
             this.$store.dispatch('modal_data/action_active_modal', {
@@ -18,7 +16,7 @@ export default {
             });
         },
         confirm(){
-
+            console.log(this.data)
         }
     }
 }

@@ -2,7 +2,7 @@
     <div class="container_confirm d-flex justify-content-center">
         <div class="content">
             <div class="step">
-                <a>Test Page (Step 10)</a>
+                <router-link to="tests/10">Test Page (Step 10)</router-link>
                 /
                 <a>Proceed to Confirm</a>
             </div>

@@ -11,6 +11,7 @@
         <div class="margin_input confirm_margin" :class="{margin_input_no_active: !error.email.errors}">
             <input type="text" v-model="data.email"  :class="{error:error.email.errors}"
                    placeholder="Enter your Email">
+            {{error.email.errors}}
             <div class="error" v-if="error.email.errors">
                 <div>{{error.email.message.required}}</div>
                 <div>{{error.email.message.email}}</div>

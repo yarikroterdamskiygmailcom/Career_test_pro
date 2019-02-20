@@ -48,7 +48,7 @@
         watch:{
             '$route' (to, from) {
                 window.scrollTo(0, 0);
-            }
+            },
         },
     }
 </script>
@@ -250,5 +250,8 @@
         width: 100vw;
         height: 100vh;
         background: white;
+        position: absolute;
+        top: 0;
+        z-index: 1000;
     }
 </style>
