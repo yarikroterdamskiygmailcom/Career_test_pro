@@ -16,4 +16,10 @@ class Question extends Model
     protected $fillable = [
         'category_id', 'letter'
     ];
+
+    protected $with = 'questions_description';
+
+    public function questions_description() {
+        return $this->hasOne('App\Model\QuestionDescription');
+    }
 }

@@ -17,8 +17,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('register', 'API\RegisterController@register');
-Route::post('login', 'API\RegisterController@login');
+Route::group([
+    'namespace' => 'API'], function () {
+    Route::post('register', 'RegisterController@register');
+    Route::post('login', 'RegisterController@login');
+
+    Route::post('sendmail', 'EmailsController@contactUsEmail');
+
+    Route::get('languages', 'LanguagesController@index');
+    Route::get('questions', 'QuestionsController@index');
+    Route::get('price', 'PriceController@index');
+    Route::get('logo', 'LogoController@index');
+
+
+});
+
 
 Route::group([
     'namespace' => 'API',
@@ -26,6 +39,16 @@ Route::group([
 
     Route::post('logout', 'RegisterController@logout');
 
+    //Admin dashboard
+
+    Route::post('price', 'PriceController@update');
+    Route::post('logo', 'LogoController@update');
+
+
+    Route::resources([
+        'settings' => 'SettingsController',
+        'categories' => 'CategoriesController'
+    ]);
 });
 
 Route::group([
@@ -38,4 +61,3 @@ Route::group([
     Route::post('reset', 'PasswordResetController@reset');
 });
 
-Route::post('sendmail', 'API\EmailsController@contactUsEmail');

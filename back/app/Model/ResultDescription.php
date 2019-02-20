@@ -4,15 +4,16 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Result extends Model
+class ResultDescription extends Model
 {
-    protected $table = 'results';
+    protected $table = 'results_description';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'category_id', 'letter', 'level_id'
+        'result_id', 'text', 'language_id'
     ];
 }
