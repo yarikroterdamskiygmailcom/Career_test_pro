@@ -1,0 +1,68 @@
+"0";"title";"DeBeroepskeuzetest.nl - Zoek uit welk beroep bij jou past";;;"CareerTestPro - Get to know everything about professions and studies that suit your personality best!";
+"0";"banner";"Kom alles te weten over interesses, beroepen en studies die echt bij jou passen!";;;"Get to know everything about professions and studies that suit your personality best!";
+"0";"footer";"Â© Making Moves B.V. - Alle rechten voorbehouden";;;"Â© Making Moves B.V. - All Rights Reserved";NULL
+"0";"home_content";"<p>Welkom bij DeBeroepskeuzetest.nl, de meest uitgebreide online beroepskeuzetest beschikbaar op het internet. DeBeroepskeuzetest.nl maakt gebruik van een database van meer dan 3.000 beroepen en daarbij behorende opleidingsniveaus. Deze beroepskeuzetest is dan ook een van de meest uitgebreide testen die je zult vinden op internet. Tevens bestaat de test uit 5 verschillende aandachtspunten, namelijk vragen met betrekking tot vaardigheden, (werk)waarden, activiteiten, persoonlijk gedrag en beroepen. Al deze facetten worden getoetst door middel van 60 vragen per onderdeel. Dit lijkt veel, maar op deze manier wordt een zo goed mogelijk onderbouwde rapportage gegenereerd op basis van je persoonlijkheid. Het maken van de test duurt slechts 15 minuten. </P>
+<br>
+<p>Wanneer je hieronder op Â´start de testÂ´ klikt krijg je 5 vragenlijsten te zien die je stuk voor stuk moet doorlopen. Het is aan jou de taak om zo goed mogelijk aan te geven of de stelling, bewering en/of uitspraak op jou van toepassing is. Bij elke vragenlijst krijg je van te voren kort uitgelegd wat de bedoeling is en waarop de vragenlijst betrekking heeft. Het is van belang om de gegeven stellingen, beweringen en/of uitspraken goed te lezen en af te gaan op je eerste gevoel. Blijf dus niet al te lang hangen bij Ã©Ã©n van de punten. Na het invullen van de vragenlijst reken je af en ontvang je direct een uitgebreid rapport over jouw interessegebieden en de daarbij behorende beroepen.</p>
+<br>
+Veel succes!";;;"<p>Welcome to CareertestPro.com, the most comprehensive international career test available online! CareertestPro.com uses a database of over 3,000 professions and corresponding educational levels. The test consists of 5 dimensions, being questions with regard to skills, (work) values, activities, personal behavior and professions. Each of the aforementioned dimensions are tested by means of 60 questions. Taking the test will only cost you 15 minutes.</p>
+<p>When clicking on the â€˜Take Testâ€™ button below, youâ€™ll see 5 different lists of questions, which you need to answer one by one. Itâ€™s up to you to be as accurate as possible in your answers to the statements. Before every questionnaire there is a brief explanation of the purpose of the specific dimension and what action is required from you. Itâ€™s important to read the given statements carefully and follow with your intuition when answering them. After completing the test youâ€™ll directly receive the report. </p>";
+"0";"home_title";"1) Maak hieronder de test.
+2) Afrekenen.
+3) Bekijk het uitgebreide rapport.";;;"1) Take the test.
+2) Checkout.
+3) View and download you personal report.";
+"0";"button_start";"Start de test";;;"Take the test";
+"0";"button_next";"Volgende vragen";;;"Next questions";
+"0";"button_show";"Uitslag bekijken";"Uitslag bekijken";;"View test result";
+"0";"answer_not";"Niet leuk";;;"Dislike";
+"0";"answer_know";"Weet ik niet";;;"Neither like nor dislike";
+"0";"answer_like";"Leuk";;;"Like";
+"0";"domain";"careertestsoft.com";;NULL;NULL;NULL
+"0";"checkout";"Afrekenen";;;"Checkout";
+"0";"checkout_name";"Naam";;;"Name";
+"0";"checkout_age";"Leeftijd";;;"Age";
+"0";"checkout_email";"E-mailadres";;;"E-mail";
+"0";"checkout_education";"Opleiding";;;"Education";
+"0";"checkout_reason";"Reden";;;"Reason";
+"0";"checkout_payment";"Betaalmethode";;;"Payment method";
+"0";"results";"Uitslag";NULL;NULL;NULL;NULL
+"0";"results_send";"Dit rapport is tevens verzonden naar uw emailadres. U kunt het rapport hieronder lezen of hier downloaden. ";NULL;NULL;"We send the report to the e-mail address you gave us. Below you can check it out as well!";NULL
+"0";"answer_ntrue";"Niet waar";;;"False";
+"0";"answer_true";"Waar";;;"True";
+"0";"logo";"upload/logo.png";"upload/logo-us.jpg";;;
+"0";"footer_pdf";"www.deberoepskeuzetest.nl is een product van Making Moves B.V. - Copyright Making Moves B.V.";;;"www.Careertestpro.com is a product of Making Moves B.V. - Copyright Making Moves B.V.";
+"0";"naam";"Beroepskeuzetest.nl";;NULL;"CareerTestPro";NULL
+"0";"basisonderwijs";"Basisonderwijs";;;"Less than a high school diploma";
+"0";"vmbo";"VMBO (MAVO/VBO)";;;"High school graduate";
+"0";"havo";"HAVO";NULL;NULL;NULL;NULL
+"0";"vwo";"VWO";NULL;NULL;NULL;NULL
+"0";"mbo";"MBO";;;"Some college, no degree";
+"0";"hbo";"HBO";NULL;NULL;NULL;NULL
+"0";"wobachelor";"WO Bachelor";;;"Bachelorâ€™s degree";
+"0";"womaster";"WO Master (drs./ir./mr.)";;;"Masterâ€™s degree or higher";
+"0";"lageronderwijs";"Lager onderwijs";NULL;NULL;NULL;NULL
+"0";"lmo";"Lager middelbaar onderwijs";NULL;NULL;NULL;NULL
+"0";"hmo";"Hoger middelbaar onderwijs";NULL;NULL;NULL;NULL
+"0";"hnuo";"Hoger niet-universitair onderwijs";NULL;NULL;NULL;NULL
+"0";"uo";"Universitair onderwijs";NULL;NULL;NULL;NULL
+"0";"price";"19.50";"19.50";"19.50";"19.50";"19.50"
+"0";"checkout_price";"Normaal â‚¬ 29,50 nu voor â‚¬ 19,50";"Normaal â‚¬ 29,50 nu voor â‚¬";;"<span class=""big"">Price: <span class=""green"">{VALUTA} {PRICE}</span></span><span class=""small"">You Save: <span class=""red"">{VALUTA} 20 (68%)</span></span>";
+"0";"answer_know_more";"Weet ik niet";;;"Neither true nor false";
+"0";"checkout_title";"Gegevens";NULL;NULL;"Information";NULL
+"0";"geslacht";"Geslacht";NULL;NULL;"Sex";NULL
+"0";"man";"Man";;;"Male";
+"0";"vrouw";"Vrouw";;;"Female";
+"0";"reason_1";"Voor toelating tot een HBO-opleiding";;;"For admission to a college / university education";
+"0";"reason_2";"Ik wil weten waar mijn interesses liggen";;;"I want to know where my interests lie";
+"0";"reason_3";"Beroepskeuze";;;"Vocational / career choice";
+"0";"reason_4";"Ik ben middelbare scholier en ben benieuwd";;;;
+"0";"reason_5";"Andere reden";;;"Different reason";
+"0";"voucher";"Testcode";;;"Voucher";
+"0";"voucher_text";"Indien u over een testcode beschikt voer deze hier in.";;;"Do you have a voucher code? Redeem it here";
+"0";"valuta";"â‚¬";;;"$";
+"0";"totaal";"Totaal";;;"Total";
+"0";"code_1";"De testcode komt niet voor in onze database, indien u een testcode van ons heeft ontvangen neem dan contact op met ons.";;;"Invalid Voucher Code. Please try again or contact us.";
+"0";"select";"Maak uw keuze ..";;;"Select an option ..";
+"0";"testcode_1";"Testcode is toegevoegd, subtotaal is veranderd.";NULL;NULL;"Voucher code successfully applied";NULL
+"0";"order_rule";"De betaling is voldaan! Je wordt nu doorverwezen naar de uitslag, dit kan enkele seconden duren ..";NULL;NULL;"Thanks for your order! You will now be redirected to your report, this could take a few seconds ..";NULL
