@@ -84,20 +84,12 @@ footer{
     padding: 12px 20px;
 }
 .footer_logo{
-    width: 60px;
-    height: 60px;
-    background: white;
-    border-radius: 50%;
-    border: 1px solid #4876D0;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    font-size: 16px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 89px;
+    height: 40px;
+    background-position: center;
+    background-image: url("./../../../assets/Frame.svg");
+    /* background-size: 69px; */
+    background-repeat: no-repeat;
 }
 .container_sotial_networks{
     display: flex;

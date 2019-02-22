@@ -1,5 +1,5 @@
 export default {
-    url: 'http://192.168.88.191/',
+    url: 'http://acbfe29b.ngrok.io/',
     default_language: 1,
     letters: ['R', 'I', 'A', 'S', 'E', 'C']
 }

@@ -11,7 +11,9 @@
                 </li>
             </ul>
         </nav>
-        <a class="button_to text_style custom_button d-flex align-items-center">Take the Test</a>
+        <router-link :to="'tests'" class="button_to text_style custom_button d-flex
+         justify-content-center
+         align-items-center">Take the Test</router-link>
         <div class="header_badge_language">
             <b-dropdown id="ddown-divider" :text="language_now.code" variant="basic" offset="0"
                  menu-class="rounded-menu"  class="m-2 border btn-lang-border">

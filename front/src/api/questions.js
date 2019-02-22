@@ -1,6 +1,15 @@
 import axios from "./axios.config";
 import {QuestionStore} from "../store/localStorage";
-
+axios.interceptors.response.use((response) => {
+    console.log('response', response)
+    return response
+}, (error) => {
+    if (error.response.status == 401) {
+        this.$router.push({ path: '/login' })
+    }
+    console.log('1111error', error.response.status)
+    // return Promise.reject(error);
+})
 export default  {
     get_questions(index, store, commit){
         axios.get(`api/questions?language_id=${index}`)

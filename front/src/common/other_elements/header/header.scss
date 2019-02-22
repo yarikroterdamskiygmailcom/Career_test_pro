@@ -57,12 +57,14 @@ header{
     background-color: #F4F8FF;
 }
 .header_logo{
-    width: 70px;
-    height: 70px;
-    //border-radius: 50%;
+    width: 89px;
+    height: 40px;
     background-position: center;
     background-image: url("./../../../assets/Frame.svg");
-    background-size: 69px;
+    /* background-size: 69px; */
     background-repeat: no-repeat;
     margin-right: 116px;
+}
+.custom_button{
+    width: 190px;
 }

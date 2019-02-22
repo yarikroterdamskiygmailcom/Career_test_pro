@@ -23,13 +23,14 @@
 
     import {mapGetters} from "vuex";
     import list_language from "./api/multilanguage_request";
-
+    import interseptorSetup from "./api/interseptor";
     export default {
         name: 'app',
         data () {
             return {}
         },
         created(){
+            interseptorSetup()
             list_language.list_language(this)
         },
         components: {
@@ -80,7 +81,7 @@
     }
     .button_to{
         cursor: pointer;
-        color:black;
+        color:#333333;
         font-weight: 600;
         background: #85B1F5;
         height: 44px;

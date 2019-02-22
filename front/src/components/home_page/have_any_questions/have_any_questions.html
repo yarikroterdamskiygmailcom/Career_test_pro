@@ -32,7 +32,7 @@
                 <div class="margin_input" :class="{margin_input_no_active: !error.message.errors}">
                     <textarea v-model="data.message" style="resize: none"
                          :class="{error:error.message.errors}"
-                         placeholder="Enter your massage">
+                         placeholder="Enter your Message">
                     </textarea>
                     <div class="error" v-if="error.message.errors">
                         <div>{{error.message.message.required}}</div>
