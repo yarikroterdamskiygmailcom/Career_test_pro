@@ -58,12 +58,6 @@
     .content_tab > p {
         margin-bottom: 32px;
     }
-    .body{
-        background: #E5E5E5;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-    }
     .router{
         padding-top: 86px;
     }

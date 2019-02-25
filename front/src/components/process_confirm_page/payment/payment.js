@@ -52,44 +52,39 @@ export default {
     },
 
     methods: {
-
-
         radio_count(data, arr) {
             arr.forEach(item => item.status = false);
             data.status = true;
         },
 
-
         open_confirm_modal() {
             const inf = this.data_in_input_information;
             const error = this.error;
 
-            error.name =   Validator.set(inf.name, ['required']);
-            error.email =  Validator.set(inf.email, ['required']);
-            error.email =  !error.email.errors  ? Validator.set(inf.email, ['email']) : error.email;
+            let array_cards = this.cards.concat(this.cards1);
+
+            error.name   = Validator.set(inf.name, ['required']);
+            error.email  = Validator.set(inf.email, ['required']);
+            error.email  = !error.email.errors  ? Validator.set(inf.email, ['email']) : error.email;
             error.gender = Validator.set(inf.gender, ['dropdown'], 'Enter your gender');
-            error.age =    Validator.set(inf.age, ['dropdown'], 'Enter your age');
-            error.card =   Validator.set(this.cards.concat(this.cards1), ['radio'], 'status');
-            if(this.count(this.cards.concat(this.cards1)) === 'Voucher'){
-                error.code = Validator.set(this.data.code, ['required']);
-            }
-            if(
-                !error.email.errors &&
-                !error.name.errors &&
-                !error.gender.errors &&
-                !error.age.errors &&
-                !error.card.errors &&
-                !error.code.errors
-            ) {
+            error.age    = Validator.set(inf.age, ['dropdown'], 'Enter your age');
+            error.card   = Validator.set(array_cards, ['radio'], 'status');
+
+
+            let card_name = this.count(array_cards);
+            error.code = card_name === 'Voucher' ? Validator.set(this.data.code, ['required']) : {errors: false};
+
+            let error_boolean = !error.email.errors && !error.name.errors && !error.gender.errors &&
+                                !error.age.errors && !error.card.errors && !error.code.errors;
+
+            if(error_boolean) {
                 this.$emit('error_data_payment_button', this.error);
                 this.$store.dispatch('modal_data/action_active_modal', {
                     name: 'confirm_modal',
                     active: true,
                     modal_data: {
                         ...this.data_in_input_information,
-                        card: this.count(
-                            this.cards.concat(this.cards1)
-                        ),
+                        card: card_name,
                         result: this.result
                     },
                 });
@@ -98,8 +93,6 @@ export default {
                 this.disabled_button = true
             }
         },
-
-
         count(arr) {
             let name = null;
             arr.forEach(item => {

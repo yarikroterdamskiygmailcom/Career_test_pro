@@ -90,14 +90,7 @@
         },
         methods:{
             open(data){
-                // Object.keys(this.list_acordeon).forEach((item, index) => {
-                //     if(index == data.index){
-                        this.list_acordeon[data.index].active = this.list_acordeon[data.index].active ? false : true;
-                //     } else {
-                //         this.list_acordeon[item].active = false
-                //     }
-                //
-                // });
+                this.list_acordeon[data.index].active = this.list_acordeon[data.index].active ? false : true;
             }
         },
         components:{

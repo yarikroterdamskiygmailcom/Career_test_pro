@@ -1,13 +1,5 @@
 import {QuestionStore} from "../../store/localStorage";
 
-let letters= {
-    R: [],
-    I: [],
-    A: [],
-    S: [],
-    O: [],
-    C: []
-};
 export default  {
     count_process(method){
         let process = 0;
@@ -19,6 +11,13 @@ export default  {
         return process / 3;
     },
     count_result(){
+        let letters= {};
+        letters.R = [];
+        letters.I = [];
+        letters.A = [];
+        letters.S = [];
+        letters.O = [];
+        letters.C = [];
         for(let i = 1; i < 11 ;i++){
             QuestionStore.getStep(i).forEach( step => {
                 letters[step.letter].push(step.state)
@@ -30,6 +29,5 @@ export default  {
         });
 
         return  letters;
-
     },
 }

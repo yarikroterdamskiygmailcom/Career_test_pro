@@ -36,7 +36,10 @@ export default  {
             return status == false ? false : message
         },
         dropdown(value, standart_text){
-            return this.messages(value !=  standart_text? false : true, 'You have to choose element in dropdown');
+            return this.messages(
+                value !=  standart_text? false : true,
+                'You have to choose element in dropdown'
+            );
         }
     }
 }

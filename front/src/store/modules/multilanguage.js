@@ -2,7 +2,7 @@
 
 import list_language from './../../api/multilanguage_request';
 import questions from "../../api/questions";
-
+import Helper_count from "../helpers/count";
 
 const state = {
     active: false,
@@ -71,7 +71,7 @@ const getters = {
     get_status_project(state){
         return state.active
     }
-}
+};
 
 /**
  * ----- ACTIONS -----
@@ -83,24 +83,12 @@ const actions = {
             data: value,
             name: 'language_array'
         });
-        const data = (function(){
-            let data;
-            value.forEach(item =>{
-                if(item.language == 'English') {
-                    data = item;
-                    return;
-                }
-            });
-            return data;
-        })();
+        const data = Helper_count.find_language_now_in_array(value);
         commit('change_state', {
             data: data,
             name: 'language_now'
         });
         questions.get_questions(data.id, this, commit)
-    },
-    action_change_language({commit}, value){
-
     },
     action_spinner({commit}, value){
         commit('change_state', value)

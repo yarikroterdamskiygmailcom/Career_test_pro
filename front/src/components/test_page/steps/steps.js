@@ -31,7 +31,7 @@ export default {
     created() {
         this.process = counter.count_process('state');
         this.step = this.$route.params.steps;
-        (this.step < this.first_step || this.step > this.last_step)  ? this.$router.push( `/tests/1`) : null;
+        (this.step < this.first_step) || (this.step > this.last_step)  ? this.$router.push( `/tests/1`) : null;
         this.toggle_modal();
     },
     methods: {
@@ -43,9 +43,9 @@ export default {
             Object.keys(array).forEach( item => {
                 let arr = item.split('-');
                 if(flag) {
-                    if(arr[1] == this.step) data = item;
+                    arr[1] == this.step ? data = item : null;
                 } else {
-                    if(arr[1] == this.step || arr[2] == this.step) data = item;
+                    arr[1] == this.step || arr[2] == this.step ? data = item : null;
                 }
             });
             return data;

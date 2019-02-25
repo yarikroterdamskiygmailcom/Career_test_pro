@@ -1,5 +1,5 @@
 import counter from "../../../components/test_page/counter";
-
+import Payment from "./../../../api/payment"
 export default {
     name: 'confirm-modal-in-confirm-page',
     components: {},
@@ -16,7 +16,10 @@ export default {
             });
         },
         confirm(){
-            console.log(this.data)
+            let data = {...this.data.data};
+            let payment = this.data.data.card;
+            delete data.card;
+            Payment.sent_data_payment(data, payment)
         }
     }
 }

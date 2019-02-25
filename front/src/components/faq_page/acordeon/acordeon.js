@@ -18,8 +18,5 @@ export default {
                 index: index,
             })
         },
-        act(data){
-            // console.log(getComputedStyle(this.$refs[data]).height)
-        }
     },
 }
