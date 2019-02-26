@@ -2,6 +2,7 @@ import Step_modal from './../../../const/const_step_modal'
 import {QuestionStore} from "../../../store/localStorage";
 import config from "../../../config";
 import counter from "../counter";
+import step_name from "../../../const/step_name";
 
 
 export default {
@@ -10,22 +11,41 @@ export default {
     data() {
         return {
             data_step: [],
-            step:null,
+            step: null,
             last_step: 11,
-            first_step: 1
+            first_step: 1,
+            process: null,
+            title_data_step: {},
+            title_data_step_active: false,
+            timeout: null
+        }
+    },
+    computed:{
+        step_name: function(){
+            return this.count_Step('name');
+        },
+        step_amount: function(){
+            return this.count_Step('amount');
         }
     },
     created() {
+        this.process = counter.count_process('state');
         this.step = this.$route.params.steps;
-        (this.step < this.first_step || this.step > this.last_step)  ? this.$router.push( `/tests/1`) : null;
+        (this.step < this.first_step) || (this.step > this.last_step)  ? this.$router.push( `/tests/1`) : null;
         this.toggle_modal();
     },
     methods: {
-        count_step_data(array){
+        count_Step(name){
+            return !this.step ? '' : step_name[`step:${this.step}`][name]
+        },
+        count_step_data(array, flag = null){
             let data = null;
             Object.keys(array).forEach( item => {
-                if(item.split('-')[1] == this.step) {
-                    data = item;
+                let arr = item.split('-');
+                if(flag) {
+                    arr[1] == this.step ? data = item : null;
+                } else {
+                    arr[1] == this.step || arr[2] == this.step ? data = item : null;
                 }
             });
             return data;
@@ -38,15 +58,17 @@ export default {
             return disabled ? '/tests/1' : `/tests/${Number(this.step) - 1}`
         },
         toggle_modal(){
-            let step = this.count_step_data(Step_modal);
+            clearTimeout(this.timeout);
+            let step = this.count_step_data(Step_modal, 'modal');
             this.data_step = QuestionStore.getStep(this.step);
+            this.title_data_step = Step_modal[step];
             if(step){
-                setTimeout(() => {
+               this.timeout =  setTimeout(() => {
                     this.$store.dispatch('modal_data/action_active_modal', {
                         name: 'test_modal',
                         active: true,
                         modal_data: {
-                            ...Step_modal[step],
+                            ...this.title_data_step,
                             step: step.split('-')
                         }
                     });
@@ -63,7 +85,12 @@ export default {
             this.data_step = [
                 ...QuestionStore.getStep(this.step)
             ];
-            console.log(counter.count_process('state'));
+            this.process = counter.count_process('state');
+        },
+        hover_pab(state){
+            let step = this.count_step_data(Step_modal);
+            this.title_data_step = state == 'open' ? Step_modal[step] : {};
+            this.title_data_step_active = state == 'open';
         }
     },
     watch:{

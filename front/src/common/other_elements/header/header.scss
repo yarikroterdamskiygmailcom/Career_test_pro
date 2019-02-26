@@ -57,18 +57,14 @@ header{
     background-color: #F4F8FF;
 }
 .header_logo{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 1px solid #4876D0;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    font-size: 16px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 89px;
+    height: 40px;
+    background-position: center;
+    background-image: url("./../../../assets/Frame.svg");
+    /* background-size: 69px; */
+    background-repeat: no-repeat;
     margin-right: 116px;
+}
+.custom_button{
+    width: 190px;
 }

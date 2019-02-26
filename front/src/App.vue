@@ -23,13 +23,14 @@
 
     import {mapGetters} from "vuex";
     import list_language from "./api/multilanguage_request";
-
+    import interseptorSetup from "./api/interseptor";
     export default {
         name: 'app',
         data () {
             return {}
         },
         created(){
+            interseptorSetup()
             list_language.list_language(this)
         },
         components: {
@@ -48,7 +49,7 @@
         watch:{
             '$route' (to, from) {
                 window.scrollTo(0, 0);
-            }
+            },
         },
     }
 </script>
@@ -56,12 +57,6 @@
 <style lang="scss">
     .content_tab > p {
         margin-bottom: 32px;
-    }
-    .body{
-        background: #E5E5E5;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
     }
     .router{
         padding-top: 86px;
@@ -80,7 +75,7 @@
     }
     .button_to{
         cursor: pointer;
-        color:black;
+        color:#333333;
         font-weight: 600;
         background: #85B1F5;
         height: 44px;
@@ -250,5 +245,8 @@
         width: 100vw;
         height: 100vh;
         background: white;
+        position: absolute;
+        top: 0;
+        z-index: 1000;
     }
 </style>
