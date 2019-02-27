@@ -12,6 +12,7 @@ export default {
         return {
             data_step: [],
             step: null,
+            step_child:null,
             last_step: 11,
             first_step: 1,
             process: null,
@@ -31,7 +32,9 @@ export default {
     created() {
         this.process = counter.count_process('state');
         this.step = this.$route.params.steps;
-        (this.step < this.first_step) || (this.step > this.last_step)  ? this.$router.push( `/tests/1`) : null;
+        this.step_child = this.$route.params.child_step;
+        (this.step < this.first_step) || (this.step > this.last_step) || !this.step_child
+            ? this.$router.push( `/tests/1/1`) : null;
         this.toggle_modal();
     },
     methods: {
@@ -51,7 +54,20 @@ export default {
             return data;
         },
         next(){
-            return this.step == this.last_step - 1 ? `/confirm-detail` : `/tests/${Number(this.step) + 1}`
+            if(this.step == this.last_step - 1){
+                if(this.step_child < 3){
+                    return `/tests/${Number(this.step)}/${Number(this.step_child) + 1}`;
+                } else {
+                    return `/confirm-detail`
+                }
+            } else {
+               if(this.step_child < 3){
+                   return `/tests/${Number(this.step)}/${Number(this.step_child) + 1}`;
+               }
+                else{
+                   return `/tests/${Number(this.step) + 1}/${1}`;
+               }
+            }
         },
         back(){
             const disabled = Number(this.step) == this.first_step || Number(this.step) < this.first_step;
@@ -60,7 +76,7 @@ export default {
         toggle_modal(){
             clearTimeout(this.timeout);
             let step = this.count_step_data(Step_modal, 'modal');
-            this.data_step = QuestionStore.getStep(this.step);
+            this.data_step = QuestionStore.getStep(`${this.step}-${this.step_child}`);
             this.title_data_step = Step_modal[step];
             if(step){
                this.timeout =  setTimeout(() => {
@@ -81,9 +97,9 @@ export default {
              if(step.state != null) {
                  step.state = number
              }
-            QuestionStore.saveStep(this.data_step, this.step);
+            QuestionStore.saveStep(this.data_step, `${this.step}-${this.step_child}`);
             this.data_step = [
-                ...QuestionStore.getStep(this.step)
+                ...QuestionStore.getStep(`${this.step}-${this.step_child}`)
             ];
             this.process = counter.count_process('state');
         },
@@ -96,6 +112,7 @@ export default {
     watch:{
         '$route' (to, from) {
             this.step = this.$route.params.steps;
+            this.step_child = this.$route.params.child_step;
             this.toggle_modal();
         }
     },
