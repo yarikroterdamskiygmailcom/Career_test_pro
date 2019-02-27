@@ -29,7 +29,6 @@ Route::group([
     Route::get('price', 'PriceController@index');
     Route::get('logo', 'LogoController@index');
 
-
 });
 
 
