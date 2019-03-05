@@ -23,11 +23,18 @@ Route::group([
     Route::post('login', 'RegisterController@login');
 
     Route::post('sendmail', 'EmailsController@contactUsEmail');
+    Route::get('pdflink', 'EmailsController@pdfLinkEmail')->name('send-pdf');
+
 
     Route::get('languages', 'LanguagesController@index');
     Route::get('questions', 'QuestionsController@index');
     Route::get('price', 'PriceController@index');
     Route::get('logo', 'LogoController@index');
+    Route::get('tester', 'TestController@index');
+
+    Route::post('post/{id}', 'PdfController@pdfCr')->middleware('resultkey');
+    Route::get('pdf/{id}', 'PdfController@pdf')->middleware('resultkey');
+    Route::get('diagrams/{id_unicum}', 'PdfController@diagrams')->middleware('resultkey');
 
 });
 
