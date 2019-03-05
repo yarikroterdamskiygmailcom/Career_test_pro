@@ -9,7 +9,7 @@
         <router-link v-for="item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
              :key="item + 'rout'"
              class="stepped d-flex justify-content-center"
-             :to="`/tests/${item}`">{{item}}</router-link>
+             :to="`/tests/${item}/1`">{{item}}</router-link>
         <div v-for="item in  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" :key="item + 'for'" :class="`s${item}`"
              v-if="item == step"
              class="position-absolute item_question nav_step borders orange_style"></div>

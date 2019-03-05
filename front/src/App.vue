@@ -23,14 +23,12 @@
 
     import {mapGetters} from "vuex";
     import list_language from "./api/multilanguage_request";
-    import interseptorSetup from "./api/interseptor";
     export default {
         name: 'app',
         data () {
             return {}
         },
         created(){
-            interseptorSetup()
             list_language.list_language(this)
         },
         components: {
