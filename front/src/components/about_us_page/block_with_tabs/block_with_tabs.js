@@ -21,7 +21,7 @@ export default {
                         '\n' +
                         '<p>Each letter of the RIASEC code stands for a ' +
                         'particular personality type, being:</p>',
-                    path:'./../../../src/assets/about_us/our_service.png',
+                    path:'http://careertestproback.com/assets/about_us/our_service.png',
                     list:[
                         'Realistic personality type (Doers);',
                         'Investigative personality type (Thinkers);',
@@ -56,7 +56,7 @@ export default {
                         'after finishing test you will get result and a copy will be sent ' +
                         'on your email.</p>'
                         ,
-                    path:'./../../../src/assets/about_us/our_mission.png'
+                    path:'http://careertestproback.com/assets/about_us/our_mission.png'
                 },
                 {
                     name:'Our Team',
@@ -78,7 +78,7 @@ export default {
                         '\n' +
                         '<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ' +
                         'nisi ut aliquip ex ea commodo consequat.</p>',
-                    path:'./../../../src/assets/about_us/our_team.png',
+                    path:'http://careertestproback.com/assets/about_us/our_team.png',
                     style:{
                         top: '-2px',
                         left: '1px'

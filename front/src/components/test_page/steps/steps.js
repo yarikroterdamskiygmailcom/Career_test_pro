@@ -4,12 +4,11 @@ import config from "../../../config";
 import counter from "../counter";
 import step_name from "../../../const/step_name";
 
-
 export default {
-    components: {},
     props: [],
     data() {
         return {
+            mob: true,
             data_step: [],
             step: null,
             step_child:null,
@@ -18,7 +17,7 @@ export default {
             process: null,
             title_data_step: {},
             title_data_step_active: false,
-            timeout: null
+            timeout: null,
         }
     },
     computed:{
@@ -30,6 +29,15 @@ export default {
         }
     },
     created() {
+        // if(window.innerWidth < 1019){
+        //     this.mob = false
+        // }
+        // window.addEventListener('resize', function(){
+        //     if(event.innerWidth < 1019){
+        //         this.mob = false
+        //     }
+        // });
+        // console.log(this.mob);
         this.process = counter.count_process('state');
         this.step = this.$route.params.steps;
         this.step_child = this.$route.params.child_step;
@@ -37,6 +45,16 @@ export default {
             ? this.$router.push( `/tests/1/1`) : null;
         this.toggle_modal();
     },
+
+        // if(window.innerWidth < 1019){
+        //     this.mob = false
+        // }
+        // window.addEventListener('resize', function(){
+        //     if(event.innerWidth < 1019){
+        //         this.mob = false
+        //     }
+        // })
+
     methods: {
         count_Step(name){
             return !this.step ? '' : step_name[`step:${this.step}`][name]
@@ -71,7 +89,15 @@ export default {
         },
         back(){
             const disabled = Number(this.step) == this.first_step || Number(this.step) < this.first_step;
-            return disabled ? '/tests/1' : `/tests/${Number(this.step) - 1}`
+            if(disabled){
+                 return this.step_child < 2
+                     ? '/tests/1/1'
+                     :`/tests/${Number(this.step)}/${Number(this.step_child) - 1}`
+            } else {
+                return this.step_child < 2
+                    ? `/tests/${Number(this.step -1)}/3`
+                    :`/tests/${Number(this.step)}/${Number(this.step_child) - 1}`
+            }
         },
         toggle_modal(){
             clearTimeout(this.timeout);
@@ -113,6 +139,7 @@ export default {
         '$route' (to, from) {
             this.step = this.$route.params.steps;
             this.step_child = this.$route.params.child_step;
+            localStorage.setItem('progress_step', to.fullPath);
             this.toggle_modal();
         }
     },
@@ -122,12 +149,12 @@ export default {
             methods:{
                 element_munipulation(el, binding, vnode){
                     const self = binding.def.data_vue.a;
-                    binding.value.step == self.data().first_step
-                        ?
+                    if(binding.value.step == self.data().first_step){
+                        Number(binding.value.child< 2) ?
                             el.setAttribute('disabled', true)
-                        :
+                            :
                             el.removeAttribute('disabled')
-
+                    }
                 }
             },
             bind: function (el, binding, vnode) {

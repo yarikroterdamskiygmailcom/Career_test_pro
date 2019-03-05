@@ -62,7 +62,7 @@ export default {
             const error = this.error;
 
             let array_cards = this.cards.concat(this.cards1);
-
+            //
             error.name   = Validator.set(inf.name, ['required']);
             error.email  = Validator.set(inf.email, ['required']);
             error.email  = !error.email.errors  ? Validator.set(inf.email, ['email']) : error.email;
@@ -71,12 +71,12 @@ export default {
             error.card   = Validator.set(array_cards, ['radio'], 'status');
 
             let card_name = this.count(array_cards);
-            // error.code = card_name === 'Voucher' ? Validator.set(this.data.code, ['required']) : {errors: false};
-            //
-            // let error_boolean = !error.email.errors && !error.name.errors && !error.gender.errors &&
-            //                     !error.age.errors && !error.card.errors && !error.code.errors;
-            //
-            // if(error_boolean) {
+            error.code = card_name === 'Voucher' ? Validator.set(this.data.code, ['required']) : {errors: false};
+
+            let error_boolean = !error.email.errors && !error.name.errors && !error.gender.errors &&
+                                !error.age.errors && !error.card.errors && !error.code.errors;
+
+            if(error_boolean) {
                 this.$emit('error_data_payment_button', this.error);
                 this.$store.dispatch('modal_data/action_active_modal', {
                     name: 'confirm_modal',
@@ -87,10 +87,9 @@ export default {
                         result: this.result
                     },
                 });
-            // } else {
-            //     this.$emit('error_data_payment_button', this.error);
-            //     this.disabled_button = true
-            // }
+            } else {
+                this.$emit('error_data_payment_button', this.error);
+            }
         },
         count(arr) {
             let name = null;

@@ -1,17 +1,17 @@
 <template>
     <div id="app" class="text_style">
-        <div v-if="active_status">
+        <!--<div v-if="active_status">-->
             <header-component></header-component>
             <div class="router">
                 <router-view></router-view>
             </div>
-            <footer-component></footer-component>
+            <!--<footer-component></footer-component>-->
             <Confirm_modal v-if="confirm_modal.active" :data="confirm_modal"></Confirm_modal>
             <information_steps_modal v-if="test_modal.active" :data="test_modal"></information_steps_modal>
-        </div>
-        <div class="spinner d-flex justify-content-center align-items-center" v-if="!active_status">
-            <div></div>
-        </div>
+        <!--</div>-->
+        <!--<div class="spinner d-flex justify-content-center align-items-center" v-if="!active_status">-->
+            <!--<div></div>-->
+        <!--</div>-->
     </div>
 </template>
 
@@ -20,9 +20,9 @@
     import Header from './common/other_elements/header/index.vue'
     import Confirm_modal from './common/modals/confirm_modal_in_confirm_page/index.vue'
     import Information_steps_modal from './common/modals/information_steps_modal/index.vue'
-
-    import {mapGetters} from "vuex";
+    import { mapGetters } from "vuex";
     import list_language from "./api/multilanguage_request";
+
     export default {
         name: 'app',
         data () {
@@ -30,6 +30,17 @@
         },
         created(){
             list_language.list_language(this)
+        },
+        mounted(){
+            window.addEventListener('resize',() => this.resize())
+        },
+        destroyed(){
+            window.removeEventListener('resize',() => this.resize());
+        },
+        methods:{
+            resize(){
+                window.innerWidth < 780 ? console.log(window.innerWidth) : console.log(2)
+            }
         },
         components: {
             'footer-component': Footer,
@@ -234,7 +245,7 @@
         border: 1px solid #FD5656!important;
     }
     .spinner > div{
-        background-image: url("./assets/spinner.svg");
+        background-image: url("http://careertestproback.com/assets/spinner.svg");
         width: 100px;
         height: 100px;
         background-size: contain;

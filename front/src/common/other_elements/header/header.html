@@ -1,5 +1,34 @@
 <header class="d-flex justify-content-center">
-    <div class="col-xl- container_margin d-flex justify-content-between align-items-center">
+    <!--<div class="col-xl- container_margin d-flex justify-content-between align-items-center">-->
+        <!--<div class="header_logo"></div>-->
+        <!--<nav class="header_menu d-flex">-->
+            <!--<ul class="container_header_menu">-->
+                <!--<li v-for="list in menu_list" style="font-weight: 600">-->
+                    <!--<router-link class="text_style"-->
+                                 <!--:to="list.path">-->
+                        <!--{{list.name}}-->
+                    <!--</router-link>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</nav>-->
+        <!--<router-link :to="'tests'" class="button_to text_style custom_button d-flex-->
+         <!--justify-content-center-->
+         <!--align-items-center">Take the Test</router-link>-->
+        <!--<div class="header_badge_language">-->
+            <!--<b-dropdown id="ddown-divider" :text="language_now.code" variant="basic" offset="0"-->
+                 <!--menu-class="rounded-menu"  class="m-2 border btn-lang-border">-->
+                <!--<b-dropdown-item v-for="lang in language_array" active-class="dropdown-item"-->
+                        <!--@click="language(lang)" :key="lang.name + lang.language">-->
+                    <!--{{lang.language}}-->
+                <!--</b-dropdown-item>-->
+            <!--</b-dropdown>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+    <div class="col-xl- container_margin
+     d-flex justify-content-between align-items-center
+     container_header">
         <div class="header_logo"></div>
         <nav class="header_menu d-flex">
             <ul class="container_header_menu">
@@ -11,18 +40,52 @@
                 </li>
             </ul>
         </nav>
-        <router-link :to="'tests'" class="button_to text_style custom_button d-flex
+        <router-link :to="'tests'" class="button_to text_style custom_button d-none
          justify-content-center
          align-items-center">Take the Test</router-link>
         <div class="header_badge_language">
             <b-dropdown id="ddown-divider" :text="language_now.code" variant="basic" offset="0"
-                 menu-class="rounded-menu"  class="m-2 border btn-lang-border">
+                        menu-class="rounded-menu"  class="m-2 border btn-lang-border">
                 <b-dropdown-item v-for="lang in language_array" active-class="dropdown-item"
-                        @click="language(lang)" :key="lang.name + lang.language">
+                                 @click="language(lang)" :key="lang.name + lang.language">
                     {{lang.language}}
                 </b-dropdown-item>
             </b-dropdown>
         </div>
+        <div id="menuToggle">
+            <input type="checkbox" v-model="menu"/>
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+                <div>
+                    <li v-for="list in menu_list" @click="menu = false" style="font-weight: 600"  class="menu_list">
+                        <router-link class="text_style"
+                                     :to="list.path">
+                            {{list.name}}
+                        </router-link>
+                    </li>
+                </div>
+                <div>
+                    <div class="header_badge_language">
+                        <b-dropdown id="ddown-divider" :text="language_now.code" variant="basic" offset="0"
+                                    menu-class="rounded-menu"  class="border btn-lang-border">
+                            <b-dropdown-item v-for="lang in language_array" active-class="dropdown-item"
+                                             @click="language(lang)" :key="lang.name + lang.language">
+                                {{lang.language}}
+                            </b-dropdown-item>
+                        </b-dropdown>
+                    </div>
+                    <li>
+                        <router-link :to="'tests'" class="button_to text_style custom_button d-flex
+                        justify-content-center align-items-center">
+                            Take the Test
+                        </router-link>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <div class="background" :class="{background_active: menu}" @click="menu = false"></div>
     </div>
 </header>
 

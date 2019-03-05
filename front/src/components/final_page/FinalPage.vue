@@ -77,7 +77,7 @@
     .check_image{
         width: 243.85px;
         height: 459.65px;
-        background-image: url("./../../assets/check_email/check_email.png");
+        background-image: url("http://careertestproback.com/assets/check_email/check_email.png");
         background-repeat: no-repeat;
         background-position: center;
         top: -53px;

@@ -1,8 +1,8 @@
 import Vue from "vue";
 
 export default {
-    url: 'http://192.168.88.191/',
+    url: 'http://careertestproback.com/',
     default_language: 1,
-    letters: ['R', 'I', 'A', 'S', 'E', 'C']
+    letters: ['R', 'I', 'A', 'S', 'O', 'C']
 }
 

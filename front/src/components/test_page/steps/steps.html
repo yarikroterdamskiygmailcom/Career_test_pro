@@ -1,4 +1,7 @@
-<section class="steps d-flex justify-content-center flex-column align-items-center">
+
+<!--<script type="text/x-template" id="checkbox-template">-->
+
+<section class="steps d-flex justify-content-center flex-column align-items-center media_container">
     <div class="title_block custom_title">
         step {{step}} - <span style="color:#F9892E">{{step_name}}</span>
     </div>
@@ -76,7 +79,9 @@
         <div class="questions">
             <div class="item_question d-flex justify-content-between" v-for="(item, index) in data_step">
                 <div ref="234234" class="number_questions borders d-flex align-items-center justify-content-center">
-                    {{index + Number(step_amount.split('-')[0])}}
+                    <span v-if="step_child == 1">{{index + Number(step_amount.split('-')[0]) * step_child}}</span>
+                    <span v-if="step_child == 2">{{index + Number(step_amount.split('-')[0]) + 10}}</span>
+                    <span v-if="step_child == 3">{{index + Number(step_amount.split('-')[0]) + 20}}</span>
                 </div>
                 <div class="content_question borders d-flex align-items-center">
                     {{item.questions_description.question}}
@@ -93,7 +98,8 @@
         </div>
         <div class="d-flex justify-content-between" ref="back" style=" margin-top: 30px; margin-bottom: 254px">
             <router-link :to="back()"  class="button_to custom_button
-             d-flex justify-content-center align-items-center" v-disabled_button="{step:step}">Back</router-link>
+             d-flex justify-content-center align-items-center"
+                         v-disabled_button="{step:step, child: step_child}">Back</router-link>
             <router-link :to="next()" class="button_to custom_button
             d-flex justify-content-center align-items-center">Next</router-link>
         </div>

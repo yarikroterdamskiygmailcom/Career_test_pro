@@ -9,8 +9,8 @@ export default {
     data() {
         return {
             data: {
-                name: '',
-                email: '',
+                name: '22',
+                email: 'br@br.ru',
                 gender: 'Enter your gender',
                 age: 'Enter your age',
                 price: '$39.95'
@@ -28,10 +28,12 @@ export default {
     computed: {
     },
     created() {
+
         for(let i = 18; i <= 100; i++){
             this.age.push(i);
             i == 100 && this.age.push('+');
-        }
+        }this.data.gender = 'female';
+        this.data.age = '19';
     },
     methods: {
         errors: function(data){

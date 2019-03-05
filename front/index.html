@@ -5,16 +5,18 @@
         <meta charset="utf-8">
         <title>career_test_pro</title>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400, 500,600,800" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 <body>
 <div id="app"></div>
-<script src="/dist/build.js"></script>
+<script src="./dist/build.js"></script>
 <style>
     body{
         background:  #FDFEFF;
         margin: 0;
         padding: 0;
         overflow-x: hidden;
+        /*overflow-y: hidden;*/
         font-weight: 500;
     }
     .rounded-menu {
@@ -44,6 +46,13 @@
         font-weight: 600;
     }
 
+    #menu .header_badge_language .btn-lang-border.dropdown > button,
+    #menu #ddown-divider{
+        width: 100%;
+    }
+    #menu .header_badge_language .btn-lang-border.dropdown > button:after{
+        margin-left: 50px;
+    }
     .header_badge_language .btn-lang-border.dropdown > button:focus,
     .input-information .confirm_input.dropdown > button:focus,
     .footer_badge_language .btn-lang-border.dropdown > button:focus {

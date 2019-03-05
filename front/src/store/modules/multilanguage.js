@@ -44,13 +44,13 @@ const state = {
     sotial_networks: [
         {
             name: 'linkedin',
-            path: './../../../../src/assets/linkedin.png'
+            path: 'http://careertestproback.com/assets/linkedin.png'
         },{
             name: 'twitter',
-            path: './../../../../src/assets/twitter.png'
+            path: 'http://careertestproback.com/assets/twitter.png'
         },{
             name: 'facebook',
-            path: './../../../../src/assets/facebook.png'
+            path: 'http://careertestproback.com/assets/facebook.png'
         },
     ]
 };

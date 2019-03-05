@@ -19,10 +19,9 @@ export default {
         confirm(){
             let payment = this.data.data.card.toLowerCase() == 'paypal'? 'paywithpaypal' : this.data.data.card.toLowerCase();
             let data = {...this.data.data};
-                data= window.btoa(unescape(encodeURIComponent(JSON.stringify(data))));
-            window.location.href = `${config.url}${payment}?data=${data}`
-            // window.location.href = `${config.url}${payment.toLowerCase()}`//braintree
-            // Payment.sent_data_payment(data, payment)
+            data= window.btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+            debugger;
+            window.location.href = `${config.url}${payment}?result=${data}`
         }
     }
 }
