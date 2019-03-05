@@ -6,11 +6,23 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use Mail;
 use App\Mail\ContactUsMail;
+use App\Mail\PdfLinkMail;
+use Illuminate\Support\Facades\Input;
+
 use Validator;
 
 
 class EmailsController extends BaseController
 {
+    protected $when;
+    protected $receiver;
+
+    public function __construct()
+    {
+        $this->receiver = 'dmglad7@gmail.com';
+        $this->when = now()->addSeconds(1);
+    }
+
     public function contactUsEmail(Request $request) {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
@@ -21,10 +33,17 @@ class EmailsController extends BaseController
             return $this->sendError('Validation Error.', $validator->errors(), 202);
         }
 
-        $when = now()->addSeconds(1);
+        Mail::to($this->receiver)
+            ->later($this->when, new ContactUsMail($request->name, $request->email, $request->message));
+        return $this->sendResponse('Success', 'Email sent');
 
-        Mail::to('dmglad7@gmail.com')
-            ->later($when, new ContactUsMail($request->name, $request->email, $request->message));
+    }
+
+    public function pdfLinkEmail() {
+        $when = now()->addSeconds(1);
+        Mail::to($this->receiver)
+            ->later($this->when, new PdfLinkMail('http://careertestproback.com/api/diagrams/'.Input::get('customer_id').'?result_key='.Input::get('result_token')));
+
         return $this->sendResponse('Success', 'Email sent');
 
     }

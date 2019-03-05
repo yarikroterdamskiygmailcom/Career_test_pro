@@ -226,6 +226,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Mollie' => Mollie\Laravel\Facades\Mollie::class,
+        'Helper' => App\Helpers\Helper::class,
+
 
 
     ],

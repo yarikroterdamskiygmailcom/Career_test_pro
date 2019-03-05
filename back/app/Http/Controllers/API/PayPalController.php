@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Validator;
 use URL;
 use Session;
+use Helper;
 use Redirect;
 use Illuminate\Support\Facades\Input;
 /** All Paypal Details class **/
@@ -56,6 +57,7 @@ class PayPalController extends Controller
      */
     public function postPaymentWithpaypal(Request $request)
     {
+        //dd('PAYPAL!');
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
         $item_1 = new Item();
@@ -73,8 +75,10 @@ class PayPalController extends Controller
             ->setItemList($item_list)
             ->setDescription('Your transaction description');
         $redirect_urls = new RedirectUrls();
-        $redirect_urls->setReturnUrl(URL::route('payment.status')) /** Specify return URL **/
-        ->setCancelUrl(URL::route('payment.status'));
+//        $redirect_urls->setReturnUrl(URL::route('payment.status')) /** Specify return URL **/
+          $redirect_urls->setReturnUrl('http://bbbc478b.ngrok.io/paypal/success') /** Specify return URL **/
+
+                ->setCancelUrl(URL::route('payment.status'));
         $payment = new Payment();
         $payment->setIntent('Sale')
             ->setPayer($payer)
@@ -114,7 +118,9 @@ class PayPalController extends Controller
     public function getPaymentStatus()
     {
         /** Get the payment ID before session clear **/
-        $payment_id = Session::get('paypal_payment_id');
+        //$payment_id = Session::get('paypal_payment_id');
+        $payment_id = Input::get('paymentId');
+
         /** clear the session payment ID **/
         Session::forget('paypal_payment_id');
         if (empty(Input::get('PayerID')) || empty(Input::get('token'))) {
@@ -137,7 +143,8 @@ class PayPalController extends Controller
             /** it's all right **/
             /** Here Write your database logic like that insert record or value in database if you want **/
             \Session::put('success','Payment success');
-            return Redirect::route('addmoney.paywithpaypal');
+            //return Redirect::route('addmoney.paywithpaypal');
+            return redirect('http://localhost:8080/final');
         }
         \Session::put('error','Payment failed');
         return Redirect::route('addmoney.paywithpaypal');

@@ -15,12 +15,11 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('text');
             $table->integer('category_id');
             //$table->string('category_name');
             $table->string('letter');
             $table->string('level_id');
-            $table->integer('language_id');
+	    $table->timestamps();
         });
     }
 
