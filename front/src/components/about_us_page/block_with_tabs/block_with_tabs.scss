@@ -28,6 +28,7 @@
     width: 33.3%;
     text-align: center;
     font-weight: 600;
+    font-size: 16px;
     cursor: pointer;
 }
 .item_tabs:first-child{
@@ -43,3 +44,34 @@
     width: 562px;
     height: 562px;
 }
+
+@media screen and (max-width:1200px){
+    .item_tabs{
+        font-size: 14px;
+    }
+    .title_block{
+        font-size: 20px;
+    }
+    .container_margin {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width:900px){
+
+}
+
+@media screen and (max-width:767px){
+    .item_tabs{
+        font-size: 12px;
+    }
+    .title_block{
+        font-size: 20px;
+    }
+    .block-with-tabs {
+        padding-top: 60px;
+    }
+}
+
+

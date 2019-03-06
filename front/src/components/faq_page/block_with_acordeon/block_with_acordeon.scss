@@ -2,9 +2,11 @@
 }
 .custom_title{
     margin-bottom: 20px;
+    font-size: 28px;
 }
 .custom_small_title{
     margin-bottom: 61px;
+    font-size: 16px;
 }
 .faq_image_block{
     width: 237px;
@@ -18,7 +20,7 @@
     border-radius: 50%;
 }
 .faq_image{
-    background-image: url("http://careertestproback.com/assets/faq/faq.png");
+    background-image: url("http://backcartestpro.qbex.io/assets/faq/faq.png");
     background-position: center;
     background-repeat: no-repeat;
     width: 254px;
@@ -27,3 +29,40 @@
     top: 27px;
 }
 
+@media screen and (max-width:1200px){
+    .custom_title{
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+    .custom_small_title{
+        font-size: 14px;
+    }
+}
+
+
+@media screen and (max-width:767px){
+    .custom_title{
+        font-size: 14px;
+    }
+    .custom_small_title{
+        font-size: 12px;
+    }
+    .faq_ellipse {
+        width: 161px;
+        height: 161px;
+    }
+    .faq_image {
+        width: 183px;
+        height: 161px;
+        left: -11px;
+        background-size: 177px;
+        top: 1px;
+    }
+    .faq_image_block{
+        margin-bottom: 20px;
+    }
+    .faq_image_block {
+        width: 162px;
+        height: 188px;
+    }
+}

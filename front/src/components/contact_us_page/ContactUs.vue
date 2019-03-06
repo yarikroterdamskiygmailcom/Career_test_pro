@@ -12,17 +12,47 @@
 
 <script>
     import send_message_and_contacts from './send_message_and_contacts/index.vue'
+
     export default {
         name: "ContactUs",
-        components:{
+        components: {
             'send_message_and_contacts_components': send_message_and_contacts
         }
     }
 </script>
 
 <style scoped>
-    .contact_us{
+    .contact_us {
         margin-top: 90px;
         margin-bottom: 254px;
     }
+
+    @media screen and (max-width: 1200px) {
+        .title_block {
+            font-size: 20px;
+        }
+
+        .small_text {
+            font-size: 14px;
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+
+    }
+
+    @media screen and (max-width: 767px) {
+        .title_block {
+            font-size: 14px;
+        }
+        .contact_us {
+            margin-top: 50px;
+        }
+        .small_text {
+            font-size: 12px;
+
+        }
+    }
+
+
 </style>

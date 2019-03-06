@@ -27,6 +27,7 @@ footer{
 .container_footer_menu li a{
     height: 20px;
     text-decoration: none;
+    font-size: 16px;
     color: #333333;
     display: flex;
     align-items: center;
@@ -87,7 +88,7 @@ footer{
     width: 89px;
     height: 40px;
     background-position: center;
-    background-image: url("http://careertestproback.com/assets/Frame.svg");
+    background-image: url("http://backcartestpro.qbex.io/assets/Frame.svg");
     /* background-size: 69px; */
     background-repeat: no-repeat;
 }
@@ -108,3 +109,80 @@ footer{
     font-size: 14px;
     font-weight: 400;
 }
+.footer_badge_language_mobile{
+    display: none;
+}
+@media screen and (max-width:1200px){
+    .container_margin {
+        width: 100%;
+        justify-content: space-around !important;
+        height: 240px;
+    }
+
+    .container_footer_menu li a {
+        font-size: 14px;
+    }
+    .container_sotial_networks{
+        width: 140px;
+    }
+    .footer_menu{
+        align-items: center;
+    }
+
+}
+
+@media screen and (max-width:900px){
+    .footer_text{
+        font-size: 14px;
+        width: 537px;
+        margin-left: 46px;
+    }
+    .footer_menu {
+         width: 400px;
+     }
+}
+
+@media screen and (max-width:767px){
+    .container_margin {
+        display: block!important;
+        margin: 0;
+        height: auto;
+    }
+    .footer_logo{
+        margin: 14px 30px
+    }
+    .footer_menu{
+        width: 100%;
+        border-top: 1px solid #D8E1F0;
+        display: flex;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+    }
+    .container_footer_menu{
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer_badge_language{
+        display: none;
+    }
+    .footer_badge_language_mobile{
+         display: block;
+    }
+    .footer_text{
+        width: 290px;
+        font-size: 12px;
+        margin-left: 0;
+        text-align: center;
+    }
+    .container_footer_menu li:hover{
+        border-top: 2px solid #F4F8FF;
+    }
+    .container_footer_menu li.active{
+        border-top: 2px solid #F4F8FF;
+    }
+
+}
+
+

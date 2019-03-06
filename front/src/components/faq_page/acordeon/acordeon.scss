@@ -7,9 +7,11 @@
 }
 .acordeon_title{
     font-weight: 600;
+    font-size: 16px;
+    width: 80%;
 }
 .arrow_acordeon {
-    background-image: url("http://careertestproback.com/assets/faq/arrow_down.png");
+    background-image: url("http://backcartestpro.qbex.io/assets/faq/arrow_down.png");
     background-repeat: no-repeat;
     background-position: center;
     width: 17px;
@@ -40,8 +42,44 @@
 }
 .acordeon_content ul{
     padding-left: 55px;
-    list-style-image: url("http://careertestproback.com/assets/home_page/arrow_ok.png");
+    list-style-image: url("http://backcartestpro.qbex.io/assets/home_page/arrow_ok.png");
 }
 .acordeon_content ul li {
     margin-bottom: 34px;
+}
+
+
+@media screen and (max-width:1200px){
+    .container_faq_acordeon{
+        width: 75%;
+        margin: 0 127px;
+    }
+}
+
+
+@media screen and (max-width:900px){
+    .container_faq_acordeon{
+        width: 80%;
+        margin: 0 100px;
+    }
+}
+
+@media screen and (max-width:767px){
+    .acordeon_title{
+        font-size: 12px;
+    }
+    .acordeon_content{
+        font-size: 12px;
+    }
+    .acordeon_content{
+        transition: 0.5s all;
+        overflow-y: scroll;
+        //min-height: 669px;
+    }
+}
+@media screen and (max-width:570px){
+    .container_faq_acordeon{
+        width: 90%;
+        margin: 0 100px;
+    }
 }

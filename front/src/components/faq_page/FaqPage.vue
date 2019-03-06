@@ -103,11 +103,27 @@
 <style scoped>
     #faq{
         width: 100%;
-        margin-top: 91px;
+        margin-top: 70px;
         margin-bottom: 264px;
     }
     .container_faq_acordeon{
         width: 855px;
+    }
+    @media screen and (max-width:1200px){
+        .container_faq_acordeon{
+            width: 75%;
+            margin: 0 127px;
+        }
+        #faq{
+            margin-bottom: 104px;
+        }
+    }
+
+    @media screen and (max-width:900px){
+        .container_faq_acordeon{
+            width: 80%;
+            margin: 0 100px;
+        }
     }
 
 </style>

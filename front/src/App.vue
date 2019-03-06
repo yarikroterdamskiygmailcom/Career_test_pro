@@ -5,7 +5,7 @@
             <div class="router">
                 <router-view></router-view>
             </div>
-            <!--<footer-component></footer-component>-->
+            <footer-component></footer-component>
             <Confirm_modal v-if="confirm_modal.active" :data="confirm_modal"></Confirm_modal>
             <information_steps_modal v-if="test_modal.active" :data="test_modal"></information_steps_modal>
         <!--</div>-->
@@ -245,12 +245,12 @@
         border: 1px solid #FD5656!important;
     }
     .spinner > div{
-        background-image: url("http://careertestproback.com/assets/spinner.svg");
+        background-image: url("http://backcartestpro.qbex.io/assets/spinner.svg");
         width: 100px;
         height: 100px;
         background-size: contain;
     }
-    .spinner{
+    .spinner {
         width: 100vw;
         height: 100vh;
         background: white;
