@@ -99,6 +99,10 @@
     .all-aptitude-test{
         height: auto;
     }
+    .middle_line{
+        //left: ;
+        left: 333px;
+    }
     .custom_button_mobile{
         display: block;
         width: 100%;
@@ -136,7 +140,7 @@
     }
     .best_value_number{
         font-size: 40px;
-        align-items: center;
+        justify-content: center!important;
         margin-top: 30px;
     }
     .dollar{

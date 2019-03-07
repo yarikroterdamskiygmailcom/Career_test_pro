@@ -3,6 +3,8 @@ import {QuestionStore} from "../../../store/localStorage";
 import config from "../../../config";
 import counter from "../counter";
 import step_name from "../../../const/step_name";
+import { mapGetters } from "vuex";
+import Info from "../Info";
 
 export default {
     props: [],
@@ -18,7 +20,14 @@ export default {
             title_data_step: {},
             title_data_step_active: false,
             timeout: null,
+            step_menu:{
+                padding: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                number:  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            }
         }
+    },
+    components:{
+        info:  Info
     },
     computed:{
         step_name: function(){
@@ -26,35 +35,20 @@ export default {
         },
         step_amount: function(){
             return this.count_Step('amount');
-        }
+        },
+        ...mapGetters({
+            screen: 'modal_data/get_screen'
+        })
     },
     created() {
-        // if(window.innerWidth < 1019){
-        //     this.mob = false
-        // }
-        // window.addEventListener('resize', function(){
-        //     if(event.innerWidth < 1019){
-        //         this.mob = false
-        //     }
-        // });
-        // console.log(this.mob);
         this.process = counter.count_process('state');
         this.step = this.$route.params.steps;
         this.step_child = this.$route.params.child_step;
+        this.data_step = QuestionStore.getStep(`${this.step}-${this.step_child}`);
         (this.step < this.first_step) || (this.step > this.last_step) || !this.step_child
             ? this.$router.push( `/tests/1/1`) : null;
         this.toggle_modal();
     },
-
-        // if(window.innerWidth < 1019){
-        //     this.mob = false
-        // }
-        // window.addEventListener('resize', function(){
-        //     if(event.innerWidth < 1019){
-        //         this.mob = false
-        //     }
-        // })
-
     methods: {
         count_Step(name){
             return !this.step ? '' : step_name[`step:${this.step}`][name]
@@ -72,6 +66,12 @@ export default {
             return data;
         },
         next(){
+            let result = this.data_step ?  counter.count_disanled_step(this.data_step) : null;
+            if(result) return `/tests/${Number(this.step)}/${Number(this.step_child)}`;
+            if(this.step == 10 && this.step_child == 3){
+                let res = counter.count_button_disabled_before_result();
+                if(res) return `/tests/${Number(this.step)}/${Number(this.step_child)}`;
+            }
             if(this.step == this.last_step - 1){
                 if(this.step_child < 3){
                     return `/tests/${Number(this.step)}/${Number(this.step_child) + 1}`;
@@ -129,11 +129,6 @@ export default {
             ];
             this.process = counter.count_process('state');
         },
-        hover_pab(state){
-            let step = this.count_step_data(Step_modal);
-            this.title_data_step = state == 'open' ? Step_modal[step] : {};
-            this.title_data_step_active = state == 'open';
-        }
     },
     watch:{
         '$route' (to, from) {
@@ -144,7 +139,7 @@ export default {
         }
     },
     directives: {
-        disabled_button: {
+        disabled_button_back: {
             data_vue:this,
             methods:{
                 element_munipulation(el, binding, vnode){
@@ -162,6 +157,38 @@ export default {
             },
             componentUpdated: function (el, binding) {
                 binding.def.methods.element_munipulation(el, binding);
+            }
+        },
+        disabled_button_next: {
+            data_vue:this,
+            methods:{
+                element_munipulation(el, binding, vnode){
+                    const self = binding.def.data_vue.a;
+                    const value = binding.value.array;
+                    let result = null;
+                    if(value) {
+                        result = counter.count_disanled_step(value)
+                    }
+                    result?
+                        el.setAttribute('disabled', true)
+                        :
+                        el.removeAttribute('disabled')
+                    if(binding.value.step == 10 && binding.value.step_child == 3){
+                        let res = counter.count_button_disabled_before_result();
+                        console.log(res);
+                        res?
+                            el.setAttribute('disabled', true)
+                            :
+                            el.removeAttribute('disabled')
+                    }
+
+                }
+            },
+            bind: function (el, binding, vnode) {
+                binding.def.methods.element_munipulation(el, binding, vnode);
+            },
+            componentUpdated: function (el, binding, vnode) {
+                binding.def.methods.element_munipulation(el, binding, vnode);
             }
         }
     }

@@ -12,15 +12,15 @@
             <li v-for="item in data_tab.list">{{item}}</li>
         </ul>
     </div>
-    <!--<div v-if="data_tab != null"-->
-         <!--class="tab_content_image_container position-relative d-flex justify-content-center">-->
-        <!--<div class="tab_content_image position-absolute image_size"-->
-        <!--:style="{backgroundImage: `url(${data_tab.path})`, ...data_tab.style}"></div>-->
-        <!--<div class="tab_content_elips image_size"></div>-->
-    <!--</div>-->
-    <div class="block_img d-flex justify-content-center position-relative">
-        <img :src="data_tab.path">
-        <div class="image_div background_image position-absolute"></div>
+    <div v-if="data_tab != null"
+         class="tab_content_image_container position-relative d-flex justify-content-center">
+        <div class="tab_content_image position-absolute image_size"
+        :style="{backgroundImage: `url(${data_tab.path})`, ...data_tab.style}"></div>
+        <div class="tab_content_elips image_size"></div>
     </div>
+    <!--<div class="block_img d-flex justify-content-center position-relative">-->
+        <!--<img :src="data_tab.path">-->
+        <!--<div class="image_div background_image position-absolute"></div>-->
+    <!--</div>-->
 </section>
 

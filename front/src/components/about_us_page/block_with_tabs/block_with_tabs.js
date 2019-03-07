@@ -96,6 +96,7 @@ export default {
     computed: {},
     mounted() {
         this.tab.active_tab = this.list_tabs[0];
+        this.first_width(this.list_tabs[0].name + 0)
     },
     methods: {
         open_tab(tab, new_data){
@@ -111,6 +112,12 @@ export default {
             this.tab.margin = tab == 0 || tab == this.list_tabs.length -1 ? 0 :
                 (block_text_width - text_width) / 2;
             this.tab.active_tab = new_data;
+        },
+        first_width(name){
+            this.tab.width_tab = this.$refs[name] ? this.$refs[name][0].offsetWidth : this.tab.width_tab
         }
+    },
+    watch:{
+
     }
 }

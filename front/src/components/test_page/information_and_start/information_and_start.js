@@ -34,17 +34,7 @@ export default {
                 '<div>It’s up to you to be as accurate as possible in your answers to the statements.</div><br>' +
                 '\n' +
                 '<div>Before every questionnaire there is a  <strong>brief explanation</strong>' +
-                '<div style="width: 44px; ' +
-                'height: 44px; ' +
-                'border-radius: 50%; ' +
-                'border:2px solid #F9892E;' +
-                'display: inline-flex;' +
-                'justify-content: center;' +
-                'align-items: center;' +
-                'color: #F9892E;' +
-                'margin:0 11px;' +
-                'margin-top:-15px;' +
-                'font-size: 28px">i</div>of it purpose and what action' +
+                '<div class="info">i</div>of it purpose and what action' +
                 ' is required from you.</div><br>' +
                 '\n' +
                 '<div>It’s important to read the given statements carefully' +

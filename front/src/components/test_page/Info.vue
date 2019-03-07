@@ -1,0 +1,104 @@
+<template>
+    <div class="info position-absolute"
+         @mouseover="hover_pab('open')"
+         @mouseleave="hover_pab('close')">
+        <div class="position-relative">
+            i
+        </div>
+        <div class="information_content position-absolute" v-if="title_data_step_active">
+            <div class="position-relative">
+                <div class="ellipse position-absolute" :style="{background : '#77DCC1'}"></div>
+                <div v-if="title_data_step.state">
+                    <span style="font-weight: 600">Click “like”</span>
+                    - {{title_data_step.state.like}}
+                </div>
+            </div><br>
+
+            <div class="position-relative">
+                <div class="ellipse position-absolute" :style="{background : '#FDC572'}"></div>
+                <div  v-if="title_data_step.state">
+                    <span style="font-weight: 600">Click “neither like nor dislike”</span>
+                    - {{title_data_step.state.middle}}
+                </div>
+            </div><br>
+
+            <div class="position-relative">
+                <div class="ellipse position-absolute" :style="{background : '#F59A9A'}"></div>
+                <div  v-if="title_data_step.state">
+                    <span style="font-weight: 600">Click “dislike”</span>
+                    - {{title_data_step.state.dislike}}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    import Step_modal from './../../const/const_step_modal'
+    export default {
+       props:['data', 'active'],
+        data(){
+           return{
+               title_data_step: {},
+               title_data_step_active:false
+           }
+        },
+        methods:{
+            count_step_data(array, flag = null){
+                let data = null;
+                Object.keys(array).forEach( item => {
+                    let arr = item.split('-');
+                    if(flag) {
+                        arr[1] == this.active ? data = item : null;
+                    } else {
+                        arr[1] == this.active || arr[2] == this.active ? data = item : null;
+                    }
+                });
+                return data;
+            },
+            hover_pab(state){
+                let step = this.count_step_data(Step_modal);
+                this.title_data_step = state == 'open' ? Step_modal[step] : {};
+                this.title_data_step_active = state == 'open';
+            }
+        }
+    }
+</script>
+
+<style scoped>
+    .info{
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border:2px solid #F9892E;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        color: #F9892E;
+        margin:0 11px;
+        margin-top:-15px;
+        font-size: 28px;
+        right: -86px;
+        top: 25px;
+    }
+    .information_content{
+        width: 580px;
+        padding: 11px 20px 11px 48px;
+        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+        top:-146px;
+        background: #FFFFFF;
+        border-radius: 12px;
+        line-height: 18px;
+        font-size: 11px;
+        color: black;
+        font-weight: 400;
+        z-index: 11;
+    }
+    .ellipse{
+        width: 12px;
+        height: 12px;
+        left: -24px;
+        border-radius: 50%;
+        top: 2px;
+    }
+</style>

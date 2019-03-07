@@ -11,6 +11,10 @@ const state = {
     test_modal : {
         active:false,
         data:false
+    },
+    screen: {
+        value: 1600,
+        active: false
     }
 };
 
@@ -20,6 +24,9 @@ const getters = {
     },
     get_test_modal (state) {
         return state.test_modal
+    },
+    get_screen (state) {
+        return state.screen
     }
 };
 
@@ -36,7 +43,11 @@ const actions = {
                 data:data.modal_data
             },
         });
+    },
+    action_screen({commit}, data) {
+        commit('mutation_screen', data)
     }
+
 };
 
 
@@ -47,6 +58,9 @@ const actions = {
 const mutations = {
     mutation_modal (state, value) {
         state[value.modal_name] = value.modal;
+    },
+    mutation_screen(state, value){
+        state.screen = value
     }
 };
 

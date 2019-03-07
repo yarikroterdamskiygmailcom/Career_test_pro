@@ -7,7 +7,9 @@
     background: #F4F8FF;
     transition: 2s all;
 }
-
+.title_block{
+    font-size: 28px;
+}
 .process_scroll{
     width: 98px;
     height: 2px;
@@ -44,7 +46,9 @@
     width: 562px;
     height: 562px;
 }
-
+.name{
+    font-size: 16px;
+}
 @media screen and (max-width:1200px){
     .item_tabs{
         font-size: 14px;
@@ -55,14 +59,25 @@
     .container_margin {
         width: 100%;
     }
-
+    .process_track, .tabs{
+        width: 331px;
+    }
+    .tabs{
+        margin-bottom: 50px;
+    }
+    .name{
+        font-size: 14px;
+    }
+    .title_block{
+        font-size: 20px;
+    }
 }
 
-@media screen and (max-width:900px){
-
-}
 
 @media screen and (max-width:767px){
+    .tabs_container{
+        margin-top: 50px;
+    }
     .item_tabs{
         font-size: 12px;
     }
@@ -70,7 +85,19 @@
         font-size: 20px;
     }
     .block-with-tabs {
-        padding-top: 60px;
+        padding-top: 50px;
+    }
+    .tabs{
+        margin-bottom: 30px;
+    }
+    .process_track, .tabs{
+        width: 247px;
+    }
+    .name{
+        font-size: 12px;
+    }
+    .title_block{
+        font-size: 14px;
     }
 }
 

@@ -1,108 +1,155 @@
 
 <!--<script type="text/x-template" id="checkbox-template">-->
 
-<section class="steps d-flex justify-content-center flex-column align-items-center media_container">
-    <div class="title_block custom_title">
-        step {{step}} - <span style="color:#F9892E">{{step_name}}</span>
-    </div>
-    <div class="small custom_small">
-        Questions {{step_amount}}
-    </div>
-    <div class="item_question nav_step borders d-flex justify-content-between position-relative">
-        <router-link v-for="item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-             :key="item + 'rout'"
-             class="stepped d-flex justify-content-center"
-             :to="`/tests/${item}/1`">{{item}}</router-link>
-        <div v-for="item in  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" :key="item + 'for'" :class="`s${item}`"
-             v-if="item == step"
-             class="position-absolute item_question nav_step borders orange_style"></div>
-        <div class="info position-absolute"
-             @mouseover="hover_pab('open')"
-             @mouseleave="hover_pab('close')">
-            <div class="position-relative">
-                i
-            </div>
-            <div class="information_content position-absolute" v-if="title_data_step_active">
-                <div class="position-relative">
-                    <div class="ellipse position-absolute" :style="{background : '#77DCC1'}"></div>
-                    <div v-if="title_data_step.state">
-                        <span style="font-weight: 600">Click “like”</span>
-                        - {{title_data_step.state.like}}
-                    </div>
-                </div><br>
-
-                <div class="position-relative">
-                    <div class="ellipse position-absolute" :style="{background : '#FDC572'}"></div>
-                    <div  v-if="title_data_step.state">
-                        <span style="font-weight: 600">Click “neither like nor dislike”</span>
-                        - {{title_data_step.state.middle}}
-                    </div>
-                </div><br>
-
-                <div class="position-relative">
-                    <div class="ellipse position-absolute" :style="{background : '#F59A9A'}"></div>
-                    <div  v-if="title_data_step.state">
-                        <span style="font-weight: 600">Click “dislike”</span>
-                        - {{title_data_step.state.dislike}}
-                    </div>
-                </div>
-            </div>
+<div>
+    <section v-if="!screen.active" class="steps d-flex justify-content-center flex-column align-items-center media_container">
+        <div class="title_block custom_title">
+            step {{step}} - <span style="color:#F9892E">{{step_name}}</span>
         </div>
-    </div>
-    <div class="small custom_small">
-        {{~~process}} % -
-        <span v-if="process == 0">Completed Yet - Good Luck!</span>
-        <span v-if="process > 0 && process < 10">Wow, you’re doing great! Keep moving!</span>
-        <span v-if="process >= 10 && process < 100">Super! You’re on one step closer</span>
-        <span v-if="process == 100">Congratulations!</span>
-    </div>
-    <div class="step_content d-flex flex-column">
-        <div class="step_content d-flex justify-content-end" style="margin-bottom: 30px">
-            <div class="select_questions d-flex justify-content-between">
-                <div class="borders d-flex align-items-center justify-content-center position-relative" style="border: none">
-                    <div class="ellipse position-relative"
-                         :style="{background : '#77DCC1', width: '24px', height: '24px', left: 0}"></div>
-                    <div class="info_ellipse position-absolute">Like</div>
-                </div>
-                <div class="borders d-flex align-items-center justify-content-center position-relative" style="border: none">
-                    <div class="ellipse position-relative"
-                         :style="{background : '#FDC572', width: '24px', height: '24px', left: 0}"></div>
-                    <div class="info_ellipse position-absolute">Middle</div>
-                </div>
-                <div class="borders d-flex align-items-center justify-content-center position-relative" style="border: none">
-                    <div class="ellipse position-relative"
-                         :style="{background : '#F59A9A', width: '24px', height: '24px', left: 0}"></div>
-                    <div class="info_ellipse position-absolute">Dislike</div>
-                </div>
-            </div>
+        <div class="small custom_small">
+            Questions {{step_amount}}
         </div>
-        <div class="questions">
-            <div class="item_question d-flex justify-content-between" v-for="(item, index) in data_step">
-                <div ref="234234" class="number_questions borders d-flex align-items-center justify-content-center">
-                    <span v-if="step_child == 1">{{index + Number(step_amount.split('-')[0]) * step_child}}</span>
-                    <span v-if="step_child == 2">{{index + Number(step_amount.split('-')[0]) + 10}}</span>
-                    <span v-if="step_child == 3">{{index + Number(step_amount.split('-')[0]) + 20}}</span>
-                </div>
-                <div class="content_question borders d-flex align-items-center">
-                    {{item.questions_description.question}}
-                </div>
+        <div class="item_question nav_step borders d-flex justify-content-between position-relative">
+            <router-link v-for="item in step_menu.number"
+                         :key="item + 'rout'"
+                         class="stepped d-flex justify-content-center"
+                         :to="`/tests/${item}/1`">{{item}}</router-link>
+            <div v-for="item in  step_menu.padding" :key="item + 'for'" :class="`s${item}`"
+                 v-if="item == step"
+                 class="position-absolute item_question nav_step borders orange_style"></div>
+            <info class="info position-absolute" :active="step"></info>
+        </div>
+        <div class="small custom_small">
+            {{~~process}} % -
+            <span v-if="process == 0">Completed Yet - Good Luck!</span>
+            <span v-if="process > 0 && process < 10">Wow, you’re doing great! Keep moving!</span>
+            <span v-if="process >= 10 && process < 100">Super! You’re on one step closer</span>
+            <span v-if="process == 100">Congratulations!</span>
+        </div>
+        <div class="step_content d-flex flex-column">
+            <div class="step_content d-flex justify-content-end" style="margin-bottom: 30px">
                 <div class="select_questions d-flex justify-content-between">
-                    <div class="borders"
-                         :class="{active: item.state == 2}" @click="select_item(index, 2)"></div>
-                    <div class="borders"
-                         :class="{active: item.state == 1}" @click="select_item(index, 1)"></div>
-                    <div class="borders"
-                         :class="{active: item.state == 0}" @click="select_item(index, 0)"></div>
+                    <div class="borders d-flex align-items-center justify-content-center position-relative" style="border: none">
+                        <div class="ellipse position-relative"
+                             :style="{background : '#77DCC1', width: '24px', height: '24px', left: 0}"></div>
+                        <div class="info_ellipse position-absolute">Like</div>
+                    </div>
+                    <div class="borders d-flex align-items-center justify-content-center position-relative" style="border: none">
+                        <div class="ellipse position-relative"
+                             :style="{background : '#FDC572', width: '24px', height: '24px', left: 0}"></div>
+                        <div class="info_ellipse position-absolute">Middle</div>
+                    </div>
+                    <div class="borders d-flex align-items-center justify-content-center position-relative" style="border: none">
+                        <div class="ellipse position-relative"
+                             :style="{background : '#F59A9A', width: '24px', height: '24px', left: 0}"></div>
+                        <div class="info_ellipse position-absolute">Dislike</div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="d-flex justify-content-between" ref="back" style=" margin-top: 30px; margin-bottom: 254px">
-            <router-link :to="back()"  class="button_to custom_button
+            <div class="questions">
+                <div class="item_question d-flex justify-content-between" v-for="(item, index) in data_step">
+                    <div ref="234234" class="number_questions borders d-flex align-items-center justify-content-center">
+                        <span v-if="step_child == 1">{{index + Number(step_amount.split('-')[0]) * step_child}}</span>
+                        <span v-if="step_child == 2">{{index + Number(step_amount.split('-')[0]) + 10}}</span>
+                        <span v-if="step_child == 3">{{index + Number(step_amount.split('-')[0]) + 20}}</span>
+                    </div>
+                    <div class="content_question borders d-flex align-items-center">
+                        {{item.questions_description.question}}
+                    </div>
+                    <div class="select_questions d-flex justify-content-between">
+                        <div class="borders"
+                             :class="{active: item.state == 2}" @click="select_item(index, 2)"></div>
+                        <div class="borders"
+                             :class="{active: item.state == 1}" @click="select_item(index, 1)"></div>
+                        <div class="borders"
+                             :class="{active: item.state == 0}" @click="select_item(index, 0)"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between" ref="back" style=" margin-top: 30px; margin-bottom: 254px">
+                <router-link :to="back()"  class="button_to custom_button
              d-flex justify-content-center align-items-center"
-                         v-disabled_button="{step:step, child: step_child}">Back</router-link>
-            <router-link :to="next()" class="button_to custom_button
-            d-flex justify-content-center align-items-center">Next</router-link>
+                             v-disabled_button_back="{step:step, child: step_child}">Back</router-link>
+                <router-link :to="next()" class="button_to custom_button
+            d-flex justify-content-center align-items-center"
+                             v-disabled_button_next="data_step">Next</router-link>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+    <section v-if="screen.active" class="steps d-flex justify-content-center flex-column align-items-center media_container">
+        <div class="title_block custom_title">
+            step {{step}} - <span style="color:#F9892E">{{step_name}}</span>
+        </div>
+        <div class="small custom_small">
+            Questions {{step_amount}}
+        </div>
+        <div class="item_question nav_step borders d-flex justify-content-between position-relative">
+            <router-link v-for="item in step_menu.number"
+                         :key="item + 'rout'"
+                         class="stepped d-flex justify-content-center"
+                         :to="`/tests/${item}/1`">{{item}}</router-link>
+            <div v-for="item in  step_menu.padding" :key="item + 'for'" :class="`s${item}`"
+                 v-if="item == step"
+                 class="position-absolute item_question nav_step borders orange_style"></div>
+            <info class="info position-absolute" :active="step"></info>
+        </div>
+        <div class="small custom_small">
+            {{~~process}} % -
+            <span v-if="process == 0">Completed Yet - Good Luck!</span>
+            <span v-if="process > 0 && process < 10">Wow, you’re doing great! Keep moving!</span>
+            <span v-if="process >= 10 && process < 100">Super! You’re on one step closer</span>
+            <span v-if="process == 100">Congratulations!</span>
+        </div>
+        <div class="step_content d-flex flex-column">
+            <div class="step_content d-flex justify-content-end" style="margin-bottom: 30px">
+                <div class="select_questions d-flex justify-content-between">
+                    <div class="borders d-flex align-items-center justify-content-center position-relative" style="border: none">
+                        <div class="ellipse position-relative"
+                             :style="{background : '#77DCC1', width: '24px', height: '24px', left: 0}"></div>
+                        <div class="info_ellipse position-absolute">Like</div>
+                    </div>
+                    <div class="borders d-flex align-items-center justify-content-center position-relative" style="border: none">
+                        <div class="ellipse position-relative"
+                             :style="{background : '#FDC572', width: '24px', height: '24px', left: 0}"></div>
+                        <div class="info_ellipse position-absolute">Middle</div>
+                    </div>
+                    <div class="borders d-flex align-items-center justify-content-center position-relative" style="border: none">
+                        <div class="ellipse position-relative"
+                             :style="{background : '#F59A9A', width: '24px', height: '24px', left: 0}"></div>
+                        <div class="info_ellipse position-absolute">Dislike</div>
+                    </div>
+                </div>
+            </div>
+            <div class="questions">
+                <div class="item_question d-flex justify-content-between" v-for="(item, index) in data_step">
+                    <div ref="234234" class="number_questions borders d-flex align-items-center justify-content-center">
+                        <span v-if="step_child == 1">{{index + Number(step_amount.split('-')[0]) * step_child}}</span>
+                        <span v-if="step_child == 2">{{index + Number(step_amount.split('-')[0]) + 10}}</span>
+                        <span v-if="step_child == 3">{{index + Number(step_amount.split('-')[0]) + 20}}</span>
+                    </div>
+                    <div class="content_question borders d-flex align-items-center">
+                        {{item.questions_description.question}}
+                    </div>
+                    <div class="select_questions d-flex justify-content-between">
+                        <div class="borders"
+                             :class="{active: item.state == 2}" @click="select_item(index, 2)"></div>
+                        <div class="borders"
+                             :class="{active: item.state == 1}" @click="select_item(index, 1)"></div>
+                        <div class="borders"
+                             :class="{active: item.state == 0}" @click="select_item(index, 0)"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between" ref="back" style=" margin-top: 30px; margin-bottom: 254px">
+                <router-link :to="back()"  class="button_to custom_button
+             d-flex justify-content-center align-items-center"
+                             v-disabled_button_back="{step:step, child: step_child}">Back</router-link>
+                <router-link :to="next()" class="button_to custom_button
+            d-flex justify-content-center align-items-center"
+                             v-disabled_button_next="{array: data_step,step: step,step_child:step_child}">Next</router-link>
+            </div>
+        </div>
+    </section>
+</div>
+
 

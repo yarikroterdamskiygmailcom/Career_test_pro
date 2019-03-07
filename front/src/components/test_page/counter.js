@@ -13,6 +13,7 @@ step_array.total = {};
 const count_step = 11;
 const count_in_one_step = 3;
 
+let disabled_button = [];
 export default  {
     count_process(method){
         let process = 0;
@@ -21,6 +22,17 @@ export default  {
         };
         this.cicle(callback_foreach, count_step, 3);
         return process / 3;
+    },
+    count_button_disabled_before_result(){
+        let callback_foreach = function(step, i, self){
+            disabled_button.push(self.count_disanled_callback(step));
+        };
+        this.cicle(callback_foreach, count_step, 3);
+        disabled_button = disabled_button.map(v => Number(v) + 1);
+        let result = disabled_button.every(item => item == 1);
+        disabled_button = [];
+        return !result;
+        // this.cicle(callback_foreach())
     },
     count_result(){
 
@@ -44,9 +56,11 @@ export default  {
 
         //проходим по цыклу с 10 степов (в кажом 3 подстепа) и добавляем  в массив кажждого степа с
         //соотвецтвующими буквами  все выбраные результаты вопросов
+
         this.cicle(callback_foreach, count_step, 3);
 
         //делаем пересчет массива и формируем сумму
+
         Object.keys(step_array).forEach(item => {
             let step_method = step_array[item];
             if(item != 'total'){
@@ -57,7 +71,7 @@ export default  {
                 })
             }
         });
-// debugger;
+
         Object.keys(step_array).forEach(item => {
             config.letters.forEach(letter => {
                 step_array.total[letter] += step_array[item][letter]
@@ -76,6 +90,19 @@ export default  {
     },
     push_to_array(method, letter, data){
         data && step_array[method][letter].push(data);
+    },
+    count_disanled_step(self){
+        return self.some(this.count_disanled_callback);
+    },
+    count_disanled_callback(item){
+        return !item.state
+            ?
+            item.state == 0 ? false : true
+            :
+            item.state.toString() ?
+                item.state.toString() == '0' ? false : false
+                :
+                true
     }
 }
 

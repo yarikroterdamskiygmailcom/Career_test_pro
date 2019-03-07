@@ -5,9 +5,10 @@
         </div>
         <div class="tabs">
             <div class="d-flex justify-content-between tabs_container">
-                <div class="item_tabs text_style" v-for="(item, index) in list_tabs"
+                <div class="item_tabs text_style"  v-for="(item, index) in list_tabs"
                      @click="open_tab(index, item)">
-                    <div class="d-inline color_about" v-html="item.name"></div>
+                    <div class="d-inline color_about"
+                         :ref="item.name + index" v-html="item.name"></div>
                 </div>
             </div>
             <div class="process_track">

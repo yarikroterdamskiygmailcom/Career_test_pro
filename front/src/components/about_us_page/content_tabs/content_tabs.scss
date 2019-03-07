@@ -38,6 +38,7 @@ ul.content_tab{
     margin-top: 43px;
 }
 ul.content_tab li{
+    font-size: 14px;
     margin-bottom: 30px;
 }
 
@@ -53,71 +54,76 @@ ul.content_tab li{
         width: 100%;
     }
     .image_size{
-        width: 100%;
+        width: 515px;
         height: 515px;
         background-size: contain;
     }
     .tab_content_image{
         background-repeat: no-repeat;
         top: 55px;
-        width: 100%;
+        width: 515px;
         height: 515px;
     }
-
+    .title_tab{
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
 }
 
-@media screen and (max-width:900px){
-    .footer_text{
-        font-size: 14px;
-        width: 537px;
-        margin-left: 46px;
+@media screen and (max-width:1023px){
+    .content-tabs{
+        flex-direction: column;
+        margin-bottom: 246px;
+        padding: 0 99px;
+        align-items: center;
     }
-    .footer_menu {
-        width: 400px;
+    .tab_content_image_container{
+        width: 555px;
+        height: 555px;
+    }
+    .image_size{
+        width: 555px;
+        height: 555px;
+        background-size: contain;
+    }
+    .tab_content_image{
+        background-repeat: no-repeat;
+        top: 55px;
+        width: 555px;
+        height: 555px;
+    }
+    .tab_content_information{
+        margin-bottom: 50px;
+        padding: 0;
     }
 }
 
 @media screen and (max-width:767px){
-    .container_margin {
-        display: block!important;
-        margin: 0;
-        height: auto;
+    .content-tabs{
+        padding: 0 30px;
     }
-    .footer_logo{
-        margin: 14px 30px
+    .tab_content_image_container{
+        width: 279px;
+        height: 279px;
     }
-    .footer_menu{
-        width: 100%;
-        border-top: 1px solid #D8E1F0;
-        display: flex;
-        height: auto;
-        align-items: center;
-        justify-content: center;
+    .image_size{
+        width: 279px;
+        height: 279px;
+        background-size: contain;
     }
-    .container_footer_menu{
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
+    .tab_content_image{
+        background-repeat: no-repeat;
+        top: 55px;
+        width: 279px;
+        height: 279px;
     }
-    .footer_badge_language{
-        display: none;
+    .title_tab{
+        font-size: 14px;
+        margin-bottom: 15px;
     }
-    .footer_badge_language_mobile{
-        display: block;
-    }
-    .footer_text{
-        width: 290px;
+    ul.content_tab li{
         font-size: 12px;
-        margin-left: 0;
-        text-align: center;
     }
-    .container_footer_menu li:hover{
-        border-top: 2px solid #F4F8FF;
-    }
-    .container_footer_menu li.active{
-        border-top: 2px solid #F4F8FF;
-    }
-
 }
 
 
