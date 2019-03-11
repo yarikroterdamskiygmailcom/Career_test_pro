@@ -1,62 +1,24 @@
 <section class="acordeon_item">
-    <!--<div>-->
-        <!--<div class="block_acordeon d-flex align-items-center justify-content-between" @click="open(position)">-->
-            <!--<div class="acordeon_title">-->
-                <!--{{item_acordeon.name}}-->
-            <!--</div>-->
-            <!--<div class="arrow_acordeon"-->
-                 <!--:style="{transform: item_acordeon.active ? 'rotate(180deg)' : 'rotate(0deg)'}">-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<hr class="middle_line" :style="{'opacity': item_acordeon.active ? 1: 0}">-->
-        <!--<div class="acordeon_content" :ref="`acordeon_content${position}`"-->
-             <!--:style="{'max-height': item_acordeon.active ? '1000px': 0}">-->
-            <!--<div v-if="item_acordeon.content" v-html="item_acordeon.content"></div>-->
-            <!--<ul v-if="item_acordeon.list.length != 0">-->
-                <!--<li v-for="item in item_acordeon.list">{{item}}</li>-->
-            <!--</ul>-->
-            <!--<div v-if="item_acordeon.content2" v-html="item_acordeon.content2"></div>-->
-        <!--</div>-->
-    <!--</div>-->
+
     <div>
-        <!--<div>-->
-            <!--<div class="block_acordeon d-flex align-items-center justify-content-between" @click="open(position)">-->
-                <!--<div class="acordeon_title">-->
-                    <!--{{item_acordeon.name}}-->
-                <!--</div>-->
-                <!--<div class="arrow_acordeon"-->
-                     <!--:style="{transform: item_acordeon.active ? 'rotate(180deg)' : 'rotate(0deg)'}">-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<hr class="middle_line" :style="{'opacity': item_acordeon.active ? 1: 0}">-->
-            <!--<div class="acordeon_content" :ref="`acordeon_content${position}`"-->
-                 <!--:style="{'max-height': item_acordeon.active ? '670px': 0}">-->
-                <!--<div v-if="item_acordeon.content" v-html="item_acordeon.content"></div>-->
-                <!--<ul v-if="item_acordeon.list.length != 0">-->
-                    <!--<li v-for="item in item_acordeon.list">{{item}}</li>-->
-                <!--</ul>-->
-                <!--<div v-if="item_acordeon.content2" v-html="item_acordeon.content2"></div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <div>
-            <div class="block_acordeon d-flex align-items-center justify-content-between" @click="open(position)">
-                <div class="acordeon_title">
-                    {{item_acordeon.name}}
-                </div>
-                <div class="arrow_acordeon"
-                     :style="{transform: item_acordeon.active ? 'rotate(180deg)' : 'rotate(0deg)'}">
-                </div>
+        <div class="block_acordeon d-flex align-items-center justify-content-between" @click="open(position)">
+            <div class="acordeon_title">
+                {{item_acordeon.name}}
             </div>
-            <hr class="middle_line" :style="{'opacity': item_acordeon.active ? 1: 0}">
-            <div class="acordeon_content" :ref="`acordeon_content${position}`"
-                 :style="{'max-height': item_acordeon.active ? '758px': 0}">
-                <div v-if="item_acordeon.content" v-html="item_acordeon.content"></div>
-                <ul v-if="item_acordeon.list.length != 0">
-                    <li v-for="item in item_acordeon.list">{{item}}</li>
-                </ul>
-                <div v-if="item_acordeon.content2" v-html="item_acordeon.content2"></div>
+            <div class="arrow_acordeon"
+                 :style="{transform: item_acordeon.active ? 'rotate(180deg)' : 'rotate(0deg)'}">
             </div>
         </div>
+        <hr class="middle_line" :style="{'opacity': item_acordeon.active ? 1: 0}">
+        <div class="acordeon_content" :ref="`acordeon_content${position}`"
+             :style="{'max-height': item_acordeon.active ? '770px': 0}">
+            <div v-if="item_acordeon.content" v-html="item_acordeon.content"></div>
+            <ul v-if="item_acordeon.list.length != 0">
+                <li v-for="item in item_acordeon.list">{{item}}</li>
+            </ul>
+            <div v-if="item_acordeon.content2" v-html="item_acordeon.content2"></div>
+        </div>
     </div>
+
 </section>
 

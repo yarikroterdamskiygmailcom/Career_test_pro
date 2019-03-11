@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueScrollTo  from 'vue-scrollto';
+import {mapGetters} from "vuex";
 
 Vue.use(VueScrollTo);
 
@@ -15,4 +16,9 @@ export default {
                 "<a class=\"button_to text_style orange_style\"> Take the Test </a> </div>"
         }
     },
+    computed:{
+        ...mapGetters({
+            screen: 'modal_data/get_screen'
+        })
+    }
 }

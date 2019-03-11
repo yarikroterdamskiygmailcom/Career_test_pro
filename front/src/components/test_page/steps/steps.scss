@@ -10,9 +10,7 @@
     line-height: normal;
     font-size: 16px;
 }
-.item_question{
-    margin-bottom: 30px;
-}
+
 .borders{
     border: 1px solid #DFDFDF;
     box-sizing: border-box;
@@ -27,6 +25,7 @@
 .content_question{
     width: 558px;
     padding: 10px 30px;
+    font-size: 14px;
 }
 .select_questions{
     width: 192px;
@@ -42,6 +41,9 @@
     background-position: center;
 
 }
+.item_question{
+    margin-bottom: 30px;
+}
 .custom_small{
     font-weight: 500;
     line-height: normal;
@@ -51,53 +53,7 @@
 .custom_title{
     margin-bottom: 20px;
 }
-.nav_step{
-    width: 890px;
-    margin-bottom: 25px;
-    //padding: 18px 36px;
-    font-weight: 600;
-    line-height: normal;
-    font-size: 20px;
-    //box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
-}
-.stepped{
-    z-index: 10;
-    padding: 18px 0;
-    width: 89px;
-    border-radius: 30px;
 
-}
-
-.s1{
-    width: 88.6px;
-}
-.s2{
-    width: 177.2px;
-}
-.s3{
-    width: 265.5px;
-}
-.s4{
-    width: 354.4px;
-}
-.s5{
-    width: 443px;
-}
-.s6{
-    width: 531.6px;
-}
-.s7{
-    width: 620.2px;
-}
-.s8{
-    width: 708.8px;
-}
-.s9{
-    width: 800px;
-}
-.s10{
-    width: 890px;
-}
 .orange_style{
     left: 0;
     top: -1px;
@@ -131,4 +87,73 @@ a{
     top: 2px;
 }
 
+@media screen and (max-width: 1024px){
+    .step_content{
+        width: 100%;
+    }
+    .step_content:last-child{
+        padding: 0 47px;
+    }
+    .title_block{
+        font-size: 20px;
+    }
 
+}
+@media screen and (max-width: 1023px){
+    .step_content:last-child {
+        padding: 0 99px;
+    }
+    .step_content:last-child .item_question{
+        flex-wrap: wrap;
+    }
+    .content_question{
+        width: 82%;
+    }
+    .select_questions{
+        margin-top: 15px;
+        margin-left: auto;
+    }
+    .title_block{
+        font-size: 16px;
+    }
+    .custom_small{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 767px){
+    .step_content:last-child {
+        padding: 0 30px;
+    }
+    .title_block{
+        font-size: 14px;
+        line-height: 25px;
+        text-align: center;
+    }
+    .steps{
+        margin-top: 70px;
+    }
+    .select_questions{
+        width: 170px;
+    }
+}
+
+@media screen and (max-width: 640px){
+    .step_content:last-child {
+        padding: 0 15px;
+    }
+    .select_questions{
+        margin-top: 0;
+    }
+    .content_question{
+        order: 1;
+        margin-top: 15px;
+        width: 100%;
+        font-size: 12px;
+    }
+    .custom_button{
+        width: 130px;
+    }
+    .custom_small{
+        font-size: 12px;
+    }
+}

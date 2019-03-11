@@ -1,3 +1,5 @@
+import {mapGetters} from "vuex";
+
 export default {
     name: 'how-does-it-work',
     data() {
@@ -22,4 +24,9 @@ export default {
             ]
         }
     },
+    computed:{
+        ...mapGetters({
+            screen: 'modal_data/get_screen'
+        })
+    }
 }

@@ -8,7 +8,7 @@ export default {
     },
     methods:{
         language(item){
-            console.log(item)
+            console.log(item);
         }
     },
     computed:
@@ -16,6 +16,7 @@ export default {
             language_now:    'multilanguage/get_language_now',
             menu_list:       'multilanguage/get_menu_list',
             language_array:  'multilanguage/get_language_array',
+            screen:          'modal_data/get_screen'
         }),
     watch:{
         menu:function(){

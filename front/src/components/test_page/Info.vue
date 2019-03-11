@@ -85,11 +85,12 @@
         width: 580px;
         padding: 11px 20px 11px 48px;
         box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
-        top:-146px;
+        bottom: 52px;
         background: #FFFFFF;
         border-radius: 12px;
         line-height: 18px;
         font-size: 11px;
+        right: 0;
         color: black;
         font-weight: 400;
         z-index: 11;
@@ -101,4 +102,19 @@
         border-radius: 50%;
         top: 2px;
     }
+    @media screen and (max-width: 639px){
+        .info{
+            position: relative!important;
+            margin-top:0;
+            left: 0;
+            top: auto;
+        }
+        .information_content{
+            width: calc(100vw - 20px);
+            left: -18px;
+            top: auto;
+            bottom: 52px;
+        }
+    }
+
 </style>

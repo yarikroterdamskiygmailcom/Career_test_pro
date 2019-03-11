@@ -5,6 +5,7 @@ import counter from "../counter";
 import step_name from "../../../const/step_name";
 import { mapGetters } from "vuex";
 import Info from "../Info";
+import Menu from "../Menu";
 
 export default {
     props: [],
@@ -27,7 +28,8 @@ export default {
         }
     },
     components:{
-        info:  Info
+        info:  Info,
+        menu_component:  Menu,
     },
     computed:{
         step_name: function(){
@@ -104,7 +106,7 @@ export default {
             let step = this.count_step_data(Step_modal, 'modal');
             this.data_step = QuestionStore.getStep(`${this.step}-${this.step_child}`);
             this.title_data_step = Step_modal[step];
-            if(step){
+            if(step && this.step_child == 1){
                this.timeout =  setTimeout(() => {
                     this.$store.dispatch('modal_data/action_active_modal', {
                         name: 'test_modal',

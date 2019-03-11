@@ -1,5 +1,5 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: './src/main.js',
@@ -74,7 +74,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     },
-    extensions: ['*', '.js', '.vue', '.json']
+    extensions: ['*', '.js','.css', '.vue', '.json']
   },
   devServer: {
     historyApiFallback: true,

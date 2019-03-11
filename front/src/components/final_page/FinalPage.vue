@@ -1,43 +1,43 @@
 <template>
     <div>
-        <!--<div class="final d-flex flex-column align-items-center">-->
-            <!--<div class="title_block custom_title">-->
-                <!--Check Your <span style="color:#F9892E">Email</span>-->
-            <!--</div>-->
-            <!--<div class="small_text custom_small_title">-->
-                <!--We’ve sent a report on it-->
-            <!--</div>-->
-            <!--<div class="check_block d-flex justify-content-between">-->
-                <!--<div class="check_block_img position-relative">-->
-                    <!--<div class="check_ellipse"></div>-->
-                    <!--<div class="check_image position-absolute"></div>-->
-                <!--</div>-->
-                <!--<div class="check_content d-flex align-items-center flex-column">-->
-                    <!--<div class="title_block title_check text-center">-->
-                        <!--Thanks for using our service!-->
-                    <!--</div>-->
-                    <!--<div class="title_small">-->
-                        <!--You will receive an email soon, regarding your payment.<br><br>-->
+        <div v-if="!screen.active" class="final d-flex flex-column align-items-center">
+            <div class="title_block custom_title">
+                Check Your <span style="color:#F9892E">Email</span>
+            </div>
+            <div class="small_text custom_small_title">
+                We’ve sent a report on it
+            </div>
+            <div class="check_block d-flex justify-content-between">
+                <div class="check_block_img position-relative">
+                    <div class="check_ellipse"></div>
+                    <div class="check_image position-absolute"></div>
+                </div>
+                <div class="check_content d-flex align-items-center flex-column">
+                    <div class="title_block title_check text-center">
+                        Thanks for using our service!
+                    </div>
+                    <div class="title_small">
+                        You will receive an email soon, regarding your payment.<br><br>
 
-                        <!--If you have any questions - don’t hesitate to ask our team.-->
-                    <!--</div>-->
-                    <!--<div class="d-flex check_button-->
-                 <!--justify-content-between flex-grow-1 align-items-end">-->
-                        <!--<router-link :to="'contact-us'" class="button_to d-flex justify-content-center-->
-                    <!--align-items-center text-decoration-none-->
-                    <!--custom_button orange_style">-->
-                            <!--Contact Us-->
-                        <!--</router-link>-->
-                        <!--<router-link :to="'tests'" class="button_to d-flex justify-content-center-->
-                    <!--align-items-center text-decoration-none-->
-                    <!--custom_button">-->
-                            <!--Take the Test-->
-                        <!--</router-link>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <div class="final d-flex flex-column align-items-center">
+                        If you have any questions - don’t hesitate to ask our team.
+                    </div>
+                    <div class="d-flex check_button
+                 justify-content-between flex-grow-1 align-items-end">
+                        <router-link :to="'contact-us'" class="button_to d-flex justify-content-center
+                    align-items-center text-decoration-none
+                    custom_button orange_style">
+                            Contact Us
+                        </router-link>
+                        <router-link :to="'tests'" class="button_to d-flex justify-content-center
+                    align-items-center text-decoration-none
+                    custom_button">
+                            Take the Test
+                        </router-link>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div v-if="screen.active" class="final d-flex flex-column align-items-center">
             <div class="title_block custom_title">
                 Check Your <span style="color:#F9892E">Email</span>
             </div>
@@ -81,8 +81,15 @@
 </template>
 
 <script>
+    import {mapGetters} from "vuex";
+
     export default {
-        name: "FinalPage"
+        name: "FinalPage",
+        compoted: {
+            ...mapGetters({
+                screen: 'modal_data/get_screen'
+            })
+        }
     }
 </script>
 

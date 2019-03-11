@@ -1,41 +1,41 @@
 <div>
-    <!--<section class="all-aptitude-test d-flex justify-content-center align-items-center">-->
-        <!--<div class="elem_elipse custom_elem"></div>-->
-        <!--<div class="elem_elipse elem_elipse1 custom_elem"></div>-->
-        <!--<div class="all-aptitude-test_container d-flex justify-content-between">-->
-            <!--<div class="d-flex flex-column align-items-center justify-content-center">-->
-                <!--<div class="title_block_benefits text-uppercase">-->
-                    <!--<span style="color:#F9892E">All Aptitude Test Package</span>-->
-                <!--</div>-->
-                <!--<div class="small_text" style="margin-bottom: 30px">-->
-                    <!--Get more now, for less!-->
-                <!--</div>-->
-                <!--<router-link :to="'tests'" class="button_to d-flex justify-content-center-->
-                    <!--align-items-center text-decoration-none-->
-                    <!--custom_button">-->
-                    <!--Take the Test-->
-                <!--</router-link>-->
-            <!--</div>-->
-            <!--<div class="block_best_value d-flex justify-content-between">-->
-                <!--<div class="all-aptitude-list">-->
-                    <!--<ul class="small_text">-->
-                        <!--<li v-for="item in test_list">{{item}}</li>-->
-                    <!--</ul>-->
-                <!--</div>-->
-                <!--<div class="best_value text-center">-->
-                    <!--<div class="d-flex justify-content-between align-items-center">-->
-                        <!--<div class="m-2" style="font-weight: 600;">$</div>-->
-                        <!--<div class="m-2">39.95</div>-->
-                    <!--</div>-->
-                    <!--<div class="small_text best_value_text text-center">-->
-                        <!--Best Value-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</section>-->
+    <section v-if="!screen.active" class="all-aptitude-test d-flex justify-content-center align-items-center">
+        <div class="elem_elipse custom_elem"></div>
+        <div class="elem_elipse elem_elipse1 custom_elem"></div>
+        <div class="all-aptitude-test_container d-flex justify-content-between">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <div class="title_block_benefits text-uppercase">
+                    <span style="color:#F9892E">All Aptitude Test Package</span>
+                </div>
+                <div class="small_text" style="margin-bottom: 30px">
+                    Get more now, for less!
+                </div>
+                <router-link :to="'tests'" class="button_to d-flex justify-content-center
+                    align-items-center text-decoration-none
+                    custom_button">
+                    Take the Test
+                </router-link>
+            </div>
+            <div class="block_best_value d-flex justify-content-between">
+                <div class="all-aptitude-list">
+                    <ul class="small_text">
+                        <li v-for="item in test_list">{{item}}</li>
+                    </ul>
+                </div>
+                <div class="best_value text-center">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="m-2" style="font-weight: 600;">$</div>
+                        <div class="m-2">39.95</div>
+                    </div>
+                    <div class="small_text best_value_text text-center">
+                        Best Value
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="all-aptitude-test d-flex justify-content-center align-items-center">
+    <section v-if="screen.active" class="all-aptitude-test d-flex justify-content-center align-items-center">
         <div class="elem_elipse custom_elem"></div>
         <div class="elem_elipse elem_elipse1 custom_elem"></div>
         <div class="all-aptitude-test_container d-flex justify-content-between">

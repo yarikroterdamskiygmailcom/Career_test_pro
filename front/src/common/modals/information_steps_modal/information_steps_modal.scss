@@ -54,6 +54,7 @@
     font-weight: 600;
     line-height: 27px;
     font-size: 16px;
+    margin-bottom: 50px;
 }
 .content{
     margin-top: 50px;
@@ -78,4 +79,64 @@
     margin:0 11px;
     margin-top:-10px;
     font-size: 28px
+}
+.custom_small{
+    font-size: 16px;
+}
+.content{
+    font-size: 14px;
+}
+@media screen and (max-width: 1200px){
+    .content_modal{
+        width: 100%;
+        height: auto;
+        margin: 0 47px;
+        padding: 89px 50px;
+        padding-right: 50px;
+    }
+    .content{
+         margin-left: 30px;
+    }
+
+}
+@media screen and (max-width: 900px){
+    .content_modal{
+        margin: 0 39px;
+        padding: 89px 30px;
+    }
+    .content{
+        margin-left: 30px;
+        font-size: 12px;
+    }
+    .custom_small{
+         font-size: 14px;
+     }
+}
+
+@media screen and (max-width: 630px){
+    .simvol{
+        margin-top: 7px;
+    }
+}
+@media screen and (max-width: 567px){
+    .content_modal{
+        margin: 0 15px;
+        padding: 30px 20px;
+        padding-top: 90px;
+    }
+    .custom_small{
+        margin-bottom: 40px;
+    }
+    .custom_button{
+        width: 100%;
+    }
+    .content{
+        margin: 0;
+    }
+    .ellipse_margin{
+        margin-left: 30px;
+    }
+    .button{
+        width: 100%;
+    }
 }

@@ -1,6 +1,6 @@
 <template>
     <div id="app" class="text_style">
-        <!--<div v-if="active_status">-->
+        <div v-if="active_status">
             <header-component></header-component>
             <div class="router">
                 <router-view></router-view>
@@ -8,10 +8,10 @@
             <footer-component></footer-component>
             <Confirm_modal v-if="confirm_modal.active" :data="confirm_modal"></Confirm_modal>
             <information_steps_modal v-if="test_modal.active" :data="test_modal"></information_steps_modal>
-        <!--</div>-->
-        <!--<div class="spinner d-flex justify-content-center align-items-center" v-if="!active_status">-->
-            <!--<div></div>-->
-        <!--</div>-->
+        </div>
+        <div class="spinner d-flex justify-content-center align-items-center" v-if="!active_status">
+            <div></div>
+        </div>
     </div>
 </template>
 
@@ -22,7 +22,8 @@
     import Information_steps_modal from './common/modals/information_steps_modal/index.vue'
     import { mapGetters } from "vuex";
     import list_language from "./api/multilanguage_request";
-
+    // import url('main.css') => require('main.css')
+    import "./main.css";
     export default {
         name: 'app',
         data () {
@@ -68,6 +69,7 @@
 </script>
 
 <style lang="scss">
+    /*@import "main.css" screen;*/
     .info{
         width: 44px;
         height: 44px;

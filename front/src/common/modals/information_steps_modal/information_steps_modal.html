@@ -6,23 +6,24 @@
             We are happy to inform you!
         </div>
         <div class="content">
-            <div><span style="font-weight: 600">Step {{data.data.step[1]}}</span>  and
+            <div>
+                <span style="font-weight: 600" class="content_title">Step {{data.data.step[1]}}</span>  and
                 <span style="font-weight: 600">Step {{data.data.step[2]}}</span> totally include 60 questions regard to
                 <span style="font-weight: 600">{{data.data.name}}.</span>
                 When answering them, the next actions required from you:</div><br>
 
-            <div class="position-relative">
+            <div class="position-relative ellipse_margin">
                 <div class="ellipse position-absolute" :style="{background : '#77DCC1'}"></div>
                 <div><span style="font-weight: 600">Click “like”</span> - {{data.data.state.like}}</div>
             </div><br>
 
-            <div class="position-relative">
+            <div class="position-relative ellipse_margin">
                 <div class="ellipse position-absolute" :style="{background : '#FDC572'}"></div>
                 <div><span style="font-weight: 600">Click “neither like nor dislike”</span>
                     - {{data.data.state.middle}}</div>
             </div><br>
 
-            <div class="position-relative">
+            <div class="position-relative ellipse_margin">
                 <div class="ellipse position-absolute" :style="{background : '#F59A9A'}"></div>
                 <div><span style="font-weight: 600">Click “dislike”</span>  - {{data.data.state.dislike}}</div>
             </div><br>
@@ -32,9 +33,10 @@
             </div>
             Good Luck!
         </div>
-        <div class="flex-grow-1 d-flex align-items-end justify-content-center">
-            <div class="button_to custom_button d-flex align-items-center justify-content-center"
-            @click="close_modal()">Ok</div>
+        <div class="flex-grow-1 d-flex align-items-end justify-content-center button">
+            <div class="button_to custom_button d-flex align-items-center justify-content-center" @click="close_modal()">
+                Ok
+            </div>
         </div>
     </div>
 </section>

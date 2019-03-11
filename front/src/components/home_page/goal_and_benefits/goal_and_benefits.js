@@ -1,3 +1,5 @@
+import {mapGetters} from "vuex";
+
 export default {
     name: 'goal-and-benefits',
     data() {
@@ -29,4 +31,9 @@ export default {
             ]
         }
     },
+    computed:{
+        ...mapGetters({
+            screen: 'modal_data/get_screen'
+        })
+    }
 }
