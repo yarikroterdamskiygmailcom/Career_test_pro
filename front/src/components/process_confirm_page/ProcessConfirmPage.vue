@@ -15,9 +15,7 @@
             <div class="small_text custom_small_text text-center">
                 To get report on your email, please, fill in fields below
             </div>
-
             <input_information_component></input_information_component>
-
         </div>
     </div>
 </template>
@@ -70,4 +68,63 @@
     .custom-small{
         margin-bottom: 70px;
     }
+    @media screen and (max-width: 1100px){
+        .custom-title{
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        .custom-small, .custom_small_text{
+            font-size: 16px;
+        }
+        .custom-small{
+            margin-bottom: 60px;
+        }
+        .custom_small_text{
+            margin-bottom: 70px;
+        }
+        .step{
+            margin-left: 47px;
+            margin-bottom: 25px;
+            font-size: 12px;
+            width: auto;
+        }
+        .container_confirm{
+            margin-bottom: 254px;
+        }
+    }
+    @media screen and (max-width: 1023px){
+        .custom-small{
+            margin-bottom: 50px;
+        }
+        .step{
+            margin-left: 19px;
+            font-size: 11px;
+        }
+    }
+    @media screen and (max-width: 767px){
+        .custom-title{
+            font-size: 16px;
+        }
+        .custom-small, .custom_small_text{
+            font-size: 14px;
+        }
+        .step{
+            margin-left: 30px;
+        }
+        .container_confirm{
+            margin-bottom: 100px;
+        }
+    }
+    @media screen and (max-width: 567px){
+        .custom-title{
+            font-size: 14px;
+        }
+        .custom-small, .custom_small_text{
+            font-size: 12px;
+        }
+        .step{
+            margin-left: 15px;
+        }
+    }
+
 </style>

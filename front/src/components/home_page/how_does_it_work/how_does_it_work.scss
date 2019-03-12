@@ -119,26 +119,36 @@
         margin-bottom: 81px;
     }
     .image_block_for_information{
-        width: 90%;
+        width: 63%;
         height: 106px;
         padding: 22px;
+        justify-content: center;
     }
     .title_for_information, .description_for_information{
         font-size: 12px;
         width: 221px;
     }
     .number{
-        margin: 0 3px;
         width: 21px;
-        height: 44px;
-        font-size: 36px;
+        height: 54px;
+        font-size: 56px;
     }
     .ignore_margin{
         margin: 0!important;
     }
 }
+@media screen and (max-width: 480px){
+    .image_block_for_information{
+        width: 80%;
+    }
+    .number{
+        width: 21px;
+        height: 44px;
+        font-size: 36px;
+    }
+}
 @media screen and (max-width: 400px){
-    //.elem_elipse{
-    //    height: 45px;
-    //}
+    .image_block_for_information{
+        width: 90%;
+    }
 }

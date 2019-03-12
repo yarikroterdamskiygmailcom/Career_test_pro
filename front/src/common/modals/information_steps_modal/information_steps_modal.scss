@@ -111,11 +111,20 @@
     .custom_small{
          font-size: 14px;
      }
+    span.ellipse_margin{
+        display: block;
+        margin-bottom: 15px;
+    }
 }
 
 @media screen and (max-width: 630px){
     .simvol{
         margin-top: 7px;
+    }
+    span.ellipse_margin{
+        display: block;
+        margin-top: -15px;
+        margin-bottom: 15px;
     }
 }
 @media screen and (max-width: 567px){
@@ -134,9 +143,15 @@
         margin: 0;
     }
     .ellipse_margin{
-        margin-left: 30px;
+        margin-left: 40px;
     }
     .button{
         width: 100%;
+    }
+    .simvol{
+        width: 24px;
+        height: 24px;
+        border: 1px solid #F9892E;
+        font-size: 19px;
     }
 }

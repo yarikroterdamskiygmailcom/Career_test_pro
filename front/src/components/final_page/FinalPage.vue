@@ -85,7 +85,7 @@
 
     export default {
         name: "FinalPage",
-        compoted: {
+        computed: {
             ...mapGetters({
                 screen: 'modal_data/get_screen'
             })

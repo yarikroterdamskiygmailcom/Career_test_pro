@@ -1,6 +1,7 @@
 <template>
     <div class="item_question nav_step borders d-flex justify-content-between position-relative"
         :style="{width: width}">
+        <!--{{step}}{{mobile_arr}}-->
         <div class="arrow arrow_back" v-if="screen == 'mobile'" @click="toggle('back')"></div>
         <div class="arrow arrow_next" v-if="screen == 'mobile'" @click="toggle('next')"></div>
         <router-link v-for="item in mobile_arr"
@@ -45,13 +46,25 @@
         },
         data(){
             return{
-                mobile_arr:[Number(this.step), Number(this.step) + 1]
+                base: [Number(this.step), Number(this.step) + 1],
+                mobile_arr: [Number(this.step), Number(this.step) + 1]
             }
+        },
+        computed:{
+            // mobile_arr:{
+            //     set(value){
+            //         console.log(value, this.arr)
+            //         this.arr = value;
+            //     },
+            //     get(){
+            //         return this.arr;
+            //     }
+            // }
         },
         methods:{
             toggle(type){
-                if(this.mobile_arr[0] == 1 && type == 'back') return;
-                if(this.mobile_arr[0] == 9 && type == 'next') return;
+                if(this.mobile_arr[0] <= 1 && type == 'back') return;
+                if(this.mobile_arr[0] >= 9 && type == 'next') return;
                 this.mobile_arr = type == 'next' ?
                     this.mobile_arr.map(item => item + 2) :
                     this.mobile_arr.map(item => item - 2)
@@ -61,6 +74,16 @@
             },
             width_active(index){
                 return this.mobile_arr.every(item => item <= Number(this.step)) ?  index == 2 : index == 1
+            }
+        },
+        watch:{
+            '$route' (to, from) {
+                let step = Number(this.step);
+                let to_ = to.params.steps;
+                let from_ = from.params.steps;
+                this.mobile_arr =  this.mobile_arr.some(item => item == step) ?
+                    this.mobile_arr :
+                    from_ > to_?  [step - 1, step] : [step, step + 1]
             }
         },
     }

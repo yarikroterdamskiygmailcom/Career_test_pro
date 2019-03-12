@@ -97,9 +97,8 @@ export default {
                 if(item.status) name = item.name;
             });
             return name;
-        }
+        },
     },
-
 
     directives: {
         disabled_input: {

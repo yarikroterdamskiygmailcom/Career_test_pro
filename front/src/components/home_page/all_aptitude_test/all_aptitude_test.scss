@@ -118,6 +118,13 @@
 
 @media screen and (max-width:1023px){
     .all-aptitude-test_container {
+        width: 570px;
+    }
+
+
+}
+@media screen and (max-width: 767px){
+    .all-aptitude-test_container {
         width: 290px;
     }
     .custom_title{
@@ -156,7 +163,6 @@
     .block_best_value{
         padding: 30px;
     }
-
 }
 @media screen and (max-width:580px){
     .elem_elipse{
