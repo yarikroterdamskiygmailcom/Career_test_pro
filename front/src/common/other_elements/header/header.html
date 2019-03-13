@@ -1,24 +1,69 @@
 <header class="d-flex justify-content-center">
-    <div v-if="!screen.active" class="col-xl- container_margin d-flex justify-content-between align-items-center">
+    <div v-if="screen.value > 750" class="col-xl- container_margin d-flex justify-content-between align-items-center">
         <div class="header_logo"></div>
         <nav class="header_menu d-flex">
             <ul class="container_header_menu">
-                <li v-for="list in menu_list" style="font-weight: 600">
-                    <router-link class="text_style" @click="menu = false"
-                                 :to="list.path">
+                <li v-for="list in menu_list"
+                    style="font-weight: 600">
+                    <router-link class="text_style"
+                             @click="menu = false"
+                             :to="list.path">
                         {{list.name}}
                     </router-link>
                 </li>
             </ul>
         </nav>
-        <router-link :to="'tests'" @click="menu = false" class="button_to text_style custom_button d-flex
-         justify-content-center
-         align-items-center">Take the Test</router-link>
-        <div class="header_badge_language">
-            <b-dropdown id="ddown-divider" :text="language_now.code" variant="basic" offset="0"
-                 menu-class="rounded-menu"  class="m-2 border btn-lang-border">
-                <b-dropdown-item v-for="lang in language_array" active-class="dropdown-item"
-                        @click="language(lang)" :key="lang.name + lang.language">
+        <router-link :to="'tests'"
+             v-if="active_button && screen.value > 1100"
+             @click="menu = false"
+             class="button_to
+                 text_style
+                 custom_button
+                 d-flex
+                 justify-content-center
+                 align-items-center">
+             Take the Test
+        </router-link>
+        <router-link :to="'tests'"
+             v-if="!active_button"
+             @click="menu = false"
+             class="button_to
+                    text_style
+                    custom_button
+                    d-flex
+                    justify-content-center
+                    align-items-center">
+             Take the Test
+        </router-link>
+        <div class="header_badge_language" v-if="active_button">
+            <b-dropdown id="ddown-divider"
+                        :text="language_now.code"
+                        variant="basic"
+                        offset="0"
+                        menu-class="rounded-menu"
+                        class="m-2 border btn-lang-border">
+                <b-dropdown-item
+                        v-for="lang in language_array"
+                        active-class="dropdown-item"
+                        @click="language(lang)"
+                        :key="lang.name + lang.language">
+                    {{lang.language}}
+                </b-dropdown-item>
+            </b-dropdown>
+        </div>
+        <div class="header_badge_language"
+             v-if="!active_button  && screen.value > 1100">
+            <b-dropdown id="ddown-divider"
+                        :text="language_now.code"
+                        variant="basic"
+                        offset="0"
+                        menu-class="rounded-menu"
+                        class="m-2 border btn-lang-border">
+                <b-dropdown-item
+                        v-for="lang in language_array"
+                        active-class="dropdown-item"
+                        @click="language(lang)"
+                        :key="lang.name + lang.language">
                     {{lang.language}}
                 </b-dropdown-item>
             </b-dropdown>
@@ -26,7 +71,7 @@
     </div>
 
 
-    <div v-if="screen.active" class="col-xl- container_margin
+    <div v-if="screen.value <= 750" class="col-xl- container_margin
      d-flex justify-content-between align-items-center
      container_header">
         <div class="header_logo"></div>
@@ -40,9 +85,6 @@
                 </li>
             </ul>
         </nav>
-        <router-link :to="'tests'" class="button_to text_style custom_button d-none
-            justify-content-center align-items-center"
-                     @click="menu = false">Take the Test</router-link>
         <div class="header_badge_language">
             <b-dropdown id="ddown-divider" :text="language_now.code" variant="basic" offset="0"
                         menu-class="rounded-menu"  class="m-2 border btn-lang-border">

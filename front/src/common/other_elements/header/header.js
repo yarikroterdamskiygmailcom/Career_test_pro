@@ -3,8 +3,12 @@ import {mapGetters} from "vuex";
 export default {
     data() {
         return{
-            menu: false
+            menu: false,
+            active_button: true
         }
+    },
+    created(){
+        this.active_button = this.$router.history.current.path == '/home'
     },
     methods:{
         language(item){
@@ -21,6 +25,9 @@ export default {
     watch:{
         menu:function(){
             document.body.style.overflowY = this.menu ? 'hidden' : 'scroll'
+        },
+        '$route' (to, from) {
+            this.active_button = to.path == '/home'
         }
     },
 }

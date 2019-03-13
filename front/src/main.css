@@ -80,3 +80,19 @@ body{
 .information strong{
     font-weight: 600;
 }
+
+#menu .dropdown-menu{
+    /*width: 100%;*/
+    left: -14px!important;
+}
+@media screen and (max-width:1200px){
+    .footer_badge_language .dropdown-menu{
+        left: -70px!important;
+    }
+}
+@media screen and (max-width:767px){
+    .footer_badge_language .dropdown-menu{
+        left: -35px!important;
+    }
+}
+

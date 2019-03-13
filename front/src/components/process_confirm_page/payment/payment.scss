@@ -141,6 +141,33 @@
 .font_payment{
     font-size: 14px;
 }
+.card_payment{
+    //width: 300px;
+    background: #FFFFFF;
+    border-radius: 12px;
+
+    position: absolute;
+    justify-content: center;
+    bottom: 20px;
+    //right: 50px;
+    right: -44px;
+    display: none;
+    z-index: 1000;
+    //height: 57px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+}
+.card_payment .item{
+    width: 46px;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin: 10px 15px;
+}
+
+.info_payment:hover .card_payment{
+    display: flex;
+}
 @media screen and (max-width: 1023px){
     .payment {
         margin-top: 50px;
@@ -188,6 +215,9 @@
     }
     .checkout > *:first-child{
         margin-bottom: 15px;
+    }
+    .card_payment{
+        flex-wrap: wrap;
     }
 }
 

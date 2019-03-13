@@ -9,7 +9,21 @@
                 <label :for="'radio-example-one'+index" >
                     <div class="position-relative font_payment">
                         {{item.name}}
-                        <div :ref="11+index" class="info info_payment">
+                        <div :ref="11+index" class="info info_payment"
+                             @click.prevent="">
+                            <div class="position-relative">
+                                <div class="card_payment" :style="{
+                                        right: position(item.card),
+                                        width: screen.value < 567 &&  item.card.length > 1? '190px': 'auto',
+                                    }">
+                                    <div class="item"
+                                         v-for="card in item.card"
+                                         :style="{
+                                            'background-image': 'url('+base_url + 'assets/card/' + card+'.svg)'
+                                         }">
+                                    </div>
+                                </div>
+                            </div>
                             ?
                         </div>
                     </div>
@@ -20,11 +34,25 @@
             <div class="styled-input-single d-flex align-items-center"
                 v-for="(item, index) in cards1">
                 <input type="radio" name="fieldset-1" @change="radio_count(item, cards1)"
-                       :id="'radio-example-one'+ (index + cards.length )" :checked="item.status"/>
-                <label :for="'radio-example-one'+ (index + cards.length )">
+                       :id="'radio-example-two'+ (index + cards.length )" :checked="item.status"/>
+                <label :for="'radio-example-two'+(index + cards.length )">
                     <div class="position-relative font_payment">
                         {{item.name}}
-                        <div :ref="21+index" class="info info_payment">
+                        <div :ref="21+index" class="info info_payment"
+                             @click.prevent="">
+                            <div class="position-relative">
+                                <div class="card_payment"
+                                     :style="{right: screen.value < 567 ? position(item.card) :'18px',
+                                              bottom: screen.value < 567 ? '' : '-24px',
+                                              width: screen.value < 567 && item.card.length > 1 ? '190px': 'auto',}">
+                                    <div class="item"
+                                         v-for="card in item.card"
+                                         :style="{
+                                            'background-image': 'url('+base_url + 'assets/card/' + card+'.svg)'
+                                         }">
+                                    </div>
+                                </div>
+                            </div>
                             ?
                         </div>
                     </div>

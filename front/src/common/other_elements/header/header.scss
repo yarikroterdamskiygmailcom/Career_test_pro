@@ -205,7 +205,7 @@ header{
 }
 #menu > div{
     margin-top: 70.7px;
-    padding: 30px 66px 32px 52px;
+    padding: 30px 50px;
     border-top:1px solid #F4F8FF;
 }
 #menu > div:first-child{
@@ -226,7 +226,11 @@ header{
         font-size: 14px;
     }
     .header_menu{
-        width: 516px;
+        width: 470px;
+    }
+    .custom_button{
+        width: 156px;
+        font-size: 14px;
     }
 }
 

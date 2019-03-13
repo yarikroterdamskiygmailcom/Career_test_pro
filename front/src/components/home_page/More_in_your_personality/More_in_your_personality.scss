@@ -191,6 +191,12 @@
         display: none!important;
     }
 }
+
+@media screen and (max-width:518px){
+    .orange_style{
+        font-size: 13px;
+    }
+}
 @media screen and (max-width:500px){
     .container_data {
         padding-top: 89px;
@@ -229,6 +235,9 @@
     //.text_container{
     //    margin-bottom: 100px;
     //}
+    .block_img{
+        margin-top: 30px;
+    }
     .container_data .block_img {
         height: 400px;
     }
@@ -239,5 +248,10 @@
     .container_data .block_img img {
         height: 100%;
         min-height: auto;
+    }
+}
+@media screen and (max-width: 350px){
+    .block_img{
+        margin-top: 0;
     }
 }

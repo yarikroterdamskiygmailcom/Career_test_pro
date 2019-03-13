@@ -1,8 +1,11 @@
 import {mapGetters} from 'vuex';
-
+import config from "../../../config";
 export default {
     data() {
-        return{}
+        return{
+            payments:['paypal', 'visa', 'maestro', 'mastercard', 'discover'],
+            base_url: config.url
+        }
     },
     computed:
         mapGetters({

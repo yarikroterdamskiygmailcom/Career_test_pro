@@ -7,6 +7,10 @@
                     <router-link class="text_style" :to="list.path">{{list.name}}</router-link>
                 </li>
             </ul>
+            <div class="container_payments">
+                <div class="payments" v-for="payment in payments"
+                     :style="{'background-image': 'url('+base_url + 'assets/card/' + payment+'.svg)'}"></div>
+            </div>
             <div class="text_style footer_text">
                 Careertestpro.com is part of Making Moves B.V.  |  (c) 2019, All Rights Reserved.
             </div>
@@ -42,6 +46,10 @@
             </div>
             <div class="container_sotial_networks">
                 <a class="sotial_networks" v-for="sotial in sotial_networks" :style="{backgroundImage: `url(${sotial.path})`}"></a>
+            </div>
+            <div class="container_payments">
+                <div class="payments" v-for="payment in payments"
+                   :style="{'background-image': 'url('+base_url + 'assets/card/' + payment+'.svg)'}"></div>
             </div>
             <div class="text_style footer_text">
                 Careertestpro.com is part of Making Moves B.V. (c) 2019, All Rights Reserved.

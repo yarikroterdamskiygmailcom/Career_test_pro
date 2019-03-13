@@ -71,13 +71,26 @@ export default  {
                 })
             }
         });
-
-        Object.keys(step_array).forEach(item => {
-            config.letters.forEach(letter => {
-                step_array.total[letter] += step_array[item][letter]
-            })
-        });
-
+// считаем общее число
+        const callback_total= function(item, letter){
+            step_array.total[letter] += step_array[item][letter]
+        };
+        // считаем процент для каждого
+        const callback_percent= function(item, letter){
+            step_array[item][letter] = item == 'total' ?
+                (step_array[item][letter] / 5) * 10 :
+                step_array[item][letter] * 10;
+        };
+        count_sum_and_number(callback_total);
+        count_sum_and_number(callback_percent);
+        
+        function count_sum_and_number(callback){
+            Object.keys(step_array).forEach(item => {
+                config.letters.forEach(letter => {
+                    callback(item, letter)
+                })
+            });
+        }
         return step_array;
     },
     cicle(func, count_i = count_step, count_j = count_in_one_step) {

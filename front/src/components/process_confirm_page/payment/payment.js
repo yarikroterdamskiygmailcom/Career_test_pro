@@ -1,5 +1,7 @@
 import Validator from '../../../validator/validator'
 import counter from "../../test_page/counter";
+import config from "../../../config";
+import {mapGetters} from "vuex";
 export default {
     name: 'payment',
     props: ['data_in_input_information'],
@@ -8,25 +10,30 @@ export default {
             cards: [
                 {
                     name:'PayPal',
-                    status: false
+                    status: false,
+                    card:['paypal']
                 },
                 {
                     name: 'Credit/Debit Card',
-                    status: false
+                    status: false,
+                    card:['visa', 'maestro', 'mastercard', 'discover']
                 },
                 {
                     name:'Voucher',
-                    status: false
+                    status: false,
+                    card: []
                 }
             ],
             cards1: [
                 {
                     name: 'Mollie',
-                    status: false
+                    status: false,
+                    card:['visa', 'maestro', 'mastercard', 'discover']
                 },
                 {
                     name: 'Braintree',
-                    status: false
+                    status: false,
+                    card:['visa']
                 }
             ],
             data:{
@@ -39,7 +46,8 @@ export default {
                 }
             },
             disabled_button:false,
-            result: null
+            result: null,
+            base_url:config.url
         }
     },
 
@@ -55,6 +63,17 @@ export default {
         radio_count(data, arr) {
             arr.forEach(item => item.status = false);
             data.status = true;
+        },
+
+        position(arr){
+            if(this.screen.value > 567){
+                let number = arr.length > 1 ? -41 : -44;
+                return  number * arr.length + 'px'
+            } else {
+                let count = arr.length > 1 ? (arr.length / 2) : arr.length;
+                let number = arr.length > 1 ? -50 : -44;
+                return  number * count + 'px'
+            }
         },
 
         open_confirm_modal() {
@@ -99,7 +118,11 @@ export default {
             return name;
         },
     },
-
+    computed:{
+        ...mapGetters({
+            screen: 'modal_data/get_screen'
+        })
+    },
     directives: {
         disabled_input: {
             data_vue:this,
