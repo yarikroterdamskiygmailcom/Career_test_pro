@@ -2,13 +2,34 @@ import {mapGetters} from "vuex";
 
 export default {
     data() {
-        return{
+        return {
             menu: false,
-            active_button: true
+            active_button: true,
+            selected: '',
+            arr: [
+                {
+                    url: '/home',
+                    item: 'home'
+                },
+                {
+                    url: '/faq',
+                    item: 'FAQ'
+                },
+                {
+                    url: '/contact-us',
+                    item: 'Contact Us'
+                },
+                {
+                    url: '/about-us',
+                    item: 'About Us'
+                },
+            ]
         }
     },
     created(){
-        this.active_button = this.$router.history.current.path == '/home'
+        let rout = this.$router.history.current.path
+        this.active_button = rout  == '/home'
+         this.selected = rout;
     },
     methods:{
         language(item){
@@ -28,6 +49,7 @@ export default {
         },
         '$route' (to, from) {
             this.active_button = to.path == '/home'
+            this.selected= to.path
         }
     },
 }

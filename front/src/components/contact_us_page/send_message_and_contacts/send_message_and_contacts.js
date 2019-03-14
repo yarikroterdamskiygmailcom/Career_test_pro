@@ -1,5 +1,6 @@
 import Request from '../../../api/mail_request'
 import Validator from "../../../validator/validator";
+import  Helper from "./../../../helper/active_other_modal"
 export default {
     name: 'send-message-and-contacts',
     components: {},
@@ -27,7 +28,11 @@ export default {
             textarea.select();
             try {
                 document.execCommand('copy');
-                console.log( 'Скопировано')
+                Helper.open_modal(
+                    this,
+                    'Address has been copied successfully',
+                    'copy_text.svgg', '8px', '27px', '115px', '153.99px'
+                )
             } catch (err) {
                 console.log('Не скопировано')
             }
@@ -41,7 +46,13 @@ export default {
             error.message = Validator.set(this.data.message, ['required']);
             !error.email.errors && !error.name.errors && !error.message.errors
                 ?
-                Request.send_mail(this.data)
+                Request.send_mail(this.data).then(response => {
+                    Helper.open_modal(
+                        this,
+                        'Thank you for your message! We’ll contact you soon',
+                        'send_message.svg', '32px', '12px', '103px', '148px'
+                    )
+                })
                 :
                 this.disabled_button = true
         }

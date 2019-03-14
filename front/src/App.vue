@@ -6,8 +6,18 @@
                 <router-view></router-view>
             </div>
             <footer-component></footer-component>
-            <Confirm_modal v-if="confirm_modal.active" :data="confirm_modal"></Confirm_modal>
-            <information_steps_modal v-if="test_modal.active" :data="test_modal"></information_steps_modal>
+            <Confirm_modal
+                    v-if="confirm_modal.active"
+                    :data="confirm_modal">
+            </Confirm_modal>
+            <information_steps_modal
+                    v-if="test_modal.active"
+                    :data="test_modal">
+            </information_steps_modal>
+            <send_message_modal_and_copy
+                    v-if="send_and_copy_modal.active"
+                    :data="send_and_copy_modal.data">
+            </send_message_modal_and_copy>
         </div>
         <div class="spinner d-flex justify-content-center align-items-center" v-if="!active_status">
             <div></div>
@@ -20,6 +30,7 @@
     import Header from './common/other_elements/header/index.vue'
     import Confirm_modal from './common/modals/confirm_modal_in_confirm_page/index.vue'
     import Information_steps_modal from './common/modals/information_steps_modal/index.vue'
+    import Send_message_modal_and_copy from './common/modals/send_message_modal_and_copy/index.vue'
     import { mapGetters } from "vuex";
     import list_language from "./api/multilanguage_request";
     // import url('main.css') => require('main.css')
@@ -52,11 +63,13 @@
             'header-component': Header,
             "Confirm_modal":Confirm_modal,
             "information_steps_modal":Information_steps_modal,
+            "send_message_modal_and_copy": Send_message_modal_and_copy,
         },
         computed:{
             ...mapGetters({
                 confirm_modal: 'modal_data/get_confirm_modal',
                 test_modal:'modal_data/get_test_modal',
+                send_and_copy_modal:'modal_data/get_send_and_copy_modal',
                 active_status: 'multilanguage/get_status_project'
             })
         },
@@ -119,6 +132,7 @@
     }
     .button_to:hover{
         background: #5B93E8;
+        text-decoration: none;
     }
     .button_to.orange_style:hover{
         background: #FFF0DB;
