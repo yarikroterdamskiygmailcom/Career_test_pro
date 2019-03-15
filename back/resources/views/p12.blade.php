@@ -8,9 +8,9 @@
 
         <div style="width: 49.9%; text-align: right; font-size: 12px;">
             <div class="author-box">
-                <span class="author">John Smith</span>
+                <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: 20/03/2016
+                Date: {{ $datestamp }}
             </div>
         </div>
     </header>
@@ -28,10 +28,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score high on the enterprising personality type. You're adventurous, energetic and impulsive. You like to
-        travel and explore and you enjoy social gatherings. You're assertive and verbally persuasive in bringing others
-        around to your point of view. You're goal-oriented and you know exactly what you want and how you want to
-        achieve this. You appreciate success and like to hold positions of leadership.
+        {{ $personalBehaviorO }}
     </p>
 
     <div>
@@ -47,10 +44,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score below average on the investigative personality type. Scientific or natural phenomena do not really
-        interest you. These are not things you look for in a professional work environment. Continuously researching and
-        analyzing scientific matter is not for you. Occupations in which a lot of conceptual ideas are processed do not
-        really appeal to you.
+        {{ $personalBehaviorI }}
     </p>
 
     <div>
@@ -66,11 +60,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score high on the social personality type. You possess a considerable amount of patience and you're
-        insightful concerning the feelings and problems of others. A professional work environment in which you take on
-        facilitative roles such as those of teachers, advisers and counselors, is something that appeals to you. You
-        have well-developed social skills and you make others feel comfortable. Others trust you, because you're open to
-        their feelings and you're a caring, responsible person.
+        {{ $personalBehaviorS }}
     </p>
 
     <div>
@@ -86,11 +76,8 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score high on the conventional personality type. You enjoy clerical and/or computational activities
-        performed according to set procedures. Knowing what's going to come and working on tasks in which you exactly
-        know what is expected from you, appeals to you. You could manage well in a professional work environment in
-        which you work according to certain procedures and protocols. You're self-controlled, reliable and you tend to
-        be conservative and traditional in your values and attitude.
+        {{ $personalBehaviorC }}
+
     </p>
 
     <div>
@@ -106,10 +93,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score high on the artistic personality type. You like to be creative and express yourself in an original
-        way. You have a rich imagination and you like to be different. Also, you're not afraid to stand out from the
-        crowd and you place great value on beauty and esthetic qualities. You're impulsive, idealistic in outlook and
-        you would manage well in a creative professional work environment.
+        {{ $personalBehaviorA }}
     </p>
 
     <div>
@@ -125,10 +109,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score below average on the realistic personality type. You're not the type of person who always needs to be
-        busy or have something to do. Also, looking for adventure is not a necessity. You're not really attracted to
-        outdoor, mechanical and/or physical activities. Your skills and interests do not match occupations that require
-        those competencies.
+        {{ $personalBehaviorR }}
     </p>
 
     <p style="margin-top: 30px;">Careertestpro.com is a product of Making Moves B.V. - Copyright Making Moves B.V.</p>

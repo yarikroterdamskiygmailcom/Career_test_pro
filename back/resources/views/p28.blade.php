@@ -8,9 +8,9 @@
 
         <div style="width: 49.9%; text-align: right; font-size: 12px;">
             <div class="author-box">
-                <span class="author">John Smith</span>
+                <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: 20/03/2016
+                Date: {{ $datestamp }}
             </div>
         </div>
     </header>
@@ -21,7 +21,7 @@
                 <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #F9892E; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
                     <table>
                         <tr>
-                            <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">C</td>
+                            <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[2] }}</td>
                         </tr>
                     </table>
                 </div>
@@ -29,7 +29,7 @@
                 <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #FDC572; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
                     <table>
                         <tr>
-                            <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">E</td>
+                            <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[1] }}</td>
                         </tr>
                     </table>
                 </div>
@@ -37,113 +37,31 @@
                 <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #85B1F5; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
                     <table>
                         <tr>
-                            <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">S</td>
+                            <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[0] }}</td>
                         </tr>
                     </table>
                 </div>
             </div>
 
             <div style="font-size: 12px; line-height: 22px; width: 85%; float: left; margin-top: 5px;">
-                Courier <br>
-                Office assistant<br>
-                Cashier<br>
-                Customer service agent<br>
-                Administrative assistant<br>
-                Interviewer<br>
-                Telephone operator / Receptionist<br>
-                Sales assistant<br>
-                Court reporter<br>
-                Business manager<br>
-                Retail salesman<br>
-                Payroll employee<br>
-                Insurance analyst<br>
-                Credit manager<br>
-                Account manager<br>
-                HR Assistant<br>
-                Sales assistant<br>
-                Credit manager<br>
-                Secretary<br>
-                Accounts Receivable and Accounts Payable clerk<br>
-                Stenographer<br>
-                Credit analyst<br>
-                Auctioneer<br>
-                Fireman<br>
-                Medical secretary<br>
-                Package delivery driver<br>
-                Casino employee<br>
-                Tax inspector<br>
-                Taxi Planner / Telephone operator<br>
-                Export assistant<br>
-                Cashier (Bank)<br>
-                Bank employee<br>
-                Accounting assistant<br>
-                Marketing assistant<br>
-                Administrator<br>
-                Accountant<br>
-                Bailiff / Enforcement officer (Court order)<br>
-                Executive secretary
+                @foreach($profListFour as $fourthListCareer)
+                    {{ $fourthListCareer['career_description'][0]['career'] }}<br>
+                @endforeach
             </div>
 
             <div style="font-size: 12px; line-height: 22px; text-align: right;">
-                3 <br>
-                3 <br>
-                3 <br>
-                3 <br>
-                3 <br>
-                3-4 <br>
-                3 <br>
-                4-5 <br>
-                3-4 <br>
-                4 <br>
-                4-5 <br>
-                3 <br>
-                3-4 <br>
-                4-5 <br>
-                3 <br>
-                3-4-5 <br>
-                4-5 <br>
-                4-5 <br>
-                4-5 <br>
-                4-5 <br>
-                4-5 <br>
-                4-5 <br>
-                3 <br>
-                3 <br>
-                3 <br>
-                3 <br>
-                4-5 <br>
-                4-5 <br>
-                4-5 <br>
-                4-5 <br>
-                4-5 <br>
-                4-5 <br>
-                4-5 <br>
-                4-5 <br>
-                4-5 <br>
-                4-5 <br>
-                4-5 <br>
-                4-5
+                @foreach($profListFour as $fourthListLevel)
+                    {{ $fourthListLevel['level'] }}<br>
+                @endforeach
             </div>
         </div>
 
         <div style="width: 40%; float: right;">
-            <div style="font-size: 12px; line-height: 22px; width: 85%; float: left; margin-top: 45px;">
-                Municipality secretary <br>
-                Damage expert <br>
-                Clerk
-            </div>
-
-            <div style="font-size: 12px; line-height: 22px; text-align: right;">
-                4-5 <br>
-                4-5 <br>
-                4-5 <br>
-            </div>
-
             <div style="width: 117px; margin: auto;">
                 <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #85B1F5; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
                     <table>
                         <tr>
-                            <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">S</td>
+                            <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[1] }}</td>
                         </tr>
                     </table>
                 </div>
@@ -151,7 +69,7 @@
                 <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #F9892E; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
                     <table>
                         <tr>
-                            <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">C</td>
+                            <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[0] }}</td>
                         </tr>
                     </table>
                 </div>
@@ -159,52 +77,22 @@
                 <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #FDC572; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
                     <table>
                         <tr>
-                            <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">E</td>
+                            <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[2] }}</td>
                         </tr>
                     </table>
                 </div>
             </div>
 
             <div style="font-size: 12px; line-height: 22px; width: 85%; float: left; margin-top: 45px;">
-                Bailiff <br>
-                Doorman / Bouncer<br>
-                Air traffic controller<br>
-                Interpreter (translator)<br>
-                Recruiter<br>
-                Property valuer<br>
-                Sign language interpreter<br>
-                Teaching assistant<br>
-                Telephone operator<br>
-                Testing assistant<br>
-                Desk officer bank<br>
-                Jailer / Prison warden<br>
-                Hotel receptionist<br>
-                Officer municipal social service <br>
-                Contact lens specialist <br>
-                Medical assistant <br>
-                Medical secretary <br>
-                Travel agency employee <br>
-                Court interpreter
+                @foreach($profListFive as $fifthListCareer)
+                    {{ $fifthListCareer['career_description'][0]['career'] }}<br>
+                @endforeach
             </div>
 
             <div style="font-size: 12px; line-height: 22px; text-align: right;">
-                1 <br>
-                1<br>
-                4-5<br>
-                4-5<br><br>
-                4-5<br><br>
-                3<br>
-                3<br>
-                3<br>
-                3<br>
-                3<br>
-                3<br>
-                3-4<br>
-                3-4<br>
-                3-4<br>
-                3-4<br>
-                3-4<br>
-                4-5
+                @foreach($profListFive as $fifthListLevel)
+                    {{ $fifthListLevel['level'] }}<br>
+                @endforeach
             </div>
         </div>
     </div>

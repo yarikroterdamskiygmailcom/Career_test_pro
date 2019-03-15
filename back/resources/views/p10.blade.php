@@ -8,9 +8,9 @@
 
         <div style="width: 49.9%; text-align: right; font-size: 12px;">
             <div class="author-box">
-                <span class="author">John Smith</span>
+                <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: 20/03/2016
+                Date: {{ $datestamp }}
             </div>
         </div>
     </header>
@@ -28,10 +28,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score very high on the enterprising personality type. You like to take initiative and you're ambitious. You
-        enjoy social gatherings and associate with other enterprising and influential people. Achieving your goals is
-        important to you and you try to motivate others to achieve your goals together with you. You like to feel in
-        control of the situation and you place high value on status, power, money and material possessions.
+        {{$activitiesO}}
     </p>
 
     <div>
@@ -47,10 +44,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score above average on the investigative personality type. For you it's probably important to be active in a
-        work environment where solving complex matters plays a big role. You're good at using your knowledge and
-        experience and find it important to keep improving yourself. A work environment in which you can use your
-        intellectual capacity probably suits you best.
+        {{$activitiesC}}
     </p>
 
     <div>
@@ -66,11 +60,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score high on the conventional personality type. You tend to be conservative and traditional in values and
-        attitudes. You're well-organized, persistent, and practical in your approach to life. Professional work
-        environments in which you know what is expected from you suit you best and even though you are status conscious
-        you do not aspire to positions of highest authority and leadership. You're accurate, reliable, disciplined and
-        you enjoy working in environments where there are set guidelines and standards.
+        {{$activitiesI}}
     </p>
 
     <div>
@@ -86,9 +76,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score average on the investigative personality type. Scientific and natural phenomena interest you to a
-        certain extent, depending on the topic. However, it does not always excite you and therefore you would also be
-        perfectly fine in a workplace where these aspects are not present.
+        {{$activitiesA}}
     </p>
 
     <div>
@@ -104,11 +92,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score below average on the social personality type. A social or service-related work environment in which
-        interpersonal relations play a big role does not really interest you. Therefore, a professional work environment
-        where collaboration and social, helpful behavior is crucial, is not something you are looking for. However, this
-        does not mean that you do not possess these qualities. Your interests do not match occupations where these
-        skills and activities play a big role.
+        {{$activitiesS}}
     </p>
 
     <div>
@@ -124,10 +108,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score very low on the realistic personality type. Working outside or physical activities do not suit you.
-        However, this does not mean that you are not handy or that you are not an outdoors person. You prefer not to
-        work with machines, materials or perform physical activities in a professional work environment. Your interests
-        and skills do not match occupations where these activities and skills play a big role.
+        {{$activitiesR}}
     </p>
 
     <p style="margin-top: 50px;">Careertestpro.com is a product of Making Moves B.V. - Copyright Making Moves B.V.</p>

@@ -16,4 +16,11 @@ class Career extends Model
     protected $fillable = [
         'code', 'training', 'level', 'education'
     ];
+
+    protected $with = ['career_description'];
+
+    public function career_description()
+    {
+        return $this->hasMany('App\Model\CareerDescription');
+    }
 }

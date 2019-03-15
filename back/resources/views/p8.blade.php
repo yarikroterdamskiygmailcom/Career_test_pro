@@ -8,9 +8,9 @@
 
         <div style="width: 49.9%; text-align: right; font-size: 12px;">
             <div class="author-box">
-                <span class="author">John Smith</span>
+                <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: 20/03/2016
+                Date: {{ $datestamp }}
             </div>
         </div>
     </header>
@@ -28,10 +28,8 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score very high on the enterprising personality type. Taking initiative and entrepreneurship are qualities
-        you possess. The moment you know what you want, you focus solely on your set goals and easily convince and
-        motivate others. You possess leadership and organizational qualities. You enjoy succes and you stay focused to
-        achieve better results.
+        {{$workValuesO}}
+
     </p>
 
     <div>
@@ -47,10 +45,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score above average on the investigative personality type. For you it's probably important to be active in a
-        work environment where solving complex matters plays a big role. You're good at using your knowledge and
-        experience and find it important to keep improving yourself. A work environment in which you can use your
-        intellectual capacity probably suits you best.
+        {{$workValuesI}}
     </p>
 
     <div>
@@ -66,9 +61,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score high on the social personality type. You understand the importance of mutual respect and equality in a
-        professional work environment. You help and support others when needed and are able to sympathize with them. You
-        cooperate well with other social, helpful personalities to find constructive solutions.
+        {{$workValuesS}}
     </p>
 
     <div>
@@ -84,11 +77,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score high on the conventional personality type. You manage well in a structured and systematic working
-        environment and like to create clarity and work precise. You find it important to work according to set
-        procedures, which you also expect from others. You value success in business and you see yourself as orderly and
-        good at following a set plan. An occupation in a work environment where self-control and rational behavior are
-        appreciated, suits you best.
+        {{$workValuesC}}
     </p>
 
     <div>
@@ -104,11 +93,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score high on the artistic personality type. It's important to you to be able to express yourself in an
-        original and creative way. You're a relatively artistic person and you have eye for design and creation. Your
-        rich fantasy ensures that you can easily create or design things. An environment in which you can use these
-        skills certainly appeals to you. Furthermore, it's important for you to be able to express yourself in your own
-        way.
+        {{$workValuesA}}
     </p>
 
     <div>
@@ -124,10 +109,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score above average on the realistic personality type. You're a practical person who can easily work
-        independently. You also like to keep busy. Working outdoors appeals to you as well as activities in which you
-        can use your physical strength and dexterity. You enjoy working with materials and machines. Furthermore, you
-        like to take on challenges and appreciate variety in your work.
+        {{$workValuesR}}
     </p>
 
     <p style="margin-top: 70px;">Careertestpro.com is a product of Making Moves B.V. - Copyright Making Moves B.V.</p>
