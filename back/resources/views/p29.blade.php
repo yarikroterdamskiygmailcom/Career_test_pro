@@ -8,9 +8,9 @@
 
         <div style="width: 49.9%; text-align: right; font-size: 12px;">
             <div class="author-box">
-                <span class="author">John Smith</span>
+                <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: 20/03/2016
+                Date: {{ $datestamp }}
             </div>
         </div>
     </header>
@@ -19,7 +19,7 @@
         <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #85B1F5; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
             <table>
                 <tr>
-                    <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">S</td>
+                    <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[0] }}</td>
                 </tr>
             </table>
         </div>
@@ -27,7 +27,7 @@
         <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #FDC572; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
             <table>
                 <tr>
-                    <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">E</td>
+                    <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[2] }}</td>
                 </tr>
             </table>
         </div>
@@ -35,7 +35,7 @@
         <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #F9892E; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
             <table>
                 <tr>
-                    <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">C</td>
+                    <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[1] }}</td>
                 </tr>
             </table>
         </div>
@@ -44,74 +44,15 @@
     <div style="margin-top: 15px;">
         <div style="width: 60%; float: left;">
             <div style="font-size: 12px; line-height: 22px; width: 85%; float: left;">
-                Waitress <br>
-                Security officer<br>
-                Librarian<br>
-                Bartender<br>
-                Fitness instructor<br>
-                Probation officer<br>
-                Mediator<br>
-                Sociologist<br>
-                DJ<br>
-                Dietitian<br>
-                Fitness instructor<br>
-                Nanny<br>
-                Horse trainer<br>
-                Import / Export specialist<br>
-                HR Manager<br>
-                Kindergarten teacher<br>
-                Clerk<br>
-                Psychologist / Psychological Assistant (mental health)<br>
-                IT Network designer<br>
-                Legal assistant<br>
-                Personal assistant<br>
-                Exterminators<br>
-                Psychiatric nurse<br>
-                Art therapist<br>
-                Rehabilitation specialist<br>
-                Social worker<br>
-                Restaurant waiter<br>
-                Recruitment consultant<br>
-                Ground hostess<br>
-                Intercedent<br>
-                Employment consultant<br>
-                Mentor / Mentrix<br>
-                Social school worker
+                @foreach($profListSix as $sixthListCareer)
+                    {{ $sixthListCareer['career_description'][0]['career'] }}<br>
+                @endforeach
             </div>
 
             <div style="font-size: 12px; line-height: 22px; text-align: right;">
-                1 <br>
-                3 <br>
-                4-5 <br>
-                1 <br>
-                3 <br>
-                4 <br>
-                3-4 <br>
-                3-4 <br>
-                1 <br>
-                4-5 <br>
-                3 <br>
-                3-4 <br>
-                3 <br>
-                3-4 <br>
-                3-4-5 <br>
-                3-4 <br>
-                4-5 <br>
-                4-5 <br>
-                4-5 <br>
-                3-4 <br>
-                3 <br><br>
-                3-4 <br>
-                4 <br>
-                4 <br>
-                3-4 <br>
-                1 <br>
-                3-4 <br>
-                3-4 <br>
-                3-4 <br>
-                4-5 <br>
-                4-5 <br>
-                4-5
+                @foreach($profListSix as $sixthListLevel)
+                    {{ $sixthListLevel['level'] }}<br>
+                @endforeach
             </div>
         </div>
     </div>

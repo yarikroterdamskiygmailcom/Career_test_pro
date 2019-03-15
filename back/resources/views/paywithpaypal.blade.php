@@ -18,13 +18,13 @@
                     @endif
                     <div class="panel-heading">Paywith Paypal</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" method="GET" id="payment-form" role="form" action="{{ url('http://bbbc478b.ngrok.io/paypal') }}" >
+                        <form class="form-horizontal" method="GET" id="payment-form" role="form" action="{{ url('http://backcartestpro.qbex.io/paypal') }}" >
 
                             {{ csrf_field() }}
                             <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
                                 <label for="amount" class="col-md-4 control-label">Amount</label>
                                 <div class="col-md-6">
-                                    <input id="amount" type="text" class="form-control" name="amount" value="{{ old('amount') }}" autofocus>
+                                    <input id="amount" type="text" class="form-control" name="amount" value="{{ $amount }}" autofocus readonly>
                                     @if ($errors->has('amount'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('amount') }}</strong>

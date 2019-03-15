@@ -26,9 +26,12 @@ Route::group([
     Route::get('paypal/success', array('as' => 'payment.status','uses' => 'PayPalController@getPaymentStatus',));
 
     Route::get('mollie', 'MollieController@preparePayment');
+    Route::get('mollie/status', 'MollieController@status')->name('order.status');
     Route::get('mollie/success', 'MollieController@success')->name('order.success');
 
     Route::get('braintree', 'BraintreeController@index');
     Route::get('/payment/process', 'BraintreeController@process')->name('payment.process');
+    Route::get('/payment/success', 'BraintreeController@success')->name('payment.success');
+
 
 });

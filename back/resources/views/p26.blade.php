@@ -8,9 +8,9 @@
 
         <div style="width: 49.9%; text-align: right; font-size: 12px;">
             <div class="author-box">
-                <span class="author">John Smith</span>
+                <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: 20/03/2016
+                Date: {{ $datestamp }}
             </div>
         </div>
     </header>
@@ -19,7 +19,7 @@
         <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #FDC572; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
             <table>
                 <tr>
-                    <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">E</td>
+                    <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[0] }}</td>
                 </tr>
             </table>
         </div>
@@ -27,7 +27,7 @@
         <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #85B1F5; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
             <table>
                 <tr>
-                    <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">S</td>
+                    <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[1] }}</td>
                 </tr>
             </table>
         </div>
@@ -35,270 +35,24 @@
         <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #F9892E; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
             <table>
                 <tr>
-                    <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">C</td>
+                    <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[2] }}</td>
                 </tr>
             </table>
         </div>
     </div>
 
     <div style="margin-top: 15px;">
-        <div style="width: 40%; float: left;">
+        <div style="width: 100%; float: left;">
             <div style="font-size: 12px; line-height: 22px; width: 85%; float: left;">
-                Accountmanager
-                <br>
-                Police officer
-                <br>
-                Steward / Stewardess
-                <br>
-                Funeral director / Undertaker
-                <br>
-                HR Manager
-                <br>
-                Judge
-                <br>
-                Administrative assistant
-                <br>
-                Secretary
-                <br>
-                Financial planner
-                <br>
-                Antiquarian
-                <br>
-                Bodyguard
-                <br>
-                Real estate broker
-                <br>
-                Logistics planner
-                <br>
-                Janitor
-                <br>
-                Department manager
-                <br>
-                Program manager radio / television
-                <br>
-                Financial advisor
-                <br>
-                Franchisee (franchise entrepreneur)
-                <br>
-                Genealogist
-                <br>
-                Insurance advisor
-                <br>
-                Investment banker
-                <br>
-                Manicurist
-                <br>
-                Pedicurist
-                <br>
-                Beautician
-                <br>
-                Jeweler
-                <br>
-                Retail manager
-                <br>
-                Stage manager
-                <br>
-                Supermarket manager
-                <br>
-                Telemarketer
-                <br>
-                Waiter / Waitress
-                <br>
-                Tour guide
-                <br>
-                Manager IT company
-                <br>
-                Retail business manager
-                <br>
-                Real estate developer
-                <br>
-                Policy officer fiscal
-                <br>
-                Legal affairs policy officer
+            @foreach($profListOne as $firstListCareer)
+                    {{ $firstListCareer['career_description'][0]['career'] }}<br>
+            @endforeach
             </div>
 
             <div style="font-size: 12px; line-height: 22px; text-align: right;">
-                4-5
-                <br>
-                3-4-5
-                <br>
-                3
-                <br>
-                3
-                <br>
-                3-4-5
-                <br>
-                3-4-5
-                <br>
-                3
-                <br>
-                3
-                <br>
-                4-5
-                <br>
-                4-5
-                <br>
-                3
-                <br>
-                4
-                <br>
-                3
-                <br>
-                1
-                <br>
-                3
-                <br>
-                4-5
-                <br>
-                4-5
-                <br>
-                1
-                <br>
-                3
-                <br>
-                4-5
-                <br>
-                4-5
-                <br>
-                3
-                <br>
-                3
-                <br>
-                3
-                <br>
-                3-4
-                <br>
-                3-4
-                <br>
-                3-4
-                <br>
-                4
-                <br>
-                3
-                <br>
-                1
-                <br>
-                1
-                <br>
-                4-5
-                <br>
-                3-4
-                <br>
-                4-5
-                <br>
-                4-5
-                <br>
-                4-5
-            </div>
-        </div>
-
-        <div style="width: 40%; float: right;">
-            <div style="font-size: 12px; line-height: 22px; width: 85%; float: left;">
-                Commercial Director
-                <br>
-                Hotel manager
-                <br>
-                Store manager
-                <br>
-                Marketing and communications planner
-                <br>
-                Press and public information officer
-                <br>
-                Nutrition advisor
-                <br>
-                Salesman
-                <br>
-                Store clerk
-                <br>
-                Croupier / Dealer (casino)
-                <br>
-                Representative
-                <br>
-                Advertising canvasser
-                <br>
-                Bookseller
-                <br>
-                Restaurant owner
-                <br>
-                Retail sales manager
-                <br>
-                Catering manager
-                <br>
-                Branch manager retail
-                <br>
-                Food and beverage manager
-                <br>
-                Hotel Director
-                <br>
-                Manager
-                <br>
-                Negotiation interpreter / translator
-                <br>
-                Police inspector
-                <br>
-                Nursing practice supervisor
-                <br>
-                Room division manager
-                <br>
-                Sales promotoer
-                <br>
-                Union director
-                <br>
-                Course coordinator
-            </div>
-
-            <div style="font-size: 12px; line-height: 22px; text-align: right;">
-                4-5
-                <br>
-                4-5
-                <br>
-                4-5
-                <br>
-                4-5
-                <br>
-                4-5
-                <br>
-                3-4
-                <br>
-                1
-                <br>
-                3
-                <br>
-                3
-                <br>
-                3
-                <br>
-                3
-                <br>
-                3-4
-                <br>
-                3-4
-                <br>
-                3-4
-                <br>
-                4-5
-                <br>
-                4-5
-                <br>
-                4-5
-                <br>
-                4-5
-                <br>
-                4-5
-                <br>
-                4-5
-                <br>
-                4-5
-                <br>
-                4-5
-                <br>
-                4-5
-                <br>
-                4-5
-                <br>
-                4-5
-                <br>
-                4-5
+                @foreach($profListOne as $firstListLevel)
+                    {{ $firstListLevel['level'] }}<br>
+                @endforeach
             </div>
         </div>
     </div>

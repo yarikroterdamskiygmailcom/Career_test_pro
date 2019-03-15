@@ -42,7 +42,7 @@ class EmailsController extends BaseController
     public function pdfLinkEmail() {
         $when = now()->addSeconds(1);
         Mail::to($this->receiver)
-            ->later($this->when, new PdfLinkMail('http://careertestproback.com/api/diagrams/'.Input::get('customer_id').'?result_key='.Input::get('result_token')));
+            ->later($this->when, new PdfLinkMail('http://backcartestpro.qbex.io/api/diagrams/'.Input::get('customer_id').'?result_key='.Input::get('result_token')));
 
         return $this->sendResponse('Success', 'Email sent');
 

@@ -8,9 +8,9 @@
 
         <div style="width: 49.9%; text-align: right; font-size: 12px;">
             <div class="author-box">
-                <span class="author">John Smith</span>
+                <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: 20/03/2016
+                Date: {{ $datestamp }}
             </div>
         </div>
     </header>
@@ -28,11 +28,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score above average on the enterprising personality type. You're outgoing and optimistic. Professional work
-        environments in which you're free to organize, direct and control appeal to you. You place high value on status,
-        power, money, and material possessions, which you try to acquire by being ambitions and enterprising. You like
-        taking initiative and enjoy being in positions of authority. Occupations such as entrepreneur, consultant,
-        trader, manager, planner and buyer probably appeal to you.
+        {{ $occupationsProfessionsO }}
     </p>
 
     <div>
@@ -48,10 +44,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score average on the artistic personality type. Unstructured and creative activities appeal to you to a
-        certain extent, but they're not specific requirements that you look for. Every now and then you use your
-        creative inspiration to create new things and express your personality. Furthermore, you appreciate beauty and
-        esthetic qualities.
+        {{ $occupationsProfessionsA }}
     </p>
 
     <div>
@@ -67,10 +60,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score below average on the social personality type. A professional work environment in which you need to
-        guide, teach and be tactful in relating to others, does not really appeal to you. Your skills and interests do
-        not match occupations that require those competencies. This does not mean you're not friendly or cooperative.
-        You just don't like to take on facilitative roles such as those of teachers or counselors.
+        {{ $occupationsProfessionsS }}
     </p>
 
     <div>
@@ -86,11 +76,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score low on the conventional personality type. Working according to set procedures and guidelines does not
-        really appeal to you. Also, your interests do not match occupations where administrative, organizational and/or
-        analytical skills are required. Furthermore, you don't necessarily want to conform to expected standards and
-        constantly follow the lead of those in positions of authority, in a professional work environment. You
-        appreciate freedom and enjoy more unstructured activities in your ideal workplace.
+        {{ $occupationsProfessionsC }}
     </p>
 
     <div>
@@ -106,10 +92,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
-        You score low on the investigative personality type. You don't really feel a need to understand, explain and
-        predict all the things that go on around you. Therefore, a professional work environment in which research and
-        analysis are daily routines, probably doesn't suit you. Your skills and interests do not really match
-        occupations that require those competencies.
+        {{ $occupationsProfessionsI }}
     </p>
 
     <div>
@@ -125,9 +108,7 @@
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;; line-height: 20px;">
-        Your score very low on the realistic personality type. Mechanical and physical activities don't really appeal to
-        you. Also, a professional work environment in which you spend a lot of time outdoor is not really necessary for
-        you. You also don't have a specific preference for working with things, objects and animals.
+        {{ $occupationsProfessionsR }}
     </p>
 
     <p style="margin-top: 30px;">Careertestpro.com is a product of Making Moves B.V. - Copyright Making Moves B.V.</p>

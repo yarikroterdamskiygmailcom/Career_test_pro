@@ -32,7 +32,7 @@
                 $.get(`${window.location.origin}/payment/process`, {payload}, function (response) {
                     if (response.success) {
                         //alert('Payment successfull!');
-                        window.location.href = 'http://localhost:8080/final';
+                        window.location.href = 'http://backcartestpro.qbex.io/payment/success';
                     } else {
                         alert('Payment failed');
                     }

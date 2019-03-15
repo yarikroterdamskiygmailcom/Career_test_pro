@@ -28,17 +28,19 @@ class MollieController extends Controller
         \Session::put('result', $resultData);
         $payment = Mollie::api()->payments()->create([
             'amount' => [
-                'currency' => 'USD',
+                'currency' => 'EUR',
                 'value' => number_format($this->price->value, 2) // You must send the correct number of decimals, thus we enforce the use of strings
             ],
-            'description' => 'My first API payment',
-            // 'webhookUrl' => route('webhooks.mollie'),
+            'description' => 'My first API payments',
+             //'webhookUrl' => route('order.status'),
             'redirectUrl' => route('order.success'),
 
         ]);
 
         $payment = Mollie::api()->payments()->get($payment->id);
+        \Session::put('payment', $payment->id);
 
+        //dd($payment);
         // redirect customer to Mollie checkout page
         return redirect($payment->getCheckoutUrl(), 303);
     }
@@ -49,18 +51,27 @@ class MollieController extends Controller
      * (See the webhook docs for more information.)
      */
 
-
     public function success() {
-        $resultData = Session::get('result');
-        Session::forget('result');
+        $paymentId = Session::get('payment');
+        $payments =  Mollie::api()->payments()->page();
+        for($i = 0; $i < 50; $i++) {
+            if ($payments[$i]->id == $paymentId && $payments[$i]->status == 'paid') {
+                $resultData = Session::get('result');
+                Session::forget('result');
+                Session::forget('payment');
 
-        $secretLink = md5($resultData.md5($resultData));
-        $newCustomer['customer'] = $resultData;
-        $newCustomer['price'] = $this->price->value;
-        $newCustomer['payment_system'] = 'mollie';
-        $newCustomer['secret_link'] = $secretLink;
+                $secretLink = md5($resultData . md5($resultData));
+                $newCustomer['customer'] = $resultData;
+                $newCustomer['price'] = $this->price->value;
+                $newCustomer['payment_system'] = 'mollie';
+                $newCustomer['secret_link'] = $secretLink;
 
-        $customer = Customer::create($newCustomer);
-        return redirect()->route('send-pdf', array('customer_id' => $customer->id, 'result_token' => $secretLink));
+                $customer = Customer::create($newCustomer);
+                return redirect()->route('send-pdf', array('customer_id' => $customer->id, 'result_token' => $secretLink));
+            }
+        }
+        return response()->json([
+            'payment_status' => 'Payment failed',
+        ]);
     }
 }

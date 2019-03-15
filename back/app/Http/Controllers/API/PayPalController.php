@@ -25,9 +25,14 @@ use PayPal\Api\RedirectUrls;
 use PayPal\Api\ExecutePayment;
 use PayPal\Api\PaymentExecution;
 use PayPal\Api\Transaction;
+use App\Model\Customer;
+use App\Model\Price;
+
 class PayPalController extends Controller
 {
     private $_api_context;
+    protected $price;
+
     /**
      * Create a new controller instance.
      *
@@ -39,6 +44,8 @@ class PayPalController extends Controller
         $paypal_conf = \Config::get('paypal');
         $this->_api_context = new ApiContext(new OAuthTokenCredential($paypal_conf['client_id'], $paypal_conf['secret']));
         $this->_api_context->setConfig($paypal_conf['settings']);
+        $this->price = Price::first();
+
     }
     /**
      * Show the application paywith paypalpage.
@@ -47,7 +54,11 @@ class PayPalController extends Controller
      */
     public function payWithPaypal()
     {
-        return view('paywithpaypal');
+        $resultData = Input::get('result');
+
+        \Session::put('result', $resultData);
+        $amount = $this->price->value;
+        return view('paywithpaypal', compact('amount'));
     }
     /**
      * Store a details of payment with paypal.
@@ -57,26 +68,29 @@ class PayPalController extends Controller
      */
     public function postPaymentWithpaypal(Request $request)
     {
-        //dd('PAYPAL!');
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
         $item_1 = new Item();
         $item_1->setName('Item 1') /** item name **/
         ->setCurrency('USD')
             ->setQuantity(1)
-            ->setPrice($request->get('amount')); /** unit price **/
+    //        ->setPrice($request->get('amount')); /** unit price **/
+            ->setPrice($this->price->value); /** unit price **/
+
         $item_list = new ItemList();
         $item_list->setItems(array($item_1));
         $amount = new Amount();
         $amount->setCurrency('USD')
-            ->setTotal($request->get('amount'));
+            //->setTotal($request->get('amount'));
+            ->setTotal($this->price->value);
+
         $transaction = new Transaction();
         $transaction->setAmount($amount)
             ->setItemList($item_list)
             ->setDescription('Your transaction description');
         $redirect_urls = new RedirectUrls();
 //        $redirect_urls->setReturnUrl(URL::route('payment.status')) /** Specify return URL **/
-          $redirect_urls->setReturnUrl('http://bbbc478b.ngrok.io/paypal/success') /** Specify return URL **/
+          $redirect_urls->setReturnUrl('http://backcartestpro.qbex.io/paypal/success') /** Specify return URL **/
 
                 ->setCancelUrl(URL::route('payment.status'));
         $payment = new Payment();
@@ -144,7 +158,18 @@ class PayPalController extends Controller
             /** Here Write your database logic like that insert record or value in database if you want **/
             \Session::put('success','Payment success');
             //return Redirect::route('addmoney.paywithpaypal');
-            return redirect('http://localhost:8080/final');
+            //return redirect('http://backcartestpro.qbex.io/final');
+            $resultData = Session::get('result');
+            Session::forget('result');
+
+            $secretLink = md5($resultData.md5($resultData));
+            $newCustomer['customer'] = $resultData;
+            $newCustomer['price'] = $this->price->value;
+            $newCustomer['payment_system'] = 'paypal';
+            $newCustomer['secret_link'] = $secretLink;
+
+            $customer = Customer::create($newCustomer);
+            return redirect()->route('send-pdf', array('customer_id' => $customer->id, 'result_token' => $secretLink));
         }
         \Session::put('error','Payment failed');
         return Redirect::route('addmoney.paywithpaypal');

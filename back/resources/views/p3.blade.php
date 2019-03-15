@@ -16,9 +16,9 @@
 
         <div style="width: 49.9%; text-align: right; font-size: 12px;">
             <div class="author-box">
-                <span class="author">John Smith</span>
+                <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: 20/03/2016
+                Date: {{ $datestamp }}
             </div>
         </div>
     </header>
@@ -51,10 +51,10 @@
                     </tr>
 
                     <tr>
-                        <td>John Smith</td>
-                        <td style="padding-left: 40px;">29</td>
-                        <td style="padding-left: 40px;">Male</td>
-                        <td style="padding-left: 40px;">20/03/2016</td>
+                        <td>{{ $customerName }}</td>
+                        <td style="padding-left: 40px;">{{ $customerAge }}</td>
+                        <td style="padding-left: 40px;">{{ $customerGender }}</td>
+                        <td style="padding-left: 40px;">{{ $datestamp }}</td>
                     </tr>
                 </table>
             </div>
