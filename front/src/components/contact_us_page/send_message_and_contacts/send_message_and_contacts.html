@@ -2,7 +2,7 @@
 
     <div class="d-flex align-items-center flex-column position-relative">
         <div class="our_address_img contact_image_for_page position-absolute"></div>
-        <div class="title_block title">Our Address</div>
+        <div class="title_block title text-capitalize">Our Address</div>
         <div ref="copy" class="contact_copy_information">
              <span style="font-weight: 600">CareerTestPro.com</span>
             <br><br>
@@ -23,7 +23,7 @@
 
     <div class="d-flex align-items-center flex-column position-relative">
         <div class="our_email_img position-absolute contact_image_for_page"></div>
-        <div class="title_block title">Our Email</div>
+        <div class="title_block title text-capitalize">Our Email</div>
         <div class="have-any-questions_block_input d-flex flex-column">
             <div class="margin_input" :class="{margin_input_no_active: !error.name.errors}">
                 <input type="text" v-model="data.name" :class="{error:error.name.errors}"

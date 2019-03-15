@@ -7,8 +7,12 @@ export default {
     props: ['data'],
     data() {
         return {
-            url : config.url
+            url : config.url,
+            transitions: false
         }
+    },
+    mounted() {
+        setTimeout(v => this.transitions = !this.transitions, 200)
     },
     methods: {
         close_modal(){

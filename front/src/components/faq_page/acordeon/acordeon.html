@@ -1,7 +1,8 @@
 <section class="acordeon_item">
-
     <div>
-        <div class="block_acordeon d-flex align-items-center justify-content-between" @click="open(position)">
+        <div class="block_acordeon d-flex align-items-center justify-content-between"
+             @click="open(position)"
+            :class="item_acordeon.active ? 'block_acordeon1' : 'block_acordeon2'">
             <div class="acordeon_title">
                 {{item_acordeon.name}}
             </div>
@@ -9,7 +10,7 @@
                  :style="{transform: item_acordeon.active ? 'rotate(180deg)' : 'rotate(0deg)'}">
             </div>
         </div>
-        <hr class="middle_line" :style="{'opacity': item_acordeon.active ? 1: 0}">
+        <hr class="middle_line" :style="{'display': item_acordeon.active ? 'block': 'none'}">
         <div class="acordeon_content" :ref="`acordeon_content${position}`"
              :style="{'max-height': item_acordeon.active ? '770px': 0}">
             <div v-if="item_acordeon.content" v-html="item_acordeon.content"></div>

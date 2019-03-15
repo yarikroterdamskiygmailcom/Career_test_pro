@@ -1,8 +1,8 @@
 <div>
-    <section v-if="!screen.active" class="all-aptitude-test d-flex justify-content-center align-items-center">
+    <section v-if="screen.value >= 1240" class="all-aptitude-test d-flex justify-content-center align-items-center">
         <div class="elem_elipse custom_elem"></div>
         <div class="elem_elipse elem_elipse1 custom_elem"></div>
-        <div class="all-aptitude-test_container d-flex justify-content-between">
+        <div class="all-aptitude-test_container d-flex justify-content-around">
             <div class="d-flex flex-column align-items-center justify-content-center">
                 <div class="title_block_benefits text-capitalize">
                     <span style="color:#F9892E">All Aptitude Test Package</span>
@@ -35,7 +35,7 @@
         </div>
     </section>
 
-    <section v-if="screen.active" class="all-aptitude-test d-flex justify-content-center align-items-center">
+    <section v-if="screen.value < 1240 " class="all-aptitude-test d-flex justify-content-center align-items-center">
         <div class="elem_elipse custom_elem"></div>
         <div class="elem_elipse elem_elipse1 custom_elem"></div>
         <div class="all-aptitude-test_container d-flex justify-content-between">

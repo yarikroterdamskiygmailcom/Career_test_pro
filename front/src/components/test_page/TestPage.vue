@@ -18,8 +18,6 @@
             return {
             }
         },
-        created(){
-        },
         computed:{
             component_active(){
                 return Object.keys(this.$route.params).length == 0
@@ -28,7 +26,7 @@
                     :
                     'steps-component'
             }
-        }
+        },
     }
 </script>
 

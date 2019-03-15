@@ -28,7 +28,7 @@ export default {
     },
     created(){
         let rout = this.$router.history.current.path
-        this.active_button = rout  == '/home'
+        this.active_button = rout  == '/home' || rout  == '/tests' || rout.split('/').length > 2
          this.selected = rout;
     },
     methods:{

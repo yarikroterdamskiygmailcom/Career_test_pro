@@ -65,6 +65,14 @@ body{
     transform: translate3d(0px, 43px, 0px) !important;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15) !important;
     border: none;
+    padding: 0;
+    overflow-y: auto;
+    height: 138px;
+    position: absolute;
+}
+.header_badge_language .btn-lang-border.dropdown > .dropdown-menu a:hover,
+.footer_badge_language .btn-lang-border.dropdown > .dropdown-menu a:hover{
+background: #F4F8FF!important;
 }
 .input-information .confirm_input.dropdown > .dropdown-menu{
     width: 100%;
@@ -95,13 +103,13 @@ body{
     /*width: 100%;*/
     left: -14px!important;
 }
-@media screen and (max-width:1200px){
-    .footer_badge_language .dropdown-menu{
+@media screen and (max-width:1300px){
+    .footer_badge_language .dropdown-menu, .header_badge_language .dropdown-menu{
         left: -70px!important;
     }
 }
 @media screen and (max-width:767px){
-    .footer_badge_language .dropdown-menu{
+    .footer_badge_language .dropdown-menu, .header_badge_language .dropdown-menu{
         left: -35px!important;
     }
 }

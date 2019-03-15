@@ -3,14 +3,17 @@ export default {
     components: {},
     props: ['data'],
     data() {
-        return {}
+        return {
+            transitions: false
+        }
     },
     computed: {},
     mounted() {
-
+        setTimeout(v => this.transitions = !this.transitions, 200)
     },
     methods: {
         close_modal(){
+            this.transition = !this.transition
             this.$store.dispatch('modal_data/action_active_modal', {
                 name: 'test_modal',
                 active: false,
