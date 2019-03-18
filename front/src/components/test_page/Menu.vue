@@ -8,17 +8,13 @@
              :key="item + 'rout'"
              :disabled="child_disabled_menu && item > step"
              class="stepped d-flex justify-content-center"
-             :to="child_disabled_menu && item >= step ?
-             `/tests/${step}/${step_child}` :
-             item > step ? `/tests/${Number(step) + 1}/1` : `/tests/${item}/1`"
-             @click.native="func(child_disabled_menu, item >= step)">{{item}}</router-link>
+             :to="to(item)"
+             @click.native="func(child_disabled_menu, item > step)">{{item}}</router-link>
         <router-link v-if="screen != 'mobile'" v-for="item in menu_array"
              :key="item + 'rout'"
              class="stepped d-flex justify-content-center"
              :disabled="child_disabled_menu && item > step"
-             :to="child_disabled_menu && item >= step ?
-              `/tests/${step}/${step_child}` :
-              item > step ? `/tests/${Number(step) + 1}/1` : `/tests/${item}/1`"
+             :to="to(item)"
              @click.native="func(child_disabled_menu, item > step)">{{item}}</router-link>
         <div v-if="screen == 'desktop'">
             <div v-for="item in  menu_padding" :key="item + 'for' + 'desk'" :class="`s${item}`"
@@ -47,6 +43,7 @@
 <script>
     import Info from "./Info";
     import {QuestionStore} from "../../store/localStorage";
+    import counter from "./counter";
 
     export default {
         props: ['menu_array',
@@ -62,8 +59,22 @@
                 _disabled: false
             }
         },
-        computed:{
-
+        created(){
+            let step = Number(this.step);
+            // console.log( step % 2)
+            // debugger;
+            if(step == 10) {
+                this.mobile_arr = [step - 1, step];
+                return;
+            } else if( this.step == 1) {
+                this.mobile_arr = [step, step  + 1];
+                return;
+            }
+            if(step % 2){
+                this.mobile_arr = [step, step  + 1];
+            } else {
+                this.mobile_arr = [step - 1, step ];
+            }
         },
         methods:{
             toggle(type){
@@ -78,6 +89,13 @@
             },
             width_active(index){
                 return this.mobile_arr.every(item => item <= Number(this.step)) ?  index == 2 : index == 1
+            },
+            to(item){
+                let before_block = counter.count_block_menu();
+                if(!before_block) return `/tests/${item}/1`;
+                return  this.child_disabled_menu && item >= before_block ?
+                    `/tests/${before_block}/1` :
+                    item > before_block ? `/tests/${before_block}/1` : `/tests/${item}/1`
             }
         },
         watch:{
@@ -85,9 +103,17 @@
                 let step = Number(this.step);
                 let to_ = to.params.steps;
                 let from_ = from.params.steps;
+                if(step == 10) {
+                    this.mobile_arr = [step - 1, step];
+                    return;
+                }
+                if(step == 1) {
+                    this.mobile_arr = [step, step  + 1];
+                    return;
+                }
                 this.mobile_arr =  this.mobile_arr.some(item => item == step) ?
                     this.mobile_arr :
-                    from_ > to_?  [step, step + 1] : [step - 1, step];
+                    from_ > to_? [step - 1, step] : [step , step + 1];
             }
         },
     }

@@ -89,6 +89,9 @@
             ...mapGetters({
                 screen: 'modal_data/get_screen'
             })
+        },
+        created(){
+            localStorage.clear();
         }
     }
 </script>

@@ -13,8 +13,8 @@
                 </li>
             </ul>
         </nav>
-        <router-link :to="'tests'"
-             v-if="active_button && screen.value > 1100"
+        <router-link to="/tests"
+             v-if="screen.value > 1100"
              @click="menu = false"
              class="button_to
                  text_style
@@ -24,35 +24,18 @@
                  align-items-center">
              Take the Test
         </router-link>
-        <router-link :to="'tests'"
-             v-if="!active_button"
+        <router-link to="/tests"
+             v-if="test != 'home' && screen.value <= 1100"
              @click="menu = false"
              class="button_to
-                    text_style
-                    custom_button
-                    d-flex
-                    justify-content-center
-                    align-items-center">
+                 text_style
+                 custom_button
+                 d-flex
+                 justify-content-center
+                 align-items-center">
              Take the Test
         </router-link>
-        <div class="header_badge_language" v-if="active_button">
-            <b-dropdown id="ddown-divider"
-                        :text="language_now.code"
-                        variant="basic"
-                        offset="0"
-                        menu-class="rounded-menu"
-                        class="m-2 border btn-lang-border">
-                <b-dropdown-item
-                        v-for="lang in language_array"
-                        active-class="dropdown-item"
-                        @click="language(lang)"
-                        :key="lang.name + lang.language">
-                    {{lang.language}}
-                </b-dropdown-item>
-            </b-dropdown>
-        </div>
-        <div class="header_badge_language"
-             v-if="!active_button  && screen.value > 1100">
+        <div class="header_badge_language" v-if="screen.value >= 1100 || test == 'home'">
             <b-dropdown id="ddown-divider"
                         :text="language_now.code"
                         variant="basic"

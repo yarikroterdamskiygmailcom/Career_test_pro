@@ -23,13 +23,15 @@ export default {
                     url: '/about-us',
                     item: 'About Us'
                 },
-            ]
+            ],
+            test : ''
         }
     },
     created(){
-        let rout = this.$router.history.current.path
-        this.active_button = rout  == '/home' || rout  == '/tests' || rout.split('/').length > 2
-         this.selected = rout;
+        let rout = this.$router.history.current.path;
+        this.active_button = rout  == '/home'
+        this.test = rout.split('/')[1];
+        this.selected = rout;
     },
     methods:{
         language(item){
@@ -48,7 +50,9 @@ export default {
             document.body.style.overflowY = this.menu ? 'hidden' : 'scroll'
         },
         '$route' (to, from) {
-            this.active_button = to.path == '/home'
+            // debugger;
+            this.active_button = to.path == '/home' ||  this.$router.history.current.path.split('/')[0] == 'tests';
+            this.test = this.$router.history.current.path.split('/')[1];
             this.selected= to.path
         }
     },

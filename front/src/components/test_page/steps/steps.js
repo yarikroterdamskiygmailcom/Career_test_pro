@@ -64,7 +64,6 @@ export default {
             this.count_arr_for_disabled();
             let to_back = Number(to.params.steps) < this.step  ||  Number(to.params.child_step) < this.step_child;
             let to_go = Number(to.params.steps) > this.step  ||  Number(to.params.child_step) > this.step_child;
-            // debugger
             if(this.disabled_but) {
                 if(to_back) {
                     next()
@@ -106,10 +105,8 @@ export default {
             });
             return data;
         },
-        go_next(value, index = false, next=false){debugger;
+        go_next(value, index = false, next=false, child){
             this.count_arr_for_disabled();
-            // if(this.step_child == 1) index = false;
-
             if(value){
                 if(index) {
                  this.refresh_helper()
@@ -196,11 +193,14 @@ export default {
             methods:{
                 element_munipulation(el, binding, vnode){
                     const self = binding.def.data_vue.a;
-                    if(binding.value.step == self.data().first_step){
+                    if(binding.value.step == 1){
+                        // debugger;
                         Number(binding.value.child< 2) ?
                             el.setAttribute('disabled', true)
                             :
                             el.removeAttribute('disabled')
+                    } else {
+                        el.removeAttribute('disabled')
                     }
                 }
             },
