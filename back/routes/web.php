@@ -11,10 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::group(
+    ['prefix' => 'admin'],
+    function() {
+        Route::get('/', function () {
+            return view('welcome');}
+            );
+        Route::get('/{param}', function () {return view('welcome');});
+        Route::get('/{param}/{param1}', function () {return view('welcome');});
+    }
+);
 
 
 
