@@ -11,6 +11,10 @@ import Vue from 'vue';
 window.Vue = Vue;
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
+
+Vue.http.options.root = 'http://backcartestpro.qbex.io';
+
+;
 import {request, response} from './api/iterseptors';
 Vue.http.interceptors.push(request);
 Vue.http.interceptors.push(response);
