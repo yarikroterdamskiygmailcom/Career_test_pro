@@ -14,26 +14,35 @@
                 :menu_array="step_menu.number"
                 :menu_padding="step_menu.padding"
                 :step="step"
+                :step_child="step_child"
                 :width="'890px'"
-                :screen="'desktop'">
+                :screen="'desktop'"
+                :func="go_next"
+        :child_disabled_menu="child_disabled_menu">
         </menu_component>
         <menu_component
                 v-if="screen.active && (screen.value < 1200 && screen.value > 640)"
                 :menu_array="step < 6? [1,2,3,4,5] : [6,7,8,9,10]"
                 :screen="'tablet'"
                 :width="'443px'"
+                :step_child="step_child"
                 :menu_padding="[1,2,3,4,5]"
-                :step="step">
+                :step="step"
+                :func="go_next"
+                :child_disabled_menu="child_disabled_menu">
         </menu_component>
         <menu_component
                 v-if="screen.active && screen.value <= 640 "
                 :screen="'mobile'"
                 :width="'177px'"
                 :menu_array="[1,2]"
+                :step_child="step_child"
                 :menu_padding="[1,2]"
-                :step="step">
+                :step="step"
+                :func="go_next"
+                :child_disabled_menu="child_disabled_menu">
         </menu_component>
-        <div class="small custom_small">
+        <div class="small custom_small small2">
             {{~~process}} % -
             <span v-if="process == 0">Completed Yet - Good Luck!</span>
             <span v-if="process > 0 && process < 10">Wow, you’re doing great! Keep moving!</span>
@@ -41,7 +50,7 @@
             <span v-if="process == 100">Congratulations!</span>
         </div>
         <div class="step_content d-flex flex-column">
-            <div class="step_content d-flex justify-content-end" style="margin-bottom: 30px"
+            <div class="step_content d-flex justify-content-end ellips_information" style="margin-bottom: 30px"
                  :class="screen.value < 640 ?'justify-content-between' : 'justify-content-end'">
                 <info v-if="screen.value < 640"
                       class="info" :active="step"></info>
@@ -83,7 +92,7 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex justify-content-between" ref="back" style=" margin-top: 30px; margin-bottom: 254px">
+            <div class="d-flex justify-content-between" ref="back" style=" margin-top: 30px; margin-bottom: 254px" >
                 <router-link :to="back()"  class="button_to custom_button
              d-flex justify-content-center align-items-center"
                              v-disabled_button_back="{step:step, child: step_child}">Back</router-link>

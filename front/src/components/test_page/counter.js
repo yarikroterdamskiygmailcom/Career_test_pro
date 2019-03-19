@@ -83,7 +83,7 @@ export default  {
         };
         count_sum_and_number(callback_total);
         count_sum_and_number(callback_percent);
-        
+
         function count_sum_and_number(callback){
             Object.keys(step_array).forEach(item => {
                 config.letters.forEach(letter => {
@@ -106,6 +106,20 @@ export default  {
     },
     count_disanled_step(self){
         return self.some(this.count_disanled_callback);
+    },
+    count_block_menu(count_i = count_step, count_j = count_in_one_step){
+        const self = this;
+        let number = null;
+        for(let i = 1; i < count_i ;i++){
+            for (let j = 0; j < count_j; j++) {
+                QuestionStore.getStep(`${i}-${j+1}`).some(step => {
+                    if(typeof step.state == 'undefined') number = i;
+                    return typeof step.state == 'undefined'
+                });
+                if(number) return number;
+            }
+        }
+        return null;
     },
     count_disanled_callback(item){
         return !item.state

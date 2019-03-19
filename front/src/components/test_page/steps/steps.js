@@ -6,6 +6,7 @@ import step_name from "../../../const/step_name";
 import { mapGetters } from "vuex";
 import Info from "../Info";
 import Menu from "../Menu";
+import Helper from "../../../helper/active_other_modal";
 
 export default {
     props: [],
@@ -24,7 +25,8 @@ export default {
             step_menu:{
                 padding: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                 number:  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-            }
+            },
+            arr: []
         }
     },
     components:{
@@ -40,7 +42,13 @@ export default {
         },
         ...mapGetters({
             screen: 'modal_data/get_screen'
-        })
+        }),
+        disabled_but(){
+          return this.data_step ? counter.count_disanled_step(this.data_step) : true
+        },
+        child_disabled_menu(){
+             return !this.arr.every(item => typeof item == 'number');
+        },
     },
     created() {
         this.process = counter.count_process('state');
@@ -50,8 +58,38 @@ export default {
         (this.step < this.first_step) || (this.step > this.last_step) || !this.step_child
             ? this.$router.push( `/tests/1/1`) : null;
         this.toggle_modal();
+        this.count_arr_for_disabled();
+
+        this.$router.beforeEach((to, from, next) => {
+            this.count_arr_for_disabled();
+            let to_back = Number(to.params.steps) < this.step  ||  Number(to.params.child_step) < this.step_child;
+            let to_go = Number(to.params.steps) > this.step  ||  Number(to.params.child_step) > this.step_child;
+            if(this.disabled_but) {
+                if(to_back) {
+                    next()
+                } else if(to_go){
+                    this.refresh_helper()
+                } else next()
+            } else next();
+
+        })
     },
     methods: {
+        refresh_helper(){
+            Helper.open_modal(
+                this,
+                'If you want to get on the next step, you’ll need to fill all questions.\n' +
+                'That way you can get a correct result.',
+                'copy_text.svg', '8px', '27px', '115px', '153.99px'
+            );
+        },
+        count_arr_for_disabled(){
+            this.arr = [];
+            let step = this.step;
+            for (let j = 0; j < 3; j++) {
+                QuestionStore.getStep(`${step}-${j+1}`).forEach(item => this.arr.push(item.state));
+            }
+        },
         count_Step(name){
             return !this.step ? '' : step_name[`step:${this.step}`][name]
         },
@@ -67,9 +105,17 @@ export default {
             });
             return data;
         },
+        go_next(value, index = false, next=false, child){
+            this.count_arr_for_disabled();
+            if(value){
+                if(index) {
+                 this.refresh_helper()
+                }
+            }
+        },
         next(){
-            let result = this.data_step ?  counter.count_disanled_step(this.data_step) : null;
-            if(result) return `/tests/${Number(this.step)}/${Number(this.step_child)}`;
+            // let result = this.data_step ?  this.disabled_but : null;
+            // if(result) return `/tests/${Number(this.step)}/${Number(this.step_child)}`;
             if(this.step == 10 && this.step_child == 3){
                 let res = counter.count_button_disabled_before_result();
                 if(res) return `/tests/${Number(this.step)}/${Number(this.step_child)}`;
@@ -130,6 +176,7 @@ export default {
                 ...QuestionStore.getStep(`${this.step}-${this.step_child}`)
             ];
             this.process = counter.count_process('state');
+            this.count_arr_for_disabled()
         },
     },
     watch:{
@@ -146,11 +193,14 @@ export default {
             methods:{
                 element_munipulation(el, binding, vnode){
                     const self = binding.def.data_vue.a;
-                    if(binding.value.step == self.data().first_step){
+                    if(binding.value.step == 1){
+                        // debugger;
                         Number(binding.value.child< 2) ?
                             el.setAttribute('disabled', true)
                             :
                             el.removeAttribute('disabled')
+                    } else {
+                        el.removeAttribute('disabled')
                     }
                 }
             },
@@ -177,7 +227,6 @@ export default {
                         el.removeAttribute('disabled')
                     if(binding.value.step == 10 && binding.value.step_child == 3){
                         let res = counter.count_button_disabled_before_result();
-                        console.log(res);
                         res?
                             el.setAttribute('disabled', true)
                             :

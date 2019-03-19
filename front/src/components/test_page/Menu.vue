@@ -1,17 +1,21 @@
 <template>
     <div class="item_question nav_step borders d-flex justify-content-between position-relative"
         :style="{width: width}">
-        <!--{{step}}{{mobile_arr}}-->
         <div class="arrow arrow_back" v-if="screen == 'mobile'" @click="toggle('back')"></div>
         <div class="arrow arrow_next" v-if="screen == 'mobile'" @click="toggle('next')"></div>
         <router-link v-for="item in mobile_arr"
-                     v-if="screen == 'mobile'" :key="item + 'rout'"
-                     class="stepped d-flex justify-content-center"
-                     :to="`/tests/${item}/1`">{{item}}</router-link>
+             v-if="screen == 'mobile'"
+             :key="item + 'rout'"
+             :disabled="child_disabled_menu && item > step"
+             class="stepped d-flex justify-content-center"
+             :to="to(item)"
+             @click.native="func(child_disabled_menu, item > step)">{{item}}</router-link>
         <router-link v-if="screen != 'mobile'" v-for="item in menu_array"
-                     :key="item + 'rout'"
-                     class="stepped d-flex justify-content-center"
-                     :to="`/tests/${item}/1`">{{item}}</router-link>
+             :key="item + 'rout'"
+             class="stepped d-flex justify-content-center"
+             :disabled="child_disabled_menu && item > step"
+             :to="to(item)"
+             @click.native="func(child_disabled_menu, item > step)">{{item}}</router-link>
         <div v-if="screen == 'desktop'">
             <div v-for="item in  menu_padding" :key="item + 'for' + 'desk'" :class="`s${item}`"
                  v-if="item == step"
@@ -38,28 +42,39 @@
 
 <script>
     import Info from "./Info";
+    import {QuestionStore} from "../../store/localStorage";
+    import counter from "./counter";
 
     export default {
-        props: ['menu_array', 'menu_padding', 'step', 'width', 'screen'],
+        props: ['menu_array',
+            'menu_padding',
+            'step', 'width', 'screen', 'func', 'count_disabled', 'child_disabled_menu', 'step_child'],
         components: {
             info:  Info,
         },
         data(){
             return{
                 base: [Number(this.step), Number(this.step) + 1],
-                mobile_arr: [Number(this.step), Number(this.step) + 1]
+                mobile_arr: [Number(this.step), Number(this.step) + 1],
+                _disabled: false
             }
         },
-        computed:{
-            // mobile_arr:{
-            //     set(value){
-            //         console.log(value, this.arr)
-            //         this.arr = value;
-            //     },
-            //     get(){
-            //         return this.arr;
-            //     }
-            // }
+        created(){
+            let step = Number(this.step);
+            // console.log( step % 2)
+            // debugger;
+            if(step == 10) {
+                this.mobile_arr = [step - 1, step];
+                return;
+            } else if( this.step == 1) {
+                this.mobile_arr = [step, step  + 1];
+                return;
+            }
+            if(step % 2){
+                this.mobile_arr = [step, step  + 1];
+            } else {
+                this.mobile_arr = [step - 1, step ];
+            }
         },
         methods:{
             toggle(type){
@@ -74,6 +89,13 @@
             },
             width_active(index){
                 return this.mobile_arr.every(item => item <= Number(this.step)) ?  index == 2 : index == 1
+            },
+            to(item){
+                let before_block = counter.count_block_menu();
+                if(!before_block) return `/tests/${item}/1`;
+                return  this.child_disabled_menu && item >= before_block ?
+                    `/tests/${before_block}/1` :
+                    item > before_block ? `/tests/${before_block}/1` : `/tests/${item}/1`
             }
         },
         watch:{
@@ -81,9 +103,17 @@
                 let step = Number(this.step);
                 let to_ = to.params.steps;
                 let from_ = from.params.steps;
+                if(step == 10) {
+                    this.mobile_arr = [step - 1, step];
+                    return;
+                }
+                if(step == 1) {
+                    this.mobile_arr = [step, step  + 1];
+                    return;
+                }
                 this.mobile_arr =  this.mobile_arr.some(item => item == step) ?
                     this.mobile_arr :
-                    from_ > to_?  [step - 1, step] : [step, step + 1]
+                    from_ > to_? [step - 1, step] : [step , step + 1];
             }
         },
     }

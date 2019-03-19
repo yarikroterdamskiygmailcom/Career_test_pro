@@ -31,7 +31,7 @@ export default {
                 Helper.open_modal(
                     this,
                     'Address has been copied successfully',
-                    'copy_text.svgg', '8px', '27px', '115px', '153.99px'
+                    'copy_text.svg', '8px', '27px', '115px', '153.99px'
                 )
             } catch (err) {
                 console.log('Не скопировано')

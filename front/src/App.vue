@@ -203,12 +203,16 @@
         background: #FFFFFF;
         border: 1px solid #DFDFDF;
         height: 44px;
+        font-size: 14px;
         padding: 0 30px;
         width: 400px;
         box-sizing: border-box;
         border-radius: 22px;
-        color: #8B8B8B;
-    }
+        color: #333333;
+    }.have-any-questions_block_input input::placeholder, .have-any-questions_block_input textarea::placeholder,
+     .input-information input::placeholder{
+             color: #8B8B8B;
+         }
     .have-any-questions_block_input input:focus, .have-any-questions_block_input textarea:focus,
     .input-information input:focus{
         border: 1px solid #85B1F5!important;
@@ -251,8 +255,10 @@
         padding: 0;
     }
     .margin_input input.error{
+        font-size: inherit;
         padding-top: 0;
     }.margin_input textarea.error{
+             font-size: inherit;
         padding-top: 14px
     }
     .header_badge_language #ddown-divider .dropdown-item:hover, .dropdown-item:focus,

@@ -1,6 +1,6 @@
 <template>
     <div class="contact_us d-flex flex-column align-items-center">
-        <div class="title_block text-center text-uppercase">
+        <div class="title_block text-center text-capitalize">
             Contact <span style="color:#F9892E">Us</span>
         </div>
         <div class="small_text text-center">

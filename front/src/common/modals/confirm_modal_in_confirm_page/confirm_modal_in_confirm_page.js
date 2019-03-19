@@ -6,7 +6,12 @@ export default {
     components: {},
     props: ['data'],
     data() {
-        return {}
+        return {
+            transitions: false
+        }
+    },
+    mounted(){
+        setTimeout(v => this.transitions = !this.transitions, 200)
     },
     methods: {
         close_modal(){

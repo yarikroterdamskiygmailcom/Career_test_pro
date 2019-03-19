@@ -26,6 +26,11 @@
         name: "ProcessConfirmPage",
         components:{
             'input_information_component': Input_information,
+        },
+        watch:{
+            '$route' (to, from) {
+                console.log(to, from)
+            }
         }
     }
 </script>

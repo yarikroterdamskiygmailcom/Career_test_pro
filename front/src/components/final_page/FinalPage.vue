@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="!screen.active" class="final d-flex flex-column align-items-center">
-            <div class="title_block custom_title">
+            <div class="title_block custom_title text-capitalize">
                 Check Your <span style="color:#F9892E">Email</span>
             </div>
             <div class="small_text custom_small_title">
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div v-if="screen.active" class="final d-flex flex-column align-items-center">
-            <div class="title_block custom_title">
+            <div class="title_block custom_title text-capitalize">
                 Check Your <span style="color:#F9892E">Email</span>
             </div>
             <div class="small_text custom_small_title">
@@ -89,12 +89,15 @@
             ...mapGetters({
                 screen: 'modal_data/get_screen'
             })
+        },
+        created(){
+            localStorage.clear();
         }
     }
 </script>
 
 <style scoped>
-    #final{
+    .final{
         margin-top: 90px;
         margin-bottom: 354px;
     }
