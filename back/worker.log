@@ -154,3 +154,5 @@
 [2019-03-14 12:47:22][59] Processed:  App\Mail\ContactUsMail
 [2019-03-14 12:49:06][60] Processing: App\Mail\ContactUsMail
 [2019-03-14 12:49:07][60] Processed:  App\Mail\ContactUsMail
+[2019-03-15 15:30:02][61] Processing: App\Mail\PdfLinkMail
+[2019-03-15 15:30:04][61] Processed:  App\Mail\PdfLinkMail
