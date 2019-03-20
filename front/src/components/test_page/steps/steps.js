@@ -62,10 +62,12 @@ export default {
         this.$router.beforeEach((to, from, next) => {
             this.count_arr_for_disabled();
             let to_back = false;
-            if(to.path.split('/')[1] != 'tests') return next();
+            if(to.path.split('/')[1] != 'tests' || to.path.split('/').length < 3) return next();
             if(Number(to.params.steps) == this.step && Number(to.params.child_step) < this.step_child) {
                 to_back =  !to_back
             } else if(Number(to.params.steps) < this.step && Number(to.params.child_step) >= this.step_child){
+                to_back =  !to_back
+            }else if(Number(to.params.steps) <= this.step && Number(to.params.child_step) < this.step_child){
                 to_back =  !to_back
             }
             if(to_back) {
