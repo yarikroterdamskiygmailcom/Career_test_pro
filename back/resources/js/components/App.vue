@@ -1,11 +1,11 @@
 <template>
     <div>
-        <header-component></header-component>
-        <banner-component></banner-component>
+        <header_component></header_component>
+        <banner_component></banner_component>
         <div id="content">
            <router-view></router-view>
         </div>
-        <footer-component></footer-component>
+        <footer_component></footer_component>
     </div>
 </template>
 
@@ -16,9 +16,9 @@
     import footer from './common/footer.vue'
     export default {
         components:{
-            'header-component': header,
-            'banner-component': banner,
-            'footer-component': footer
+            'header_component': header,
+            'banner_component': banner,
+            'footer_component': footer
         }
     }
 </script>

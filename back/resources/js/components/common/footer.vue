@@ -1,17 +1,16 @@
 <template>
-    <div id="footer">
+    <div class="footer">
         <p>© Making Moves B.V. - Alle rechten voorbehouden</p>
     </div>
 </template>
 
 <script>
     export default {
-        name: "footer"
     }
 </script>
 
 <style scoped>
-    #footer{
+    .footer{
         width: 1000px;
         margin: 0px auto;
         margin-top: 20px;

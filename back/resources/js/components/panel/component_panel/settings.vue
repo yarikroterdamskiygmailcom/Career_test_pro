@@ -1,12 +1,12 @@
 <template>
     <div>
-        <router-view></router-view>
+        settings
     </div>
 </template>
 
 <script>
     export default {
-        name: "panel"
+        name: "settings"
     }
 </script>
 
