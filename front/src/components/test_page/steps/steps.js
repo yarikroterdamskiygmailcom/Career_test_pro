@@ -26,7 +26,7 @@ export default {
                 padding: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                 number:  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
             },
-            arr: []
+            arr: [],
         }
     },
     components:{
@@ -59,20 +59,24 @@ export default {
             ? this.$router.push( `/tests/1/1`) : null;
         this.toggle_modal();
         this.count_arr_for_disabled();
-
         this.$router.beforeEach((to, from, next) => {
             this.count_arr_for_disabled();
-            let to_back = Number(to.params.steps) < this.step  ||  Number(to.params.child_step) < this.step_child;
-            let to_go = Number(to.params.steps) > this.step  ||  Number(to.params.child_step) > this.step_child;
-            if(this.disabled_but) {
-                if(to_back) {
-                    next()
-                } else if(to_go){
-                    this.refresh_helper()
-                } else next()
-            } else next();
-
+            let to_back = false;
+            if(to.path.split('/')[1] != 'tests') return next();
+            if(Number(to.params.steps) == this.step && Number(to.params.child_step) < this.step_child) {
+                to_back =  !to_back
+            } else if(Number(to.params.steps) < this.step && Number(to.params.child_step) >= this.step_child){
+                to_back =  !to_back
+            }
+            if(to_back) {
+                next();
+                return;
+            }
+            this.disabled_but ? this.refresh_helper() : next()
         })
+    },
+    destroyed(){
+       this.$router.beforeHooks = []
     },
     methods: {
         refresh_helper(){
