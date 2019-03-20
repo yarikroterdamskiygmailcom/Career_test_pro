@@ -13,9 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
 
 Route::group([
     'namespace' => 'API'], function () {
@@ -47,8 +49,12 @@ Route::group([
 
     //Admin dashboard
 
+    Route::get('users', 'UsersController@index');
     Route::post('price', 'PriceController@update');
     Route::post('logo', 'LogoController@update');
+
+    Route::get('getuser', 'UsersController@getUser');
+
 
 
     Route::resources([

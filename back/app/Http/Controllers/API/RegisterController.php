@@ -23,9 +23,10 @@ class RegisterController extends BaseController
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required',
             'c_password' => 'required|same:password',
+            'key' => 'required|string',
         ]);
 
 
@@ -33,6 +34,7 @@ class RegisterController extends BaseController
             return $this->sendError('Validation Error.', $validator->errors(), 202);
         }
 
+        if($request->key != '123456789') return $this->sendError('Admin key error', 'Wrong admin key', 202);
 
         $input = $request->all();
         $input['password'] = md5($input['password']);

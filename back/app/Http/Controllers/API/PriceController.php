@@ -19,6 +19,7 @@ class PriceController extends BaseController
     {
         $validator = Validator::make($request->all(), [
             'price' => 'required|numeric',
+            'currency' => 'required|string',
         ]);
 
         if($validator->fails()){

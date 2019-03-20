@@ -28,7 +28,7 @@ class PasswordResetController extends Controller
         if (!$user)
             return response()->json([
                 'message' => 'We cant find a user with that e-mail address.'
-            ], 404);
+            ], 400);
         $passwordReset = PasswordReset::updateOrCreate(
             ['email' => $user->email],
             [
@@ -59,15 +59,15 @@ class PasswordResetController extends Controller
         if (!$passwordReset)
             return response()->json([
                 'message' => 'This password reset token is invalid.'
-            ], 404);
+            ], 400);
         if (Carbon::parse($passwordReset->updated_at)->addMinutes(720)->isPast()) {
             $passwordReset->delete();
             return response()->json([
                 'message' => 'This password reset token is invalid.'
-            ], 404);
+            ], 400);
         }
         //return response()->json($passwordReset);
-        return redirect('http://192.168.88.188:3000/password-confirm?token='.$passwordReset->token.'&email='.$passwordReset->email);
+        return redirect('http://backcartestpro.qbex.io/admin/password-confirm?token='.$passwordReset->token.'&email='.$passwordReset->email);
 
     }
      /**
@@ -94,12 +94,12 @@ class PasswordResetController extends Controller
         if (!$passwordReset)
             return response()->json([
                 'message' => 'This password reset token is invalid.'
-            ], 404);
+            ], 400);
         $user = User::where('email', $passwordReset->email)->first();
         if (!$user)
             return response()->json([
                 'message' => 'We cant find a user with that e-mail address.'
-            ], 404);
+            ], 400);
         $user->password = md5($request->password);
         $user->save();
         $passwordReset->delete();
