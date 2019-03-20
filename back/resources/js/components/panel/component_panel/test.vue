@@ -1,5 +1,6 @@
 <template>
     <div>
+        <menu-component :list="list"></menu-component>
         test
     </div>
 </template>
@@ -12,16 +13,16 @@
                 list:[
                     {
                         name:'Categories',
-                        path:'/panel/home'
+                        path:'/panel/test/home'
                     },{
                         name:'Questions',
-                        path:'/panel/test'
+                        path:'/panel/test/questions'
                     }
                 ]
             }
         },
         components:{
-            'menu-component':menu
+           'menu-component': menu
         }
     }
 </script>

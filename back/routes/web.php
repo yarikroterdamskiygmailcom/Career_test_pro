@@ -21,6 +21,7 @@ Route::group(
         Route::get('/{param}', function () {return view('welcome');});
         Route::get('/{param}/{param1}', function () {return view('welcome');});
         Route::get('/{param}/{param1}/{param2}', function () {return view('welcome');});
+        Route::get('/{param}/{param1}/{param2}/{param3}', function () {return view('welcome');});
     }
 );
 
