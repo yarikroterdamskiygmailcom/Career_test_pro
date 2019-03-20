@@ -1,12 +1,12 @@
 <template>
     <div>
-        <router-view></router-view>
+        careers
     </div>
 </template>
 
 <script>
     export default {
-        name: "panel"
+        name: "careers",
     }
 </script>
 

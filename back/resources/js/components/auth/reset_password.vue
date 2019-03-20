@@ -121,7 +121,7 @@
                     };
                     error.email = Validator.set(this.data.email, ['required']);
                     error.email = !error.email.errors ? Validator.set(this.data.email, ['email']) : error.email;
-                    this.error = error
+                    this.error = error;
                     if (!error.password.errors && !error.password_confirmation.errors && !error.email.errors) {
                         Auth.reset_password_in_confirm(this.data)
                             .then(res =>{

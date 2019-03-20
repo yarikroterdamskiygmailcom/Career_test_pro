@@ -1,12 +1,12 @@
 <template>
     <div>
-        <router-view></router-view>
+        report
     </div>
 </template>
 
 <script>
     export default {
-        name: "panel"
+        name: "report"
     }
 </script>
 
