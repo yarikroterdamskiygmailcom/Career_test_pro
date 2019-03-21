@@ -16,6 +16,8 @@ class CreatePriceTable extends Migration
         Schema::create('price', function (Blueprint $table) {
             $table->increments('id');
             $table->float('value')->default('0');
+            $table->integer('language_id');
+            $table->string('currency');
             $table->timestamps();
         });
     }
