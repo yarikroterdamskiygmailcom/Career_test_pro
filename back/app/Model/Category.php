@@ -12,6 +12,6 @@ class Category extends Model
 
     public function categories_description()
     {
-        return $this->hasOne('App\Model\CategoryDescription');
+        return $this->hasOne('App\CategoryDescription');
     }
 }

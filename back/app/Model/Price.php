@@ -9,6 +9,6 @@ class Price extends Model
     protected $table = 'price';
 
     protected $fillable = [
-        'value'
+        'value', 'language_id', 'currency'
     ];
 }

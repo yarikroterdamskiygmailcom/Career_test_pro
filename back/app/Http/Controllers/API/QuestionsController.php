@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers\API;
 
+use App\CategoryDescription;
 use App\Model\Question;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Model\QuestionDescription;
 
-class QuestionsController extends Controller
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\API\BaseController as BaseController;
+use Validator;
+
+
+class QuestionsController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -15,53 +21,13 @@ class QuestionsController extends Controller
      */
     public function index(Request $request)
     {
-        $getQuestions = Question::whereHas('questions_description', function ($query) use ($request) {
-            return $query->where('language_id', $request->language_id);
-        })->get();
-        return response()->json($getQuestions, 200);
-    }
+        $languageId = $request->language_id;
+        $getCategories = CategoryDescription::select('category_id', 'name')->where('language_id', $languageId)->get();
+        $getQuestions = Question::with(['questions_description' => function($query) use ($languageId) {
+            return $query->where('language_id', $languageId);
+        }])->get();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return response()->json([ 'questions' => $getQuestions, 'categories' => $getCategories], 200);
     }
 
     /**
@@ -73,17 +39,19 @@ class QuestionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $validator = Validator::make($request->all(), [
+            'question' => 'required|string',
+            'language_id' => 'required|numeric',
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        if($validator->fails()){
+            return $this->sendError('Validation Error.', $validator->errors(), 202);
+        }
+
+        $question = QuestionDescription::updateOrCreate(
+            ['language_id' => $request->language_id, 'question_id' => $id],
+            ['question_id' => $request->id, 'question' => $request->question, 'language_id' => $request->language_id]
+        );
+        return $this->sendResponse('Success', 'Question modified successfully.');
     }
 }

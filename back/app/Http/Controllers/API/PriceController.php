@@ -9,9 +9,9 @@ use Validator;
 
 class PriceController extends BaseController
 {
-    public function index()
+    public function index(Request $request)
     {
-        $price = Price::first();
+        $price = Price::where('language_id', $request->language_id)->first();
         return response()->json($price, 200);
     }
 
@@ -20,6 +20,8 @@ class PriceController extends BaseController
         $validator = Validator::make($request->all(), [
             'price' => 'required|numeric',
             'currency' => 'required|string',
+            'language_id' => 'required|numeric',
+
         ]);
 
         if($validator->fails()){
@@ -27,10 +29,10 @@ class PriceController extends BaseController
         }
 
         $price = Price::updateOrCreate(
-            ['id' => '1'],
-            ['value' => $request->price]
+            ['language_id' => $request->language_id],
+            ['value' => $request->price, 'currency' => $request->currency, 'language_id' => $request->language_id]
         );
-        return $this->sendResponse('Success', 'Price changed successfully.');
+        return $this->sendResponse('Success', 'Price modified successfully.');
 
     }
 }

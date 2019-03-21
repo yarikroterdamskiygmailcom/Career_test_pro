@@ -55,11 +55,11 @@ Route::group([
 
     Route::get('getuser', 'UsersController@getUser');
 
-
+    Route::post('questions/{id}', 'QuestionsController@update');
 
     Route::resources([
         'settings' => 'SettingsController',
-        'categories' => 'CategoriesController'
+        'categories' => 'CategoriesController',
     ]);
 });
 

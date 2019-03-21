@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\User;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
@@ -19,6 +19,5 @@ class UsersController extends Controller
     {
         $currentUser = Auth::user();
         return response()->json($currentUser, 200);
-
     }
 }
