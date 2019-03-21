@@ -42,6 +42,7 @@
 <script>
     import Validator from "../../validator/validator";
     import {Auth} from "../../api/auth";
+    import {Middleware} from "../../middleware/middleware";
 
     export default {
         name: "login",
@@ -54,9 +55,9 @@
                 error:{}
             }
         },
-        // updated(){
-        //     console.log(11)
-        // },
+        created(){
+            Middleware.closed_login_reset_regsiter()
+        },
         methods:{
             submit(){
                 let error = {...this.error};

@@ -76,6 +76,7 @@
 
     import {Auth} from "../../api/auth";
     import Validator from "../../validator/validator";
+    import {Middleware} from "../../middleware/middleware";
 
     export default {
         name: "reset_password",
@@ -92,7 +93,9 @@
 
             }
         },
+
         created(){
+            Middleware.closed_login_reset_regsiter();
             this.component = this.$router.history.current.path == '/reset-password'
             this.data.token =  this.$router.history.current.query.token
         },

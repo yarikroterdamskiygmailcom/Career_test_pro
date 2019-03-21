@@ -13,8 +13,13 @@ import VueResource from 'vue-resource';
 Vue.use(VueResource);
 
 Vue.http.options.root = 'http://backcartestpro.qbex.io';
+// Vue.http.options.credentials = true;
+import Vuetify from 'vuetify'
 
-;
+Vue.use(Vuetify)
+import 'vuetify/dist/vuetify.min.css'
+
+
 import {request, response} from './api/iterseptors';
 Vue.http.interceptors.push(request);
 Vue.http.interceptors.push(response);

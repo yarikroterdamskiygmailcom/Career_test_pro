@@ -1,6 +1,8 @@
 
 import {Auth_api_helper} from "./helper/auth_helper_api";
+
 let http = window;
+
 export class Auth{
     static register(data){
         http = window.Vue.http;
@@ -25,5 +27,9 @@ export class Auth{
     static reset_password_in_confirm(data){
         http = window.Vue.http;
         return http.post('/api/password/reset', data);
+    }
+    static logout(data){
+        http = window.Vue.http;
+        return http.post('/api/logout', data);
     }
 }

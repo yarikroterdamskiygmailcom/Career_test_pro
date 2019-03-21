@@ -72,6 +72,7 @@
 <script>
     import Validator from './../../validator/validator.js'
     import {Auth} from "../../api/auth";
+    import {Middleware} from "../../middleware/middleware";
     export default {
         name: "register",
         data(){
@@ -85,6 +86,9 @@
                 },
                 error:{}
             }
+        },
+        created(){
+            Middleware.closed_login_reset_regsiter()
         },
         methods:{
             submit(){
