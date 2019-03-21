@@ -1,7 +1,8 @@
 <template>
     <div>
         <menu-component :list="list"></menu-component>
-        test
+        <h1>Test</h1>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -13,7 +14,7 @@
                 list:[
                     {
                         name:'Categories',
-                        path:'/panel/test/home'
+                        path:'/panel/test/categories'
                     },{
                         name:'Questions',
                         path:'/panel/test/questions'
@@ -28,5 +29,8 @@
 </script>
 
 <style scoped>
-
+    h1 {
+        font-size: 20px;
+        margin: 20px 0;
+    }
 </style>
