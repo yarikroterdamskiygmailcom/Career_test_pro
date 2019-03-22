@@ -6,8 +6,8 @@ export default  {
         axios.get(`api/questions?language_id=${index}`)
         .then(response =>{
             let count = 0;
-            for (let i = 0; i < response.data.length; i + 30) {
-                let string_array = response.data.splice(i, 30);
+            for (let i = 0; i < response.data.questions.length; i + 30) {
+                let string_array = response.data.questions.splice(i, 30);
                 for(let j = 0; j < 3; j++){
                     !QuestionStore.getStep(`${count + 1}-${j+1}`)
                         ? QuestionStore.saveStep(
