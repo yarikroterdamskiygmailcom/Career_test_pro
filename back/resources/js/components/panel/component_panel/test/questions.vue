@@ -1,13 +1,5 @@
 <template>
     <div>
-        <v-alert
-                style="width: 95%; position: absolute; top:0; background: white; z-index: 1000"
-                :value="alert.active_alert"
-                :color="alert_color"
-                icon="info"
-                outline>
-            {{alert.text}}
-        </v-alert>
         <h3>Questions</h3>
         <v-flex xs12 sm6 d-flex data-app style="width: 200px;  margin: 10px 0">
             <v-select @change="select_lang()"

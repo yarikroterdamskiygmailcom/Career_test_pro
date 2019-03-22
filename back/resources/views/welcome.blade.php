@@ -11,6 +11,9 @@
     <div id="app">
         <app></app>
     </div>
+    {{--<div class="app-root"></div>--}}
+
+    {{--<script type="text/javascript" src="build.js"></script>--}}
     <script>
         // debugger;
         // console.log(document.body.querySelectorAll('script'));

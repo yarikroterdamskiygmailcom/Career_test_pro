@@ -1,7 +1,8 @@
 <template>
     <div>
         <menu-component :list="list"></menu-component>
-        careers
+        <h1>Careers</h1>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -28,5 +29,7 @@
 </script>
 
 <style scoped>
-
+    h1{
+        margin:  20px 0;
+    }
 </style>

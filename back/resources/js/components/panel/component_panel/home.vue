@@ -1,7 +1,5 @@
 <template>
     <div>
-
-
         <h1>Welkom op het admin panel van CareerTestSoft.com</h1>
 
         <p>Indien er vragen zijn of er doen zich problemen voor kunt u het best contact opnemen met info@careertestsoft.com</p>
