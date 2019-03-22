@@ -72,13 +72,14 @@ export default  {
             }
         });
 // считаем общее число
+
         const callback_total= function(item, letter){
-            step_array.total[letter] += step_array[item][letter]
+            if(item != 'total') step_array.total[letter] += step_array[item][letter]
         };
         // считаем процент для каждого
         const callback_percent= function(item, letter){
             step_array[item][letter] = item == 'total' ?
-                (step_array[item][letter] / 5) * 10 :
+                Math.floor((step_array[item][letter] / 5) * 10) :
                 step_array[item][letter] * 10;
         };
         count_sum_and_number(callback_total);
