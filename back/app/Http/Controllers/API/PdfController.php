@@ -15,21 +15,22 @@ class PdfController extends Controller
 {
 
     public function getResultText($categoryId, $letter, $letterValue, $languageId = '1') {
-        if($letterValue >= 0 &&  $letterValue < 1) {
+        if($letterValue >= 0 &&  $letterValue < 10) {
             $level = 1;
-        } elseif($letterValue >= 1 &&  $letterValue < 2.5) {
+        } elseif($letterValue >= 10 &&  $letterValue < 25) {
             $level = 2;
-        } elseif($letterValue >= 2.5 &&  $letterValue < 4) {
+        } elseif($letterValue >= 25 &&  $letterValue < 40) {
             $level = 3;
-        } elseif($letterValue >= 4 &&  $letterValue < 6) {
+        } elseif($letterValue >= 40 &&  $letterValue < 60) {
             $level = 4;
-        } elseif($letterValue >= 6 &&  $letterValue < 7.5) {
+        } elseif($letterValue >= 60 &&  $letterValue < 75) {
             $level = 5;
-        } elseif($letterValue >= 7.5 &&  $letterValue < 9) {
+        } elseif($letterValue >= 75 &&  $letterValue < 90) {
             $level = 6;
-        } elseif($letterValue >= 9 &&  $letterValue <= 10) {
+        } elseif($letterValue >= 90 &&  $letterValue <= 100) {
             $level = 7;
         }
+        dd($letterValue);
         $getResults = Result::whereHas('result_description', function ($query) use ($categoryId, $letter, $languageId, $level) {
             return $query->where('language_id', $languageId)
                          ->where('category_id', $categoryId)

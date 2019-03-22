@@ -92,7 +92,8 @@ class CategoriesController extends BaseController
             ['language_id' => $request->language_id, 'category_id' => $id],
             ['category_id' => $id, 'name' => $request->name, 'language_id' => $request->language_id]
         );
-        return $this->sendResponse('Success', 'Category modified successfully.');    }
+        return $this->sendResponse('Success', 'Category modified successfully.');
+    }
 
     /**
      * Remove the specified resource from storage.

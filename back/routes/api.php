@@ -60,6 +60,8 @@ Route::group([
     Route::resources([
         'settings' => 'SettingsController',
         'categories' => 'CategoriesController',
+        'careers' => 'CareersController',
+
     ]);
 });
 

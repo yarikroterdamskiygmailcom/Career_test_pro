@@ -172,3 +172,7 @@
 [2019-03-19 15:15:50][68] Processed:  App\Notifications\PasswordResetRequest
 [2019-03-19 16:00:48][69] Processing: App\Notifications\PasswordResetSuccess
 [2019-03-19 16:00:50][69] Processed:  App\Notifications\PasswordResetSuccess
+[2019-03-22 10:12:37][70] Processing: App\Mail\PdfLinkMail
+[2019-03-22 10:12:39][70] Processed:  App\Mail\PdfLinkMail
+[2019-03-22 10:13:55][71] Processing: App\Mail\PdfLinkMail
+[2019-03-22 10:13:56][71] Processed:  App\Mail\PdfLinkMail

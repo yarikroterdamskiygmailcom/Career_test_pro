@@ -21,6 +21,6 @@ class Career extends Model
 
     public function career_description()
     {
-        return $this->hasMany('App\Model\CareerDescription');
+        return $this->hasOne('App\Model\CareerDescription');
     }
 }
