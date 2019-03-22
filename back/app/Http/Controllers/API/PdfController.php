@@ -30,7 +30,6 @@ class PdfController extends Controller
         } elseif($letterValue >= 90 &&  $letterValue <= 100) {
             $level = 7;
         }
-        dd($letterValue);
         $getResults = Result::whereHas('result_description', function ($query) use ($categoryId, $letter, $languageId, $level) {
             return $query->where('language_id', $languageId)
                          ->where('category_id', $categoryId)

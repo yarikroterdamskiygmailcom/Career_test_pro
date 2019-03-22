@@ -44,7 +44,7 @@ class EmailsController extends BaseController
         Mail::to($this->receiver)
             ->later($this->when, new PdfLinkMail('http://backcartestpro.qbex.io/api/diagrams/'.Input::get('customer_id').'?result_key='.Input::get('result_token')));
 
-        return $this->sendResponse('Success', 'Email sent');
+        return redirect('http://cartestpro.qbex.io/final');
 
     }
 }

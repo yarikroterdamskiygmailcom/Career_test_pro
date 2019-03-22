@@ -45,7 +45,7 @@
         <div style="width: 100%; float: left;">
             <div style="font-size: 12px; line-height: 22px; width: 85%; float: left;">
             @foreach($profListOne as $firstListCareer)
-                    {{ $firstListCareer['career_description'][0]['career'] }}<br>
+                    {{ $firstListCareer['career_description']['career'] }}<br>
             @endforeach
             </div>
 

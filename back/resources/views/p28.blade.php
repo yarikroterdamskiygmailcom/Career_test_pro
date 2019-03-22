@@ -45,7 +45,7 @@
 
             <div style="font-size: 12px; line-height: 22px; width: 85%; float: left; margin-top: 5px;">
                 @foreach($profListFour as $fourthListCareer)
-                    {{ $fourthListCareer['career_description'][0]['career'] }}<br>
+                    {{ $fourthListCareer['career_description']['career'] }}<br>
                 @endforeach
             </div>
 
@@ -85,7 +85,7 @@
 
             <div style="font-size: 12px; line-height: 22px; width: 85%; float: left; margin-top: 45px;">
                 @foreach($profListFive as $fifthListCareer)
-                    {{ $fifthListCareer['career_description'][0]['career'] }}<br>
+                    {{ $fifthListCareer['career_description']['career'] }}<br>
                 @endforeach
             </div>
 

@@ -21,8 +21,38 @@ class CareersController extends BaseController
         $languageId = $request->language_id;
         $getCareers = Career::with(['career_description' => function($query) use ($languageId) {
             return $query->where('language_id', $languageId);
-        }])->paginate(100);
+        }])->orderBy('id', 'DESC')->paginate(100);
         return response()->json($getCareers, 200);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'code' => 'required|string',
+            'training' => 'required|string',
+            'level' => 'required|string',
+            'education' => 'required|numeric',
+            'career' => 'required|string',
+            'language_id' => 'required|numeric',
+
+        ]);
+
+        if($validator->fails()){
+            return $this->sendError('Validation Error.', $validator->errors(), 202);
+        }
+        $careerData = ['code' => $request->code, 'training' => $request->training, 'level' => $request->level, 'education' => $request->education];
+        $newCareer = Career::create($careerData);
+
+        $newCareerDescription = ['career_id' => $newCareer->id, 'career' => $request->career, 'language_id' => $request->language_id];
+        CareerDescription::create($newCareerDescription);
+        return $this->sendResponse('Success', 'Career added successfully.');
+
     }
 
     /**

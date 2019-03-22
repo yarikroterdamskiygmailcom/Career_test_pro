@@ -176,3 +176,7 @@
 [2019-03-22 10:12:39][70] Processed:  App\Mail\PdfLinkMail
 [2019-03-22 10:13:55][71] Processing: App\Mail\PdfLinkMail
 [2019-03-22 10:13:56][71] Processed:  App\Mail\PdfLinkMail
+[2019-03-22 10:40:58][72] Processing: App\Mail\PdfLinkMail
+[2019-03-22 10:40:59][72] Processed:  App\Mail\PdfLinkMail
+[2019-03-22 12:49:51][73] Processing: App\Mail\PdfLinkMail
+[2019-03-22 12:49:53][73] Processed:  App\Mail\PdfLinkMail
