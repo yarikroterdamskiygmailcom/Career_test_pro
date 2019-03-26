@@ -48,7 +48,7 @@
                         {{dialog_status.text}}
                     </v-list-tile-title>
                     <v-text-field
-                            v-if="!page || dialog_status.value"
+                            v-if="!page || page || dialog_status.value"
                             v-model="data_modal.career"
                             label="Career"
                     ></v-text-field>
@@ -161,17 +161,25 @@
                 });
         },
         methods:{
-            get_careers(id){
+            get_careers(id, status){
                 Careers.get_careers(id, Number(this.paginate.current_page) + 1)
                     .then(res => {
                         this.paginate.current_page = res.body.current_page;
                         this.paginate.last_page = res.body.last_page;
-                        this.careers = this.careers.concat(res.body.data);
+                        this.careers = status == 'add' ?this.careers.concat(res.body.data) : res.body.data;
                     })
                     .catch(err => console.log(err));
             },
             download_career(){
-                this.get_careers(this.language_id)
+                this.get_careers(this.language_id, 'add')
+            },
+            select_lang(){
+                this.languages_list.forEach(item => {
+                    if(item.language == this.language_name) this.language_id = item.id;
+                });
+                if(this.language_id){
+                    this.get_careers(this.language_id, 'change')
+                }
             },
             open_modal(item, number, career){
                 this.dialog_status.value = false;
@@ -189,13 +197,17 @@
             open_modal_add(){
                 this.dialog_status.text = 'Add careers';
                 this.dialog_status.value = true;
-                Object.keys(this.data_modal).forEach(item => item != 'number' ? this.data_modal[item] = '' : null);
+                Object.keys(this.data_modal).forEach(item => {
+                    item != 'number' && item == 'language_id'? this.data_modal[item] = '' : null;
+                    console.log(item == 'language_id')
+                    item == 'language_id' ? this.data_modal[item] = this.language_id : null
+                });
                 this.dialog = true
             },
-            save(status){
+            save(status){debugger;
                 if(this.page){
                     if(status == 'update'){
-                        Careers.update_list(this.data_modal.id, this.data_modal)
+                        Careers.save_career(this.data_modal.id, this.data_modal)
                             .then(res => {
                                 this.careers[this.data_modal.number -1].career_description = res.body.data;
                                 this.dialog = false
@@ -203,7 +215,6 @@
                     } else {
                         Careers.add_list(this.data_modal)
                             .then(res => {
-                                debugger;
                                 Object.keys(this.error).forEach(item => {
                                     this.error[item] = {};
                                     this.error[item].text = '';
@@ -216,8 +227,10 @@
                                         obj[item].text = res.body.data[item];
                                         obj[item].status = true;
                                     });
-                                    this.error = obj
+                                    this.error = obj;
                                 } else {
+                                    res.body.data.id = res.body.data.career_id;
+                                    this.careers.unshift(res.body.data);
                                     this.dialog = false
                                 }
                             })

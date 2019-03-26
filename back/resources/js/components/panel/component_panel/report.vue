@@ -1,7 +1,8 @@
 <template>
     <div>
         <menu-component :list="list"></menu-component>
-        report
+        <h1>Report</h1>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -28,5 +29,8 @@
 </script>
 
 <style scoped>
+    h1{
+        margin: 20px 0
 
+    }
 </style>

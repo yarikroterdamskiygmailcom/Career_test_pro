@@ -6,6 +6,7 @@ import panel_settings from'../components/panel/component_panel/settings.vue';
 import {settings_children} from "./nested_child/children_settings";
 import {test_children} from "./nested_child/children_test";
 import {careers_children} from "./nested_child/children_careers";
+import {reports_children} from "./nested_child/children_reports";
 
 
 export const panel_children = [
@@ -13,7 +14,6 @@ export const panel_children = [
     {
         path: '/panel/home',
         component: panel_home,
-
     },
     {
         path: '/panel/test',
@@ -22,7 +22,8 @@ export const panel_children = [
     },
     {
         path: '/panel/report',
-        component: panel_report
+        component: panel_report,
+        children: reports_children
     },
     {
         path: '/panel/careers',
