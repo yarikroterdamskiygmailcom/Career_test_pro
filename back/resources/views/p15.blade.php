@@ -34,11 +34,11 @@
             <div>
                 <div style="width: 35px; height: 35px; border: 2px solid #FDC572; border-radius: 50%; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); margin: auto">
                     <table>
-                        <tr><td style="font-family: montsersemibold; width: 35px; height: 35px; text-align: center">E</td></tr>
+                        <tr><td style="font-family: montsersemibold; width: 35px; height: 35px; text-align: center">{{ $total[0] }}</td></tr>
                     </table>
                 </div>
 
-                <p style="font-size: 10px; text-align: center; margin-top: 10px; "><span style="font-family: monserrmedium;"> Enterprising</span> <br>(Main Personality)</p>
+                <p style="font-size: 10px; text-align: center; margin-top: 10px; "><span style="font-family: monserrmedium;"> {{ $sence[0] }}</span> <br>(Main Personality)</p>
             </div>
 
 
@@ -46,11 +46,11 @@
                 <div style="width: 27%; float: left;">
                     <div style="width: 35px; height: 35px; border: 2px solid #F9892E; border-radius: 50%; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); margin: auto;">
                         <table>
-                            <tr><td style="font-family: montsersemibold; width: 35px; height: 35px; text-align: center">C</td></tr>
+                            <tr><td style="font-family: montsersemibold; width: 35px; height: 35px; text-align: center">{{ $total[1] }}</td></tr>
                         </table>
                     </div>
 
-                    <p style="font-size: 10px; text-align: center; margin-top: 10px;"><span style="font-family: monserrmedium;">Conventional</span><br>(Sub Personality 1)</p>
+                    <p style="font-size: 10px; text-align: center; margin-top: 10px;"><span style="font-family: monserrmedium;">{{ $sence[1] }}</span><br>(Sub Personality 1)</p>
 
                 </div>
 
@@ -64,11 +64,11 @@
                 <div style="width: 27%; float: left;">
                     <div style="width: 35px; height: 35px; border: 2px solid #85B1F5; border-radius: 50%; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); margin: auto;">
                         <table>
-                            <tr><td style="font-family: montsersemibold; width: 35px; height: 35px; text-align: center">S</td></tr>
+                            <tr><td style="font-family: montsersemibold; width: 35px; height: 35px; text-align: center">{{ $total[2] }}</td></tr>
                         </table>
                     </div>
 
-                    <p style="font-size: 10px; text-align: center; margin-top: 10px;"><span style="font-family: monserrmedium;">Social</span><br>(Sub Personality 2)</p>
+                    <p style="font-size: 10px; text-align: center; margin-top: 10px;"><span style="font-family: monserrmedium;">{{ $sence[2] }}</span><br>(Sub Personality 2)</p>
 
                 </div>
             </div>

@@ -15,19 +15,19 @@ class PdfController extends Controller
 {
 
     public function getResultText($categoryId, $letter, $letterValue, $languageId = '1') {
-        if($letterValue >= 0 &&  $letterValue < 1) {
+        if($letterValue >= 0 &&  $letterValue < 10) {
             $level = 1;
-        } elseif($letterValue >= 1 &&  $letterValue < 2.5) {
+        } elseif($letterValue >= 10 &&  $letterValue < 25) {
             $level = 2;
-        } elseif($letterValue >= 2.5 &&  $letterValue < 4) {
+        } elseif($letterValue >= 25 &&  $letterValue < 40) {
             $level = 3;
-        } elseif($letterValue >= 4 &&  $letterValue < 6) {
+        } elseif($letterValue >= 40 &&  $letterValue < 60) {
             $level = 4;
-        } elseif($letterValue >= 6 &&  $letterValue < 7.5) {
+        } elseif($letterValue >= 60 &&  $letterValue < 75) {
             $level = 5;
-        } elseif($letterValue >= 7.5 &&  $letterValue < 9) {
+        } elseif($letterValue >= 75 &&  $letterValue < 90) {
             $level = 6;
-        } elseif($letterValue >= 9 &&  $letterValue <= 10) {
+        } elseif($letterValue >= 90 &&  $letterValue <= 100) {
             $level = 7;
         }
         $getResults = Result::whereHas('result_description', function ($query) use ($categoryId, $letter, $languageId, $level) {
@@ -115,6 +115,17 @@ class PdfController extends Controller
         $totals = $userData['result']['total'];
         array_splice($totals, 3);
         $totals = array_values(array_flip($totals));
+
+        $letterDescription['R'] = 'Realistic personality type';
+        $letterDescription['I'] = 'Investigative personality type';
+        $letterDescription['A'] = 'Artistic personality type';
+        $letterDescription['S'] = 'Social personality type';
+        $letterDescription['O'] = 'Enterpricing personality type';
+        $letterDescription['C'] = 'Conventional personality type';
+
+        $sence[0] = $letterDescription[$totals[0]];
+        $sence[1] = $letterDescription[$totals[1]];
+        $sence[2] = $letterDescription[$totals[2]];
 
         $combinationOne = $totals[0].$totals[1].$totals[2];
         $combinationTwo = $totals[1].$totals[2].$totals[0];
@@ -250,25 +261,29 @@ class PdfController extends Controller
 
         $data6 = get_image('6'.$id);
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p15', compact('data6', 'customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p15', compact('data6', 'customerName', 'datestamp'))->with('total', $totals)
+                                                                                                     ->with('sence', $sence));
 
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p16', compact('customerName', 'datestamp')));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p17', compact('customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p17', compact('customerName', 'datestamp'))->with('total', $totals)
+                                                                                            ->with('sence', $sence));
 
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p18', compact('customerName', 'datestamp')));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p19', compact('customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p19', compact('customerName', 'datestamp'))->with('total', $totals)
+                                                                                            ->with('sence', $sence));
 
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p20', compact('customerName', 'datestamp')));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p21', compact('customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p21', compact('customerName', 'datestamp'))->with('total', $totals)
+                                                                                            ->with('sence', $sence));
 
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p22', compact('customerName', 'datestamp')));

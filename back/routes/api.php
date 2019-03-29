@@ -33,6 +33,9 @@ Route::group([
     Route::get('price', 'PriceController@index');
     Route::get('logo', 'LogoController@index');
     Route::get('tester', 'TestController@index');
+    Route::get('scoretext', 'ReportController@scoreText');
+
+
 
     Route::post('post/{id}', 'PdfController@pdfCr')->middleware('resultkey');
     Route::get('pdf/{id}', 'PdfController@pdf')->middleware('resultkey');
@@ -56,10 +59,14 @@ Route::group([
     Route::get('getuser', 'UsersController@getUser');
 
     Route::post('questions/{id}', 'QuestionsController@update');
+    Route::post('scoretext/{id}', 'ReportController@scoreTextUpdate');
+
 
     Route::resources([
         'settings' => 'SettingsController',
         'categories' => 'CategoriesController',
+        'careers' => 'CareersController',
+
     ]);
 });
 
