@@ -223,7 +223,7 @@
                                 if(!res.body.success){
                                     let obj = {};
                                     Object.keys(res.body.data).forEach(item =>{
-                                        obj[item] = {}
+                                        obj[item] = {};
                                         obj[item].text = res.body.data[item];
                                         obj[item].status = true;
                                     });
