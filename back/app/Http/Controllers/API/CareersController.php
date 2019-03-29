@@ -51,7 +51,14 @@ class CareersController extends BaseController
 
         $newCareerDescription = ['career_id' => $newCareer->id, 'career' => $request->career, 'language_id' => $request->language_id];
         CareerDescription::create($newCareerDescription);
-        return $this->sendResponse('Success', 'Career added successfully.');
+        $careerTotal['code'] = $request->code;
+        $careerTotal['training'] = $request->training;
+        $careerTotal['level'] = $request->level;
+        $careerTotal['education'] = $request->education;
+        $careerTotal['career_id'] = $newCareer->id;
+        $careerTotal['career_description']['career'] = $request->career;
+        $careerTotal['language_id'] = $request->language_id;
+        return $this->sendResponse($careerTotal, 'Career added successfully.');
 
     }
 

@@ -17,13 +17,13 @@
 
     <div style="margin-top: 24px;">
         <div style="font-size: 12px; font-family: montsersemibold; border-bottom: 1px solid #DFDFDF; padding-bottom: 5px;">
-            <div style="float: left; width: 95%;">9. Enterprising Personality Type</div>
+            <div style="float: left; width: 95%;">9. {{ $sence[0] }}</div>
 
             <div style="text-align: right; float: right">
                 <div style="width: 30px; height: 30px; border: 2px solid #FDC572; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); border-radius: 50%;">
                     <table>
                         <tr>
-                            <td style="width: 30px; height: 30px; text-align: center;font-family: montsersemibold;">E</td>
+                            <td style="width: 30px; height: 30px; text-align: center;font-family: montsersemibold;">{{$total[0]}}</td>
                         </tr>
                     </table>
                 </div>

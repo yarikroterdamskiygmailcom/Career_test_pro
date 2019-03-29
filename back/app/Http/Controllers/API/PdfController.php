@@ -116,6 +116,17 @@ class PdfController extends Controller
         array_splice($totals, 3);
         $totals = array_values(array_flip($totals));
 
+        $letterDescription['R'] = 'Realistic personality type';
+        $letterDescription['I'] = 'Investigative personality type';
+        $letterDescription['A'] = 'Artistic personality type';
+        $letterDescription['S'] = 'Social personality type';
+        $letterDescription['O'] = 'Enterpricing personality type';
+        $letterDescription['C'] = 'Conventional personality type';
+
+        $sence[0] = $letterDescription[$totals[0]];
+        $sence[1] = $letterDescription[$totals[1]];
+        $sence[2] = $letterDescription[$totals[2]];
+
         $combinationOne = $totals[0].$totals[1].$totals[2];
         $combinationTwo = $totals[1].$totals[2].$totals[0];
         $combinationThree = $totals[2].$totals[0].$totals[1];
@@ -250,25 +261,29 @@ class PdfController extends Controller
 
         $data6 = get_image('6'.$id);
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p15', compact('data6', 'customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p15', compact('data6', 'customerName', 'datestamp'))->with('total', $totals)
+                                                                                                     ->with('sence', $sence));
 
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p16', compact('customerName', 'datestamp')));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p17', compact('customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p17', compact('customerName', 'datestamp'))->with('total', $totals)
+                                                                                            ->with('sence', $sence));
 
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p18', compact('customerName', 'datestamp')));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p19', compact('customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p19', compact('customerName', 'datestamp'))->with('total', $totals)
+                                                                                            ->with('sence', $sence));
 
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p20', compact('customerName', 'datestamp')));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p21', compact('customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p21', compact('customerName', 'datestamp'))->with('total', $totals)
+                                                                                            ->with('sence', $sence));
 
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p22', compact('customerName', 'datestamp')));
