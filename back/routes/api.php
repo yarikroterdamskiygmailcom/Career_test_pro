@@ -61,6 +61,11 @@ Route::group([
     Route::post('questions/{id}', 'QuestionsController@update');
     Route::post('scoretext/{id}', 'ReportController@scoreTextUpdate');
 
+    Route::get('report-blocks', 'ReportController@reportBlocks');
+    Route::get('letter-block', 'ReportController@letterBlock');
+    Route::post('report-blocks/{id}', 'ReportController@reportBlocksUpdate');
+
+
 
     Route::resources([
         'settings' => 'SettingsController',

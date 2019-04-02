@@ -21,6 +21,6 @@ class ReportBlock extends Model
 
     public function report_block_description()
     {
-        return $this->hasOne('App\Model\ReportBlockDescription');
+        return $this->hasOne('App\Model\ReportBlockDescription', 'report_block_id');
     }
 }
