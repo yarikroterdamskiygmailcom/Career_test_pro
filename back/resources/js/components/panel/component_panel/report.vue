@@ -14,7 +14,7 @@
                 list:[
                     {
                         name:'Report',
-                        path:'/panel/report'
+                        path:'/panel/report/report'
                     },{
                         name:'Text for Scores',
                         path:'/panel/report/text-for-Scores'

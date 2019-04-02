@@ -60,7 +60,7 @@
 
 <script>
     import {Settings} from "../../../../api/panel_settings/settings";
-    import {Scoretext} from "../../../../api/report/report";
+    import {Scoretext} from "../../../../api/report/text_for_scores";
 
 
     export default {
