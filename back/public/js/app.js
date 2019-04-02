@@ -3158,7 +3158,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       list: [{
         name: 'Report',
-        path: '/panel/report'
+        path: '/panel/report/report'
       }, {
         name: 'Text for Scores',
         path: '/panel/report/text-for-Scores'
@@ -3184,6 +3184,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-editor */ "./node_modules/vue2-editor/dist/vue2-editor.js");
 /* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_editor__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tinymce/tinymce-vue */ "./node_modules/@tinymce/tinymce-vue/lib/es2015/index.js");
+/* harmony import */ var _api_report_report__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/report/report */ "./resources/js/api/report/report.js");
+/* harmony import */ var _api_panel_settings_settings__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/panel_settings/settings */ "./resources/js/api/panel_settings/settings.js");
 //
 //
 //
@@ -3213,14 +3215,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "report",
   data: function data() {
     return {
-      dialog: false,
-      content: ' <h1>Initial Content3423 4<span style="color: rgb(0, 41, 102);">234234234234</span></h1>',
       customToolbar: [[{
         'font': []
       }], [{
@@ -3259,11 +3301,92 @@ __webpack_require__.r(__webpack_exports__);
         'background': []
       }], ['link', 'image', 'video', 'formula'], [{
         'direction': 'rtl'
-      }], ['clean']]
+      }], ['clean']],
+      letters: ['R', 'I', 'A', 'S', 'O', 'C'],
+      languages: [],
+      languages_list: [],
+      language_name: '',
+      language_id: '',
+      reports: [],
+      dialog: false,
+      data_modal: {
+        name: '',
+        value: '',
+        language_id: '',
+        id: '',
+        dropdown: false,
+        index: '',
+        letter: ''
+      }
     };
   },
+  created: function created() {
+    var _this = this;
+
+    _api_panel_settings_settings__WEBPACK_IMPORTED_MODULE_3__["Settings"].list_language().then(function (res) {
+      _this.languages = res.body.map(function (item) {
+        return item.language;
+      });
+      _this.languages_list = res.body;
+
+      _this.languages_list.forEach(function (item) {
+        if (item.id == _this.languages_list[0].id) {
+          _this.language_name = item.language;
+          _this.language_id = item.id;
+        }
+      });
+
+      _this.get_report(_this.language_id);
+    });
+  },
+  methods: {
+    get_report: function get_report(index) {
+      var _this2 = this;
+
+      _api_report_report__WEBPACK_IMPORTED_MODULE_2__["Report"].get_report(index).then(function (res) {
+        _this2.reports = res.body;
+      });
+    },
+    select_lang: function select_lang() {
+      var _this3 = this;
+
+      this.languages_list.forEach(function (item) {
+        if (item.language == _this3.language_name) _this3.language_id = item.id;
+      });
+
+      if (this.language_id) {
+        this.get_report(this.language_id);
+      }
+    },
+    select_item_letter: function select_item_letter() {
+      var _this4 = this;
+
+      _api_report_report__WEBPACK_IMPORTED_MODULE_2__["Report"].get_report_data_for_letter(this.data_modal).then(function (res) {
+        _this4.data_modal.value = res ? res.value : '';
+        _this4.data_modal.letter = res ? res.letter : _this4.data_modal.letter;
+      });
+    },
+    open_modal: function open_modal(item, index, dropdown) {
+      this.data_modal.name = item ? item.name : '';
+      this.data_modal.value = item.report_block_description ? item.report_block_description.value : '';
+      this.data_modal.id = item.report_block_description ? item.report_block_description.report_block_id : '';
+      this.data_modal.language_id = this.language_id;
+      this.data_modal.dropdown = dropdown;
+      this.data_modal.letter = item.report_block_description ? item.report_block_description.letter : '';
+      this.data_modal.index = index;
+      this.dialog = true;
+    },
+    save: function save() {
+      var _this5 = this;
+
+      _api_report_report__WEBPACK_IMPORTED_MODULE_2__["Report"].save_report(this.data_modal, this.data_modal.id).then(function (res) {
+        _this5.get_report(_this5.language_id);
+
+        _this5.dialog = false;
+      });
+    }
+  },
   components: {
-    'editor': _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__["VueEditor"] // <- Important part
 
   }
@@ -3281,7 +3404,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _api_panel_settings_settings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../api/panel_settings/settings */ "./resources/js/api/panel_settings/settings.js");
-/* harmony import */ var _api_report_report__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../api/report/report */ "./resources/js/api/report/report.js");
+/* harmony import */ var _api_report_text_for_scores__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/report/text_for_scores */ "./resources/js/api/report/text_for_scores.js");
 //
 //
 //
@@ -3386,7 +3509,7 @@ __webpack_require__.r(__webpack_exports__);
     get_scoretext: function get_scoretext(id) {
       var _this2 = this;
 
-      _api_report_report__WEBPACK_IMPORTED_MODULE_1__["Scoretext"].get_scoretext(id).then(function (res) {
+      _api_report_text_for_scores__WEBPACK_IMPORTED_MODULE_2__["Scoretext"].get_scoretext(id).then(function (res) {
         _this2.text_for_scores = res.body;
       }).catch(function (err) {
         return console.log(err);
@@ -3423,7 +3546,7 @@ __webpack_require__.r(__webpack_exports__);
     save: function save() {
       var _this5 = this;
 
-      _api_report_report__WEBPACK_IMPORTED_MODULE_1__["Scoretext"].save_scoretext(this.data_modal.result_id, this.data_modal).then(function (res) {
+      _api_report_text_for_scores__WEBPACK_IMPORTED_MODULE_2__["Scoretext"].save_scoretext(this.data_modal.result_id, this.data_modal).then(function (res) {
         _this5.get_scoretext(_this5.language_id);
 
         _this5.dialog = false;
@@ -41837,18 +41960,105 @@ var render = function() {
     "div",
     [
       _c(
-        "v-btn",
-        {
-          attrs: { color: "primary", flat: "" },
-          on: {
-            click: function($event) {
-              _vm.dialog = true
-            }
-          }
-        },
-        [_vm._v("\n        open\n    ")]
+        "div",
+        [
+          _c(
+            "v-flex",
+            {
+              staticStyle: { width: "200px", margin: "10px 0" },
+              attrs: { xs12: "", sm6: "", "d-flex": "", "data-app": "" }
+            },
+            [
+              _c("v-select", {
+                attrs: { items: _vm.languages, label: "Select language" },
+                on: {
+                  change: function($event) {
+                    return _vm.select_item_letter()
+                  }
+                },
+                model: {
+                  value: _vm.language_name,
+                  callback: function($$v) {
+                    _vm.language_name = $$v
+                  },
+                  expression: "language_name"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
       ),
-      _vm._v("\n    " + _vm._s(_vm.content) + "\n    "),
+      _vm._v(" "),
+      _vm._l(_vm.reports, function(item, index) {
+        return _c(
+          "v-list",
+          { key: item + index, attrs: { "two-line": "" } },
+          [
+            [
+              _c(
+                "v-list-tile",
+                {
+                  on: {
+                    click: function($event) {
+                      return _vm.open_modal(
+                        item,
+                        index,
+                        item.report_block_description &&
+                          item.report_block_description.letter
+                      )
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "v-list-tile-content",
+                    [
+                      _c("v-list-tile-title", [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(item.name) +
+                            "\n                        "
+                        ),
+                        item.report_block_description &&
+                        item.report_block_description.letter
+                          ? _c("span", { staticStyle: { color: "red" } }, [
+                              _c("strong", [_vm._v("L")]),
+                              _vm._v(
+                                " " +
+                                  _vm._s(item.report_block_description.letter) +
+                                  "\n                        "
+                              )
+                            ])
+                          : _vm._e()
+                      ]),
+                      _vm._v(" "),
+                      item.report_block_description
+                        ? _c("v-list-tile-sub-title", {
+                            domProps: {
+                              innerHTML: _vm._s(
+                                item.report_block_description.value
+                              )
+                            }
+                          })
+                        : _vm._e()
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              index + 1 < _vm.reports.length
+                ? _c("v-divider", { key: index })
+                : _vm._e()
+            ]
+          ],
+          2
+        )
+      }),
+      _vm._v(" "),
       _c(
         "v-dialog",
         {
@@ -41865,22 +42075,66 @@ var render = function() {
           _c(
             "v-card",
             [
-              _c("v-card-title", {
-                staticClass: "headline grey lighten-2",
-                attrs: { "primary-title": "" }
-              }),
+              _c(
+                "v-card-title",
+                {
+                  staticClass: "headline grey lighten-2",
+                  attrs: { "primary-title": "" }
+                },
+                [
+                  _c("div", { staticStyle: { "margin-right": "20px" } }, [
+                    _vm._v(_vm._s(_vm.data_modal.name))
+                  ])
+                ]
+              ),
               _vm._v(" "),
               _c(
                 "v-card-text",
                 [
+                  _vm.data_modal.dropdown
+                    ? _c(
+                        "v-flex",
+                        {
+                          staticStyle: { width: "200px", margin: "10px 0" },
+                          attrs: {
+                            xs12: "",
+                            sm6: "",
+                            "d-flex": "",
+                            "data-app": ""
+                          }
+                        },
+                        [
+                          _c("v-select", {
+                            attrs: {
+                              items: _vm.letters,
+                              label: "Select language"
+                            },
+                            on: {
+                              change: function($event) {
+                                return _vm.select_item_letter()
+                              }
+                            },
+                            model: {
+                              value: _vm.data_modal.letter,
+                              callback: function($$v) {
+                                _vm.$set(_vm.data_modal, "letter", $$v)
+                              },
+                              expression: "data_modal.letter"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
                   _c("vue-editor", {
                     attrs: { editorToolbar: _vm.customToolbar },
                     model: {
-                      value: _vm.content,
+                      value: _vm.data_modal.value,
                       callback: function($$v) {
-                        _vm.content = $$v
+                        _vm.$set(_vm.data_modal, "value", $$v)
                       },
-                      expression: "content"
+                      expression: "data_modal.value"
                     }
                   })
                 ],
@@ -41900,7 +42154,7 @@ var render = function() {
                       attrs: { color: "primary", flat: "" },
                       on: {
                         click: function($event) {
-                          _vm.dialog = false
+                          return _vm.save()
                         }
                       }
                     },
@@ -41916,7 +42170,7 @@ var render = function() {
         1
       )
     ],
-    1
+    2
   )
 }
 var staticRenderFns = []
@@ -85488,6 +85742,57 @@ function () {
 /*!*******************************************!*\
   !*** ./resources/js/api/report/report.js ***!
   \*******************************************/
+/*! exports provided: Report */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Report", function() { return Report; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var http = window;
+var Report =
+/*#__PURE__*/
+function () {
+  function Report() {
+    _classCallCheck(this, Report);
+  }
+
+  _createClass(Report, null, [{
+    key: "get_report",
+    value: function get_report(index) {
+      http = window.Vue.http;
+      return http.get("/api/report-blocks?language_id=".concat(index));
+    }
+  }, {
+    key: "get_report_data_for_letter",
+    value: function get_report_data_for_letter(data) {
+      http = window.Vue.http;
+      return http.get("/api/letter-block?language_id=".concat(data.language_id, "&letter=").concat(data.letter, "&report_block_id=").concat(data.id)).then(function (res) {
+        return res.body[0];
+      });
+    }
+  }, {
+    key: "save_report",
+    value: function save_report(data, id) {
+      http = window.Vue.http;
+      return http.post("/api/report-blocks/".concat(id), data);
+    }
+  }]);
+
+  return Report;
+}();
+
+/***/ }),
+
+/***/ "./resources/js/api/report/text_for_scores.js":
+/*!****************************************************!*\
+  !*** ./resources/js/api/report/text_for_scores.js ***!
+  \****************************************************/
 /*! exports provided: Scoretext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
