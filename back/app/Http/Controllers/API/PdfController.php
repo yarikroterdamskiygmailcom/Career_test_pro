@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Model\Customer;
 use App\Model\Result;
 use App\Model\Career;
+use App\Model\ReportBlockDescription;
+
 
 
 use Carbon\Carbon;
@@ -39,6 +41,18 @@ class PdfController extends Controller
         $search = ['&#39;', '&nbsp;'];
         $replace = ['\'', " "];
         return str_replace($search, $replace, $getResults['result_description']->text);
+    }
+
+    public function repVal($reportBlockId, $langId = 1, $curLetter = '') {
+        $reportValue = ReportBlockDescription::select('value')
+                                                ->where('report_block_id', $reportBlockId)
+                                                ->where('language_id', $langId)
+                                                ->where('letter', $curLetter)
+                                                ->get();
+        if($reportValue->count() == 0) {
+            return 'This block is not translated yet!';
+        }
+        return $reportValue[0]->value;
     }
 
     public function getProfessions($lettersCombination, $languageId = '1') {
@@ -74,6 +88,7 @@ class PdfController extends Controller
     public function pdf(Request $request, $id){
         $customer = Customer::where('secret_link', $request->result_key)->first();
         $userData = json_decode(base64_decode($customer->customer), true);
+        //dd($userData);
         $datestamp = Carbon::today()->format('d/m/Y');
 
         $skillsR = $this->getResultText('1', 'R', $userData['result']['skills']['R']);
@@ -114,18 +129,27 @@ class PdfController extends Controller
         arsort($userData['result']['total']);
         $totals = $userData['result']['total'];
         array_splice($totals, 3);
-        $totals = array_values(array_flip($totals));
+        $totalsTemp = $totals;
+        $totals = array();
+        foreach($totalsTemp as $totKey => $totVal) {
+            $totals[] = $totKey;
+        }
+        //dd($userData['result']['total'], $totals);
 
-        $letterDescription['R'] = 'Realistic personality type';
-        $letterDescription['I'] = 'Investigative personality type';
-        $letterDescription['A'] = 'Artistic personality type';
-        $letterDescription['S'] = 'Social personality type';
-        $letterDescription['O'] = 'Enterpricing personality type';
-        $letterDescription['C'] = 'Conventional personality type';
+        //$totals = array_values(array_flip($totals));
+//
+//        $letterDescription['R'] = 'Realistic personality type';
+//        $letterDescription['I'] = 'Investigative personality type';
+//        $letterDescription['A'] = 'Artistic personality type';
+//        $letterDescription['S'] = 'Social personality type';
+//        $letterDescription['O'] = 'Enterpricing personality type';
+//        $letterDescription['C'] = 'Conventional personality type';
+//
+//        $sence[0] = $letterDescription[$totals[0]];
+//        $sence[1] = $letterDescription[$totals[1]];
+//        $sence[2] = $letterDescription[$totals[2]];
 
-        $sence[0] = $letterDescription[$totals[0]];
-        $sence[1] = $letterDescription[$totals[1]];
-        $sence[2] = $letterDescription[$totals[2]];
+
 
         $combinationOne = $totals[0].$totals[1].$totals[2];
         $combinationTwo = $totals[1].$totals[2].$totals[0];
@@ -207,120 +231,195 @@ class PdfController extends Controller
             return 'data:'.$siz3e['mime'].';base64,'.$image;
         }
 //        $mpdf = new \Mpdf\Mpdf();
+          $curLang = 1;
+        $blockIdNum1 = array();
+        $blockIdNum2 = array();
+        $blockIdNum3 = array();
 
-        $mpdf->WriteHTML(view('p1', compact('customerName', 'datestamp')));
+//        $repId1 = $this->repVal('1', $curLang);
+//        $repId15 = $this->repVal('15', $curLang);
+//        $repId16 = $this->repVal('16', $curLang);
+//        $repId17 = $this->repVal('17', $curLang);
+        $blockIdNum1[] = '86';
+        $blockIdNum1[] = '87';
+        $blockIdNum1[] = '88';
+        $blockIdNum1[] = '89';
+        $blockIdNum1[] = '93';
+        $blockIdNum1[] = '94';
+        $blockIdNum1[] = '97';
+        $blockIdNum1[] = '98';
+        $blockIdNum1[] = '99';
+        $blockIdNum2[] = '111';
+        $blockIdNum2[] = '112';
+        $blockIdNum2[] = '113';
+        $blockIdNum2[] = '114';
+        $blockIdNum2[] = '118';
+        $blockIdNum2[] = '119';
+        $blockIdNum2[] = '122';
+        $blockIdNum2[] = '123';
+        $blockIdNum2[] = '124';
+        $blockIdNum3[] = '136';
+        $blockIdNum3[] = '137';
+        $blockIdNum3[] = '138';
+        $blockIdNum3[] = '139';
+        $blockIdNum3[] = '143';
+        $blockIdNum3[] = '144';
+        $blockIdNum3[] = '145';
+        $blockIdNum3[] = '148';
+        $blockIdNum3[] = '149';
+        $blockIdNum3[] = '150';
+
+        /*$totals[0] = 'O';
+        $totals[1] = 'C';
+        $totals[2] = 'S';*/
+
+        $repId = array();
+        for($r = 1; $r <= 226; $r++) {
+            if(in_array($r, $blockIdNum1)) {
+                $repId[$r] = $this->repVal($r, $curLang, $totals[0]);
+
+            } elseif(in_array($r, $blockIdNum2)) {
+                $repId[$r] = $this->repVal($r, $curLang, $totals[1]);
+            } elseif(in_array($r, $blockIdNum3)) {
+                $repId[$r] = $this->repVal($r, $curLang, $totals[2]);
+            } else {
+                $repId[$r] = $this->repVal($r, $curLang);
+            }
+        }
+
+        $letterDescription['R'] = $repId[8];
+        $letterDescription['I'] = $repId[7];
+        $letterDescription['A'] = $repId[226];
+        $letterDescription['S'] = $repId[6];
+        $letterDescription['O'] = $repId[4];
+        $letterDescription['C'] = $repId[5];
+
+        $sence[0] = $letterDescription[$totals[0]];
+        $sence[1] = $letterDescription[$totals[1]];
+        $sence[2] = $letterDescription[$totals[2]];
+        //dd($totals, $repId);
+
+        $mpdf->WriteHTML(view('p1', compact('customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p2', compact('customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p2', compact('customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p3', compact('customerName', 'datestamp', 'customerAge', 'customerGender')));
+        $mpdf->WriteHTML(view('p3', compact('customerName', 'datestamp', 'customerAge', 'customerGender'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p4', compact('customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p4', compact('customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
 
 
         $data1 = get_image('1'.$id);
-        $mpdf->WriteHTML(view('p5', compact('data1', 'customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p5', compact('data1', 'customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p6', compact('customerName', 'datestamp', 'skillsR', 'skillsI', 'skillsA', 'skillsS', 'skillsO', 'skillsC')));
+        $mpdf->WriteHTML(view('p6', compact('customerName', 'datestamp', 'skillsR', 'skillsI', 'skillsA', 'skillsS', 'skillsO', 'skillsC'))->with('reportIds', $repId));
 
         $data2 = get_image('2'.$id);
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p7', compact('data2', 'customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p7', compact('data2', 'customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p8', compact('customerName', 'datestamp', 'workValuesR', 'workValuesI', 'workValuesA', 'workValuesS', 'workValuesO', 'workValuesC')));
+        $mpdf->WriteHTML(view('p8', compact('customerName', 'datestamp', 'workValuesR', 'workValuesI', 'workValuesA', 'workValuesS', 'workValuesO', 'workValuesC'))->with('reportIds', $repId));
 
 //        $mpdf->AddPage();
 //        $mpdf->WriteHTML(view('p9_horizontal'));
 
         $data3 = get_image('3'.$id);
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p9_reports', compact('data3', 'customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p9_reports', compact('data3', 'customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p10', compact('customerName', 'datestamp', 'activitiesR', 'activitiesI', 'activitiesA', 'activitiesS', 'activitiesO', 'activitiesC')));
+        $mpdf->WriteHTML(view('p10', compact('customerName', 'datestamp', 'activitiesR', 'activitiesI', 'activitiesA', 'activitiesS', 'activitiesO', 'activitiesC'))->with('reportIds', $repId));
 
         $data4 = get_image('4'.$id);
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p11', compact('data4', 'customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p11', compact('data4', 'customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p12', compact('customerName', 'datestamp', 'personalBehaviorR', 'personalBehaviorI', 'personalBehaviorA', 'personalBehaviorS', 'personalBehaviorO', 'personalBehaviorC')));
+        $mpdf->WriteHTML(view('p12', compact('customerName', 'datestamp', 'personalBehaviorR', 'personalBehaviorI', 'personalBehaviorA', 'personalBehaviorS', 'personalBehaviorO', 'personalBehaviorC'))->with('reportIds', $repId));
 
         $data5 = get_image('5'.$id);
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p13', compact('data5', 'customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p13', compact('data5', 'customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p14', compact('customerName', 'datestamp', 'occupationsProfessionsR', 'occupationsProfessionsI', 'occupationsProfessionsA', 'occupationsProfessionsS', 'occupationsProfessionsO', 'occupationsProfessionsC')));
+        $mpdf->WriteHTML(view('p14', compact('customerName', 'datestamp', 'occupationsProfessionsR', 'occupationsProfessionsI', 'occupationsProfessionsA', 'occupationsProfessionsS', 'occupationsProfessionsO', 'occupationsProfessionsC'))->with('reportIds', $repId));
 
         $data6 = get_image('6'.$id);
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p15', compact('data6', 'customerName', 'datestamp'))->with('total', $totals)
+                                                                                                     ->with('reportIds', $repId)
                                                                                                      ->with('sence', $sence));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p16', compact('customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p16', compact('customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p17', compact('customerName', 'datestamp'))->with('total', $totals)
+                                                                                            ->with('reportIds', $repId)
                                                                                             ->with('sence', $sence));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p18', compact('customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p18', compact('customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p19', compact('customerName', 'datestamp'))->with('total', $totals)
+                                                                                            ->with('reportIds', $repId)
                                                                                             ->with('sence', $sence));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p20', compact('customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p20', compact('customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p21', compact('customerName', 'datestamp'))->with('total', $totals)
+                                                                                            ->with('reportIds', $repId)
                                                                                             ->with('sence', $sence));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p22', compact('customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p22', compact('customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p23', compact('customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p23', compact('customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
         $width = '120px';
-        $mpdf->WriteHTML(view('p24', compact('width', 'customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p24', compact('width', 'customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p25', compact('customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p25', compact('customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p26', compact('customerName', 'datestamp'))->with('total', $totals)
+                                                                                            ->with('reportIds', $repId)
                                                                                             ->with('profListOne', $profListOne));
 
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p27', compact('customerName', 'datestamp'))->with('total', $totals)
                                                                                             ->with('profListTwo', $profListTwo)
+                                                                                            ->with('reportIds', $repId)
                                                                                             ->with('profListThree', $profListThree));
 
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p28', compact('customerName', 'datestamp'))->with('total', $totals)
                                                                                             ->with('profListFour', $profListFour)
+                                                                                            ->with('reportIds', $repId)
                                                                                             ->with('profListFive', $profListFive));
 
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p29', compact('customerName', 'datestamp'))->with('total', $totals)
+                                                                                            ->with('reportIds', $repId)
                                                                                             ->with('profListSix', $profListSix));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p30', compact('customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p30', compact('customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p31', compact('customerName', 'datestamp')));
+        $mpdf->WriteHTML(view('p31', compact('customerName', 'datestamp'))->with('reportIds', $repId));
         $mpdf->Output();
 
 //'welcome.pdf', \Mpdf\Output\Destination::DOWNLOAD

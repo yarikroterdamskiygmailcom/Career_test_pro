@@ -10,24 +10,24 @@
             <div class="author-box">
                 <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: {{ $datestamp }}
+                {!! $reportIds[1] !!}: {{ $datestamp }}
             </div>
         </div>
     </header>
 
     <div style="margin-top: 34px;">
         <div style="font-size: 12px; font-family: montsersemibold; border-bottom: 1px solid #DFDFDF; padding-bottom: 5px;">
-            8. Total Score
+            8. {!! $reportIds[73] !!}
         </div>
     </div>
 
-    <p style="margin-top: 15px; margin-bottom: 30px;">Value, ( % )</p>
+    <p style="margin-top: 15px; margin-bottom: 30px;">{!! $reportIds[3] !!}, ( % )</p>
 
     <div>
         <img src="{{$data6}}" alt="">
     </div>
 
-    <p>Based on your scores shown in the graph, <span style="font-family: monserrmedium;" >your personal three-letter code is:</span></p>
+    <p>{!! $reportIds[74] !!}</p>
 
     <div style="width: 700px; margin-top: 60px">
         <div style="width: 350px; margin: 40px auto;">
@@ -38,7 +38,7 @@
                     </table>
                 </div>
 
-                <p style="font-size: 10px; text-align: center; margin-top: 10px; "><span style="font-family: monserrmedium;"> {{ $sence[0] }}</span> <br>(Main Personality)</p>
+                <p style="font-size: 10px; text-align: center; margin-top: 10px; "><span style="font-family: monserrmedium;"> {{ $sence[0] }}</span> <br>({!! $reportIds[75] !!})</p>
             </div>
 
 
@@ -50,7 +50,7 @@
                         </table>
                     </div>
 
-                    <p style="font-size: 10px; text-align: center; margin-top: 10px;"><span style="font-family: monserrmedium;">{{ $sence[1] }}</span><br>(Sub Personality 1)</p>
+                    <p style="font-size: 10px; text-align: center; margin-top: 10px;"><span style="font-family: monserrmedium;">{{ $sence[1] }}</span><br>({!! $reportIds[76] !!})</p>
 
                 </div>
 
@@ -68,7 +68,7 @@
                         </table>
                     </div>
 
-                    <p style="font-size: 10px; text-align: center; margin-top: 10px;"><span style="font-family: monserrmedium;">{{ $sence[2] }}</span><br>(Sub Personality 2)</p>
+                    <p style="font-size: 10px; text-align: center; margin-top: 10px;"><span style="font-family: monserrmedium;">{{ $sence[2] }}</span><br>({!! $reportIds[77] !!})</p>
 
                 </div>
             </div>
@@ -77,5 +77,5 @@
         </div>
 
     </div>
-    <p style="margin-top: 80px;">Careertestpro.com is a product of Making Moves B.V. - Copyright Making Moves B.V.</p>
+    <p style="margin-top: 80px;">{!! $reportIds[2] !!}</p>
 </div>

@@ -10,32 +10,29 @@
             <div class="author-box">
                 <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: {{ $datestamp }}
+                {!! $reportIds[1] !!}: {{ $datestamp }}
             </div>
         </div>
     </header>
 
     <p style="margin-top: 20px; line-height: 22px; font-family: montsersemibold;">
-        Work Environment
+        {!! $reportIds[10] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        People who score high on the enterprising personality type often find their happiness in professions in which they
-        can use their commercial, political or leadership skills to cooperate with others or to organize activities.
+        {!! $reportIds[97] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        They
-        are enthusiastic and energetic in initiating and supervising the activities in which they engage. Furthermore,
-        they are assertive and verbally persuasive in bringing others around to their point of view.
+        {!! $reportIds[98] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        The enterprising personality type is ambitious and likes to be in positions of authority.
+        {!! $reportIds[99] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px; font-family: montsersemibold;">
-        Characteristic Traits
+        {!! $reportIds[11] !!}
     </p>
 
     <div style="margin-top: 30px;">
@@ -43,7 +40,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #FDC572; border-radius: 50%; float: left;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">Persuasive</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">{!! $reportIds[100] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -51,7 +48,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #FDC572; border-radius: 50%; float: left; margin-left: 10px;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">Impulsive</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">{!! $reportIds[101] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -59,7 +56,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #FDC572; border-radius: 50%; float: left; margin-left: 10px;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">Popular</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">{!! $reportIds[102] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -67,7 +64,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #FDC572; border-radius: 50%; float: left; margin-left: 10px;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">Confident</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">{!! $reportIds[103] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -75,7 +72,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #FDC572; border-radius: 50%; float: left; margin-left: 10px;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">Assertive</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">{!! $reportIds[104] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -85,7 +82,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #FDC572; border-radius: 50%; float: left;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">Adventurous</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">{!! $reportIds[105] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -93,7 +90,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #FDC572; border-radius: 50%; float: left; margin-left: 10px;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">Extroverted</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">{!! $reportIds[106] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -101,7 +98,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #FDC572; border-radius: 50%; float: left; margin-left: 10px;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">Spontaneous</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">{!! $reportIds[107] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -109,7 +106,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #FDC572; border-radius: 50%; float: left; margin-left: 10px;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">Talkative</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">{!! $reportIds[108] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -117,7 +114,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #FDC572; border-radius: 50%; float: left; margin-left: 10px;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">Energetic</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px;">{!! $reportIds[109] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -125,11 +122,10 @@
     </div>
 
     <p style="margin-top: 50px;">
-        Depending on your personal three-letter code, later on in this report occupations that specifically match your
-        code are explained and written out.
+        {!! $reportIds[110] !!}
     </p>
 
     <p style="margin-top: 370px;">
-        Careertestpro.com is a product of Making Moves B.V. - Copyright Making Moves B.V.
+        {!! $reportIds[2] !!}
     </p>
 </div>

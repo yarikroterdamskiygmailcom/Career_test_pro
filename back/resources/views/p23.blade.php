@@ -10,44 +10,36 @@
             <div class="author-box">
                 <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: {{ $datestamp }}
+                {!! $reportIds[1] !!}: {{ $datestamp }}
             </div>
         </div>
     </header>
 
     <div style="margin-top: 24px;">
         <div style="font-size: 12px; font-family: montsersemibold; border-bottom: 1px solid #DFDFDF; padding-bottom: 5px;">
-            <div style="float: left; width: 95%;">12. Occupation List Highest Scored Personality Type</div>
+            <div style="float: left; width: 95%;">12. {!! $reportIds[162] !!}</div>
         </div>
     </div>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        On the next page a <span style="font-family: monserrmedium;">list of occupations</span> is shown based on your
-        <span style="font-family: monserrmedium;">highest score</span> and the <span style="font-family: monserrmedium;">main
-        personality type</span>.
+        {!! $reportIds[163] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        These occupations probably appeal to you and in first instance solely based on your highest score on a specific
-        personality type. This means that your two subtypes have not yet been taken into account.
+        {!! $reportIds[164] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px; ">
-        These subtypes in combination with your main personality type, together your personal three-letter code, are
-        discussed further on in this report. This is done for a specific reason. Occupations solely in your highest
-        score category might not fit your subtypes, causing it not to be mentioned in your specific occupation list
-        (based on your personal three-letter code) even though you just might like it.
+        {!! $reportIds[165] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px; ">
-        <span style="font-family: monserrmedium;">The occupation list</span> on the next page consist of typical occupations
-        which could belong to your <span style="font-family: monserrmedium;">main personality type</span>. You can check it and
-        find out which of the occupations or industries suits you.
+        {!! $reportIds[166] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        After this general occupation list we will zoom-in on specific occupations belonging to your three-letter code.
+        {!! $reportIds[167] !!}
     </p>
 
-    <p style="margin-top: 520px;">Careertestpro.com is a product of Making Moves B.V. - Copyright Making Moves B.V.</p>
+    <p style="margin-top: 520px;">{!! $reportIds[2] !!}</p>
 </div>

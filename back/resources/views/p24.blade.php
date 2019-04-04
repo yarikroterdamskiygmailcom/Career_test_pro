@@ -10,7 +10,7 @@
             <div class="author-box">
                 <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: {{ $datestamp }}
+                {!! $reportIds[1] !!}: {{ $datestamp }}
             </div>
         </div>
     </header>
@@ -20,7 +20,7 @@
             <table style="width: 100%">
                 <tr>
                     <td style="height: 60px; font-size: 12px; font-family: montsersemibold;">
-                        List of Occupations:
+                        {!! $reportIds[168] !!}:
                     </td>
                 </tr>
             </table>
@@ -44,56 +44,56 @@
                     <td style="width: 420px; height: 420px; font-size: 12px; padding: 0 40px; line-height: 20px">
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Administrative law judge
+                            {!! $reportIds[169] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Advertising and promotions manager
+                            {!! $reportIds[170] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Sales representative
+                            {!! $reportIds[171] !!}
                         </span>
                         <br>
 
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Agent / Business manager (of artists, performers, athletes)
+                            {!! $reportIds[172] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Air traffic controller
+                            {!! $reportIds[173] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Appraiser (real estate)
+                            {!! $reportIds[174] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Aqua-cultural manager
+                            {!! $reportIds[175] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Bartender
+                            {!! $reportIds[176] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Chef / Head Cook
+                            {!! $reportIds[177] !!}
                         </span>
                     </td>
                 </tr>
@@ -106,56 +106,56 @@
                     <td style="width: 320px; height: 320px; font-size: 12px; padding: 0 40px; line-height: 20px">
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Ship and boat captain
+                            {!! $reportIds[178] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Skin care specialist
+                            {!! $reportIds[179] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Warehouse distribution manager
+                            {!! $reportIds[180] !!}
                         </span>
                         <br>
 
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Technical director / manager
+                            {!! $reportIds[181] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Telemarketer
+                            {!! $reportIds[182] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Logistic manager
+                            {!! $reportIds[183] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Travel agent
+                            {!! $reportIds[184] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Travel guide
+                            {!! $reportIds[185] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Buyer (retail / warehouse)
+                            {!! $reportIds[186] !!}
                         </span>
                     </td>
                 </tr>
@@ -168,56 +168,56 @@
                     <td style="width: 320px; height: 320px; font-size: 12px; padding: 0 40px; line-height: 20px">
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            IT System manager
+                            {!! $reportIds[187] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Construction manager
+                            {!! $reportIds[188] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Copy writer
+                            {!! $reportIds[189] !!}
                         </span>
                         <br>
 
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Criminal investigator / Special agent
+                            {!! $reportIds[190] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Crop and livestock manager
+                            {!! $reportIds[191] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Curator
+                            {!! $reportIds[192] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Customer service representative
+                            {!! $reportIds[193] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Financial manager
+                            {!! $reportIds[194] !!}
                         </span>
                         <br>
 
                         <span>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAChSURBVHgBhY8xDoJAEEVn1khi5xE8gnsDGuPa6RG8Ac0SO7AlJnIDPIJW2skNVm5ia4z5MiSQQAJMNX/y8/KGaWRM4BY05UyNFdnjMwHHwaIJiwiE4nHSeW9pE7rt2rq0zsrY17Py6HoRR58vxU2RJtiL7Mq6pRz8wM0lQ2GXp/rduFaEQ0n4cUbMF2L4DNzuib62nqoXIc28kiTyiY67zn+jCzS+KtOTEQAAAABJRU5ErkJggg==" alt="">
-                            Sales manager
+                            {!! $reportIds[195] !!}
                         </span>
                     </td>
                 </tr>
@@ -225,5 +225,5 @@
         </div>
     </div>
 
-    <p style="margin-top: 150px;">Careertestpro.com is a product of Making Moves B.V. - Copyright Making Moves B.V.</p>
+    <p style="margin-top: 150px;">{!! $reportIds[2] !!}</p>
 </div>

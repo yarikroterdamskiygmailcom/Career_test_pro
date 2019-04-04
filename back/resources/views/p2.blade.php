@@ -20,16 +20,16 @@
             <div class="author-box">
                 <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: {{ $datestamp }}
+                {!! $reportIds[1] !!} : {{ $datestamp }}
             </div>
         </div>
     </header>
     <div>
-        <h2 style="font-size: 12px; text-align: center">CONTENT</h2>
+        <h2 style="font-size: 12px; text-align: center">{!! $reportIds[18] !!}</h2>
 
         <div class="list" style="line-height: 22px;" style="line-height: 22px;">
             <div style="width: 49.9%; float: left">
-                1. Participant information
+                1. {!! $reportIds[19] !!}
             </div>
 
             <div style="text-align: right">
@@ -39,7 +39,7 @@
 
         <div class="list" style="line-height: 22px;">
             <div style="width: 49.9%; float: left">
-                2. Introduction
+                2. {!! $reportIds[20] !!}
             </div>
 
             <div style="text-align: right">
@@ -49,7 +49,7 @@
 
         <div class="list" style="line-height: 22px;">
             <div style="width: 49.9%; float: left">
-                3. Skills
+                3. {!! $reportIds[21] !!}
             </div>
 
             <div style="text-align: right">
@@ -59,7 +59,7 @@
 
         <div class="list" style="line-height: 22px;">
             <div style="width: 49.9%; float: left">
-                4. Work values
+                4. {!! $reportIds[22] !!}
             </div>
 
             <div style="text-align: right">
@@ -69,7 +69,7 @@
 
         <div class="list" style="line-height: 22px;">
             <div style="width: 49.9%; float: left">
-                5. Activities
+                5. {!! $reportIds[23] !!}
             </div>
 
             <div style="text-align: right">
@@ -79,7 +79,7 @@
 
         <div class="list" style="line-height: 22px;">
             <div style="width: 49.9%; float: left">
-                6. Personal behavior
+                6. {!! $reportIds[24] !!}
             </div>
 
             <div style="text-align: right">
@@ -89,7 +89,7 @@
 
         <div class="list" style="line-height: 22px;">
             <div style="width: 49.9%; float: left">
-                7. Occupations / Professions
+                7. {!! $reportIds[25] !!}
             </div>
 
             <div style="text-align: right">
@@ -99,7 +99,7 @@
 
         <div class="list" style="line-height: 22px;">
             <div style="width: 49.9%; float: left">
-                8. Total Score
+                8. {!! $reportIds[26] !!}
             </div>
 
             <div style="text-align: right">
@@ -109,7 +109,7 @@
 
         <div class="list" style="line-height: 22px;">
             <div style="width: 49.9%; float: left">
-                9. Enterpricing Personality Type
+                9. {!! $reportIds[4] !!}
             </div>
 
             <div style="text-align: right">
@@ -119,7 +119,7 @@
 
         <div class="list" style="line-height: 22px;">
             <div style="width: 49.9%; float: left">
-                10. Conventional Personality Type
+                10. {!! $reportIds[5] !!}
             </div>
 
             <div style="text-align: right">
@@ -129,7 +129,7 @@
 
         <div class="list" style="line-height: 22px;">
             <div style="width: 49.9%; float: left">
-                11. Social Personality Type
+                11. {!! $reportIds[6] !!}
             </div>
 
             <div style="text-align: right">
@@ -139,7 +139,7 @@
 
         <div class="list" style="line-height: 22px;">
             <div style="width: 49.9%; float: left">
-                12. Occupation List Highest Scored Personality Type
+                12. {!! $reportIds[30] !!}
             </div>
 
             <div style="text-align: right">
@@ -149,7 +149,7 @@
 
         <div class="list" style="line-height: 22px;">
             <div style="width: 49.9%; float: left">
-                13. Three-Letter Code Occupations
+                13. {!! $reportIds[31] !!}
             </div>
 
             <div style="text-align: right">
@@ -159,7 +159,7 @@
 
         <div class="list" style="line-height: 22px;">
             <div style="width: 49.9%; float: left">
-                14. Conclusion
+                14. {!! $reportIds[32] !!}
             </div>
 
             <div style="text-align: right">
@@ -169,7 +169,7 @@
 
         <div class="list" style="line-height: 22px;">
             <div style="width: 49.9%; float: left">
-                15. What's next?
+                15. {!! $reportIds[33] !!}
             </div>
 
             <div style="text-align: right">
@@ -178,5 +178,5 @@
         </div>
     </div>
 
-    <p style="margin-top: 170px;">Carteertestpro.com is a product of Making B.V. - Copyright Making Moves B.V.</p>
+    <p style="margin-top: 170px;">{!! $reportIds[2] !!}</p>
 </div>

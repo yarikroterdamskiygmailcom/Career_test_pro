@@ -10,42 +10,25 @@
             <div class="author-box">
                 <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: {{ $datestamp }}
+                {!! $reportIds[1] !!}: {{ $datestamp }}
             </div>
         </div>
     </header>
 
     <p style="line-height: 22px;">
-        The method used by <span style="font-family: monserrmedium;">Careertestpro</span> is based on a combination of a
-        <span style="font-family: monserrmedium;;">main personality type</span> and <span style="font-family: monserrmedium;;">two
-        personality subtypes</span>, that also apply to you. The main personality type and the two
-        subtypes are displayed in a <span style="font-family: monserrmedium;;">three-letter code</span>. This could for instance
-        be RAE as a three-lettercode, meaning a Realistic main personality type with subtypes
-        <span style="font-family: monserrmedium;;">Artistic</span> and
-        <span style="font-family: monserrmedium;;">Enterprising</span>.
+    {!! $reportIds[52] !!}
     </p>
     <p style="line-height: 22px; margin-top: 20px;">
-        The better this three-letter code matches three-letter code for a particular
-        profession, the greater chance that you will find success and happiness within this profession. However, one should also
-        take into account the fact that people themselves influence their professional environment, which means they can also
-        find satisfaction in a profession that appealed less to them initially. It is therefore wise to also review and analyze
-        professional occupations that may not directly match your personal three-letter code but have similarities and personal
-        characteristics in common.
+        {!! $reportIds[53] !!}
     </p>
     <p style="line-height: 22px; margin-top: 20px;">
-        This is why at the end of this report, you will find all possible combinations of your
-        three-letter code to make sure you get a glance at other occupations that might also fit your personality. The
-        composition of your profile is based on a number of factors that have been approached from different perspectives during
-        the questionnaire you filled in.
+        {!! $reportIds[54] !!}
     </p>
     <p style="line-height: 22px; margin-top: 20px;">
-        Through analyzing the activities that appeal to you, your personal behavior, work
-        values and skillset, the personality profile in this report has been created.
+        {!! $reportIds[55] !!}
     </p>
     <p style="line-height: 22px; margin-top: 20px;">
-        On the next pages in this report your
-        <span style="font-family: monserrmedium;">scores are displayed</span>. Furthermore, the different personality types will
-        be discussed in detail.
+        {!! $reportIds[56] !!}
     </p>
 
     <div style="width: 350px; margin: 40px auto;">
@@ -56,7 +39,7 @@
                 </table>
             </div>
 
-            <p style="text-align: center; margin-top: 7px;">Investigative</p>
+            <p style="text-align: center; margin-top: 7px;">{!! $reportIds[57] !!}</p>
         </div>
 
 
@@ -68,15 +51,15 @@
                     </table>
                 </div>
 
-                <p style="text-align: center; margin-top: 7px;">Investigative</p>
+                <p style="text-align: center; margin-top: 7px;">{!! $reportIds[62] !!}</p>
 
                 <div style="width: 35px; height: 35px; border: 2px solid #85B1F5; border-radius: 50%; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); margin: auto; margin-top: 15px;">
                     <table>
-                        <tr><td style="font-family: montsersemibold; width: 35px; height: 35px; text-align: center">R</td></tr>
+                        <tr><td style="font-family: montsersemibold; width: 35px; height: 35px; text-align: center">S</td></tr>
                     </table>
                 </div>
 
-                <p style="text-align: center; margin-top: 7px;">Social</p>
+                <p style="text-align: center; margin-top: 7px;">{!! $reportIds[61] !!}</p>
             </div>
 
             <div style="width: 157px; height: 129px; float: left; text-align: center">
@@ -93,7 +76,7 @@
                     </table>
                 </div>
 
-                <p style="text-align: center; margin-top: 7px;">Artistic</p>
+                <p style="text-align: center; margin-top: 7px;">{!! $reportIds[58] !!}</p>
 
                 <div style="width: 35px; height: 35px; border: 2px solid #F9892E; border-radius: 50%; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); margin: auto; margin-top: 15px;">
                     <table>
@@ -101,7 +84,7 @@
                     </table>
                 </div>
 
-                <p style="text-align: center; margin-top: 7px;">Conventional</p>
+                <p style="text-align: center; margin-top: 7px;">{!! $reportIds[59] !!}</p>
             </div>
         </div>
 
@@ -112,9 +95,9 @@
                 </table>
             </div>
 
-            <p style="text-align: center; margin-top: 7px;">Enterpricing</p>
+            <p style="text-align: center; margin-top: 7px;">{!! $reportIds[60] !!}</p>
         </div>
     </div>
 
-    <p style="margin-top: 90px;">Careertestpro.com is a product of Making Moves B.V. - Copyright Making Moves B.V.</p>
+    <p style="margin-top: 90px;">{!! $reportIds[2] !!}</p>
 </div>

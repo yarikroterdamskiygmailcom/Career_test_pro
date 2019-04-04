@@ -10,32 +10,29 @@
             <div class="author-box">
                 <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: {{ $datestamp }}
+                {!! $reportIds[1] !!}: {{ $datestamp }}
             </div>
         </div>
     </header>
 
     <p style="margin-top: 20px; line-height: 22px; font-family: montsersemibold;">
-        Work Environment
+        {!! $reportIds[10] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px; ">
-        People who score high on the social personality type often find their happiness in professions where helping
-        others, cooperating and/or supervising are common.
+        {!! $reportIds[148] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px; ">
-        These people can be found in environments where they can take care of, support, help, educate, inform or
-        entertain others.
+        {!! $reportIds[149] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        The social working environment requires interpersonal and communicative skills and provides room for
-        humanitarian values, understanding of others and patient and tactful approaches.
+        {!! $reportIds[150] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px; font-family: montsersemibold;">
-        Characteristic Traits
+        {!! $reportIds[11] !!}
     </p>
 
     <div style="margin-top: 30px;">
@@ -43,7 +40,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #85B1F5; border-radius: 50%; float: left;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">Friendly</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">{!! $reportIds[151] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -51,7 +48,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #85B1F5; border-radius: 50%; float: left; margin-left: 10px;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">Idealistic</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">{!! $reportIds[152] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -59,7 +56,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #85B1F5; border-radius: 50%; float: left; margin-left: 10px;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">Patient</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">{!! $reportIds[153] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -67,7 +64,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #85B1F5; border-radius: 50%; float: left; margin-left: 10px;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">Responsible</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">{!! $reportIds[154] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -75,7 +72,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #85B1F5; border-radius: 50%; float: left; margin-left: 10px;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">Forgiving</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">{!! $reportIds[155] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -85,7 +82,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #85B1F5; border-radius: 50%; float: left;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">Cooperative</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">{!! $reportIds[156] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -93,7 +90,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #85B1F5; border-radius: 50%; float: left; margin-left: 10px;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">Kind</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">{!! $reportIds[157] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -101,7 +98,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #85B1F5; border-radius: 50%; float: left; margin-left: 10px;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">Compassionate</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">{!! $reportIds[158] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -109,7 +106,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #85B1F5; border-radius: 50%; float: left; margin-left: 10px;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">Generous</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">{!! $reportIds[159] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -117,7 +114,7 @@
             <div style="width: 80px; height: 80px; border: 1px solid #85B1F5; border-radius: 50%; float: left; margin-left: 10px;">
                 <table>
                     <tr>
-                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">Caring</td>
+                        <td style="width: 80px; height: 80px; text-align: center; font-size: 12px; font-family: monserrmedium;">{!! $reportIds[160] !!}</td>
                     </tr>
                 </table>
             </div>
@@ -125,11 +122,10 @@
     </div>
 
     <p style="margin-top: 50px;">
-        Depending on your personal three-letter code, later on in this report occupations that specifically match your
-        code are explained and written out.
+        {!! $reportIds[161] !!}
     </p>
 
     <p style="margin-top: 350px;">
-        Careertestpro.com is a product of Making Moves B.V. - Copyright Making Moves B.V.
+        {!! $reportIds[2] !!}
     </p>
 </div>
