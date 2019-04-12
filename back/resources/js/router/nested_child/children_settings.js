@@ -1,6 +1,6 @@
 import settings_users from'../../components/panel/component_panel/settings/users.vue';
-import settings_languages from'../../components/panel/component_panel/settings/languages.vue';
 import settings_price from'../../components/panel/component_panel/settings/price.vue';
+import test_codes from'../../components/panel/component_panel/settings/test_codes.vue';
 // import panel_test from'../../components/panel/component_panel/test.vue';
 // import panel_report from'../../components/panel/component_panel/report.vue';
 // import panel_settings from'../../components/panel/component_panel/settings.vue';
@@ -16,10 +16,10 @@ export const settings_children = [
         path: '/panel/settings/users',
         component: settings_users
     },
-    // {
-    //     path: '/panel/report',
-    //     component: panel_report
-    // },
+    {
+        path: '/panel/settings/test-codes',
+        component: test_codes
+    },
     // {
     //     path: '/panel/careers',
     //     component: panel_careers
