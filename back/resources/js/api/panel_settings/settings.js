@@ -17,4 +17,12 @@ export class Settings{
         http = window.Vue.http;
         return http.post(`/api/price`, data)
     }
+    static get_test_codes(){
+        http = window.Vue.http;
+        return http.get(`/api/testcode`)
+    }
+    static crate_test_code(){
+        http = window.Vue.http;
+        return http.post(`/api/testcode-generate`, {})
+    }
 }

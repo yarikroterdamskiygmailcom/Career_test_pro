@@ -20,7 +20,7 @@
                         path: '/panel/settings/users'
                     }, {
                         name: 'Test Codes',
-                        path: '/panel/settings/testcodes'
+                        path: '/panel/settings/test-codes'
                     }, {
                         name: 'Invoices',
                         path: '/panel/settings/invoices'
