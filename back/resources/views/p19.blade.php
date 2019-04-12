@@ -10,7 +10,7 @@
             <div class="author-box">
                 <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: {{ $datestamp }}
+                {!! $reportIds[1] !!}: {{ $datestamp }}
             </div>
         </div>
     </header>
@@ -32,26 +32,23 @@
     </div>
 
     <p style="font-family: montsersemibold; margin: 20px 0;">
-        General Information
+        {!! $reportIds[9] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        The conventional personality type likes activities where they can work according to set procedures. They are
-        wellorganized, persistent, and practical individuals.
+        {!! $reportIds[111] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        People who score high on the conventional personality type often possess administrative, organizational and
-        analytical skills. In addition, they are good at working according to procedures, rules and guidelines.
+        {!! $reportIds[112] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        The conventional personality type is dependable, efficient and conscientious in accomplishing the tasks in which
-        they engage.
+        {!! $reportIds[113] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        They enjoy the security of belonging to groups and organizations and make good team members.
+        {!! $reportIds[114] !!}
     </p>
 
     <div style="margin: auto; width: 72%; margin-top: 50px;">
@@ -59,13 +56,13 @@
             <table>
                 <tr>
                     <td style="width: 140px; height: 140px; text-align: center; font-size: 12px;">
-                        <span style="font-family: montsersemibold;">Are You?</span>
+                        <span style="font-family: montsersemibold;">{!! $reportIds[12] !!}</span>
 
                         <br>
                         <br>
 
                         <span>
-                            methodical numerically inclined conforming practical systematic structured
+                            {!! $reportIds[115] !!}
                         </span>
                     </td>
                 </tr>
@@ -76,13 +73,13 @@
             <table style="z-index: 3; position: relative">
                 <tr>
                     <td style="width: 140px; height: 140px; text-align: center; font-size: 12px;">
-                        <span style="font-family: montsersemibold;">Can You?</span>
+                        <span style="font-family: montsersemibold;">{!! $reportIds[13] !!}</span>
 
                         <br>
                         <br>
 
                         <span>
-                            work well within a system keep accurate records use a database abide by deadline
+                            {!! $reportIds[116] !!}
                         </span>
                     </td>
                 </tr>
@@ -93,13 +90,13 @@
             <table>
                 <tr>
                     <td style="width: 140px; height: 140px; text-align: center; font-size: 12px;">
-                        <span style="font-family: montsersemibold;">Like To?</span>
+                        <span style="font-family: montsersemibold;">{!! $reportIds[14] !!}</span>
 
                         <br>
                         <br>
 
                         <span>
-                            use data follow defined procedures work with numbers collect and organize
+                            {!! $reportIds[117] !!}
                         </span>
                     </td>
                 </tr>
@@ -112,16 +109,15 @@
     </div>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        The conventional personality type is generally less skilled in artistic and creative fields and other activities
-        that require a lot of imagination.
+        {!! $reportIds[118] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        They are most comfortable working in situations and at tasks in which they know what is expected of them.
+        {!! $reportIds[119] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px; font-family: montsersemibold;">
-        Examples of typical enterprising personality occupations are:
+        {!! $reportIds[120] !!}
     </p>
 
     <div style="border-radius: 12px; height: 60px; border: 1px solid #85B1F5; margin-top: 15px;">
@@ -139,9 +135,7 @@
             <table style="width: 100%">
                 <tr>
                     <td style="height: 60px; font-size: 12px;">
-                        accountant, budget analyst, business programmer, court reporter, financial analyst, insurance
-                        manager, internal auditor, statistician, medical records technicians, paralegal, safety
-                        inspector, travel agent and museum registrar.
+                        {!! $reportIds[121] !!}
                     </td>
                 </tr>
             </table>
@@ -149,6 +143,6 @@
     </div>
 
     <p style="margin-top: 140px">
-        Careertestpro.com is a product of Making Moves B.V. - Copyright Making Moves B.V.
+        {!! $reportIds[2] !!}
     </p>
 </div>

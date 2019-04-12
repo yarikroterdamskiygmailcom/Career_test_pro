@@ -10,7 +10,7 @@
             <div class="author-box">
                 <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: {{ $datestamp }}
+                {!! $reportIds[1] !!}: {{ $datestamp }}
             </div>
         </div>
     </header>
@@ -32,26 +32,23 @@
     </div>
 
     <p style="font-family: montsersemibold; margin: 20px 0;">
-        General Information
+        {!! $reportIds[9] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px; ">
-        The social personality type likes activities where they can be helpful to others by serving in facilitative or
-        supervising roles. They often possess interpersonal skills such as patience and well developed expression
-        skills.
+        {!! $reportIds[136] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px; ">
-        In addition, they are persuasive and enjoy being at or near the center of the group.
+        {!! $reportIds[137] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px; ">
-        Social personalities are idealistic, sensitive, and conscientious in their outlook on things like life, morality
-        and religion.
+        {!! $reportIds[138] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px; ">
-        They have strong social feelings and are open to emotions, thoughts and feelings of others.
+        {!! $reportIds[139] !!}
     </p>
 
     <div style="margin: auto; width: 72%; margin-top: 50px;">
@@ -59,13 +56,13 @@
             <table>
                 <tr>
                     <td style="width: 140px; height: 140px; text-align: center; font-size: 12px;">
-                        <span style="font-family: montsersemibold;">Are You?</span>
+                        <span style="font-family: montsersemibold;">{!! $reportIds[12] !!}</span>
 
                         <br>
                         <br>
 
                         <span>
-                            responsible cooperative insightful patient understanding
+                            {!! $reportIds[140] !!}
                         </span>
                     </td>
                 </tr>
@@ -76,14 +73,13 @@
             <table style="z-index: 3; position: relative">
                 <tr>
                     <td style="width: 140px; height: 140px; text-align: center; font-size: 12px;">
-                        <span style="font-family: montsersemibold;">Can You?</span>
+                        <span style="font-family: montsersemibold;">{!! $reportIds[13] !!}</span>
 
                         <br>
                         <br>
 
                         <span>
-                            train/teach others lead a group discussion supervise an activity cooperate with others
-                            mediate disputes
+                            {!! $reportIds[141] !!}
                         </span>
                     </td>
                 </tr>
@@ -94,13 +90,13 @@
             <table>
                 <tr>
                     <td style="width: 140px; height: 140px; text-align: center; font-size: 12px;">
-                        <span style="font-family: montsersemibold;">Like To?</span>
+                        <span style="font-family: montsersemibold;">{!! $reportIds[14] !!}</span>
 
                         <br>
                         <br>
 
                         <span>
-                            do volunteer work work with young people help people with problems work in groups
+                            {!! $reportIds[142] !!}
                         </span>
                     </td>
                 </tr>
@@ -113,22 +109,19 @@
     </div>
 
     <p style="margin-top: 20px; line-height: 22px; ">
-        The social personality type is generally not into technical activities and therefore often does not have
-        technical skills. Very practical and technical activities are thus often avoided.
+        {!! $reportIds[143] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px; ">
-        They see themselves as having social and educational skills which causes them to get along well with others and
-        fit natural to express their emotions.
+        {!! $reportIds[144] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px; ">
-        Social personality occupations can be very different in industry, but traits like ‘social’ and ‘friendly’ are
-        common in these occupations.
+        {!! $reportIds[145] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px;  line-height: 22px; font-family: montsersemibold;">
-        Examples of typical enterprising personality occupations are:
+        {!! $reportIds[146] !!}
     </p>
 
     <div style="border-radius: 12px; height: 60px; border: 1px solid #85B1F5; margin-top: 15px;">
@@ -146,8 +139,7 @@
             <table style="width: 100%">
                 <tr>
                     <td style="height: 60px; font-size: 12px;">
-                        psychologist, paralegal, librarian, teacher, social worker, nurse, scout, concierge and driving
-                        instructor.
+                        {!! $reportIds[147] !!}
                     </td>
                 </tr>
             </table>
@@ -155,6 +147,6 @@
     </div>
 
     <p style="margin-top: 70px">
-        Careertestpro.com is a product of Making Moves B.V. - Copyright Making Moves B.V.
+        {!! $reportIds[2] !!}
     </p>
 </div>

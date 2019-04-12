@@ -11,18 +11,18 @@
             <div class="author-box">
                 <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: {{ $datestamp }}
+                {!! $reportIds[1] !!}: {{ $datestamp }}
             </div>
         </div>
     </header>
 
     <div style="margin-top: 34px;">
         <div style="font-size: 12px; font-family: montsersemibold; border-bottom: 1px solid #DFDFDF; padding-bottom: 5px;">
-            3. Skills
+            3. {!! $reportIds[63] !!}
         </div>
     </div>
 
-    <p style="margin-top: 15px; margin-bottom: 30px;">Value, ( % )</p>
+    <p style="margin-top: 15px; margin-bottom: 30px;">{!! $reportIds[3] !!}, ( % )</p>
 
     <div>
         <img src="{{$data1}}" alt="">
@@ -51,11 +51,11 @@ opacity: 0.9;
 z-index: 1000;
 margin-top: -48px;
 ">
-            Below you will find a description of the <span style="font-family: monserrmedium;">six personality types,</span> which are also ranked arranged lowest to highest, based on your personal score. Also, every score comes with a brief description based on how much the discussed personality type applies to you:
+            {!! $reportIds[64] !!}
         </p>
     </div>
     {{--{{$image}}--}}
-    <p style="margin-top: 260px;">Careertestpro.com is a product of Making Moves B.V. - Copyright Making Moves B.V.</p>
+    <p style="margin-top: 260px;">{!! $reportIds[2] !!}</p>
 </div>
 <script>
 

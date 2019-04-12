@@ -10,7 +10,7 @@
             <div class="author-box">
                 <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: {{ $datestamp }}
+                {!! $reportIds[1] !!}: {{ $datestamp }}
             </div>
         </div>
     </header>
@@ -24,7 +24,7 @@
             </table>
         </div>
 
-        <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">Enterprising Personality Type</td></tr></table>
+        <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">{!! $reportIds[4] !!}</td></tr></table>
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
@@ -40,7 +40,7 @@
             </table>
         </div>
 
-        <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">Conventional Personality Type</td></tr></table>
+        <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">{!! $reportIds[5] !!}</td></tr></table>
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
@@ -56,7 +56,7 @@
             </table>
         </div>
 
-        <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">Investigative Personality Type</td></tr></table>
+        <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">{!! $reportIds[7] !!}</td></tr></table>
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
@@ -72,7 +72,7 @@
             </table>
         </div>
 
-        <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">Artistic Personality Type</td></tr></table>
+        <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">{!! $reportIds[226] !!}</td></tr></table>
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
@@ -88,7 +88,7 @@
             </table>
         </div>
 
-        <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">Social Personality Type</td></tr></table>
+        <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">{!! $reportIds[6] !!}</td></tr></table>
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
@@ -104,12 +104,12 @@
             </table>
         </div>
 
-        <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">Realistic Personality Type</td></tr></table>
+        <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">{!! $reportIds[8] !!}</td></tr></table>
     </div>
 
     <p style="margin: 15px 0; line-height: 20px;">
         {{$activitiesR}}
     </p>
 
-    <p style="margin-top: 50px;">Careertestpro.com is a product of Making Moves B.V. - Copyright Making Moves B.V.</p>
+    <p style="margin-top: 50px;">{!! $reportIds[2] !!}</p>
 </div>

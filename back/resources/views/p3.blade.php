@@ -18,18 +18,17 @@
             <div class="author-box">
                 <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: {{ $datestamp }}
+                {!! $reportIds[1] !!}: {{ $datestamp }}
             </div>
         </div>
     </header>
 
-    <h2 style="margin: 0; text-align: center; text-transform: uppercase; font-size: 12px; font-family: monserrmedium;">careertest
-        <span style="color: #4876D0; font-family: montserbold;">report</span>
+    <h2 style="margin: 0; text-align: center; text-transform: uppercase; font-size: 12px; font-family: monserrmedium;">{!! $reportIds[34] !!}
     </h2>
 
     <div style="margin-top: 24px;">
         <div style="font-size: 12px; font-family: montserbold; border-bottom: 1px solid #DFDFDF; padding-bottom: 5px;">
-            1. Participant information
+            1. {!! $reportIds[35] !!}
         </div>
 
         <div style="margin-top: 21px;">
@@ -44,10 +43,10 @@
             <div style="margin-top: 2px; margin-left: 60px;">
                 <table style="font-size: 12px;">
                     <tr>
-                        <td style="font-family: montsersemibold;">Name</td>
-                        <td style="font-family: montsersemibold; padding-left: 40px;">Age</td>
-                        <td style="font-family: montsersemibold; padding-left: 40px;">Gender</td>
-                        <td style="font-family: montsersemibold; padding-left: 40px;">Test Date</td>
+                        <td style="font-family: montsersemibold;">{!! $reportIds[36] !!}</td>
+                        <td style="font-family: montsersemibold; padding-left: 40px;">{!! $reportIds[37] !!}</td>
+                        <td style="font-family: montsersemibold; padding-left: 40px;">{!! $reportIds[38] !!}</td>
+                        <td style="font-family: montsersemibold; padding-left: 40px;">{!! $reportIds[39] !!}</td>
                     </tr>
 
                     <tr>
@@ -61,22 +60,17 @@
         </div>
 
         <div style="font-size: 13px; color:#333333; font-family: montserbold; font-weight: 600 !important; border-bottom: 1px solid #DFDFDF; padding-bottom: 5px; margin-top: 21px;">
-            2. Introduction
+            2. {!! $reportIds[40] !!}
         </div>
 
         <p style="margin: 15px 0; line-height: 22px">
-            In this report an analysis is made of your personality profile and the professions that will fit this
-            profile based on the career test questionnaire you just made on Careertestpro.com.
+            {!! $reportIds[41] !!}
         </p>
         <p style="margin: 15px 0; line-height: 22px">
-            The career test that you took is based on the <span style="font-family: monserrmedium;">RIASEC Theory of Dr.John
-            Holland</span>. His philosophy is at the root of many other career tests that are used worldwide. This
-            theory is also the most influential in its field on which more than <span style="font-family: monserrmedium;">500
-            scientific studies are based.</span>
+            {!! $reportIds[42] !!}
         </p>
         <p style="margin: 15px 0; line-height: 22px">
-            The <span style="font-family: monserrmedium">RIASEC theory</span> is based on <span style="font-family: monserrmedium;">
-            6 different personality characteristics</span>, being:
+            {!! $reportIds[43] !!}
         </p>
 
         <div style="font-family: sans;">
@@ -91,7 +85,7 @@
             <table style="margin-left: 15px; width: 70%">
                 <tr>
                     <td style="height: 30px">
-                        Realistic personality type - <span style="font-family: monserrmedium;">Doers</span>;
+                        {!! $reportIds[8] !!} - <span style="font-family: monserrmedium;">{!! $reportIds[44] !!}</span>;
                     </td>
                 </tr>
             </table>
@@ -104,8 +98,8 @@
 
             <table style="margin-left: 15px; width: 70%">
                 <tr>
-                    <td style="height: 30px">Investigative personality type -
-                        <span style="font-family: monserrmedium;">Thinkers</span>;
+                    <td style="height: 30px">{!! $reportIds[7] !!} -
+                        <span style="font-family: monserrmedium;">{!! $reportIds[45] !!}</span>;
                     </td>
                 </tr>
             </table>
@@ -120,7 +114,7 @@
                 </table>
             </div>
 
-            <table style="margin-left: 15px; width: 70%"><tr><td style="height: 30px">Artistic personality type - <span style="font-family: monserrmedium;">Creators</span>;</td></tr></table>
+            <table style="margin-left: 15px; width: 70%"><tr><td style="height: 30px">{!! $reportIds[226] !!} - <span style="font-family: monserrmedium;">{!! $reportIds[46] !!}</span>;</td></tr></table>
         </div>
 
         <div style="margin-top: 10px; font-family: sans;">
@@ -130,7 +124,7 @@
 
             <table style="margin-left: 15px; width: 70%">
                 <tr>
-                    <td style="height: 30px">Social personality type - <span style="font-family: monserrmedium;">Helpers</span>;
+                    <td style="height: 30px">{!! $reportIds[6] !!} - <span style="font-family: monserrmedium;">{!! $reportIds[47] !!}</span>;
                     </td>
                 </tr>
             </table>
@@ -143,8 +137,8 @@
 
             <table style="margin-left: 15px; width: 70%">
                 <tr>
-                    <td style="height: 30px">Enterpricing personality type -
-                        <span style="font-family: monserrmedium;">Persuaders</span>;
+                    <td style="height: 30px">{!! $reportIds[4] !!} -
+                        <span style="font-family: monserrmedium;">{!! $reportIds[48] !!}</span>;
                     </td>
                 </tr>
             </table>
@@ -157,8 +151,8 @@
 
             <table style="margin-left: 15px; width: 70%">
                 <tr>
-                    <td style="height: 30px">Conventional personality type -
-                        <span style="font-family: monserrmedium;">Organizers</span>.
+                    <td style="height: 30px">{!! $reportIds[5] !!} -
+                        <span style="font-family: monserrmedium;">{!! $reportIds[49] !!}</span>.
                     </td>
                 </tr>
             </table>
@@ -166,23 +160,12 @@
     </div>
 
     <p style="margin-top: 13px; line-height: 22px">
-        These 6 personality characteristics will be discussed in depth later on in this report, so you get to know in
-        detail what they stand for. It is often the case that there are multiple personality types that fit one person.
-        Everyone has something of all of these characteristic features in their personality.
+        {!! $reportIds[50] !!}
     </p>
 
     <p style="margin-top: 20px; line-height:22px">
-        The method used by <span style="font-family: monserrmedium;opacity: 0;">Careertestpro</span> is based on a combination of a
-        <span style="font-family: monserrmedium;">main personality type</span> and <span style="font-family: monserrmedium;">two
-            personality subtypes</span>, that also apply to you. The main personality type and the two subtypes are
-        displayed in a <span style="font-family: monserrmedium;">three-letter code</span>. This could for instance be
-        <span style="font-family: monserrmedium;">RAE</span> as a three-lettercode, meaning a
-        <span style="font-family: monserrmedium;">Realistic</span> main personality type with subtypes
-        <span style="font-family: monserrmedium;">Artistic</span> and <span style="font-family: monserrmedium;  ">Enterprising</span>.
-        These 6 personality characteristics will be discussed in depth later on in this report, so you get to know in
-        detail what they stand for. It is often the case that there are multiple personality types that fit one person.
-        Everyone has something of all of these characteristic features in their personality.
+        {!! $reportIds[51] !!}
     </p>
 
-    <p style="margin-top: 65px;">Careertestpro.com is a product of Making Moves B.V. - Copyright Making Moves B.V.</p>
+    <p style="margin-top: 65px;">{!! $reportIds[2] !!}</p>
 </div>

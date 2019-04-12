@@ -10,7 +10,7 @@
             <div class="author-box">
                 <span class="author">{{ $customerName }}</span>
                 <br>
-                Date: {{ $datestamp }}
+                {!! $reportIds[1] !!}: {{ $datestamp }}
             </div>
         </div>
     </header>
@@ -32,41 +32,36 @@
     </div>
 
     <p style="font-family: montsersemibold; margin: 20px 0;">
-        General Information
+        {!! $reportIds[9] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        The enterprising personality type likes activities where they can lead, organize or influence others. Therefore
-        they often possess the necessary skills in these fields.
+        {!! $reportIds[86] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        Furthermore, the enterprising personality type aspires to achieve organizational, political or economic goals.
-        They are self-confident, outgoing and optimistic.
+        {!! $reportIds[87] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        Persons who score high on this personality type often possess leadership and commercial skills and are
-        convincing to others. In addition, they perform well in positions in which they can initiate or organize
-        activities.
+        {!! $reportIds[88] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        They place a high value on status, power, money, and material possessions.
-    </p>
+        {!! $reportIds[89] !!}    </p>
 
     <div style="margin: auto; width: 72%; margin-top: 50px;">
         <div style="width: 140px; height: 140px; background: #FCE2E2; border-radius: 50%; float: left; position: relative;">
             <table>
                 <tr>
                     <td style="width: 140px; height: 140px; text-align: center; font-size: 12px;">
-                        <span style="font-family: montsersemibold;">Are You?</span>
+                        <span style="font-family: montsersemibold;">{!! $reportIds[12] !!}</span>
 
                         <br>
                         <br>
 
                         <span>
-                            self-confident assertive persuasive ambitious optimistic
+                            {!! $reportIds[90] !!}
                         </span>
                     </td>
                 </tr>
@@ -77,13 +72,13 @@
             <table style="z-index: 3; position: relative">
                 <tr>
                     <td style="width: 140px; height: 140px; text-align: center; font-size: 12px;">
-                        <span style="font-family: montsersemibold;">Can You?</span>
+                        <span style="font-family: montsersemibold;">{!! $reportIds[13] !!}</span>
 
                         <br>
                         <br>
 
                         <span>
-                            initiate projects sell things organize activities lead a group convince people
+                            {!! $reportIds[91] !!}
                         </span>
                     </td>
                 </tr>
@@ -94,13 +89,13 @@
             <table>
                 <tr>
                     <td style="width: 140px; height: 140px; text-align: center; font-size: 12px;">
-                        <span style="font-family: montsersemibold;">Like To?</span>
+                        <span style="font-family: montsersemibold;">{!! $reportIds[14] !!}</span>
 
                         <br>
                         <br>
 
                         <span>
-                            make dicisions start your business have power/status be elected to office
+                            {!! $reportIds[92] !!}
                         </span>
                     </td>
                 </tr>
@@ -113,18 +108,15 @@
     </div>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        The enterprising personality type is generally less skilled in the fields of science, research and other
-        analytical activities.
+        {!! $reportIds[93] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px;">
-        They avoid activities which require attention to detail and adherence to a set routine. Enterprising personality
-        occupations can be very different in industry, but traits like 'initiating', 'organizing' and 'commercial' are
-        common in these occupations.
+        {!! $reportIds[94] !!}
     </p>
 
     <p style="margin-top: 20px; line-height: 22px; font-family: montsersemibold;">
-        Examples of typical enterprising personality occupations are:
+        {!! $reportIds[95] !!}
     </p>
 
     <div style="border-radius: 12px; height: 60px; border: 1px solid #85B1F5; margin-top: 15px;">
@@ -142,8 +134,7 @@
             <table style="width: 100%">
                 <tr>
                     <td style="height: 60px; font-size: 12px;">
-                        entrepreneur, general manager, marketer, consultant, freelance photographer, politician, credit
-                        analyst, sales manager, stockbroker, tax accountant, buyer and banker/financial planner.
+                        {!! $reportIds[96] !!}
                     </td>
                 </tr>
             </table>
@@ -151,6 +142,6 @@
     </div>
 
     <p style="margin-top: 100px">
-        Careertestpro.com is a product of Making Moves B.V. - Copyright Making Moves B.V.
+        {!! $reportIds[2] !!}
     </p>
 </div>
