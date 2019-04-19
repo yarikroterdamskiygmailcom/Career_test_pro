@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\API\BaseController as BaseController;
 use App\Model\Language;
+use Validator;
 
-class LanguagesController extends Controller
+
+class LanguagesController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -37,7 +39,21 @@ class LanguagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'language' => 'required|string',
+            'code'     => 'required|string',
+        ]);
+
+        if($validator->fails()){
+            return $this->sendError('Validation Error.', $validator->errors(), 202);
+        }
+
+        $newLanguage = Language::updateOrCreate(
+            ['language' => $request->language, 'code' => $request->code],
+            ['language' => $request->language, 'code' => $request->code]
+        );
+
+        return $this->sendResponse($newLanguage, 'New language added successfully.');
     }
 
     /**
