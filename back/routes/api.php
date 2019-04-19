@@ -35,6 +35,7 @@ Route::group([
     Route::get('tester', 'TestController@index');
     Route::get('scoretext', 'ReportController@scoreText');
     Route::get('testcode-use', 'TestcodesController@use');
+    Route::get('site-blocks', 'SiteController@siteBlocks');
 
 
     Route::post('post/{id}', 'PdfController@pdfCr')->middleware('resultkey');
@@ -68,6 +69,10 @@ Route::group([
     Route::get('testcode', 'TestcodesController@index');
 
     Route::post('testcode-generate', 'TestcodesController@store');
+    Route::post('add-language', 'LanguagesController@store');
+
+
+    Route::post('site-blocks/{id}', 'SiteController@siteBlocksUpdate');
 
 
     Route::resources([
