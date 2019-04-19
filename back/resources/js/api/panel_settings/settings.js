@@ -25,4 +25,15 @@ export class Settings{
         http = window.Vue.http;
         return http.post(`/api/testcode-generate`, {})
     }
+    static get_site(language_id){
+        http = window.Vue.http;
+        return http.get(`/api/site-blocks?language_id=${language_id}`)
+    }
+    static update_site(data, id){
+        http = window.Vue.http;
+        return http.post(`/api/site-blocks/${id}`, {
+            value:data.value,
+            language_id:data.language_id
+        })
+    }
 }
