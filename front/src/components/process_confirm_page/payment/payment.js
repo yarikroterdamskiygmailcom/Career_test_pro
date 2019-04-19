@@ -79,7 +79,7 @@ export default {
         open_confirm_modal() {
             const inf = this.data_in_input_information;
             const error = this.error;
-
+            inf.code = this.data.code;
             let array_cards = this.cards.concat(this.cards1);
             //
             error.name   = Validator.set(inf.name, ['required']);
@@ -101,13 +101,13 @@ export default {
                     name: 'confirm_modal',
                     active: true,
                     modal_data: {
-                        ...this.data_in_input_information,
+                        ...inf,
                         card: card_name,
                         result: this.result
                     },
                 });
             } else {
-                this.$emit('error_data_payment_button', this.error);
+                // this.$emit('error_data_payment_button', this.error);
             }
         },
         count(arr) {

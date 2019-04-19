@@ -88,11 +88,12 @@ const actions = {
             data: data,
             name: 'language_now'
         });
+        list_language.get_site(value.id, commit);
         questions.get_questions(data.id, this, commit)
     },
     action_spinner({commit}, value){
         commit('change_state', value)
-    }
+    },
 };
 /**
  * ----- MUTATIONS -----
@@ -101,6 +102,9 @@ const actions = {
 const mutations = {
     change_state (state, value) {
         state[value.name] = value.data;
+    },
+    setVariable(state, value){
+        debugger
     }
 };
 

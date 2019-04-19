@@ -174,13 +174,12 @@ export default {
         select_item(position, number){
             let step = this.data_step[position];
             step.state == number ? delete step.state : step.state = number ;
-             if(step.state != null) {
-                 step.state = number
-             }
+            step.state != null   ? step.state = number : null;
+
             QuestionStore.saveStep(this.data_step, `${this.step}-${this.step_child}`);
-            this.data_step = [
-                ...QuestionStore.getStep(`${this.step}-${this.step_child}`)
-            ];
+
+            this.data_step = [...QuestionStore.getStep(`${this.step}-${this.step_child}`)];
+
             this.process = counter.count_process('state');
             this.count_arr_for_disabled()
         },
