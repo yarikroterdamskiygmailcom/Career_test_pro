@@ -35,5 +35,10 @@
         width: 1000px;
         margin: 0px auto;
     }
+    .v-list__tile__sub-title{
+        text-overflow: ellipsis!important;
+        overflow: hidden!important;
+        height: 33px!important;
+    }
 
 </style>
