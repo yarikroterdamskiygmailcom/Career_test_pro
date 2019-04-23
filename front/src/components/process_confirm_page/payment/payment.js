@@ -85,8 +85,12 @@ export default {
             error.name   = Validator.set(inf.name, ['required']);
             error.email  = Validator.set(inf.email, ['required']);
             error.email  = !error.email.errors  ? Validator.set(inf.email, ['email']) : error.email;
-            error.gender = Validator.set(inf.gender, ['dropdown'], 'Enter your gender');
-            error.age    = Validator.set(inf.age, ['dropdown'], 'Enter your age');
+
+            inf.gender = inf.gender == 'Gender' ? '' : inf.gender;
+            inf.age    = inf.age == 'Age' ? '' : inf.age;
+
+            error.gender = Validator.set(inf.gender, ['required'], 'Gender required');
+            error.age    = Validator.set(inf.age, ['required'], 'Gender required');
             error.card   = Validator.set(array_cards, ['radio'], 'status');
 
             let card_name = this.count(array_cards);
@@ -107,7 +111,7 @@ export default {
                     },
                 });
             } else {
-                // this.$emit('error_data_payment_button', this.error);
+                this.$emit('error_data_payment_button', this.error);
             }
         },
         count(arr) {

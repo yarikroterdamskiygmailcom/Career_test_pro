@@ -33,7 +33,7 @@
                 </b-dropdown-item>
             </b-dropdown>
             <div class="error" v-if="error.gender.errors">
-                <div>{{error.gender.message.dropdown}}</div>
+                <div>{{error.gender.message.required}}</div>
             </div>
         </div>
         <div class="margin_input confirm_margin" :class="{margin_input_no_active: !error.age.errors}" style="width: 100%;">
@@ -53,7 +53,7 @@
                 </b-dropdown-item>
             </b-dropdown>
             <div class="error" v-if="error.age.errors">
-                <div>{{error.age.message.dropdown}}</div>
+                <div>{{error.age.message.required}}</div>
             </div>
         </div>
         <div class="d-flex flex-grow-1 align-items-center custom_button

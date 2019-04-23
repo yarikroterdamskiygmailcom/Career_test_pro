@@ -11,7 +11,7 @@ export default  {
     },
     get_site(language_id, commit) {
          axios.get(`/api/site-blocks?language_id=${language_id}`)
-             .then(res => commit('setVariable', res))
+             .then(res => commit('setVariable', res.data))
              .catch(err => err)
     }
 }

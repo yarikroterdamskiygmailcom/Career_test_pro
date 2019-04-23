@@ -3,6 +3,7 @@
 import list_language from './../../api/multilanguage_request';
 import questions from "../../api/questions";
 import Helper_count from "../helpers/count";
+import Helper_CreateObject from "../helpers/multilanguage_counter";
 
 const state = {
     active: false,
@@ -52,7 +53,8 @@ const state = {
             name: 'facebook',
             path: 'http://backcartestpro.qbex.io/assets/facebook.png'
         },
-    ]
+    ],
+    data:{}
 };
 
 const getters = {
@@ -70,6 +72,11 @@ const getters = {
     },
     get_status_project(state){
         return state.active
+    },
+    getHomeFirstSection(){
+        return state.data
+               && state.data.HomePage
+               && state.data.HomePage.oneSection ? state.data.HomePage.oneSection : {}
     }
 };
 
@@ -88,8 +95,8 @@ const actions = {
             data: data,
             name: 'language_now'
         });
-        list_language.get_site(value.id, commit);
-        questions.get_questions(data.id, this, commit)
+        list_language.get_site(data.id, commit);
+        questions.get_questions(data.id, this, commit);
     },
     action_spinner({commit}, value){
         commit('change_state', value)
@@ -98,13 +105,19 @@ const actions = {
 /**
  * ----- MUTATIONS -----
  * */
-
 const mutations = {
     change_state (state, value) {
         state[value.name] = value.data;
     },
     setVariable(state, value){
-        debugger
+        const object = Helper_CreateObject.createObjectSite(value);
+        state.data = {...object};
+        state.menu_list = state.menu_list.map((item, index) => {
+            return {
+                name: object.menu_list[index],
+                path: item.path
+            }
+        });
     }
 };
 

@@ -335,4 +335,12 @@
             font-size: 12px;
         }
     }
+    .vstyle p{
+        margin: 0;
+    }
+    .v-list__tile__sub-title{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 33px;
+    }
 </style>

@@ -4,7 +4,10 @@
         <nav class="footer_menu d-flex">
             <ul class="container_footer_menu">
                 <li v-for="list in menu_list" style="font-weight: 600">
-                    <router-link class="text_style" :to="list.path">{{list.name}}</router-link>
+                    <router-link class="text_style vstyle"
+                                 :to="list.path"
+                                 v-html="list.name">
+                    </router-link>
                 </li>
             </ul>
             <div class="container_payments">
@@ -33,7 +36,7 @@
         <nav class="footer_menu d-flex">
             <ul class="container_footer_menu">
                 <li v-for="list in menu_list" style="font-weight: 600">
-                    <router-link class="text_style" :to="list.path">{{list.name}}</router-link>
+                    <router-link class="text_style vstyle" v-html="list.name" :to="list.path"></router-link>
                 </li>
             </ul>
             <div class="footer_badge_language footer_badge_language_mobile">
