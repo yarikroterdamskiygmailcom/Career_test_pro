@@ -13,6 +13,7 @@ export default {
             menu_list:       'multilanguage/get_menu_list',
             language_array:  'multilanguage/get_language_array',
             sotial_networks: 'multilanguage/get_sotial_networks',
-            screen: 'modal_data/get_screen'
+            screen: 'modal_data/get_screen',
+            footer: 'multilanguage/getFooterSection'
         }),
 }

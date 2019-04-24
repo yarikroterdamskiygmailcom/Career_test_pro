@@ -3,11 +3,13 @@
         <div class="elem_elipse"></div>
         <div class="elem_elipse elem_elipse1"></div>
         <div class="container_margin container_benefits">
-            <div class="title_block_benefits text-center">
-                Goals and <span style="color:#F9892E">Benefits</span>
+            <div class="title_block_benefits text-center vstyle"
+                 v-if="twoSection && twoSection.title"
+                 v-html="twoSection.title">
             </div>
-            <div class="description_block_benefits text-center">
-                Extensive report, step by step, fully anonymous
+            <div class="description_block_benefits text-center vstyle"
+                 v-if="twoSection && twoSection.description"
+                 v-html="twoSection.description">
             </div>
             <div class="d-flex flex-wrap justify-content: center;">
                 <div class="item_block_information d-flex"
@@ -19,10 +21,10 @@
                         </div>
                     </div>
                     <div style="margin-left: 24px">
-                        <div class="title_for_information">
+                        <div class="title_for_information vstyle">
                             {{item.title}}
                         </div>
-                        <div class="small_text description_for_information text-left" v-html="item.description">
+                        <div class="small_text description_for_information text-left vstyle" v-html="item.description">
                             <!--{{}}-->
                         </div>
                     </div>
@@ -34,11 +36,13 @@
         <div class="elem_elipse"></div>
         <div class="elem_elipse elem_elipse1"></div>
         <div class="container_margin container_benefits">
-            <div class="title_block_benefits text-center text-uppercase">
-                Goals and <span style="color:#F9892E">Benefits</span>
+            <div class="title_block_benefits text-center text-uppercase vstyle"
+                 v-if="twoSection && twoSection.title"
+                 v-html="twoSection.title">
             </div>
-            <div class="description_block_benefits text-center">
-                Extensive report, step by step, fully anonymous
+            <div class="description_block_benefits text-center vstyle"
+                 v-if="twoSection && twoSection.description"
+                 v-html="twoSection.description">
             </div>
             <div class="d-flex flex-column align-items-center">
                 <div class="item_block_information d-flex align-items-center"
@@ -50,10 +54,10 @@
                         </div>
                     </div>
                     <div class="item_block_information_text">
-                        <div class="title_for_information">
+                        <div class="title_for_information vstyle">
                             {{item.title}}
                         </div>
-                        <div class="small_text description_for_information text-left" v-html="item.description">
+                        <div class="small_text description_for_information text-left vstyle" v-html="item.description">
                             <!--{{}}-->
                         </div>
                     </div>

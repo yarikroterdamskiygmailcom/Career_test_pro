@@ -77,6 +77,29 @@ const getters = {
         return state.data
                && state.data.HomePage
                && state.data.HomePage.oneSection ? state.data.HomePage.oneSection : {}
+    },
+    getHomeSecondSection(){
+        return state.data
+        && state.data.HomePage
+        && state.data.HomePage.twoSection ? state.data.HomePage.twoSection : {}
+    },
+    getHomeThreeSection(){
+        return state.data
+        && state.data.HomePage
+        && state.data.HomePage.threeSection ? state.data.HomePage.threeSection : {}
+    },
+    getHomeFourSection(){
+        return state.data
+        && state.data.HomePage
+        && state.data.HomePage.fourSection ? state.data.HomePage.fourSection : {}
+    },
+    getHomeFiveSection(){
+        return state.data
+        && state.data.HomePage
+        && state.data.HomePage.fiveSection ? state.data.HomePage.fiveSection : {}
+    },
+    getFooterSection(){
+        return state.data && state.data.Footer && state.data.Footer
     }
 };
 
@@ -112,6 +135,7 @@ const mutations = {
     setVariable(state, value){
         const object = Helper_CreateObject.createObjectSite(value);
         state.data = {...object};
+        console.log(object);
         state.menu_list = state.menu_list.map((item, index) => {
             return {
                 name: object.menu_list[index],

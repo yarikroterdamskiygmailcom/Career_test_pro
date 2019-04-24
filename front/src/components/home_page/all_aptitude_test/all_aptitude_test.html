@@ -4,22 +4,27 @@
         <div class="elem_elipse elem_elipse1 custom_elem"></div>
         <div class="all-aptitude-test_container d-flex justify-content-around">
             <div class="d-flex flex-column align-items-center justify-content-center">
-                <div class="title_block_benefits text-capitalize">
-                    <span style="color:#F9892E">All Aptitude Test Package</span>
+                <div class="title_block_benefits text-capitalize vstyle"
+                     v-if="fourSection && fourSection.title"
+                     v-html="fourSection.title">
                 </div>
-                <div class="small_text" style="margin-bottom: 30px">
-                    Get more now, for less!
+                <div class="small_text vstyle"
+                     style="margin-bottom: 30px"
+                     v-if="fourSection && fourSection.description"
+                     v-html="fourSection.description">
                 </div>
                 <router-link :to="'tests'" class="button_to d-flex justify-content-center
                     align-items-center text-decoration-none
-                    custom_button">
-                    Take the Test
+                    custom_button vstyle"
+                    v-if="fourSection && fourSection.testButton"
+                    v-html="fourSection.testButton"
+                >
                 </router-link>
             </div>
             <div class="block_best_value d-flex justify-content-between">
                 <div class="all-aptitude-list">
-                    <ul class="small_text">
-                        <li v-for="item in test_list">{{item}}</li>
+                    <ul class="small_text" v-if="fourSection && fourSection.arr">
+                        <li v-for="item in fourSection.arr">{{item}}</li>
                     </ul>
                 </div>
                 <div class="best_value text-center">
@@ -27,8 +32,9 @@
                         <div class="m-2" style="font-weight: 600;">$</div>
                         <div class="m-2">39.95</div>
                     </div>
-                    <div class="small_text best_value_text text-center">
-                        Best Value
+                    <div class="small_text best_value_text text-center vstyle"
+                         v-if="fourSection && fourSection.value"
+                         v-html="fourSection.value">
                     </div>
                 </div>
             </div>
@@ -40,22 +46,26 @@
         <div class="elem_elipse elem_elipse1 custom_elem"></div>
         <div class="all-aptitude-test_container d-flex justify-content-between">
             <div class="d-flex flex-column align-items-center justify-content-center">
-                <div class="title_block_benefits custom_title text-capitalize">
-                    <span style="color:#F9892E">All Aptitude Test Package</span>
+                <div class="title_block_benefits custom_title text-capitalize vstyle"
+                     v-if="fourSection && fourSection.title"
+                     v-html="fourSection.title">
                 </div>
-                <div class="small_text custom_small" style="margin-bottom: 30px">
-                    Get more now, for less!
+                <div class="small_text custom_small vstyle"
+                     style="margin-bottom: 30px"
+                     v-if="fourSection && fourSection.description"
+                     v-html="fourSection.description">
                 </div>
                 <router-link :to="'tests'" class="button_to d-flex justify-content-center
                     align-items-center text-decoration-none
-                    custom_button custom_button_desktop">
-                    Take the Test
+                    custom_button custom_button_desktop vstyle"
+                     v-if="fourSection && fourSection.testButton"
+                     v-html="fourSection.testButton">
                 </router-link>
             </div>
             <div class="block_best_value d-flex justify-content-between">
                 <div class="all-aptitude-list">
-                    <ul class="small_text">
-                        <li v-for="item in test_list">{{item}}</li>
+                    <ul class="small_text" v-if="fourSection && fourSection.arr">
+                        <li v-for="item in fourSection.arr">{{item}}</li>
                     </ul>
                 </div>
                 <div class="middle_line"></div>
@@ -66,15 +76,16 @@
                         </div>
                         <div style="color : #333333">39.95</div>
                     </div>
-                    <div class="small_text best_value_text text-center">
-                        Best Value
-                    </div>
+                    <div class="small_text best_value_text text-center vstyle"
+                         v-if="fourSection && fourSection.value"
+                         v-html="fourSection.value"></div>
                 </div>
             </div>
             <router-link :to="'tests'" class="button_to d-flex justify-content-center
                     align-items-center text-decoration-none
-                    custom_button custom_button_mobile">
-                Take the Test
+                    custom_button custom_button_mobile vstyle"
+                     v-if="fourSection && fourSection.testButton"
+                     v-html="fourSection.testButton">
             </router-link>
         </div>
     </section>
