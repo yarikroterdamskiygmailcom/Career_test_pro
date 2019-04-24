@@ -3675,6 +3675,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "languages",
@@ -3690,6 +3718,8 @@ __webpack_require__.r(__webpack_exports__);
         code: '',
         status: 0
       },
+      dialog1: false,
+      dialog1_data: {},
       docs: new FormData()
     };
   },
@@ -3717,6 +3747,18 @@ __webpack_require__.r(__webpack_exports__);
     },
     addDocument: function addDocument() {
       return _api_panel_settings_settings__WEBPACK_IMPORTED_MODULE_0__["Settings"].add_Document(this.docs);
+    },
+    exportCSV: function exportCSV(id) {
+      var _this2 = this;
+
+      _api_panel_settings_settings__WEBPACK_IMPORTED_MODULE_0__["Settings"].export(id).then(function (res) {
+        _this2.dialog1_data = res.data.data;
+        _this2.dialog1 = !_this2.dialog1;
+      });
+    },
+    download: function download(name) {
+      window.location.href = this.dialog1_data[name];
+      this.dialog1 = !this.dialog1;
     }
   }
 });
@@ -42816,7 +42858,32 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(item.code))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(item.status))])
+              _c("td", [_vm._v(_vm._s(item.status))]),
+              _vm._v(" "),
+              _c(
+                "td",
+                [
+                  item.id == 1
+                    ? _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "primary", flat: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.exportCSV(item.id)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    Export CSV\n                "
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
             ])
           }),
           0
@@ -42902,6 +42969,104 @@ var render = function() {
                       }
                     },
                     [_vm._v("\n                    Save\n                ")]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-dialog",
+        {
+          attrs: { width: "500" },
+          model: {
+            value: _vm.dialog1,
+            callback: function($$v) {
+              _vm.dialog1 = $$v
+            },
+            expression: "dialog1"
+          }
+        },
+        [
+          _c(
+            "v-card",
+            [
+              _c(
+                "v-card-title",
+                {
+                  staticClass: "headline grey lighten-2",
+                  attrs: { "primary-title": "" }
+                },
+                [
+                  _c("div", { staticStyle: { "margin-right": "20px" } }, [
+                    _vm._v("Download CSV")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-text",
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "primary", flat: "" },
+                      on: {
+                        click: function($event) {
+                          return _vm.download("report")
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Download report\n                "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "primary", flat: "" },
+                      on: {
+                        click: function($event) {
+                          return _vm.download("site")
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Download site\n                "
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("v-divider"),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                [
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "primary", flat: "" },
+                      on: {
+                        click: function($event) {
+                          _vm.dialog1 = !_vm.dialog1
+                        }
+                      }
+                    },
+                    [_vm._v("\n                    Close\n                ")]
                   )
                 ],
                 1
@@ -86437,6 +86602,19 @@ function () {
     //     return http.post('/api/add-language', data)
     // }
 
+  }, {
+    key: "export",
+    value: function _export(id) {
+      http = window.Vue.http;
+      return http.get("/api/export-csv/".concat(id));
+    }
+  }, {
+    key: "exportReport",
+    value: function exportReport(url) {
+      http = window.Vue.http;
+      debugger;
+      return http.get(url);
+    }
   }, {
     key: "get_price_in_language",
     value: function get_price_in_language(language_id) {

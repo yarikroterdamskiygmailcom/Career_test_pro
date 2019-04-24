@@ -21,6 +21,11 @@
                 <td>{{item.language}}</td>
                 <td>{{item.code}}</td>
                 <td>{{item.status}}</td>
+                <td>
+                    <v-btn color="primary" v-if="item.id == 1" flat @click="exportCSV(item.id)">
+                        Export CSV
+                    </v-btn>
+                </td>
             </tr>
             </tbody>
         </table>
@@ -53,6 +58,29 @@
                 </v-card-actions>
             </v-card>
         </v-dialog>
+        <v-dialog v-model="dialog1" width="500">
+            <v-card>
+                <v-card-title class="headline grey lighten-2" primary-title>
+                    <div style="margin-right: 20px">Download CSV</div>
+                </v-card-title>
+                <v-card-text>
+                    <v-btn color="primary" flat @click="download('report')">
+                        Download report
+                    </v-btn>
+                    <v-btn color="primary" flat @click="download('site')">
+                        Download site
+                    </v-btn>
+                </v-card-text>
+
+                <v-divider></v-divider>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="primary" flat @click="dialog1 = !dialog1">
+                        Close
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </div>
 </template>
 
@@ -73,6 +101,8 @@
                     code:    '',
                     status:  0
                 },
+                dialog1:false,
+                dialog1_data: {},
                 docs:new FormData()
             }
         },
@@ -101,6 +131,17 @@
             },
             addDocument(){
                 return Settings.add_Document(this.docs)
+            },
+            exportCSV(id){
+                Settings.export(id)
+                    .then(res => {
+                        this.dialog1_data = res.data.data;
+                        this.dialog1 = !this.dialog1;
+                    })
+            },
+            download(name){
+                window.location.href = this.dialog1_data[name]
+                this.dialog1 = !this.dialog1;
             }
         }
     }
