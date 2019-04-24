@@ -1,11 +1,13 @@
 <section class="have-any-questions">
     <div class="d-flex justify-content-center flex-column align-items-center">
         <div class="have-any-questions_information">
-            <div class="title_block text-capitalize">
-                Have Any <span style="color:#F9892E">Questions?</span>
+            <div class="title_block text-capitalize vstyle"
+                 v-if="fiveSection && fiveSection.title"
+                 v-html="fiveSection.title">
             </div>
-            <div class="small_text text-sm-center">
-                Please, feel free to contact us!
+            <div class="small_text text-sm-center vstyle"
+                 v-if="fiveSection && fiveSection.description"
+                 v-html="fiveSection.description">
             </div>
         </div>
         <div class="have-any-questions_image_and_input d-flex justify-content-center">
@@ -16,14 +18,14 @@
             <div class="have-any-questions_block_input d-flex flex-column">
                 <div class="margin_input" :class="{margin_input_no_active: !error.name.errors}">
                     <input type="text" v-model="data.name" :class="{error:error.name.errors}"
-                         placeholder="Enter your Name">
+                         :placeholder="fiveSection && fiveSection.name">
                     <div class="error" v-if="error.name.errors">
                         <div>{{error.name.message.required}}</div>
                     </div>
                 </div>
                 <div class="margin_input" :class="{margin_input_no_active: !error.email.errors}">
                     <input type="text" v-model="data.email"  :class="{error:error.email.errors}"
-                         placeholder="Enter your Email">
+                           :placeholder="fiveSection && fiveSection.email">
                     <div class="error" v-if="error.email.errors">
                         <div>{{error.email.message.required}}</div>
                         <div>{{error.email.message.email}}</div>
@@ -32,14 +34,16 @@
                 <div class="margin_input" :class="{margin_input_no_active: !error.message.errors}">
                     <textarea v-model="data.message" style="resize: none"
                          :class="{error:error.message.errors}"
-                         placeholder="Enter your Message">
+                         :placeholder="fiveSection && fiveSection.message">
                     </textarea>
                     <div class="error" v-if="error.message.errors">
                         <div>{{error.message.message.required}}</div>
                     </div>
                 </div>
-                <a class="button_to button_to d-flex justify-content-center align-items-center"
-                   @click="send_mail()">
+                <a class="button_to button_to d-flex justify-content-center align-items-center vstyle"
+                   @click="send_mail()"
+                   v-if="fiveSection && fiveSection.sendButton"
+                   v-html="fiveSection.sendButton">
                     Send
                 </a>
             </div>

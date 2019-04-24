@@ -83,7 +83,7 @@
                     [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }],
                     [{ 'script': 'sub'}, { 'script': 'super' }],
                     [{ 'indent': '-1'}, { 'indent': '+1' }],
-                    [{ 'color': [] }, { 'background': [] }],
+                    [{ 'color': ['#F9892E'] },{ 'color': [] }, { 'background': [] }],
                     ['link', 'image', 'video', 'formula'],
                     [{ 'direction': 'rtl' }],
                     ['clean'],

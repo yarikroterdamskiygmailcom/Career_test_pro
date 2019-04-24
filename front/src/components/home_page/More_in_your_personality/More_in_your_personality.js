@@ -18,7 +18,8 @@ export default {
     },
     computed:{
         ...mapGetters({
-            screen: 'modal_data/get_screen'
+            screen: 'modal_data/get_screen',
+            firstSection: 'multilanguage/getHomeFirstSection'
         })
     }
 }

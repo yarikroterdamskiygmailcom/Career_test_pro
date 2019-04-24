@@ -1,6 +1,7 @@
 import Request from "../../../api/mail_request";
 import Validator from "../../../validator/validator";
 import Helper from "../../../helper/active_other_modal";
+import {mapGetters} from "vuex";
 
 export default {
     name: 'have-any-questions',
@@ -18,6 +19,12 @@ export default {
             },
             disabled_button: false
         }
+    },
+    computed:{
+        ...mapGetters({
+            screen: 'modal_data/get_screen',
+            fiveSection: 'multilanguage/getHomeFiveSection'
+        }),
     },
     methods: {
         send_mail(){
@@ -37,7 +44,6 @@ export default {
                 })
                 :
                 this.disabled_button = true
-
         }
     },
 }
