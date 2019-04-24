@@ -5,6 +5,9 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Model\Language;
+use App\Model\SiteDescription;
+use App\Model\ReportBlockDescription;
+
 use Validator;
 
 
@@ -42,6 +45,8 @@ class LanguagesController extends BaseController
         $validator = Validator::make($request->all(), [
             'language' => 'required|string',
             'code'     => 'required|string',
+            'status'   => 'required|integer|max:1',
+
         ]);
 
         if($validator->fails()){
@@ -50,7 +55,7 @@ class LanguagesController extends BaseController
 
         $newLanguage = Language::updateOrCreate(
             ['language' => $request->language, 'code' => $request->code],
-            ['language' => $request->language, 'code' => $request->code]
+            ['language' => $request->language, 'code' => $request->code, 'status' => $request->status]
         );
 
         return $this->sendResponse($newLanguage, 'New language added successfully.');
@@ -99,5 +104,26 @@ class LanguagesController extends BaseController
     public function destroy($id)
     {
         //
+    }
+
+    public function exportCSV($id) {
+        $siteContent = SiteDescription::where('language_id', $id)->get()->toArray();
+        $csvFolder = public_path('export_csv');
+        $siteOut = fopen($csvFolder.'/site.csv', 'w');
+        foreach($siteContent as $row) {
+            fputcsv($siteOut, $row, chr(9));
+        }
+        fclose($siteOut);
+
+        $reportContent = ReportBlockDescription::where('language_id', $id)->get()->toArray();
+        $csvFolder = public_path('export_csv');
+        $reportOut = fopen($csvFolder.'/report.csv', 'w');
+        foreach($reportContent as $row) {
+            fputcsv($reportOut, $row, chr(9));
+        }
+        fclose($reportOut);
+        $csvUrls['site']  = url('/export_csv/site.csv');
+        $csvUrls['report'] = url('/export_csv/report.csv');
+        return $this->sendResponse($csvUrls, 'CSV exported successfully.');
     }
 }
