@@ -126,4 +126,38 @@ class LanguagesController extends BaseController
         $csvUrls['report'] = url('/export_csv/report.csv');
         return $this->sendResponse($csvUrls, 'CSV exported successfully.');
     }
+
+    public function importCSV(Request $request, $id) {
+        $siteFile = $request->file('import_site');
+        $reportFile = $request->file('import_report');
+
+        if($siteFile != '') {
+            $destinationSite = storage_path('import_csv');
+            $siteFile->move($destinationSite, $siteFile->getClientOriginalName());
+            $siteData   = array_map(function($datas) { return str_getcsv($datas,"\t"); }, file($destinationSite.'/'.$siteFile->getClientOriginalName()));
+            foreach($siteData as $siteRow) {
+                //$inputs = ['site_id' => $row[1], 'value' => $row[2], 'language_id' => $id];
+                //SiteDescription::create($inputs);
+                $siteBlock = SiteDescription::updateOrCreate(
+                    ['language_id' => $id, 'site_id' => $siteRow[1]],
+                    ['value' => $siteRow[2], 'language_id' => $id, 'site_id' => $siteRow[1]]
+                );
+            }
+        }
+
+        if($reportFile != '') {
+            $destinationReport = storage_path('import_csv');
+            $reportFile->move($destinationReport, $reportFile->getClientOriginalName());
+            $reportData   = array_map(function($datas) { return str_getcsv($datas,"\t"); }, file($destinationReport.'/'.$reportFile->getClientOriginalName()));
+            foreach($reportData as $reportRow) {
+                $reportBlock = ReportBlockDescription::updateOrCreate(
+                    ['language_id' => $id, 'report_block_id' => $reportRow[1]],
+                    ['value' => $reportRow[2], 'language_id' => $id, 'report_block_id' => $reportRow[1]]
+                );
+            }
+        }
+
+        return $this->sendResponse('', 'CSV imported successfully.');
+
+    }
 }
