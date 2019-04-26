@@ -13,18 +13,14 @@ export class Settings{
         http = window.Vue.http;
         return http.post('/api/add-language', data)
     }
-    // static add_Document(data){
-    //     http = window.Vue.http;
-    //     return http.post('/api/add-language', data)
-    // }
+    static add_Document(data, id){
+        debugger;
+        http = window.Vue.http;
+        return http.post(`/api/import-csv/${id}`, data)
+    }
     static export(id){
         http = window.Vue.http;
         return http.get(`/api/export-csv/${id}`)
-    }
-    static exportReport(url){
-        http = window.Vue.http;
-        debugger;
-        return http.get(url)
     }
     static get_price_in_language(language_id){
         http = window.Vue.http;

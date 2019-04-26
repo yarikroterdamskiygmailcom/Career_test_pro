@@ -3703,6 +3703,71 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "languages",
@@ -3719,7 +3784,21 @@ __webpack_require__.r(__webpack_exports__);
         status: 0
       },
       dialog1: false,
+      dialog2: false,
       dialog1_data: {},
+      dialog2_data: {
+        id: '',
+        report: {
+          imageName: '',
+          imageUrl: '',
+          imageFile: ''
+        },
+        site: {
+          imageName: '',
+          imageUrl: '',
+          imageFile: ''
+        }
+      },
       docs: new FormData()
     };
   },
@@ -3735,30 +3814,81 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     save: function save() {
+      var _this2 = this;
+
       if (!this.data.language && !this.data.code) return;
       this.addOrUpdateLanguage().then(function (res) {
-        console.log(res); // return this.addDocument()
-      }).then(function (res) {// this.dialog = !this.dialog;
-        // this.getLanguage()
+        _this2.dialog = false;
+
+        _this2.getLanguage();
+      });
+    },
+    edit_status: function edit_status(language, code, status) {
+      var _this3 = this;
+
+      this.data.language = language;
+      this.data.code = code;
+      this.data.status = status;
+      this.addOrUpdateLanguage().then(function (res) {
+        _this3.data.language = '';
+        _this3.data.code = '';
+        _this3.data.status = 0;
+
+        _this3.getLanguage();
       });
     },
     addOrUpdateLanguage: function addOrUpdateLanguage() {
       return _api_panel_settings_settings__WEBPACK_IMPORTED_MODULE_0__["Settings"].add_language(this.data);
     },
-    addDocument: function addDocument() {
-      return _api_panel_settings_settings__WEBPACK_IMPORTED_MODULE_0__["Settings"].add_Document(this.docs);
+    ImportFinalCSV: function ImportFinalCSV() {
+      var _this4 = this;
+
+      var data = new FormData();
+      data.append('import_report', this.dialog2_data.report.imageFile);
+      data.append('import_site', this.dialog2_data.site.imageFile);
+      _api_panel_settings_settings__WEBPACK_IMPORTED_MODULE_0__["Settings"].add_Document(data, this.dialog2_data.id).then(function (res) {
+        Object.keys(_this4.dialog2_data.report).forEach(function (item) {
+          _this4.dialog2_data.report[item] = null;
+          _this4.dialog2_data.site[item] = null;
+        });
+        _this4.dialog2 = false;
+      });
     },
     exportCSV: function exportCSV(id) {
-      var _this2 = this;
+      var _this5 = this;
 
       _api_panel_settings_settings__WEBPACK_IMPORTED_MODULE_0__["Settings"].export(id).then(function (res) {
-        _this2.dialog1_data = res.data.data;
-        _this2.dialog1 = !_this2.dialog1;
+        _this5.dialog1_data = res.data.data;
+        _this5.dialog1 = !_this5.dialog1;
       });
     },
     download: function download(name) {
       window.location.href = this.dialog1_data[name];
       this.dialog1 = !this.dialog1;
+    },
+    pickFile: function pickFile(name) {
+      this.$refs[name].click();
+    },
+    onFilePicked: function onFilePicked(e, type) {
+      var files = e.target.files;
+
+      if (files[0] !== undefined) {
+        this.dialog2_data[type].imageName = files[0].name;
+
+        if (this.dialog2_data[type].imageName.lastIndexOf('.') <= 0) {
+          return;
+        }
+
+        this.dialog2_data[type].imageFile = files[0];
+      } else {
+        this.dialog2_data[type].imageName = '';
+        this.dialog2_data[type].imageFile = '';
+        this.dialog2_data[type].imageUrl = '';
+      }
+    },
+    importCSV: function importCSV(id) {
+      this.dialog2 = !this.dialog2;
+      this.dialog2_data.id = id;
     }
   }
 });
@@ -42858,7 +42988,59 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(item.code))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(item.status))]),
+              _c("td", { style: { color: item.status ? "green" : "red" } }, [
+                _vm._v(_vm._s(item.status))
+              ]),
+              _vm._v(" "),
+              _c(
+                "td",
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "primary", flat: "" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit_status(
+                            item.language,
+                            item.code,
+                            item.status ? 0 : 1
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Edit status\n                "
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "primary", flat: "" },
+                      on: {
+                        click: function($event) {
+                          return _vm.importCSV(item.id)
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                   Import CSV\n                "
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "td",
@@ -43076,6 +43258,153 @@ var render = function() {
           )
         ],
         1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-dialog",
+        {
+          attrs: { width: "500" },
+          model: {
+            value: _vm.dialog2,
+            callback: function($$v) {
+              _vm.dialog2 = $$v
+            },
+            expression: "dialog2"
+          }
+        },
+        [
+          _c(
+            "v-card",
+            [
+              _c(
+                "v-card-title",
+                {
+                  staticClass: "headline grey lighten-2",
+                  attrs: { "primary-title": "" }
+                },
+                [
+                  _c("div", { staticStyle: { "margin-right": "20px" } }, [
+                    _vm._v("Download CSV")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-text",
+                [
+                  _c(
+                    "v-flex",
+                    {
+                      staticClass:
+                        "text-xs-center text-sm-center text-md-center text-lg-center",
+                      attrs: { xs12: "" }
+                    },
+                    [
+                      _c("v-text-field", {
+                        attrs: {
+                          label: "Report",
+                          "prepend-icon": "attach_file"
+                        },
+                        on: {
+                          click: function($event) {
+                            return _vm.pickFile("Report")
+                          }
+                        },
+                        model: {
+                          value: _vm.dialog2_data.report.imageName,
+                          callback: function($$v) {
+                            _vm.$set(_vm.dialog2_data.report, "imageName", $$v)
+                          },
+                          expression: "dialog2_data.report.imageName"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        ref: "Report",
+                        staticStyle: { display: "none" },
+                        attrs: { type: "file" },
+                        on: {
+                          change: function($event) {
+                            return _vm.onFilePicked($event, "report")
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-flex",
+                    {
+                      staticClass:
+                        "text-xs-center text-sm-center text-md-center text-lg-center",
+                      attrs: { xs12: "" }
+                    },
+                    [
+                      _c("v-text-field", {
+                        attrs: { label: "Site", "prepend-icon": "attach_file" },
+                        on: {
+                          click: function($event) {
+                            return _vm.pickFile("Site")
+                          }
+                        },
+                        model: {
+                          value: _vm.dialog2_data.site.imageName,
+                          callback: function($$v) {
+                            _vm.$set(_vm.dialog2_data.site, "imageName", $$v)
+                          },
+                          expression: "dialog2_data.site.imageName"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        ref: "Site",
+                        staticStyle: { display: "none" },
+                        attrs: { type: "file" },
+                        on: {
+                          change: function($event) {
+                            return _vm.onFilePicked($event, "site")
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("v-divider"),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                [
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "primary", flat: "" },
+                      on: {
+                        click: function($event) {
+                          return _vm.ImportFinalCSV()
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Import Final CSV\n                "
+                      )
+                    ]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
       )
     ],
     1
@@ -43094,7 +43423,21 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", { attrs: { width: "300" } }, [_vm._v("Code")]),
         _vm._v(" "),
-        _c("td", { attrs: { width: "300" } }, [_vm._v("status")])
+        _c("td", { attrs: { width: "300" } }, [_vm._v("Status")]),
+        _vm._v(" "),
+        _c("td", { attrs: { width: "300" } }, [_vm._v("Edit status")]),
+        _vm._v(" "),
+        _c(
+          "td",
+          { staticStyle: { "padding-left": "50px" }, attrs: { width: "300" } },
+          [_vm._v("Import")]
+        ),
+        _vm._v(" "),
+        _c(
+          "td",
+          { staticStyle: { "padding-left": "50px" }, attrs: { width: "300" } },
+          [_vm._v("Export")]
+        )
       ])
     ])
   }
@@ -86597,23 +86940,19 @@ function () {
     value: function add_language(data) {
       http = window.Vue.http;
       return http.post('/api/add-language', data);
-    } // static add_Document(data){
-    //     http = window.Vue.http;
-    //     return http.post('/api/add-language', data)
-    // }
-
+    }
+  }, {
+    key: "add_Document",
+    value: function add_Document(data, id) {
+      debugger;
+      http = window.Vue.http;
+      return http.post("/api/import-csv/".concat(id), data);
+    }
   }, {
     key: "export",
     value: function _export(id) {
       http = window.Vue.http;
       return http.get("/api/export-csv/".concat(id));
-    }
-  }, {
-    key: "exportReport",
-    value: function exportReport(url) {
-      http = window.Vue.http;
-      debugger;
-      return http.get(url);
     }
   }, {
     key: "get_price_in_language",
