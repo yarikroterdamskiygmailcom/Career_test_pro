@@ -106,6 +106,9 @@ const getters = {
     },
     getContactUsSection(){
         return state.data &&state.data.ContactUs && state.data.ContactUs.section
+    },
+    getAboutUsSection(){
+        return state.data &&state.data.AboutUs && state.data.AboutUs.section
     }
 };
 

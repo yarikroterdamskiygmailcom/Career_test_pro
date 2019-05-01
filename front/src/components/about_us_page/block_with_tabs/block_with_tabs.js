@@ -1,83 +1,19 @@
 import content_tabs from './../content_tabs/index'
+import {mapGetters} from "vuex";
 export default {
     components: {
         'content_tabs_component': content_tabs
     },
     data() {
         return {
-            list_tabs: [
+            list_tabsStatic: [
                 {
-                    name:'Our Service',
-                    content:'<p>CareertestPro is a service for ' +
-                        'anyone who wants to gain more insight in' +
-                        ' their personality and which professions fit them best.</p>\n' +
-                        '\n' +
-                        '<p>It is based on the theory of the ' +
-                        'Holland Codes or the Holland Occupational Themes (RIASEC).</p>\n' +
-                        '\n' +
-                        '<p>This theoretical framework was ' +
-                        'developed by J.L. Holland and refers to a ' +
-                        'theory of careers and vocational choice based upon personality types.</p>\n' +
-                        '\n' +
-                        '<p>Each letter of the RIASEC code stands for a ' +
-                        'particular personality type, being:</p>',
                     path:'http://backcartestpro.qbex.io/assets/about_us/our_service.png',
-                    list:[
-                        'Realistic personality type (Doers);',
-                        'Investigative personality type (Thinkers);',
-                        'Artistic personality type (Creators);',
-                        'Social personality type (Helpers);',
-                        'Enterprising personality type (Persuaders);',
-                        'Conventional personality type (Organizers).',
-                    ],
                 },
                 {
-                    name:'Our Mission',
-                    content:'<p class="rer">Our mission is to give you a clear result ' +
-                        'in a form of report, which ellaborates on a ' +
-                        'composition of your personality.</p>\n' +
-                        '\n' +
-                        '<p>We are keen to help you impove it by providing a' +
-                        ' clear report with areas of interest and professions ' +
-                        'that could suit you best.</p>\n' +
-                        '\n' +
-                        '<p>Every profession that is mentioned in this personal ' +
-                        'report comes with an educational level, so you instantly ' +
-                        'see what the requirements are for that specific profession.</p>\n' +
-                        '\n' +
-                        '<p>We made this service for everyone - means it ' +
-                        'doesn\'t matter if you\'re already graduated or if ' +
-                        'you’re working. You can still take the test to get a ' +
-                        'clearer view of your personality and see which professions ' +
-                        'suit you best.</p>\n' +
-                        '\n' +
-                        '<p>Also, we are happy to inform you that the CareertestPro ' +
-                        'is fully anonymous and is not saved on our servers - means, ' +
-                        'after finishing test you will get result and a copy will be sent ' +
-                        'on your email.</p>'
-                        ,
                     path:'http://backcartestpro.qbex.io/assets/about_us/our_mission.png'
                 },
                 {
-                    name:'Our Team',
-                    content:'<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,' +
-                        ' sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n' +
-                        '\n' +
-                        '<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco ' +
-                        'laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum ' +
-                        'dolor sit amet, consectetur adipiscing elit, sed do eiusmod ' +
-                        'tempor incididunt ut labore et dolore magna \n' +
-                        'aliqua.</p>\n' +
-                        '\n' +
-                        '<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco l' +
-                        'aboris nisi ut aliquip ex ea commodo consequat.</p>\n' +
-                        '\n' +
-                        '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do' +
-                        ' eiusmod tempor incididunt ut labore et dolore magna. Lorem ipsum ' +
-                        'dolor sit amet, consectetur adipiscing.</p>\n' +
-                        '\n' +
-                        '<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ' +
-                        'nisi ut aliquip ex ea commodo consequat.</p>',
                     path:'http://backcartestpro.qbex.io/assets/about_us/our_team.png',
                     style:{
                         top: '-2px',
@@ -93,10 +29,9 @@ export default {
             }
         }
     },
-    computed: {},
     mounted() {
-        this.tab.active_tab = this.list_tabs[0];
-        this.first_width(this.list_tabs[0].name + 0)
+        this.tab.active_tab = this.list_tabs && this.list_tabs[0];
+        this.first_width(this.list_tabs && this.list_tabs[0] && this.list_tabs[0].name + 0)
     },
     methods: {
         open_tab(tab, new_data){
@@ -115,6 +50,28 @@ export default {
         },
         first_width(name){
             this.tab.width_tab = this.$refs[name] ? this.$refs[name][0].offsetWidth : this.tab.width_tab
+        }
+    },
+    computed:{
+        ...mapGetters({
+            aboutUs: 'multilanguage/getAboutUsSection'
+        }),
+        list_tabs(){
+            let data = this.aboutUs && this.aboutUs.arr ? this.aboutUs.arr.map((item, index) => {
+                item.name    = item.title;
+                item.content = item.description;
+                item.path    = this.list_tabsStatic[index] && this.list_tabsStatic[index].path
+                    ? this.list_tabsStatic[index].path : '';
+                item.style   = this.list_tabsStatic[index] && this.list_tabsStatic[index].style
+                    ? this.list_tabsStatic[index].style : '';
+                item.description && delete item.description;
+                item.title       && delete item.title;
+                item.index       && delete item.index;
+                return item;
+            }) : [];
+            data = JSON.parse(JSON.stringify(data));
+            debugger;
+            return data
         }
     },
     watch:{
