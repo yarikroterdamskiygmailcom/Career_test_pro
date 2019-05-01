@@ -25,6 +25,7 @@ export default {
             screen: 'modal_data/get_screen',
             fiveSection: 'multilanguage/getHomeFiveSection',
             validation:'multilanguage/getValidation',
+            modal: 'multilanguage/getOtherModal',
         }),
     },
     methods: {
@@ -55,7 +56,7 @@ export default {
                 Request.send_mail(this.data, this).then(response => {
                     Helper.open_modal(
                         this,
-                        'Thank you for your message! We’ll contact you soon',
+                        this.modal && this.modal.send_mail,
                         'send_message.svg', '32px', '12px', '103px', '148px'
                     )
                 })

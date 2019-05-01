@@ -24,6 +24,7 @@ export default {
     computed:{
         ...mapGetters({
             validation:'multilanguage/getValidation',
+            modal: 'multilanguage/getOtherModal',
         })
     },
     methods: {
@@ -36,7 +37,7 @@ export default {
                 document.execCommand('copy');
                 Helper.open_modal(
                     this,
-                    'Address has been copied successfully',
+                    this.modal && this.modal.copy_text,
                     'copy_text.svg', '8px', '27px', '115px', '153.99px'
                 )
             } catch (err) {
@@ -71,7 +72,7 @@ export default {
                 Request.send_mail(this.data).then(response => {
                     Helper.open_modal(
                         this,
-                        'Thank you for your message! We’ll contact you soon',
+                        this.modal && this.modal.send_mail,
                         'send_message.svg', '32px', '12px', '103px', '148px'
                     )
                 })

@@ -9,24 +9,24 @@
             <div class="position-relative">
                 <div class="ellipse position-absolute" :style="{background : '#77DCC1'}"></div>
                 <div v-if="title_data_step.state">
-                    <span style="font-weight: 600">{{textClick[0]}}</span>
-                    - {{title_data_step.state.like}}
+                    <span style="font-weight: 600" v-html="textClick[0]"></span>
+                    - <span v-html="title_data_step.state.like"></span>
                 </div>
             </div><br>
 
             <div class="position-relative">
                 <div class="ellipse position-absolute" :style="{background : '#FDC572'}"></div>
                 <div  v-if="title_data_step.state">
-                    <span style="font-weight: 600">{{textClick[1]}}</span>
-                    - {{title_data_step.state.middle}}
+                    <span style="font-weight: 600" v-html="textClick[1]">}</span>
+                    - <span v-html="title_data_step.state.middle"></span>
                 </div>
             </div><br>
 
             <div class="position-relative">
                 <div class="ellipse position-absolute" :style="{background : '#F59A9A'}"></div>
                 <div  v-if="title_data_step.state">
-                    <span style="font-weight: 600">{{textClick[2]}}</span>
-                    - {{title_data_step.state.dislike}}
+                    <span style="font-weight: 600" v-html="textClick[2]"></span>
+                    - <span v-html="title_data_step.state.dislike"></span>
                 </div>
             </div>
         </div>
@@ -47,6 +47,7 @@
         computed: {
             ...mapGetters({
                 testSection: 'multilanguage/getTestsSection',
+                steps: 'multilanguage/getStepsSection',
             }),
             textClick(){
                 return this.testSection && this.testSection.click ? this.testSection.click.split(',') : [];
@@ -66,8 +67,8 @@
                 return data;
             },
             hover_pab(state){
-                let step = this.count_step_data(Step_modal);
-                this.title_data_step = state == 'open' ? Step_modal[step] : {};
+                let step = this.count_step_data(this.steps);
+                this.title_data_step = state == 'open' ? this.steps[step] : {};
                 this.title_data_step_active = state == 'open';
             }
         }

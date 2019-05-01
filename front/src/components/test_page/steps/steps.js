@@ -1,8 +1,6 @@
-import Step_modal from './../../../const/const_step_modal'
 import {QuestionStore} from "../../../store/localStorage";
 import config from "../../../config";
 import counter from "../counter";
-import step_name from "../../../const/step_name";
 import { mapGetters } from "vuex";
 import Info from "../Info";
 import Menu from "../Menu";
@@ -46,6 +44,7 @@ export default {
             final: 'multilanguage/getFinalSection',
             steps: 'multilanguage/getStepsSection',
             steps_names: 'multilanguage/getStepsNameSection',
+            modal: 'multilanguage/getOtherModal',
         }),
         disabled_but(){
           return this.data_step ? counter.count_disanled_step(this.data_step) : true
@@ -88,8 +87,7 @@ export default {
         refresh_helper(){
             Helper.open_modal(
                 this,
-                'If you want to get on the next step, you’ll need to fill all questions.\n' +
-                'That way you can get a correct result.',
+                this.modal && this.modal.error_step,
                 'copy_text.svg', '8px', '27px', '115px', '153.99px'
             );
         },
