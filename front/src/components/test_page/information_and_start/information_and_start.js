@@ -1,3 +1,5 @@
+import {mapGetters} from "vuex";
+
 export default {
     name: 'information-and-start',
     components: {},
@@ -43,7 +45,11 @@ export default {
                 '<div>After completing the test you’ll receive the report.</div>'
         }
     },
-    computed: {},
+    computed: {
+        ...mapGetters({
+            testSection: 'multilanguage/getTestsSection',
+        }),
+    },
     mounted() {
 
     },

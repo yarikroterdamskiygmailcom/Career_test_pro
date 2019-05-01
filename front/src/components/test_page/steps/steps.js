@@ -41,7 +41,11 @@ export default {
             return this.count_Step('amount');
         },
         ...mapGetters({
-            screen: 'modal_data/get_screen'
+            screen: 'modal_data/get_screen',
+            testSection: 'multilanguage/getTestsSection',
+            final: 'multilanguage/getFinalSection',
+            steps: 'multilanguage/getStepsSection',
+            steps_names: 'multilanguage/getStepsNameSection',
         }),
         disabled_but(){
           return this.data_step ? counter.count_disanled_step(this.data_step) : true
@@ -97,7 +101,7 @@ export default {
             }
         },
         count_Step(name){
-            return !this.step ? '' : step_name[`step:${this.step}`][name]
+            return !this.step ? '' : this.steps_names[`step:${this.step}`][name]
         },
         count_step_data(array, flag = null){
             let data = null;
@@ -155,9 +159,9 @@ export default {
         },
         toggle_modal(){
             clearTimeout(this.timeout);
-            let step = this.count_step_data(Step_modal, 'modal');
+            let step = this.count_step_data(this.steps, 'modal');
             this.data_step = QuestionStore.getStep(`${this.step}-${this.step_child}`);
-            this.title_data_step = Step_modal[step];
+            this.title_data_step = this.steps[step];
             if(step && this.step_child == 1){
                this.timeout =  setTimeout(() => {
                     this.$store.dispatch('modal_data/action_active_modal', {

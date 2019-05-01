@@ -1,23 +1,31 @@
 <section class="information-and-start d-flex justify-content-center">
     <div class="content_information_start_test d-flex flex-column align-items-center">
-        <div class="title_block custom_title text-capitalize" style="color: #333333">
-            Start To Do <span style="color:#F9892E">What You Like!</span>
+        <div class="title_block custom_title text-capitalize"
+             style="color: #333333"
+             v-if="testSection && testSection.title"
+             v-html="testSection.title">
         </div>
-        <div class="small custom_small_title">
-            Take your time to pass the test
+        <div class="small custom_small_title"
+             v-if="testSection && testSection.description"
+             v-html="testSection.description">
         </div>
         <div class="information">
-            <div class="information_title">
-                Shortly <span style="color:#F9892E">Before Start</span>
+            <div class="information_title"
+                 v-if="testSection && testSection.titleTwo"
+                 v-html="testSection.titleTwo">
             </div>
-            <div class="content" v-html="information"></div>
+            <div class="content"
+                 v-if="testSection && testSection.content"
+                 v-html="testSection.content"></div>
         </div>
-        <div class="ready">
-            So, are you ready?
+        <div class="ready"
+             v-if="testSection && testSection.descriptionTwo"
+             v-html="testSection.descriptionTwo">
         </div>
         <div class="button_to custom_button d-flex align-items-center justify-content-center"
-        @click="start_test()">
-            Let’s Go!
+        @click="start_test()"
+         v-if="testSection && testSection.buttonGo"
+         v-html="testSection.buttonGo">
         </div>
     </div>
 </section>

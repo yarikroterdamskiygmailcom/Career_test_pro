@@ -9,7 +9,7 @@
             <div class="position-relative">
                 <div class="ellipse position-absolute" :style="{background : '#77DCC1'}"></div>
                 <div v-if="title_data_step.state">
-                    <span style="font-weight: 600">Click “like”</span>
+                    <span style="font-weight: 600">{{textClick[0]}}</span>
                     - {{title_data_step.state.like}}
                 </div>
             </div><br>
@@ -17,7 +17,7 @@
             <div class="position-relative">
                 <div class="ellipse position-absolute" :style="{background : '#FDC572'}"></div>
                 <div  v-if="title_data_step.state">
-                    <span style="font-weight: 600">Click “neither like nor dislike”</span>
+                    <span style="font-weight: 600">{{textClick[1]}}</span>
                     - {{title_data_step.state.middle}}
                 </div>
             </div><br>
@@ -25,7 +25,7 @@
             <div class="position-relative">
                 <div class="ellipse position-absolute" :style="{background : '#F59A9A'}"></div>
                 <div  v-if="title_data_step.state">
-                    <span style="font-weight: 600">Click “dislike”</span>
+                    <span style="font-weight: 600">{{textClick[2]}}</span>
                     - {{title_data_step.state.dislike}}
                 </div>
             </div>
@@ -35,6 +35,7 @@
 
 <script>
     import Step_modal from './../../const/const_step_modal'
+    import {mapGetters} from "vuex";
     export default {
        props:['data', 'active'],
         data(){
@@ -42,6 +43,14 @@
                title_data_step: {},
                title_data_step_active:false
            }
+        },
+        computed: {
+            ...mapGetters({
+                testSection: 'multilanguage/getTestsSection',
+            }),
+            textClick(){
+                return this.testSection && this.testSection.click ? this.testSection.click.split(',') : [];
+            }
         },
         methods:{
             count_step_data(array, flag = null){
