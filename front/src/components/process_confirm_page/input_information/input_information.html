@@ -1,19 +1,28 @@
 <div class="container_payment d-flex justify-content-center">
     <section class="input-information d-flex align-items-center flex-column">
-        <div class="small_text custom_small">Information</div>
-        <div class="margin_input confirm_margin" :class="{margin_input_no_active: !error.name.errors}">
-            <input type="text" v-model="data.name" :class="{error:error.name.errors}"
-                   placeholder="Enter your Name">
-            <div class="error" v-if="error.name.errors">
-                <div>{{error.name.message.required}}</div>
+        <div class="small_text custom_small vstyle"
+             v-if="confirmDetail && confirmDetail.information"
+             v-html="confirmDetail.information"></div>
+        <div class="margin_input confirm_margin"
+             :class="{margin_input_no_active: !error.name.errors}">
+            <input type="text"
+                   v-model="data.name"
+                   :class="{error:error.name.errors}"
+                   v-if="confirmDetail && confirmDetail.name"
+                   :placeholder="confirmDetail.name">
+            <div class="error vstyle" v-if="error.name.errors">
+                <div v-html="error.name.message.required"></div>
             </div>
         </div>
         <div class="margin_input confirm_margin" :class="{margin_input_no_active: !error.email.errors}">
-            <input type="text" v-model="data.email"  :class="{error:error.email.errors}"
-                   placeholder="Enter your Email">
-            <div class="error" v-if="error.email.errors">
-                <div>{{error.email.message.required}}</div>
-                <div>{{error.email.message.email}}</div>
+            <input type="text"
+                   v-model="data.email"
+                   :class="{error:error.email.errors}"
+                   v-if="confirmDetail && confirmDetail.email"
+                   :placeholder="confirmDetail.email">
+            <div class="error vstyle" v-if="error.email.errors">
+                <div class="vstyle"  v-html="error.email.message.required"></div>
+                <div class="vstyle"  v-html="error.email.message.email"></div>
             </div>
         </div>
         <div class="margin_input confirm_margin" :class="{margin_input_no_active: !error.gender.errors}" style="width: 100%;">
@@ -33,7 +42,7 @@
                 </b-dropdown-item>
             </b-dropdown>
             <div class="error" v-if="error.gender.errors">
-                <div>{{error.gender.message.required}}</div>
+                <div class="vstyle" v-html="error.gender.message.required"></div>
             </div>
         </div>
         <div class="margin_input confirm_margin" :class="{margin_input_no_active: !error.age.errors}" style="width: 100%;">
@@ -53,13 +62,15 @@
                 </b-dropdown-item>
             </b-dropdown>
             <div class="error" v-if="error.age.errors">
-                <div>{{error.age.message.required}}</div>
+                <div class="vstyle" v-html="error.age.message.required"></div>
             </div>
         </div>
         <div class="d-flex flex-grow-1 align-items-center custom_button
          justify-content-end
          flex-column align-items-center total" style="width: 100%">
-            <div class="small_text custom_small" v-model="data.price">Total Price</div>
+            <div class="small_text custom_small vstyle"
+                 v-if="confirmDetail && confirmDetail.totalPrice"
+                 v-html="confirmDetail.totalPrice"></div>
             <div class="justify-content-end" style="width: 100%">
                 <input type="text" v-model="data.price" disabled  style="font-weight: 600">
             </div>

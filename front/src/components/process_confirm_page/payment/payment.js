@@ -82,19 +82,46 @@ export default {
             inf.code = this.data.code;
             let array_cards = this.cards.concat(this.cards1);
             //
-            error.name   = Validator.set(inf.name, ['required']);
-            error.email  = Validator.set(inf.email, ['required']);
-            error.email  = !error.email.errors  ? Validator.set(inf.email, ['email']) : error.email;
+            error.name   = Validator.set(
+                inf.name,
+                ['required'],
+                this.validation ? this.validation.field : null
+            );
+            error.email  = Validator.set(
+                inf.email,
+                ['required'],
+                this.validation ? this.validation.field : null
+            );
+            error.email  = !error.email.errors  ? Validator.set(
+                inf.email, ['email'],
+                this.validation ? this.validation.email : null
+            ) : error.email;
 
-            inf.gender = inf.gender == 'Gender' ? '' : inf.gender;
-            inf.age    = inf.age == 'Age' ? '' : inf.age;
+            inf.gender = inf.gender == (this.confirmDetail && this.confirmDetail.gender) ? '' : inf.gender;
+            inf.age    = inf.age    == (this.confirmDetail && this.confirmDetail.age)    ? '' : inf.age;
 
-            error.gender = Validator.set(inf.gender, ['required'], 'Gender required');
-            error.age    = Validator.set(inf.age, ['required'], 'Gender required');
-            error.card   = Validator.set(array_cards, ['radio'], 'status');
+            error.gender = Validator.set(
+                inf.gender,
+                ['required'],
+                this.validation ? this.validation.field : null
+            );
+            error.age    = Validator.set(
+                inf.age,
+                ['required'],
+                this.validation ? this.validation.field : null
+            );
+            error.card   = Validator.set(
+                array_cards,
+                ['radio'],
+                ['status', this.confirmDetail ? this.confirmDetail.haveVaucher : null]
+            );
 
             let card_name = this.count(array_cards);
-            error.code = card_name === 'Voucher' ? Validator.set(this.data.code, ['required']) : {errors: false};
+            error.code = card_name === 'Voucher' ? Validator.set(
+                this.data.code,
+                ['required'],
+                this.validation ? this.validation.field : null
+            ) : {errors: false};
 
             let error_boolean = !error.email.errors && !error.name.errors && !error.gender.errors &&
                                 !error.age.errors && !error.card.errors && !error.code.errors;
@@ -124,7 +151,9 @@ export default {
     },
     computed:{
         ...mapGetters({
-            screen: 'modal_data/get_screen'
+            screen: 'modal_data/get_screen',
+            confirmDetail:'multilanguage/getConfirmDetailSection',
+            validation:'multilanguage/getValidation',
         })
     },
     directives: {

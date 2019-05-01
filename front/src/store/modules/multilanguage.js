@@ -109,6 +109,12 @@ const getters = {
     },
     getAboutUsSection(){
         return state.data &&state.data.AboutUs && state.data.AboutUs.section
+    },
+    getConfirmDetailSection(){
+        return state.data &&state.data.ConfirmDetail && state.data.ConfirmDetail.section
+    },
+    getValidation(){
+        return state.data &&state.data.Validation && state.data.Validation.section
     }
 };
 

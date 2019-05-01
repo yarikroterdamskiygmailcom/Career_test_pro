@@ -2,9 +2,12 @@ export const action_static = {
     "Home"                :  ["menu_list"],
     "FAQ"                 :  ["menu_list"],
     "Blog"                :  ["menu_list"],
-    "Contact Us"          :  ["menu_list"],
+    "Contact Us"          :  ["menu_list", 'Final.section.contactButton'],
     "About Us"            :  ["menu_list"],
-    "Take the Test"       :  ["menu_list", "HomePage.oneSection.testButton", "HomePage.fourSection.testButton"],
+    "Take the Test"       :  ["menu_list",
+                             "HomePage.oneSection.testButton",
+                             "HomePage.fourSection.testButton",
+                             'Final.section.takeButton'],
     "Footer"              :  ["Footer"],
     "Page home, section 1":  ['HomePage.oneSection.title'],
     "Page home, section 2":  ['HomePage.oneSection.description'],
@@ -37,8 +40,8 @@ export const action_static = {
     "Page home, section 29": ['HomePage.fourSection.value'],
     "Page home, section 30": ['HomePage.fiveSection.title'],
     "Page home, section 31": ['HomePage.fiveSection.description'],
-    "Enter your Name"      : ['HomePage.fiveSection.name','ContactUs.section.name'],
-    "Enter your Email"     : ['HomePage.fiveSection.email','ContactUs.section.email'],
+    "Enter your Name"      : ['HomePage.fiveSection.name','ContactUs.section.name', 'ConfirmDetail.section.name'],
+    "Enter your Email"     : ['HomePage.fiveSection.email','ContactUs.section.email', 'ConfirmDetail.section.email'],
     "Enter your Message"   : ['HomePage.fiveSection.message','ContactUs.section.message'],
     "Send"                 : ['HomePage.fiveSection.sendButton','ContactUs.section.sendButton'],
 
@@ -104,10 +107,11 @@ export const action_static = {
     "Page confirm-detail, section 5"   : ['ConfirmDetail.section.descriptionTwo'],
     "Page confirm-detail, section 6"   : ['ConfirmDetail.section.information'],
     "Page confirm-detail, section 7"   : ['ConfirmDetail.section.totalPrice'],
-    "Page confirm-detail, section 8"   : ['ConfirmDetail.section.errorButton'],
+    "Page confirm-detail, section 8"   : ['ConfirmDetail.section.payment'],
     "Page confirm-detail, section 9"   : ['ConfirmDetail.section.haveVaucher'],
     "Page confirm-detail, section 10"  : ['ConfirmDetail.section.enterVaucher'],
-    "Page confirm-detail, section 11"  : ['ConfirmDetail.section.checkoutButton'],
+    "Page confirm-detail, section 11"  : ['ConfirmDetail.section.checkoutVaucher'],
+    "Page confirm-detail, section 12"  : ['ConfirmDetail.section.checkoutButton'],
     //
     "Page modal 1, step-1-2, skills, like"     : ['step_1_2.section.like'],
     "Page modal 1, step-1-2, skills, middle"   : ['step_1_2.section.middle'],
@@ -132,6 +136,18 @@ export const action_static = {
     "Page modal 2, error_step"  : ['Modal.two.error_step'],
     "Page modal 3, title"       : ['Modal.three.title'],
     "Page modal 3, content"     : ['Modal.three.content'],
+
+    "Page final, section 1"     : ['Final.section.title'],
+    "Page final, section 2"     : ['Final.section.description'],
+    "Page final, section 3"     : ['Final.section.titleBlock'],
+    "Page final, section 4"     : ['Final.section.descriptionBlock'],
+
+    "Gender"                    : ['ConfirmDetail.section.gender'],
+    "Age"                       : ['ConfirmDetail.section.age'],
+
+    "This field is required"    : ['Validation.section.field'],
+    "Email invalid"             : ['Validation.section.email']
+
 };
 
 export const data_static = {
@@ -219,6 +235,16 @@ export const data_static = {
             arr:[]
         },
     },
+    Final:{
+        section:{
+            title: [],
+            description: [],
+            contactButton:[],
+            takeButton:[],
+            titleBlock:[],
+            descriptionBlock:[],
+        }
+    },
     ConfirmDetail:{
         section:{
             lastStep: [],
@@ -228,10 +254,15 @@ export const data_static = {
             descriptionTwo: [],
             information: [],
             totalPrice: [],
-            errorButton: [],
+            payment: [],
             haveVaucher: [],
             enterVaucher: [],
-            checkoutButton: []
+            checkoutButton: [],
+            age:[],
+            gender:[],
+            name:[],
+            email:[],
+            checkoutVaucher:[]
         }
     },
 
@@ -286,4 +317,10 @@ export const data_static = {
     },
     menu_list:[],
     Footer:[],
+    Validation:{
+        section:{
+            field:[],
+            email:[]
+        }
+    }
 };

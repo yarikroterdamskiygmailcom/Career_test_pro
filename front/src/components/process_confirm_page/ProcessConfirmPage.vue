@@ -2,18 +2,25 @@
     <div class="container_confirm d-flex justify-content-center">
         <div class="content">
             <div class="step">
-                <router-link to="tests/10/3">Test Page (Step 10)</router-link>
+                <router-link
+                        to="tests/10/3"
+                         v-if="confirmDetail && confirmDetail.lastStep"
+                         v-html="confirmDetail.lastStep"></router-link>
                 /
-                <a>Proceed to Confirm</a>
+                <a v-if="confirmDetail && confirmDetail.thisPage"
+                   v-html="confirmDetail.thisPage"></a>
             </div>
-            <div class="title_block text-center custom-title">
-                Congratulations!
+            <div class="title_block text-center custom-title vstyle"
+                 v-if="confirmDetail && confirmDetail.title"
+                 v-html="confirmDetail.title">
             </div>
-            <div class="small_text text-center custom-small">
-                Get report on your email
+            <div class="small_text text-center custom-small vstyle"
+                 v-if="confirmDetail && confirmDetail.description"
+                 v-html="confirmDetail.description">
             </div>
-            <div class="small_text custom_small_text text-center">
-                To get report on your email, please, fill in fields below
+            <div class="small_text custom_small_text text-center"
+                 v-if="confirmDetail && confirmDetail.descriptionTwo"
+                 v-html="confirmDetail.descriptionTwo">
             </div>
             <input_information_component></input_information_component>
         </div>
@@ -22,6 +29,7 @@
 
 <script>
     import Input_information from './input_information/index.vue'
+    import {mapGetters} from "vuex";
     export default {
         name: "ProcessConfirmPage",
         components:{
@@ -31,6 +39,11 @@
             '$route' (to, from) {
                 console.log(to, from)
             }
+        },
+        computed:{
+            ...mapGetters({
+                confirmDetail:'multilanguage/getConfirmDetailSection'
+            })
         }
     }
 </script>
