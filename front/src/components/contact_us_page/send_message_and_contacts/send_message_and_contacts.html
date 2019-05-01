@@ -2,61 +2,66 @@
 
     <div class="d-flex align-items-center flex-column position-relative">
         <div class="our_address_img contact_image_for_page position-absolute"></div>
-        <div class="title_block title text-capitalize">Our Address</div>
-        <div ref="copy" class="contact_copy_information">
-             <span style="font-weight: 600">CareerTestPro.com</span>
-            <br><br>
-            <span style="font-weight: 600">Part of:</span>
-            Making Moves B.V.<br>
-            Nicolaas Beetslaan 4<br>
-            1985HH Driehuis (Amsterdam Area)<br>
-            THE NETHERLANDS<br><br>
-           <span style="font-weight: 600"> Chamber of Commerce:</span> 59839023
+        <div class="title_block title text-capitalize"
+             v-html="contactUs.oneTitle"></div>
+        <div ref="copy"
+             class="contact_copy_information vstyle"
+             v-html="contactUs.text">
         </div>
         <div class="d-flex flex-grow-1 align-items-end custom_button">
             <div class="button_to align-self-end  d-flex custom_button
-             align-items-center justify-content-center" @click="copy_text()">
-                Copy
+             align-items-center justify-content-center"
+                 @click="copy_text()"
+                 v-html="contactUs.copy">
             </div>
         </div>
     </div>
 
     <div class="d-flex align-items-center flex-column position-relative">
         <div class="our_email_img position-absolute contact_image_for_page"></div>
-        <div class="title_block title text-capitalize">Our Email</div>
+        <div class="title_block title text-capitalize" v-html="contactUs.twoTitle"></div>
         <div class="have-any-questions_block_input d-flex flex-column">
-            <div class="margin_input" :class="{margin_input_no_active: !error.name.errors}">
-                <input type="text" v-model="data.name" :class="{error:error.name.errors}"
-                       placeholder="Enter your Name">
+            <div class="margin_input"
+                 :class="{margin_input_no_active: !error.name.errors}">
+                <input type="text"
+                       v-model="data.name"
+                       :class="{error:error.name.errors}"
+                       :placeholder="contactUs.name">
                 <div class="error" v-if="error.name.errors">
                     <div>{{error.name.message.required}}</div>
                 </div>
             </div>
-            <div class="margin_input" :class="{margin_input_no_active: !error.email.errors}">
-                <input type="text" v-model="data.email"  :class="{error:error.email.errors}"
-                       placeholder="Enter your Email">
+            <div class="margin_input"
+                 :class="{margin_input_no_active: !error.email.errors}">
+                <input type="text"
+                       v-model="data.email"
+                       :class="{error:error.email.errors}"
+                       :placeholder="contactUs.email">
                 <div class="error" v-if="error.email.errors">
                     <div>{{error.email.message.required}}</div>
                     <div>{{error.email.message.email}}</div>
                 </div>
             </div>
-            <div class="margin_input" :class="{margin_input_no_active: !error.message.errors}">
-                <textarea v-model="data.message"  :class="{error:error.message.errors}"
-                     placeholder="Enter your massage" style="resize: none">
+            <div class="margin_input"
+                 :class="{margin_input_no_active: !error.message.errors}">
+                <textarea
+                        v-model="data.message"
+                        :class="{error:error.message.errors}"
+                        :placeholder="contactUs.message" style="resize: none">
                 </textarea>
-                <div class="error" v-if="error.message.errors">
+                <div class="error"
+                     v-if="error.message.errors">
                     <div>{{error.message.message.required}}</div>
                 </div>
             </div>
         </div>
         <div class="d-flex flex-grow-1 align-items-end custom_button">
             <a class="button_to align-self-end  d-flex custom_button
-             align-items-center justify-content-center"
-               @click="send_mail()">
-                Send
+              align-items-center justify-content-center vstyle"
+               @click="send_mail()"
+               v-html="contactUs.sendButton">
             </a>
         </div>
     </div>
-
 </section>
 

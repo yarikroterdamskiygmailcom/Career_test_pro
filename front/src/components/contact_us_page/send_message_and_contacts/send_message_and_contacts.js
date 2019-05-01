@@ -4,7 +4,7 @@ import  Helper from "./../../../helper/active_other_modal"
 export default {
     name: 'send-message-and-contacts',
     components: {},
-    props: [],
+    props: ['contactUs'],
     data() {
         return {
             data:{
