@@ -21,11 +21,17 @@
                    v-if="confirmDetail && confirmDetail.email"
                    :placeholder="confirmDetail.email">
             <div class="error vstyle" v-if="error.email.errors">
-                <div class="vstyle"  v-html="error.email.message.required"></div>
-                <div class="vstyle"  v-html="error.email.message.email"></div>
+                <div class="vstyle"
+                     v-html="error.email.message.required">
+                </div>
+                <div class="vstyle"
+                     v-html="error.email.message.email">
+                </div>
             </div>
         </div>
-        <div class="margin_input confirm_margin" :class="{margin_input_no_active: !error.gender.errors}" style="width: 100%;">
+        <div class="margin_input confirm_margin"
+             :class="{margin_input_no_active: !error.gender.errors}"
+             style="width: 100%;">
             <b-dropdown id="ddown-divider"
                         :text="data.gender"
                         variant="basic"
@@ -45,7 +51,9 @@
                 <div class="vstyle" v-html="error.gender.message.required"></div>
             </div>
         </div>
-        <div class="margin_input confirm_margin" :class="{margin_input_no_active: !error.age.errors}" style="width: 100%;">
+        <div class="margin_input confirm_margin"
+             :class="{margin_input_no_active: !error.age.errors}"
+             style="width: 100%;">
             <b-dropdown id="ddown-divider"
                         :text="data.age.toString()"
                         variant="basic"
@@ -72,7 +80,10 @@
                  v-if="confirmDetail && confirmDetail.totalPrice"
                  v-html="confirmDetail.totalPrice"></div>
             <div class="justify-content-end" style="width: 100%">
-                <input type="text" v-model="data.price" disabled  style="font-weight: 600">
+                <input type="text"
+                       v-model="data.price"
+                       disabled
+                       style="font-weight: 600">
             </div>
         </div>
     </section>

@@ -23,16 +23,33 @@ export default {
     computed:{
         ...mapGetters({
             screen: 'modal_data/get_screen',
-            fiveSection: 'multilanguage/getHomeFiveSection'
+            fiveSection: 'multilanguage/getHomeFiveSection',
+            validation:'multilanguage/getValidation',
         }),
     },
     methods: {
         send_mail(){
             const error =  this.error;
-            error.name = Validator.set(this.data.name, ['required']);
-            error.email = Validator.set(this.data.email, ['required']);
-            error.email =  !error.email.errors  ? Validator.set(this.data.email, ['email']) : error.email;
-            error.message = Validator.set(this.data.message, ['required']);
+            error.name = Validator.set(
+                this.data.name,
+                ['required'],
+                this.validation ? this.validation.field : null
+            );
+            error.email = Validator.set(
+                this.data.email,
+                ['required'],
+                this.validation ? this.validation.field : null
+            );
+            error.email =  !error.email.errors  ? Validator.set(
+                this.data.email,
+                ['email'],
+                this.validation ? this.validation.email : null
+            ) : error.email;
+            error.message = Validator.set(
+                this.data.message,
+                ['required'],
+                this.validation ? this.validation.field : null
+            );
             !error.email.errors && !error.name.errors && !error.message.errors
                 ?
                 Request.send_mail(this.data, this).then(response => {

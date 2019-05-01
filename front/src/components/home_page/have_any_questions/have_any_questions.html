@@ -20,15 +20,17 @@
                     <input type="text" v-model="data.name" :class="{error:error.name.errors}"
                          :placeholder="fiveSection && fiveSection.name">
                     <div class="error" v-if="error.name.errors">
-                        <div>{{error.name.message.required}}</div>
+                        <div class="vstyle" v-html="error.name.message.required"></div>
                     </div>
                 </div>
                 <div class="margin_input" :class="{margin_input_no_active: !error.email.errors}">
                     <input type="text" v-model="data.email"  :class="{error:error.email.errors}"
                            :placeholder="fiveSection && fiveSection.email">
                     <div class="error" v-if="error.email.errors">
-                        <div>{{error.email.message.required}}</div>
-                        <div>{{error.email.message.email}}</div>
+                        <div class="vstyle"
+                             v-html="error.email.message.required"></div>
+                        <div class="vstyle"
+                             v-html="error.email.message.email"></div>
                     </div>
                 </div>
                 <div class="margin_input" :class="{margin_input_no_active: !error.message.errors}">
@@ -37,7 +39,9 @@
                          :placeholder="fiveSection && fiveSection.message">
                     </textarea>
                     <div class="error" v-if="error.message.errors">
-                        <div>{{error.message.message.required}}</div>
+                        <div class="vstyle"
+                             v-html="error.message.message.required">
+                        </div>
                     </div>
                 </div>
                 <a class="button_to button_to d-flex justify-content-center align-items-center vstyle"
