@@ -35,6 +35,10 @@ export default {
     },
     methods:{
         language(item){
+            this.$store.dispatch('multilanguage/action_spinner', {
+                data:false,
+                name: 'active'
+            });
             this.$store.dispatch('multilanguage/changeLang', {id:item.id})
         }
     },
@@ -43,7 +47,8 @@ export default {
             language_now:    'multilanguage/get_language_now',
             menu_list:       'multilanguage/get_menu_list',
             language_array:  'multilanguage/get_language_array',
-            screen:          'modal_data/get_screen'
+            screen:          'modal_data/get_screen',
+            firstSection: 'multilanguage/getHomeFirstSection'
         }),
     watch:{
         menu:function(){

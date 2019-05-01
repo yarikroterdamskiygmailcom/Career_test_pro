@@ -4,7 +4,7 @@ import list_language from './../../api/multilanguage_request';
 import questions from "../../api/questions";
 import Helper_count from "../helpers/count";
 import Helper_CreateObject from "../helpers/multilanguage_counter";
-
+import vue from 'vue'
 const state = {
     active: false,
     language_now: {
@@ -160,6 +160,10 @@ const actions = {
     changeLang({commit}, value){
         list_language.get_site(value.id, commit);
         questions.get_questions(value.id, this, commit);
+        commit('change_state', {
+            data: true,
+            name: 'active'
+        })
     },
     action_spinner({commit}, value){
         commit('change_state', value)

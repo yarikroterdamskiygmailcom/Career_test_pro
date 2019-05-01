@@ -14,26 +14,27 @@
             </ul>
         </nav>
         <router-link to="/tests"
-             v-if="screen.value > 1100"
+             v-if="screen.value > 1100 && firstSection && firstSection.testButton"
              @click="menu = false"
              class="button_to
                  text_style
                  custom_button
                  d-flex
                  justify-content-center
-                 align-items-center">
-             Take the Test
+                 align-items-center"
+                 v-html="firstSection.testButton">
+
         </router-link>
         <router-link to="/tests"
-             v-if="test != 'home' && screen.value <= 1100"
+             v-if="test != 'home' && screen.value <= 1100 && firstSection && firstSection.testButton"
              @click="menu = false"
              class="button_to
                  text_style
                  custom_button
                  d-flex
                  justify-content-center
-                 align-items-center">
-             Take the Test
+                 align-items-center"
+                 v-html="firstSection.testButton">
         </router-link>
         <div class="header_badge_language" v-if="screen.value >= 1100 || test == 'home'">
             <b-dropdown id="ddown-divider"
@@ -103,8 +104,9 @@
                     </div>
                     <li @click="menu = false">
                         <router-link :to="'/tests'" class="button_to text_style custom_button d-flex
-                        justify-content-center align-items-center"  >
-                            Take the Test
+                        justify-content-center align-items-center"
+                             v-if="firstSection && firstSection.testButton"
+                             v-html="firstSection.testButton" >
                         </router-link>
                     </li>
                 </div>
