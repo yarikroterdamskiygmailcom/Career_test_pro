@@ -100,6 +100,9 @@ const getters = {
     },
     getFooterSection(){
         return state.data && state.data.Footer && state.data.Footer
+    },
+    getFaqPageSection(){
+        return state.data &&state.data.FAQPage && state.data.FAQPage.section
     }
 };
 
@@ -133,15 +136,27 @@ const mutations = {
         state[value.name] = value.data;
     },
     setVariable(state, value){
+
         const object = Helper_CreateObject.createObjectSite(value);
         state.data = {...object};
-        console.log(object);
+
+        state.data.FAQPage.section.arr = state.data.FAQPage.section.arr.map(item => {
+            item.name = item.title;
+            item.active = false;
+            item.content = item.description;
+            item && item.description && delete item.description;
+            item && item.title       && delete item.title;
+            item && item.index       && delete item.index;
+            return item;
+        });
+
         state.menu_list = state.menu_list.map((item, index) => {
             return {
                 name: object.menu_list[index],
                 path: item.path
             }
         });
+
     }
 };
 
