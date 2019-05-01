@@ -83,18 +83,18 @@ export const action_static = {
     "Page tests, section 5" :     ['Tests.section.descriptionTwo'],
     "Page tests, section 6" :     ['Tests.section.buttonGo'],
 
-    "Back"                      :        ['Tests.section.Back'],
-    "Next"                      :        ['Tests.section.Next'],
-    "Like"                      :        ['Tests.section.Like'],
-    "Middle"                    :        ['Tests.section.Middle'],
-    "Dislike"                   :        ['Tests.section.Dislike'],
-    "STEP"                      :        ['Tests.section.STEP'],
-    "Skills"                    :        ['Tests.section.Skills'],
-    "Work values"               :        ['Tests.section.Work_values'],
-    "Activities"                :        ['Tests.section.Activities'],
-    "Personal Behavior"         :        ['Tests.section.Personal_Behavior'],
-    "Questions"                 :        ['Tests.section.Questions'],
-    "Occupations (Professions)" :        ['Tests.section.Occupations'],
+    "Back"                      : ['Tests.section.Back'],
+    "Next"                      : ['Tests.section.Next'],
+    "Like"                      : ['Tests.section.Like'],
+    "Middle"                    : ['Tests.section.Middle'],
+    "Dislike"                   : ['Tests.section.Dislike'],
+    "STEP"                      : ['Tests.section.STEP'],
+    "Skills"                    : ['Tests.section.Skills'],
+    "Work values"               : ['Tests.section.Work_values'],
+    "Activities"                : ['Tests.section.Activities'],
+    "Personal Behavior"         : ['Tests.section.Personal_Behavior'],
+    "Questions"                 : ['Tests.section.Questions'],
+    "Occupations (Professions)" : ['Tests.section.Occupations'],
     //
     "Page tests-in-process, section 1"  : ['Tests.section.click'],
     "Page tests-in-process, phrase 1"   : ['Tests.section.arr.description'],
@@ -147,7 +147,10 @@ export const action_static = {
     "Age"                       : ['ConfirmDetail.section.age'],
 
     "This field is required"    : ['Validation.section.field'],
-    "Email invalid"             : ['Validation.section.email']
+    "Email invalid"             : ['Validation.section.email'],
+
+    "Page modal 1, upper text"  : ['Tests.section.upper_text'],
+    "Page modal 1, lower text"  : ['Tests.section.lower_text']
 
 };
 
@@ -234,7 +237,9 @@ export const data_static = {
             Questions:[],
             click:[],
             arr:[],
-            Occupations:[]
+            Occupations:[],
+            upper_text:[],
+            lower_text:[]
         },
     },
     Final:{

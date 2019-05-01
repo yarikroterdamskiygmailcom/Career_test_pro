@@ -4,34 +4,35 @@ import {action_static, data_static} from "../const";
 export default{
     createObjectSite(main_array){
         let action = {...action_static};
-        let data   = {...data_static};
+        let data   = JSON.parse(JSON.stringify(data_static));
         main_array.forEach((item, mainIndex) => {
             let new_action = item && item.name ? action[item.name] : false;
             if(new_action){
+
                 new_action.forEach((itemArr, indexArr) => {
                     itemArr = itemArr.split('.');
                     let pivot = '';
                     let done = true;
-                    let index =  itemArr.length;
+                    let index = itemArr.length;
                     switch (itemArr[0]) {
                         case "HomePage" :
-                            Page(pivot, done, index,itemArr, mainIndex, item);
-                                break;
+                            Page(pivot, done, index, itemArr, mainIndex, item);
+                            break;
                         case "AboutUs":
-                            let new_index = Number(item.name.replace(/\D+/g,""));
+                            let new_index = Number(item.name.replace(/\D+/g, ""));
                             new_index = new_index == 5 || new_index == 6 ? new_index + 1 : new_index;
-                            Page(pivot, done, index,itemArr, new_index + 1, item);
-                                break;
+                            Page(pivot, done, index, itemArr, new_index + 1, item);
+                            break;
                         case "Tests":
                             let new_index1 =
                                 item.name === "Page tests-in-process, phrase 1" ||
                                 item.name === "Page tests-in-process, phrase 2" ||
                                 item.name === "Page tests-in-process, phrase 3" ?
-                                    Number(item.name.replace(/\D+/g,"")) + 1.3 : false;
-                            Page(pivot, done, index,itemArr,new_index1 ? new_index1 : mainIndex, item);
-                                break;
+                                    Number(item.name.replace(/\D+/g, "")) + 1.3 : false;
+                            Page(pivot, done, index, itemArr, new_index1 ? new_index1 : mainIndex, item);
+                            break;
                         default:
-                            Page(pivot, done, index,itemArr, item.id, item);
+                            Page(pivot, done, index, itemArr, item.id, item);
                             break;
                     }
                 })
@@ -66,7 +67,13 @@ export default{
                     done = false;
                 }
             }
-            done && pivot && pivot.push(item && item.site_description ? item.site_description.value :'');
+            if(done && pivot){
+                try {
+                    pivot.push(item && item.site_description ? item.site_description.value : '');
+                } catch (e){
+                    pivot = []
+                }
+            }
         }
 
         Object.keys(data).forEach(item => {

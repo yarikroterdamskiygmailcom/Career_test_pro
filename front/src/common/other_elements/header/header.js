@@ -1,5 +1,5 @@
 import {mapGetters} from "vuex";
-
+import list_language from './../../../api/multilanguage_request';
 export default {
     data() {
         return {
@@ -35,7 +35,7 @@ export default {
     },
     methods:{
         language(item){
-            console.log(item);
+            this.$store.dispatch('multilanguage/changeLang', {id:item.id})
         }
     },
     computed:

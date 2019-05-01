@@ -1,3 +1,5 @@
+import {mapGetters} from "vuex";
+
 export default {
     name: 'information-steps-modal',
     components: {},
@@ -7,7 +9,21 @@ export default {
             transitions: false
         }
     },
-    computed: {},
+    computed: {
+        ...mapGetters({
+            testSection: 'multilanguage/getTestsSection',
+            modal: 'multilanguage/getOneModal',
+        }),
+        upper_text(){
+            return this.testSection && this.testSection.click ? this.testSection.upper_text.split(',') : [];
+        },
+        lower_text(){
+            return this.testSection && this.testSection.click ? this.testSection.lower_text.split(',') : [];
+        },
+        textClick(){
+            return this.testSection && this.testSection.click ? this.testSection.click.split(',') : [];
+        }
+    },
     mounted() {
         setTimeout(v => this.transitions = !this.transitions, 200)
     },

@@ -337,6 +337,7 @@
     }
     .vstyle p{
         margin: 0;
+        display: inline;
     }
     .v-list__tile__sub-title{
         text-overflow: ellipsis;

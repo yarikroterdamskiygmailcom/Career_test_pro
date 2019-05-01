@@ -133,6 +133,9 @@ const getters = {
     },
     getOtherModal(){
         return state.data &&state.data.Modal && state.data.Modal.two
+    },
+    getOneModal(){
+        return state.data &&state.data.Modal && state.data.Modal.one
     }
 };
 
@@ -153,6 +156,10 @@ const actions = {
         });
         list_language.get_site(data.id, commit);
         questions.get_questions(data.id, this, commit);
+    },
+    changeLang({commit}, value){
+        list_language.get_site(value.id, commit);
+        questions.get_questions(value.id, this, commit);
     },
     action_spinner({commit}, value){
         commit('change_state', value)

@@ -4,10 +4,10 @@
 <div>
     <section class="steps d-flex justify-content-center flex-column align-items-center media_container">
         <div class="title_block custom_title">
-            step {{step}} - <span style="color:#F9892E;" class="text-capitalize">{{step_name}}</span>
+            {{testSection.STEP}}  {{step}} - <span style="color:#F9892E;" class="text-capitalize">{{step_name}}</span>
         </div>
         <div class="small custom_small">
-            Questions {{step_amount}}
+            {{testSection.Questions}} {{step_amount}}
         </div>
         <menu_component
                 v-if="!screen.active"
