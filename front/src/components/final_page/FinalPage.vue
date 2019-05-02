@@ -27,13 +27,13 @@
                      justify-content-between flex-grow-1 align-items-end">
                         <router-link :to="'contact-us'" class="button_to d-flex justify-content-center
                      align-items-center text-decoration-none
-                     custom_button orange_style vstyle"
+                     custom_button orange_style vstyle clstyle"
                          v-if="final && final.contactButton"
                          v-html="final.contactButton">
                         </router-link>
                         <router-link :to="'tests'" class="button_to d-flex justify-content-center
                      align-items-center text-decoration-none
-                     custom_button vstyle"
+                     custom_button vstyle clstyle"
                          v-if="final && final.takeButton"
                          v-html="final.takeButton">
                         </router-link>
@@ -67,13 +67,13 @@
                     <div class="d-flex check_button justify-content-between flex-grow-1 align-items-end">
                         <router-link :to="'contact-us'" class="button_to d-flex justify-content-center
                         align-items-center text-decoration-none
-                        custom_button orange_style vstyle"
+                        custom_button orange_style vstyle clstyle"
                              v-if="final && final.contactButton"
                              v-html="final.contactButton">
                         </router-link>
                         <router-link :to="'tests'" class="button_to d-flex justify-content-center
                         align-items-center text-decoration-none
-                        custom_button vstyle"
+                        custom_button vstyle clstyle"
                              v-if="final && final.takeButton"
                              v-html="final.takeButton">
                         </router-link>

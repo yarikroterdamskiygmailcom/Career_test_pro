@@ -159,8 +159,10 @@ const actions = {
             data: IndexLanguage.getLang() ? IndexLanguage.getLang() : data,
             name: 'language_now'
         });
-        list_language.get_site(IndexLanguage.getLang().id ? IndexLanguage.getLang().id : data.id, commit);
-        questions.get_questions(IndexLanguage.getLang().id ? IndexLanguage.getLang().id :  data.id, this, commit);
+        list_language.get_site(IndexLanguage.getLang() && IndexLanguage.getLang().id
+            ? IndexLanguage.getLang().id : data.id, commit);
+        questions.get_questions(IndexLanguage.getLang() && IndexLanguage.getLang().id
+            ? IndexLanguage.getLang().id :  data.id, this, commit);
     },
     changeLang({commit}, value){
         list_language.get_site( value.id, commit);

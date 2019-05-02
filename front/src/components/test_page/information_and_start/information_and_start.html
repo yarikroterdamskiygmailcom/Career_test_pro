@@ -15,8 +15,8 @@
                  v-html="testSection.titleTwo">
             </div>
             <div class="content"
-                 v-if="testSection && testSection.content"
-                 v-html="testSection.content"></div>
+                 v-if="content"
+                 v-html="content"></div>
         </div>
         <div class="ready"
              v-if="testSection && testSection.descriptionTwo"

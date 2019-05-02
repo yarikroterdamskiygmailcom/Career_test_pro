@@ -9,7 +9,7 @@
             <div class="position-relative">
                 <div class="ellipse position-absolute" :style="{background : '#77DCC1'}"></div>
                 <div v-if="title_data_step.state">
-                    <span style="font-weight: 600" v-html="textClick[0]"></span>
+                    <span style="font-weight: 600" class="vstyle" v-html="textClick[0]"></span>
                     -<span class="vstyle"
                             v-if="title_data_step && title_data_step.state && title_data_step.state.like"
                             v-html="title_data_step.state.like">
@@ -20,7 +20,7 @@
             <div class="position-relative">
                 <div class="ellipse position-absolute" :style="{background : '#FDC572'}"></div>
                 <div  v-if="title_data_step.state">
-                    <span style="font-weight: 600" v-html="textClick[1]">}</span>
+                    <span style="font-weight: 600" class="vstyle" v-html="textClick[1]">}</span>
                     - <span class="vstyle"
                             v-if="title_data_step && title_data_step.state && title_data_step.state.middle"
                             v-html="title_data_step.state.middle"></span>
@@ -30,7 +30,7 @@
             <div class="position-relative">
                 <div class="ellipse position-absolute" :style="{background : '#F59A9A'}"></div>
                 <div  v-if="title_data_step.state">
-                    <span style="font-weight: 600" v-html="textClick[2]"></span>
+                    <span style="font-weight: 600" class="vstyle" v-html="textClick[2]"></span>
                     - <span class="vstyle"
                             v-if="title_data_step && title_data_step.state && title_data_step.state.dislike"
                             v-html="title_data_step.state.dislike"></span>

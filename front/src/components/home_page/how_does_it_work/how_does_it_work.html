@@ -15,14 +15,14 @@
                     <div class="number text-center">
                         {{index + 1}}
                     </div>
-                    <div :style="{order: item.order,
-                      marginRight: item.order > -1 ? '0': '30px',
-                       marginLeft: item.order > -1 ? '0': '30px'}">
-                        <div class="title_for_information text-center"
+                    <div style="width: 80%" :style="{order: item.order,
+                      marginRight: item.order > -1 ? '0': '20px',
+                       marginLeft: item.order > -1 ? '0': '20px'}">
+                        <div class="title_for_information text-center nstyle vstyle clstyle"
                              v-if="item && item.title"
                              v-html="item.title">
                         </div>
-                        <div class="small_text description_for_information text-center"
+                        <div class="small_text description_for_information text-center nstyle vstyle clstyle"
                              v-if="item && item.description"
                              v-html="item.description">
                         </div>
@@ -57,15 +57,15 @@
                     <div class="number text-center">
                         {{index + 1}}
                     </div>
-                    <div :style="{order: item.order,
-                      marginRight: item.order > -1 ? '0': '30px',
-                       marginLeft: item.order > -1 ? '0': '30px'}"
-                    class="ignore_margin">
-                        <div class="title_for_information text-center"
+                    <div style="width: 85%" :style="{order: item.order,
+                      marginRight: item.order > -1 ? '0': '25px',
+                       marginLeft: item.order <= 1 ? '0': '25px'}"
+                    class="">
+                        <div class="title_for_information text-center nstyle vstyle clstyle"
                              v-if="item && item.title"
                              v-html="item.title">
                         </div>
-                        <div class="small_text description_for_information text-center"
+                        <div class="small_text description_for_information text-center nstyle vstyle clstyle"
                              v-if="item && item.description"
                              v-html="item.description">
                         </div>

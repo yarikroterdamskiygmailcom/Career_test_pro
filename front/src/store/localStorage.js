@@ -14,7 +14,7 @@ export class QuestionStore {
 
 export class IndexLanguage {
     static getLang(index) {
-        return JSON.parse(window.localStorage[`lang`]);
+        return window.localStorage[`lang`] ? JSON.parse(window.localStorage[`lang`]) : null;
     }
 
     static saveLang(data, index) {

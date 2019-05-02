@@ -2,12 +2,13 @@
     <div class="container_confirm d-flex justify-content-center">
         <div class="content">
             <div class="step">
-                <router-link
+                <router-link class="vstyle"
                         to="tests/10/3"
                          v-if="confirmDetail && confirmDetail.lastStep"
                          v-html="confirmDetail.lastStep"></router-link>
                 /
-                <a v-if="confirmDetail && confirmDetail.thisPage"
+                <a class="vstyle"
+                   v-if="confirmDetail && confirmDetail.thisPage"
                    v-html="confirmDetail.thisPage"></a>
             </div>
             <div class="title_block text-center custom-title vstyle"

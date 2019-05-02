@@ -116,6 +116,7 @@
         margin-bottom: 20px;
     }
     .button_to{
+
         cursor: pointer;
         color:#333333;
         font-weight: 600;
@@ -343,9 +344,20 @@
         margin-top: 0;
         display: inline;
     }
+    .clstyle p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .nstyle{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
     .v-list__tile__sub-title{
         text-overflow: ellipsis;
         overflow: hidden;
         height: 33px;
     }
+
 </style>
