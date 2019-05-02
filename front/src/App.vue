@@ -337,6 +337,10 @@
     }
     .vstyle p{
         margin: 0;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-top: 0;
         display: inline;
     }
     .v-list__tile__sub-title{

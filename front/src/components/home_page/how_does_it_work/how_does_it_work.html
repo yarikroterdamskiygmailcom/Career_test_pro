@@ -1,10 +1,12 @@
 <section class="how-does-it-work d-flex justify-content-center">
     <div v-if="!screen.active" class="container_how-does-it-work">
-        <div class="title_block_how-does-it-work text-center text-capitalize">
-            How Does <span style="color:#5B93E8">It Work</span>
+        <div class="title_block_how-does-it-work text-center text-capitalize"
+            v-if="threeSection && threeSection.title"
+            v-html="threeSection.title">
         </div>
-        <div class="small_text description_block_how-does-it-work text-center">
-            Just 3 easy steps to get result
+        <div class="small_text description_block_how-does-it-work text-center"
+             v-if="threeSection && threeSection.description"
+             v-html="threeSection.description">
         </div>
         <div class="block_information_how-does-it-work">
             <div class="item_block_information_how-does-it-work d-flex align-items-center"
@@ -16,11 +18,13 @@
                     <div :style="{order: item.order,
                       marginRight: item.order > -1 ? '0': '30px',
                        marginLeft: item.order > -1 ? '0': '30px'}">
-                        <div class="title_for_information text-center">
-                            {{item.title}}
+                        <div class="title_for_information text-center"
+                             v-if="item && item.title"
+                             v-html="item.title">
                         </div>
-                        <div class="small_text description_for_information text-center">
-                            {{item.description}}
+                        <div class="small_text description_for_information text-center"
+                             v-if="item && item.description"
+                             v-html="item.description">
                         </div>
                     </div>
                 </div>
@@ -38,11 +42,13 @@
         </div>
     </div>
     <div v-if="screen.active" class="container_how-does-it-work">
-        <div class="title_block_how-does-it-work text-center text-capitalize">
-            How Does <span style="color:#5B93E8">It Work</span>
+        <div class="title_block_how-does-it-work text-center text-capitalize"
+             v-if="threeSection && threeSection.title"
+             v-html="threeSection.title">
         </div>
-        <div class="small_text description_block_how-does-it-work text-center">
-            Just 3 easy steps to get result
+        <div class="small_text description_block_how-does-it-work text-center"
+             v-if="threeSection && threeSection.description"
+             v-html="threeSection.description">
         </div>
         <div class="block_information_how-does-it-work">
             <div class="item_block_information_how-does-it-work d-flex align-items-center"
@@ -55,11 +61,13 @@
                       marginRight: item.order > -1 ? '0': '30px',
                        marginLeft: item.order > -1 ? '0': '30px'}"
                     class="ignore_margin">
-                        <div class="title_for_information text-center">
-                            {{item.title}}
+                        <div class="title_for_information text-center"
+                             v-if="item && item.title"
+                             v-html="item.title">
                         </div>
-                        <div class="small_text description_for_information text-center">
-                            {{item.description}}
+                        <div class="small_text description_for_information text-center"
+                             v-if="item && item.description"
+                             v-html="item.description">
                         </div>
                     </div>
                 </div>

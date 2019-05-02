@@ -10,27 +10,41 @@
         </div>
         <div class="content">
             <div>
-                <span v-if="testSection && testSection.STEP"
+                <span class="vstyle" v-if="testSection && testSection.STEP"
                       style="text-transform: capitalize;font-weight: 600"
                       v-html="testSection.STEP"></span>
-                    {{data.data.step[1]}}
-                <span class="vstyle" v-html="upper_text[0]"></span>
-                <span style="font-weight: 600">
-                    <span v-if="testSection && testSection.STEP"
-                          style="text-transform: lowercase;text-transform: capitalize"
-                          v-html="testSection.STEP"></span>
-                    <span>{{data.data.step[2]}}</span>
+                <span class="vstyle"
+                      v-if="data && data.data && data.data.step[1]"
+                      v-html="data.data.step[1]">
                 </span>
-                <span v-html="upper_text[1]"></span>
+                <span class="vstyle" v-html="upper_text[0]"></span>
+                <!--<span style="font-weight: 600">-->
+                    <span v-if="testSection && testSection.STEP"
+                          class="vstyle"
+                          style="text-transform: lowercase;text-transform: capitalize;font-weight: 600"
+                          v-html="testSection.STEP"></span>
+                    <span v-if="data && data.data && data.data.step[2]"
+                          class="vstyle"
+                          v-html="data.data.step[2]">
+                    </span>
+                <!--</span>-->
+                <span class="vstyle" v-html="upper_text[1]"></span>
                 <span style="font-weight: 600">60
-                    <span style="text-transform: lowercase" v-if="testSection && testSection.Questions"
+                    <span style="text-transform: lowercase"
+                          class="vstyle"
+                          v-if="testSection && testSection.Questions"
                           v-html="testSection.Questions">
                     </span>
                 </span>
-                <span v-html="upper_text[2]">
+                <span class="vstyle"
+                        v-html="upper_text[2]">
                 </span>
-                <span style="font-weight: 600;text-transform: lowercase">{{data.data.name}}.</span>
-                <span v-html="upper_text[3]">
+                <span class="vstyle" style="font-weight: 600;text-transform: lowercase"
+                      v-if="data && data.data && data.data.name"
+                      v-html="data.data.name">
+                </span>.
+                <span class="vstyle"
+                      v-html="upper_text[3]">
                 </span>
             </div>
             <br>
@@ -38,28 +52,35 @@
             <div class="position-relative ellipse_margin">
                 <div class="ellipse position-absolute" :style="{background : '#77DCC1'}"></div>
                 <div>
-                    <span style="font-weight: 600"
+                    <span style="font-weight: 600" class="vstyle"
                           v-html="textClick[0]">
-                    </span> - {{data.data.state.like}}
+                    </span>
+                    -
+                    <span class="vstyle" v-if="data && data.data && data.data.state && data.data.state.like"
+                    v-html="data.data.state.like"></span>
                 </div>
             </div><br>
 
             <div class="position-relative ellipse_margin">
                 <div class="ellipse position-absolute" :style="{background : '#FDC572'}"></div>
                 <div>
-                    <span style="font-weight: 600"
+                    <span style="font-weight: 600" class="vstyle"
                           v-html="textClick[1]">
                     </span>
-                    - {{data.data.state.middle}}
+                    -
+                    <span class="vstyle" v-if="data && data.data && data.data.state && data.data.state.middle"
+                          v-html="data.data.state.middle"></span>
                 </div>
             </div><br>
 
             <div class="position-relative ellipse_margin">
                 <div class="ellipse position-absolute" :style="{background : '#F59A9A'}"></div>
                 <div>
-                    <span style="font-weight: 600"
+                    <span style="font-weight: 600" class="vstyle"
                           v-html="textClick[2]">
-                    </span>  - {{data.data.state.dislike}}
+                    </span>  -
+                    <span class="vstyle" v-if="data && data.data && data.data.state && data.data.state.dislike"
+                          v-html="data.data.state.dislike"></span>
                 </div>
             </div><br>
             <div class="ellipse_margin">

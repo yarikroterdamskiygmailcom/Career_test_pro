@@ -33,7 +33,7 @@
                        v-model="data.name"
                        v-if="contactUs && contactUs.name"
                        :class="{error:error.name.errors}"
-                       :placeholder="contactUs.name">
+                       :placeholder="contactUs.name.replace(/(<([^>]+)>)/g,'')">
                 <div class="error" v-if="error.name.errors">
                     <div>{{error.name.message.required}}</div>
                 </div>
@@ -44,7 +44,7 @@
                        v-if="contactUs && contactUs.email"
                        v-model="data.email"
                        :class="{error:error.email.errors}"
-                       :placeholder="contactUs.email">
+                       :placeholder="contactUs.email.replace(/(<([^>]+)>)/g,'')">
                 <div class="error" v-if="error.email.errors">
                     <div>{{error.email.message.required}}</div>
                     <div>{{error.email.message.email}}</div>
@@ -56,7 +56,7 @@
                         v-model="data.message"
                         v-if="contactUs && contactUs.message"
                         :class="{error:error.message.errors}"
-                        :placeholder="contactUs.message"
+                        :placeholder="contactUs.message.replace(/(<([^>]+)>)/g,'')"
                         style="resize: none">
                 </textarea>
                 <div class="error"

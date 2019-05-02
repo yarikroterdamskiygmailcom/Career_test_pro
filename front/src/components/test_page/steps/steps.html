@@ -4,10 +4,18 @@
 <div>
     <section class="steps d-flex justify-content-center flex-column align-items-center media_container">
         <div class="title_block custom_title">
-            {{testSection.STEP}}  {{step}} - <span style="color:#F9892E;" class="text-capitalize">{{step_name}}</span>
+            <span class="vstyle"
+                  v-if="testSection && testSection.STEP"
+                  v-html="testSection.STEP">
+            </span>
+
+                {{step}}
+              - <span style="color:#F9892E;" class="text-capitalize; vstyle" v-if="step_name"
+                            v-html="step_name"></span>
         </div>
         <div class="small custom_small">
-            {{testSection.Questions}} {{step_amount}}
+            <span class="vstyle" v-if="testSection && testSection.Questions"
+                  v-html="testSection.Questions"></span> {{step_amount}}
         </div>
         <menu_component
                 v-if="!screen.active"
@@ -44,16 +52,16 @@
         </menu_component>
         <div class="small custom_small small2">
             {{~~process}} % -
-            <span v-if="process == 0 && testSection && testSection.arr"
+            <span class="vstyle" v-if="process == 0 && testSection && testSection.arr"
                   v-html="testSection.arr[0].description">
             </span>
-            <span v-if="process > 0 && process < 10 && testSection && testSection.arr"
+            <span class="vstyle" v-if="process > 0 && process < 10 && testSection && testSection.arr"
                   v-html="testSection.arr[1].description && testSection && testSection.arr">
             </span>
-            <span v-if="process >= 10 && process < 100 && testSection && testSection.arr"
+            <span class="vstyle" v-if="process >= 10 && process < 100 && testSection && testSection.arr"
                   v-html="testSection.arr[2].description">
             </span>
-            <span v-if="process == 100 && final && final.title"
+            <span class="vstyle" v-if="process == 100 && final && final.title"
                 style="text-transform: capitalize"
                   v-html="final.title"></span>!
         </div>
@@ -93,7 +101,8 @@
                         <span v-if="step_child == 2">{{index + Number(step_amount.split('-')[0]) + 10}}</span>
                         <span v-if="step_child == 3">{{index + Number(step_amount.split('-')[0]) + 20}}</span>
                     </div>
-                    <div class="content_question borders d-flex align-items-center">
+                    <div class="content_question borders d-flex align-items-center"
+                         v-if="item && item.questions_description && item.questions_description">
                         {{item.questions_description.question}}
                     </div>
                     <div class="select_questions d-flex justify-content-between">

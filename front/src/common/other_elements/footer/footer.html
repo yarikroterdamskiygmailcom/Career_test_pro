@@ -17,9 +17,17 @@
             <div class="text_style footer_text vstyle" v-if="footer" v-html="footer"></div>
         </nav>
         <div class="footer_badge_language">
-            <b-dropdown id="ddown-divider" :text="language_now.code" variant="basic" offset="0"
-                        menu-class="rounded-menu"  class="m-2 border btn-lang-border">
-                <b-dropdown-item v-for="lang in language_array" active-class="dropdown-item" :key="lang.name + lang.language">
+            <b-dropdown id="ddown-divider"
+                        :text="language_now.code"
+                        variant="basic"
+                        offset="0"
+                        menu-class="rounded-menu"
+                        class="m-2 border btn-lang-border">
+                <b-dropdown-item
+                        v-for="lang in language_array"
+                        active-class="dropdown-item"
+                        :key="lang.name + lang.language"
+                        @click="language(lang)">
                     {{lang.language}}
                 </b-dropdown-item>
             </b-dropdown>
@@ -49,7 +57,8 @@
                     <b-dropdown-item
                             v-for="lang in language_array"
                             active-class="dropdown-item"
-                            :key="lang.name + lang.language">
+                            :key="lang.name + lang.language"
+                            @click="language(lang)">
                         {{lang.language}}
                     </b-dropdown-item>
                 </b-dropdown>
@@ -69,7 +78,11 @@
         <div class="footer_badge_language">
             <b-dropdown id="ddown-divider" :text="language_now.code" variant="basic" offset="0"
                         menu-class="rounded-menu"  class="m-2 border btn-lang-border">
-                <b-dropdown-item v-for="lang in language_array" active-class="dropdown-item" :key="lang.name + lang.language">
+                <b-dropdown-item
+                        v-for="lang in language_array"
+                        active-class="dropdown-item"
+                        :key="lang.name + lang.language"
+                        @click="language(lang)">
                     {{lang.language}}
                 </b-dropdown-item>
             </b-dropdown>

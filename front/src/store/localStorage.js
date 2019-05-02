@@ -12,16 +12,16 @@ export class QuestionStore {
     }
 }
 
-// export class IndexLanguage {
-//     static getStep(index) {
-//         return window.localStorage[`step:${index}`];
-//     }
-//
-//     static saveStep(data, index) {
-//         window.localStorage[`step:${index}`] = data;
-//     }
-//
-//     static destroyQuestion() {
-//         window.localStorage.clear()
-//     }
-// }
+export class IndexLanguage {
+    static getLang(index) {
+        return JSON.parse(window.localStorage[`lang`]);
+    }
+
+    static saveLang(data, index) {
+        window.localStorage[`lang`] = JSON.stringify(data);
+    }
+
+    static destroyLang() {
+        window.localStorage.removeItem('lang')
+    }
+}

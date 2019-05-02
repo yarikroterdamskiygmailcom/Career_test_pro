@@ -5,8 +5,9 @@
     <div class="content_modal d-flex align-items-center flex-column position-relative justify-content-between"
          :style="{transform: transitions ? 'translateY(0%)':  'translateY(-200%)'}">
         <div class="image_close position-absolute image" @click.self="close_modal()"></div>
-        <div class="custom_small" style="width: 270px; text-align: center">
-            {{data.title}}
+        <div class="custom_small" style="width: 270px; text-align: center"
+        v-if="data && data.title"
+        v-html="data.title">
         </div>
         <div class="modal_image position-relative">
             <div class="image_ellipse"></div>

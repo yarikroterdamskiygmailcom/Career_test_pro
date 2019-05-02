@@ -79,7 +79,7 @@
                v-model="data.code"
                v-if="confirmDetail && confirmDetail.checkoutVaucher"
                :class="{error:error.code.errors}"
-               :placeholder="confirmDetail.checkoutVaucher"
+               :placeholder="confirmDetail.checkoutVaucher.replace(/(<([^>]+)>)/g,'')"
                v-disabled_input="cards.concat(cards1)">
         <div class="error" v-if=" error.code.errors">
             <div v-if="error.code.message">{{error.code.message.required}}</div>

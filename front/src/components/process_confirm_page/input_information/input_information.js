@@ -36,14 +36,23 @@ export default {
             this.age.push(i);
             i == 100 && this.age.push('+');
         }
-        this.data.gender = this.confirmDetail && this.confirmDetail.gender;
-        this.data.age =    this.confirmDetail && this.confirmDetail.age;
+        this.setAgeGender();
+    },
+    updated(){
+        this.setAgeGender();
     },
     methods: {
         errors: function(data){
-            this.data.gender = this.confirmDetail && this.confirmDetail.gender;
-            this.data.age =    this.confirmDetail && this.confirmDetail.age;
+            this.setAgeGender();
             this.error = {...data};
+        },
+        setAgeGender(){
+            this.data.gender = this.data.gender === 'male' || this.data.gender === 'female'
+                ? this.data.gender
+                : this.confirmDetail && this.confirmDetail.gender.replace(/(<([^>]+)>)/g,'');
+            this.data.age    = typeof this.data.age === 'number'
+                ? this.data.age
+                : this.confirmDetail && this.confirmDetail.age.replace(/(<([^>]+)>)/g,'');
         }
     }
 }

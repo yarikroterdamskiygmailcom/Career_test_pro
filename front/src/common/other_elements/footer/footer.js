@@ -1,10 +1,27 @@
 import {mapGetters} from 'vuex';
 import config from "../../../config";
+import stepPage from "../../../components/test_page/steps/steps";
+import {IndexLanguage} from "../../../store/localStorage";
 export default {
     data() {
         return{
             payments:['paypal', 'visa', 'maestro', 'mastercard', 'discover'],
             base_url: config.url
+        }
+    },
+    methods:{
+        language(item){
+            IndexLanguage.destroyLang();
+            this.$store.dispatch('multilanguage/action_spinner', {
+                data:false,
+                name: 'active'
+            });
+            this.$store.dispatch('multilanguage/changeLang', {id:item.id, vue: stepPage});
+            this.$store.dispatch('multilanguage/action_spinner', {
+                data:{...item},
+                name: 'language_now'
+            });
+            IndexLanguage.saveLang(item);
         }
     },
     computed:

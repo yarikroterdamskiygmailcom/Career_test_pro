@@ -45,6 +45,7 @@ export default {
             steps: 'multilanguage/getStepsSection',
             steps_names: 'multilanguage/getStepsNameSection',
             modal: 'multilanguage/getOtherModal',
+            test: 'multilanguage/get_test',
         }),
         disabled_but(){
           return this.data_step ? counter.count_disanled_step(this.data_step) : true
@@ -78,7 +79,7 @@ export default {
                 return;
             }
             this.disabled_but ? this.refresh_helper() : next()
-        })
+        });
     },
     destroyed(){
        this.$router.beforeHooks = []
@@ -192,6 +193,14 @@ export default {
             this.step_child = this.$route.params.child_step;
             localStorage.setItem('progress_step', to.fullPath);
             this.toggle_modal();
+        },
+        test(to, from){
+            debugger;
+            this.data_step = to && QuestionStore.getStep(`${this.step}-${this.step_child}`);
+            to && this.$store.dispatch('multilanguage/action_spinner', {
+                data:true,
+                name: 'active'
+            });
         }
     },
     directives: {

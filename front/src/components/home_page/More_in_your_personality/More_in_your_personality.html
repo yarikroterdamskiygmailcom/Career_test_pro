@@ -3,8 +3,12 @@
         <div class="container_margin d-flex justify-content-center align-items-center flex-column">
             <div class="container_data d-flex align-items-center">
                 <div class="text_container">
-                    <div class="title_block vstyle" v-if="firstSection" v-html="firstSection.title"></div>
+                    <div class="title_block vstyle"
+                         style="word-break: break-word;"
+                         v-if="firstSection"
+                         v-html="firstSection.title"></div>
                     <div class="small_text more-in-your-personality_small_text vstyle"
+                         style="word-break: break-word;"
                          v-if="firstSection && firstSection.description"
                          v-html="firstSection.description">
                     </div>

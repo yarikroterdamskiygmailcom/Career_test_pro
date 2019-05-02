@@ -24,7 +24,10 @@
             <div class="block_best_value d-flex justify-content-between">
                 <div class="all-aptitude-list">
                     <ul class="small_text" v-if="fourSection && fourSection.arr">
-                        <li v-for="item in fourSection.arr">{{item}}</li>
+                        <li v-for="item in fourSection.arr"
+                            v-if="item"
+                            class="vstyle"
+                            v-html="item"></li>
                     </ul>
                 </div>
                 <div class="best_value text-center">
@@ -65,7 +68,10 @@
             <div class="block_best_value d-flex justify-content-between">
                 <div class="all-aptitude-list">
                     <ul class="small_text" v-if="fourSection && fourSection.arr">
-                        <li v-for="item in fourSection.arr">{{item}}</li>
+                        <li v-for="item in fourSection.arr"
+                            class="vstyle"
+                            v-if="item"
+                            v-html="item"></li>
                     </ul>
                 </div>
                 <div class="middle_line"></div>

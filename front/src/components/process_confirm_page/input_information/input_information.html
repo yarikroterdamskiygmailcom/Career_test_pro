@@ -9,7 +9,7 @@
                    v-model="data.name"
                    :class="{error:error.name.errors}"
                    v-if="confirmDetail && confirmDetail.name"
-                   :placeholder="confirmDetail.name">
+                   :placeholder="confirmDetail.name.replace(/(<([^>]+)>)/g,'')">
             <div class="error vstyle" v-if="error.name.errors">
                 <div v-html="error.name.message.required"></div>
             </div>
@@ -19,7 +19,7 @@
                    v-model="data.email"
                    :class="{error:error.email.errors}"
                    v-if="confirmDetail && confirmDetail.email"
-                   :placeholder="confirmDetail.email">
+                   :placeholder="confirmDetail.email.replace(/(<([^>]+)>)/g,'')">
             <div class="error vstyle" v-if="error.email.errors">
                 <div class="vstyle"
                      v-html="error.email.message.required">

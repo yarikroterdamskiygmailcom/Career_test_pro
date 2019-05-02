@@ -5,6 +5,7 @@ import questions from "../../api/questions";
 import Helper_count from "../helpers/count";
 import Helper_CreateObject from "../helpers/multilanguage_counter";
 import vue from 'vue'
+import {IndexLanguage} from "../localStorage";
 const state = {
     active: false,
     language_now: {
@@ -54,12 +55,16 @@ const state = {
             path: 'http://backcartestpro.qbex.io/assets/facebook.png'
         },
     ],
-    data:{}
+    data:{},
+    test: false
 };
 
 const getters = {
     get_language_now(state) {
         return state.language_now
+    },
+    get_test(state) {
+        return state.test
     },
     get_menu_list (state) {
         return state.menu_list
@@ -151,19 +156,15 @@ const actions = {
         });
         const data = Helper_count.find_language_now_in_array(value);
         commit('change_state', {
-            data: data,
+            data: IndexLanguage.getLang() ? IndexLanguage.getLang() : data,
             name: 'language_now'
         });
-        list_language.get_site(data.id, commit);
-        questions.get_questions(data.id, this, commit);
+        list_language.get_site(IndexLanguage.getLang().id ? IndexLanguage.getLang().id : data.id, commit);
+        questions.get_questions(IndexLanguage.getLang().id ? IndexLanguage.getLang().id :  data.id, this, commit);
     },
     changeLang({commit}, value){
-        list_language.get_site(value.id, commit);
+        list_language.get_site( value.id, commit);
         questions.get_questions(value.id, this, commit);
-        commit('change_state', {
-            data: true,
-            name: 'active'
-        })
     },
     action_spinner({commit}, value){
         commit('change_state', value)

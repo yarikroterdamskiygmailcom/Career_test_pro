@@ -70,7 +70,6 @@ export default {
                 return item;
             }) : [];
             data = JSON.parse(JSON.stringify(data));
-            debugger;
             return data
         }
     },
