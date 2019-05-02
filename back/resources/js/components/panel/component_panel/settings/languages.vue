@@ -217,7 +217,6 @@
                 return Settings.add_language(this.data)
             },
             ImportFinalCSV(){
-
                 let data = new FormData();
                 data.append('import_report', this.dialog2_data.report.imageFile);
                 data.append('import_site',   this.dialog2_data.site.imageFile);
