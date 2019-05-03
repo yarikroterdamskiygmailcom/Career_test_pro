@@ -75,6 +75,7 @@ Route::group([
     Route::post('site-blocks/{id}', 'SiteController@siteBlocksUpdate');
     Route::get('export-csv/{id}', 'LanguagesController@exportCSV');
     Route::post('import-csv/{id}', 'LanguagesController@importCSV');
+    Route::get('invoices', 'InvoicesController@getInvoices');
 
     Route::resources([
         'settings' => 'SettingsController',

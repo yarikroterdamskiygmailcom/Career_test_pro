@@ -73,7 +73,7 @@ Page about-us, section 10	72	About Us
 Page tests, section 1	73	Start To Do What You Like!
 Page tests, section 2	74	Take your time to pass the test
 Page tests, section 3	75	Shortly Before Start
-Page tests, section 4	76	Welcome to CareertestPro.com, the most comprehensive international career test available online! CareertestPro.com uses a database of over 3,000 professions and corresponding educational levels. Taking the test will take you about 15 minutes. The test consist of 10 Steps with 30 questions in each step, regard to skills, work values, activities, personal behavior and professions: Step 1 and Step 2 include questions regard to skills. Step 3 and Step 4 - questions regard to work values. Step 5 and Step 6 - questions regard to activities. Step 7 and Step 8 - questions regard to personal behavior. Step 9 and Step 10 - questions regard to occupations (professions). When clicking on the Lets Go!button below, there will be a list of questions, which you need to answer one by one. Its up to you to be as accurate as possible in your answers to the statements. Before every questionnaire there is a brief explanationiof it purpose and what action is required from you. Its important to read the given statements carefully and follow with your intuition when answering. After completing the test youll receive the report.
+Page tests, section 4	76	"<div>Welcome to <strong>CareertestPro.com</strong>, the most comprehensive international career                test available online!</div><br><div>CareertestPro.com uses a database of over  <strong>3,000 professions</strong>and corresponding educational levels.</div><br><div>Taking the test will take you about 15 minutes.</div><br><div>The test consist of  <strong>10 Steps</strong>with 30 questions in each step,  <strong>regard to skills, work values, activities, personal behavior and professions:</strong></div><br><div> <strong>Step 1</strong>  and  <strong>Step 2</strong> include questions regard to  <strong>skills.</strong></div><div> <strong>Step 3</strong> and  <strong>Step 4</strong> - questions regard to <strong>work values.</strong></div><div> <strong>Step 5</strong> and  <strong>Step 6</strong> - questions regard to'<strong>activities.</strong></div><div> <strong>Step 7</strong> and  <strong>Step 8</strong> - questions regard to <strong>personal behavior.</strong></div><div> <strong>Step 9</strong> and  <strong>Step 10</strong> - questions regard to  <strong>occupations (professions).</strong></div><br><div>When clicking on the  <strong>“Let’s Go!” button</strong> below, there will be a list of  questions, which you need to answer one by one.</div><br><div>It’s up to you to be as accurate as possible in your answers to the statements.</div><br><div>Before every questionnaire there is a  <strong>brief explanation</strong><div class=""info"">i</div>of it purpose and what action is required from you.</div><br><div>It’s important to read the given statements carefully and follow with your intuition when answering.</div><br><div>After completing the test you’ll receive the report.</div>"
 Page tests, section 5	77	So, are you ready?
 Page tests, section 6	78	Lets Go!
 Back	79	Back
@@ -88,7 +88,7 @@ Activities	87	Activities
 Personal Behavior	88	Personal Behavior
 Occupations (Professions)	89	Occupations (Professions)
 Questions	90	Questions
-Page tests-in-process, section 1	91	Click like 
+Page tests-in-process, section 1	91	Click “like”,Click “neither like nor dislike”,Click “dislike”
 Page tests-in-process, phrase 1	92	Completed Yet - Good Luck!
 Page tests-in-process, phrase 2	93	Wow, you re doing great! Keep moving!
 Page tests-in-process, phrase 3	94	Super! You re on one step closer
@@ -125,3 +125,13 @@ Page modal 2, copy_text	124	Address has been copied successfully
 Page modal 2, error_step	125	If you want to get on the next step, you ll need to fill all questions. That way you can get a correct result.
 Page modal 3, title	126	You are almost done!
 Page modal 3, content	127	By clicking  Ok  you ll be redirected to the payment screen
+Page final, section 1	128	Check Your Email
+Page final, section 2	129	We’ve sent a report on it
+Page final, section 3	130	Thanks for using our service!
+Page final, section 4	131	You will receive an email soon, regarding your payment. If you have any questions - don’t hesitate to ask our team.
+This field is required	132	This field is required
+Email invalid	133	Email invalid
+Gender	134	Gender
+Age	135	Age
+Page modal 1, upper text	136	and , totally include , regard to , . When answering them, the next actions required from you:
+Page modal 1, lower text	137	If you forget meaning of actions, please check a brief explanation , of it. ,Good Luck!
