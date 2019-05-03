@@ -26,6 +26,7 @@
                 <td :style="{color: item.status ? 'green' : 'red'}">{{item.status}}</td>
                 <td>
                     <v-btn color="primary"
+                           v-if="index != 0"
                         flat
                         @click="edit_status(item.language, item.code,  item.status ? 0 : 1)">
                         Edit status
