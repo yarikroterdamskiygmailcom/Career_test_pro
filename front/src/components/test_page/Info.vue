@@ -9,24 +9,31 @@
             <div class="position-relative">
                 <div class="ellipse position-absolute" :style="{background : '#77DCC1'}"></div>
                 <div v-if="title_data_step.state">
-                    <span style="font-weight: 600">Click “like”</span>
-                    - {{title_data_step.state.like}}
+                    <span style="font-weight: 600" class="vstyle" v-html="textClick[0]"></span>
+                    -<span class="vstyle"
+                            v-if="title_data_step && title_data_step.state && title_data_step.state.like"
+                            v-html="title_data_step.state.like">
+                    </span>
                 </div>
             </div><br>
 
             <div class="position-relative">
                 <div class="ellipse position-absolute" :style="{background : '#FDC572'}"></div>
                 <div  v-if="title_data_step.state">
-                    <span style="font-weight: 600">Click “neither like nor dislike”</span>
-                    - {{title_data_step.state.middle}}
+                    <span style="font-weight: 600" class="vstyle" v-html="textClick[1]">}</span>
+                    - <span class="vstyle"
+                            v-if="title_data_step && title_data_step.state && title_data_step.state.middle"
+                            v-html="title_data_step.state.middle"></span>
                 </div>
             </div><br>
 
             <div class="position-relative">
                 <div class="ellipse position-absolute" :style="{background : '#F59A9A'}"></div>
                 <div  v-if="title_data_step.state">
-                    <span style="font-weight: 600">Click “dislike”</span>
-                    - {{title_data_step.state.dislike}}
+                    <span style="font-weight: 600" class="vstyle" v-html="textClick[2]"></span>
+                    - <span class="vstyle"
+                            v-if="title_data_step && title_data_step.state && title_data_step.state.dislike"
+                            v-html="title_data_step.state.dislike"></span>
                 </div>
             </div>
         </div>
@@ -35,6 +42,7 @@
 
 <script>
     import Step_modal from './../../const/const_step_modal'
+    import {mapGetters} from "vuex";
     export default {
        props:['data', 'active'],
         data(){
@@ -42,6 +50,15 @@
                title_data_step: {},
                title_data_step_active:false
            }
+        },
+        computed: {
+            ...mapGetters({
+                testSection: 'multilanguage/getTestsSection',
+                steps: 'multilanguage/getStepsSection',
+            }),
+            textClick(){
+                return this.testSection && this.testSection.click ? this.testSection.click.split(',') : [];
+            }
         },
         methods:{
             count_step_data(array, flag = null){
@@ -57,8 +74,8 @@
                 return data;
             },
             hover_pab(state){
-                let step = this.count_step_data(Step_modal);
-                this.title_data_step = state == 'open' ? Step_modal[step] : {};
+                let step = this.count_step_data(this.steps);
+                this.title_data_step = state == 'open' ? this.steps[step] : {};
                 this.title_data_step_active = state == 'open';
             }
         }

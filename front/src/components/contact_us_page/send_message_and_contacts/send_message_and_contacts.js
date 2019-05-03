@@ -1,10 +1,11 @@
 import Request from '../../../api/mail_request'
 import Validator from "../../../validator/validator";
 import  Helper from "./../../../helper/active_other_modal"
+import {mapGetters} from "vuex";
 export default {
     name: 'send-message-and-contacts',
     components: {},
-    props: [],
+    props: ['contactUs'],
     data() {
         return {
             data:{
@@ -20,6 +21,12 @@ export default {
             disabled_button: false
         }
     },
+    computed:{
+        ...mapGetters({
+            validation:'multilanguage/getValidation',
+            modal: 'multilanguage/getOtherModal',
+        })
+    },
     methods: {
         copy_text(){
             let textarea = document.createElement('textarea');
@@ -30,7 +37,7 @@ export default {
                 document.execCommand('copy');
                 Helper.open_modal(
                     this,
-                    'Address has been copied successfully',
+                    this.modal && this.modal.copy_text,
                     'copy_text.svg', '8px', '27px', '115px', '153.99px'
                 )
             } catch (err) {
@@ -40,16 +47,32 @@ export default {
         },
         send_mail(){
             const error =  this.error;
-            error.name = Validator.set(this.data.name, ['required']);
-            error.email = Validator.set(this.data.email, ['required']);
-            error.email =  !error.email.errors  ? Validator.set(this.data.email, ['email']) : error.email;
-            error.message = Validator.set(this.data.message, ['required']);
+            error.name = Validator.set(
+                this.data.name,
+                ['required'],
+                this.validation ? this.validation.field : null
+            );
+            error.email = Validator.set(
+                this.data.email,
+                ['required'],
+                this.validation ? this.validation.field : null
+            );
+            error.email =  !error.email.errors  ? Validator.set(
+                this.data.email,
+                ['email'],
+                this.validation ? this.validation.email : null
+            ) : error.email;
+            error.message = Validator.set(
+                this.data.message,
+                ['required'],
+                this.validation ? this.validation.field : null
+            );
             !error.email.errors && !error.name.errors && !error.message.errors
                 ?
                 Request.send_mail(this.data).then(response => {
                     Helper.open_modal(
                         this,
-                        'Thank you for your message! We’ll contact you soon',
+                        this.modal && this.modal.send_mail,
                         'send_message.svg', '32px', '12px', '103px', '148px'
                     )
                 })

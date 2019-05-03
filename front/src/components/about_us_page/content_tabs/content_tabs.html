@@ -1,21 +1,16 @@
 <section class="content-tabs d-flex justify-content-between">
     <div class="tab_content_information" v-if="data_tab != null">
         <div class="title_tab">
-            <p> {{data_tab.name.split(' ')[0]}}
-                <span style="color:rgb(249, 137, 46)">
-                    {{data_tab.name.split(' ')[1]}}
-                </span>
-            </p>
+            <p v-if="data_tab && data_tab.name" class="vstyle" v-html="data_tab.name"></p>
         </div>
         <div class="content_tab" v-html="data_tab.content"></div>
-        <ul class="content_tab">
-            <li v-for="item in data_tab.list">{{item}}</li>
-        </ul>
     </div>
     <div v-if="data_tab != null"
          class="tab_content_image_container position-relative d-flex justify-content-center">
         <div class="tab_content_image position-absolute image_size"
-        :style="{backgroundImage: `url(${data_tab.path})`, ...data_tab.style}"></div>
+             v-if="data_tab && data_tab.path"
+             :style="{backgroundImage: `url(${data_tab.path})`, ...data_tab.style}">
+        </div>
         <div class="tab_content_elips image_size"></div>
     </div>
     <!--<div class="block_img d-flex justify-content-center position-relative">-->

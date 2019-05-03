@@ -16,21 +16,19 @@ export default  {
             };
     },
     methods:{
-        required(value){
-            return this.messages(!value, 'This field is required')
+        required(value, text = 'This field is required'){
+            !text ? text = 'This field is required' : null;
+            return this.messages(!value, text)
         },
-        email(value){
+        email(value, text = 'Email invalid' ){
+            !text ? text = 'Email invalid' : null;
             var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return this.messages(re.test(value) ? false : true, 'Email invalid');
+            return this.messages(re.test(value) ? false : true, text);
         },
-        radio(value = [],field){
+        radio(value = [],field = ['status', 'You have to choose radiobutton']){
             let count = true;
-            value.forEach(item => {
-                if(item[field]) {
-                    return count = false;
-                }
-            });
-            return this.messages(count, 'You have to choose radiobutton');
+            value.forEach(item => item[field[0]] ? count = false : null);
+            return this.messages(count, field[1]);
         },
         messages(status, message){
             return status == false ? false : message

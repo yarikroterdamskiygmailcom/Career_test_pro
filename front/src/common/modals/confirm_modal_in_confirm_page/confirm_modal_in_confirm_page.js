@@ -2,6 +2,7 @@ import counter from "../../../components/test_page/counter";
 import Payment from "./../../../api/payment"
 import config from "../../../config";
 import axios from "../../../api/axios.config";
+import {mapGetters} from "vuex";
 export default {
     name: 'confirm-modal-in-confirm-page',
     components: {},
@@ -40,5 +41,10 @@ export default {
             }
             window.location.href = `${config.url}${payment}?result=${data}`
         }
+    },
+    computed:{
+        ...mapGetters({
+            modal: 'multilanguage/getConfirmModal',
+        })
     }
 }

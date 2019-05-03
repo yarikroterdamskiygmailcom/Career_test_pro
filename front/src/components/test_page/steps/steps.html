@@ -4,10 +4,18 @@
 <div>
     <section class="steps d-flex justify-content-center flex-column align-items-center media_container">
         <div class="title_block custom_title">
-            step {{step}} - <span style="color:#F9892E;" class="text-capitalize">{{step_name}}</span>
+            <span class="vstyle"
+                  v-if="testSection && testSection.STEP"
+                  v-html="testSection.STEP">
+            </span>
+
+                {{step}}
+              - <span style="color:#F9892E;" class="text-capitalize; vstyle" v-if="step_name"
+                            v-html="step_name"></span>
         </div>
         <div class="small custom_small">
-            Questions {{step_amount}}
+            <span class="vstyle" v-if="testSection && testSection.Questions"
+                  v-html="testSection.Questions"></span> {{step_amount}}
         </div>
         <menu_component
                 v-if="!screen.active"
@@ -44,10 +52,18 @@
         </menu_component>
         <div class="small custom_small small2">
             {{~~process}} % -
-            <span v-if="process == 0">Completed Yet - Good Luck!</span>
-            <span v-if="process > 0 && process < 10">Wow, you’re doing great! Keep moving!</span>
-            <span v-if="process >= 10 && process < 100">Super! You’re on one step closer</span>
-            <span v-if="process == 100">Congratulations!</span>
+            <span class="vstyle" v-if="process == 0 && testSection && testSection.arr"
+                  v-html="testSection.arr[0].description">
+            </span>
+            <span class="vstyle" v-if="process > 0 && process < 10 && testSection && testSection.arr"
+                  v-html="testSection.arr[1].description">
+            </span>
+            <span class="vstyle" v-if="process >= 10 && process < 100 && testSection && testSection.arr"
+                  v-html="testSection.arr[2].description">
+            </span>
+            <span class="vstyle" v-if="process == 100 && final && final.title"
+                style="text-transform: capitalize"
+                  v-html="final.title"></span>!
         </div>
         <div class="step_content d-flex flex-column">
             <div class="step_content d-flex justify-content-end ellips_information" style="margin-bottom: 30px"
@@ -58,17 +74,23 @@
                     <div class="borders d-flex align-items-center justify-content-center position-relative" style="border: none">
                         <div class="ellipse position-relative"
                              :style="{background : '#77DCC1', width: '24px', height: '24px', left: 0}"></div>
-                        <div class="info_ellipse position-absolute">Like</div>
+                        <div class="info_ellipse position-absolute vstyle clstyle"
+                             v-if="testSection && testSection.Like"
+                             v-html="testSection.Like"></div>
                     </div>
                     <div class="borders d-flex align-items-center justify-content-center position-relative" style="border: none">
                         <div class="ellipse position-relative"
                              :style="{background : '#FDC572', width: '24px', height: '24px', left: 0}"></div>
-                        <div class="info_ellipse position-absolute">Middle</div>
+                        <div class="info_ellipse position-absolute vstyle clstyle"
+                             v-if="testSection && testSection.Middle"
+                             v-html="testSection.Middle"></div>
                     </div>
                     <div class="borders d-flex align-items-center justify-content-center position-relative" style="border: none">
                         <div class="ellipse position-relative"
                              :style="{background : '#F59A9A', width: '24px', height: '24px', left: 0}"></div>
-                        <div class="info_ellipse position-absolute">Dislike</div>
+                        <div class="info_ellipse position-absolute vstyle clstyle"
+                             v-if="testSection && testSection.Dislike"
+                             v-html="testSection.Dislike"></div>
                     </div>
                 </div>
             </div>
@@ -79,7 +101,8 @@
                         <span v-if="step_child == 2">{{index + Number(step_amount.split('-')[0]) + 10}}</span>
                         <span v-if="step_child == 3">{{index + Number(step_amount.split('-')[0]) + 20}}</span>
                     </div>
-                    <div class="content_question borders d-flex align-items-center">
+                    <div class="content_question borders d-flex align-items-center"
+                         v-if="item && item.questions_description && item.questions_description">
                         {{item.questions_description.question}}
                     </div>
                     <div class="select_questions d-flex justify-content-between">
@@ -92,13 +115,23 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex justify-content-between" ref="back" style=" margin-top: 30px; margin-bottom: 254px" >
-                <router-link :to="back()"  class="button_to custom_button
-             d-flex justify-content-center align-items-center"
-                             v-disabled_button_back="{step:step, child: step_child}">Back</router-link>
-                <router-link :to="next()" class="button_to custom_button
-            d-flex justify-content-center align-items-center"
-                   v-disabled_button_next="{step:step, array: data_step, child: step_child}">Next</router-link>
+            <div class="d-flex justify-content-between"
+                 ref="back"
+                 style=" margin-top: 30px; margin-bottom: 254px" >
+                <router-link
+                        :to="back()"
+                        class="button_to custom_button
+                         d-flex justify-content-center align-items-center vstyle"
+                         v-disabled_button_back="{step:step, child: step_child}"
+                         v-if="testSection && testSection.Back"
+                         v-html="testSection.Back"></router-link>
+                <router-link
+                        :to="next()"
+                        class="button_to custom_button
+                        d-flex justify-content-center align-items-center vstyle"
+                         v-disabled_button_next="{step:step, array: data_step, child: step_child}"
+                         v-if="testSection && testSection.Next"
+                         v-html="testSection.Next"></router-link>
             </div>
         </div>
     </section>

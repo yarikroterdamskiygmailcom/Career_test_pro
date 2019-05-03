@@ -3,6 +3,7 @@ import settings_price from'../../components/panel/component_panel/settings/price
 import test_codes from'../../components/panel/component_panel/settings/test_codes.vue';
 import site from'../../components/panel/component_panel/settings/site.vue';
 import languages from'../../components/panel/component_panel/settings/languages.vue';
+import invoices from'../../components/panel/component_panel/settings/invoices.vue';
 // import panel_test from'../../components/panel/component_panel/test.vue';
 // import panel_report from'../../components/panel/component_panel/report.vue';
 // import panel_settings from'../../components/panel/component_panel/settings.vue';
@@ -29,5 +30,9 @@ export const settings_children = [
     {
         path: '/panel/settings/languages',
         component: languages
+    },
+    {
+        path: '/panel/settings/invoices',
+        component: invoices
     }
 ];

@@ -1,7 +1,7 @@
 export default {
     name: 'block-with-acordeon',
     components: {},
-    props: [],
+    props: ['title','description'],
     data() {
         return {}
     },

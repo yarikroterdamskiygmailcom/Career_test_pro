@@ -1,22 +1,30 @@
 <template>
     <div class="contact_us d-flex flex-column align-items-center">
-        <div class="title_block text-center text-capitalize">
-            Contact <span style="color:#F9892E">Us</span>
+        <div class="title_block text-center text-capitalize" v-html="contactUs.title">
+            <!--Contact <span style="color:#F9892E">Us</span>-->
         </div>
-        <div class="small_text text-center">
-            Have any questions? Feel free to contact us!
+        <div class="small_text text-center" v-html="contactUs.description">
+            <!--Have any questions? Feel free to contact us!-->
         </div>
-        <send_message_and_contacts_components></send_message_and_contacts_components>
+        <send_message_and_contacts_components
+                :contactUs="contactUs">
+        </send_message_and_contacts_components>
     </div>
 </template>
 
 <script>
     import send_message_and_contacts from './send_message_and_contacts/index.vue'
+    import {mapGetters} from "vuex";
 
     export default {
         name: "ContactUs",
         components: {
             'send_message_and_contacts_components': send_message_and_contacts
+        },
+        computed:{
+            ...mapGetters({
+                contactUs: 'multilanguage/getContactUsSection'
+            })
         }
     }
 </script>

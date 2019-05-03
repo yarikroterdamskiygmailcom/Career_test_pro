@@ -1,5 +1,7 @@
 import {mapGetters} from "vuex";
-
+import list_language from './../../../api/multilanguage_request';
+import stepPage from './../../../components/test_page/steps/steps';
+import {IndexLanguage} from "../../../store/localStorage";
 export default {
     data() {
         return {
@@ -35,7 +37,17 @@ export default {
     },
     methods:{
         language(item){
-            console.log(item);
+            IndexLanguage.destroyLang();
+            this.$store.dispatch('multilanguage/action_spinner', {
+                data:false,
+                name: 'active'
+            });
+            this.$store.dispatch('multilanguage/changeLang', {id:item.id, vue: stepPage});
+            this.$store.dispatch('multilanguage/action_spinner', {
+                data:{...item},
+                name: 'language_now'
+            });
+            IndexLanguage.saveLang(item);
         }
     },
     computed:
@@ -43,7 +55,8 @@ export default {
             language_now:    'multilanguage/get_language_now',
             menu_list:       'multilanguage/get_menu_list',
             language_array:  'multilanguage/get_language_array',
-            screen:          'modal_data/get_screen'
+            screen:          'modal_data/get_screen',
+            firstSection:    'multilanguage/getHomeFirstSection'
         }),
     watch:{
         menu:function(){

@@ -25,6 +25,9 @@
     },
     "dependencies": {
         "@tinymce/tinymce-vue": "^2.0.0",
+        "devextreme": "^18.2.8",
+        "devextreme-aspnet-data-nojquery": "^2.2.1",
+        "devextreme-vue": "^18.2.8",
         "vue-resource": "^1.5.1",
         "vue-router": "^3.0.2",
         "vue2-editor": "^2.6.6",

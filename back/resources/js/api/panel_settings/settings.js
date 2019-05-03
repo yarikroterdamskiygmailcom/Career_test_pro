@@ -14,7 +14,6 @@ export class Settings{
         return http.post('/api/add-language', data)
     }
     static add_Document(data, id){
-        debugger;
         http = window.Vue.http;
         return http.post(`/api/import-csv/${id}`, data)
     }
@@ -37,6 +36,10 @@ export class Settings{
     static crate_test_code(){
         http = window.Vue.http;
         return http.post(`/api/testcode-generate`, {})
+    }
+    static get_invoices(filter){
+        http = window.Vue.http;
+        return http.get(`/api/invoices?from_date=${filter.from_date}&to_date=${filter.to_date}`)
     }
     static get_site(language_id){
         http = window.Vue.http;

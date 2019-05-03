@@ -1,11 +1,13 @@
 <template>
     <div>
         <div v-if="!screen.active" class="final d-flex flex-column align-items-center">
-            <div class="title_block custom_title text-capitalize">
-                Check Your <span style="color:#F9892E">Email</span>
+            <div class="title_block custom_title text-capitalize vstyle"
+                 v-if="final && final.title"
+                 v-html="final.title">
             </div>
-            <div class="small_text custom_small_title">
-                We’ve sent a report on it
+            <div class="small_text custom_small_title vstyle"
+                 v-if="final && final.description"
+                 v-html="final.description">
             </div>
             <div class="check_block d-flex justify-content-between">
                 <div class="check_block_img position-relative">
@@ -13,36 +15,40 @@
                     <div class="check_image position-absolute"></div>
                 </div>
                 <div class="check_content d-flex align-items-center flex-column">
-                    <div class="title_block title_check text-center">
-                        Thanks for using our service!
+                    <div class="title_block title_check text-center vstyle"
+                         v-if="final && final.titleBlock"
+                         v-html="final.titleBlock">
                     </div>
-                    <div class="title_small">
-                        You will receive an email soon, regarding your payment.<br><br>
-
-                        If you have any questions - don’t hesitate to ask our team.
+                    <div class="title_small vstyle"
+                         v-if="final && final.descriptionBlock"
+                         v-html="final.descriptionBlock">
                     </div>
                     <div class="d-flex check_button
-                 justify-content-between flex-grow-1 align-items-end">
+                     justify-content-between flex-grow-1 align-items-end">
                         <router-link :to="'contact-us'" class="button_to d-flex justify-content-center
-                    align-items-center text-decoration-none
-                    custom_button orange_style">
-                            Contact Us
+                     align-items-center text-decoration-none
+                     custom_button orange_style vstyle clstyle"
+                         v-if="final && final.contactButton"
+                         v-html="final.contactButton">
                         </router-link>
                         <router-link :to="'tests'" class="button_to d-flex justify-content-center
-                    align-items-center text-decoration-none
-                    custom_button">
-                            Take the Test
+                     align-items-center text-decoration-none
+                     custom_button vstyle clstyle"
+                         v-if="final && final.takeButton"
+                         v-html="final.takeButton">
                         </router-link>
                     </div>
                 </div>
             </div>
         </div>
         <div v-if="screen.active" class="final d-flex flex-column align-items-center">
-            <div class="title_block custom_title text-capitalize">
-                Check Your <span style="color:#F9892E">Email</span>
+            <div class="title_block custom_title text-capitalize vstyle"
+                 v-if="final && final.title"
+                 v-html="final.title">
             </div>
-            <div class="small_text custom_small_title">
-                We’ve sent a report on it
+            <div class="small_text custom_small_title vstyle"
+                 v-if="final && final.description"
+                 v-html="final.description">
             </div>
             <div class="check_block d-flex justify-content-between">
                 <div class="check_block_img position-relative">
@@ -50,24 +56,26 @@
                     <div class="check_image position-absolute"></div>
                 </div>
                 <div class="check_content d-flex align-items-center flex-column">
-                    <div class="title_block title_check text-center">
-                        Thanks for using our service!
+                    <div class="title_block title_check text-center vstyle"
+                         v-if="final && final.titleBlock"
+                         v-html="final.titleBlock">
                     </div>
-                    <div class="title_small">
-                        You will receive an email soon, regarding your payment.<br><br>
-
-                        If you have any questions - don’t hesitate to ask our team.
+                    <div class="title_small vstyle"
+                         v-if="final && final.descriptionBlock"
+                         v-html="final.descriptionBlock">
                     </div>
                     <div class="d-flex check_button justify-content-between flex-grow-1 align-items-end">
                         <router-link :to="'contact-us'" class="button_to d-flex justify-content-center
                         align-items-center text-decoration-none
-                        custom_button orange_style">
-                            Contact Us
+                        custom_button orange_style vstyle clstyle"
+                             v-if="final && final.contactButton"
+                             v-html="final.contactButton">
                         </router-link>
                         <router-link :to="'tests'" class="button_to d-flex justify-content-center
                         align-items-center text-decoration-none
-                        custom_button">
-                            Take the Test
+                        custom_button vstyle clstyle"
+                             v-if="final && final.takeButton"
+                             v-html="final.takeButton">
                         </router-link>
                     </div>
                 </div>
@@ -87,7 +95,8 @@
         name: "FinalPage",
         computed: {
             ...mapGetters({
-                screen: 'modal_data/get_screen'
+                screen: 'modal_data/get_screen',
+                final: 'multilanguage/getFinalSection'
             })
         },
         created(){
