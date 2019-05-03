@@ -18,7 +18,8 @@ import Vuetify from 'vuetify'
 
 Vue.use(Vuetify)
 import 'vuetify/dist/vuetify.min.css'
-
+import 'devextreme/dist/css/dx.common.css';
+import 'devextreme/dist/css/dx.light.compact.css';
 
 import {request, response} from './api/iterseptors';
 Vue.http.interceptors.push(request);
