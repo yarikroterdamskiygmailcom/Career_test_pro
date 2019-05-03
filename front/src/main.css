@@ -67,7 +67,7 @@ body{
     border: none;
     padding: 0;
     overflow-y: auto;
-    height: 138px;
+    max-height: 138px;
     position: absolute;
 }
 .header_badge_language .btn-lang-border.dropdown > .dropdown-menu a:hover,

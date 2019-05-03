@@ -12,6 +12,7 @@
                          v-if="firstSection && firstSection.description"
                          v-html="firstSection.description">
                     </div>
+
                     <div class="d-flex justify-content-between">
                         <router-link :to="'tests'"
                              class="button_to d-flex justify-content-center
@@ -64,7 +65,9 @@
                            target="_blank"
                            href="http://backcartestpro.qbex.io/images/sample-report-career-test-pro.pdf"
                            v-if="firstSection && firstSection.reportButton"
-                           v-html="firstSection.reportButton">
+                           v-html="firstSection.reportButton.length > 19
+                         ? firstSection.reportButton.substring(0, 19)
+                         : firstSection.reportButton">
                         </a>
                     </div>
                 </div>

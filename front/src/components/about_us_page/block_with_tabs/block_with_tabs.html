@@ -9,7 +9,7 @@
             <div class="d-flex justify-content-between tabs_container">
                 <div class="item_tabs text_style"  v-for="(item, index) in list_tabs"
                      @click="open_tab(index, item)">
-                    <div class="d-inline color_about"
+                    <div class="d-inline color_about vstyle"
                          :ref="item.name + index" v-html="item.name"></div>
                 </div>
             </div>

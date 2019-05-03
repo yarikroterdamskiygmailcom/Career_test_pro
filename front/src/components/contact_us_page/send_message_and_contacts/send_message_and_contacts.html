@@ -2,7 +2,7 @@
 
     <div class="d-flex align-items-center flex-column position-relative">
         <div class="our_address_img contact_image_for_page position-absolute"></div>
-        <div class="title_block title text-capitalize"
+        <div class="title_block title text-capitalize vstyle"
              v-if="contactUs && contactUs.oneTitle"
              v-html="contactUs.oneTitle"></div>
         <div ref="copy"
@@ -12,7 +12,7 @@
         </div>
         <div class="d-flex flex-grow-1 align-items-end custom_button">
             <div class="button_to align-self-end  d-flex custom_button
-             align-items-center justify-content-center"
+             align-items-center justify-content-center vstyle"
                  @click="copy_text()"
                  v-if="contactUs && contactUs.copy"
                  v-html="contactUs.copy">
@@ -22,7 +22,7 @@
 
     <div class="d-flex align-items-center flex-column position-relative">
         <div class="our_email_img position-absolute contact_image_for_page"></div>
-        <div class="title_block title text-capitalize"
+        <div class="title_block title text-capitalize vstyle"
              v-if="contactUs && contactUs.twoTitle"
              v-html="contactUs.twoTitle">
         </div>

@@ -21,6 +21,7 @@ export default {
                     }
                 },
             ],
+            list_tabsStatic2: null,
             tab:{
                 active_tab: null,
                 width_tab: 98,
@@ -28,10 +29,6 @@ export default {
                 margin:0
             }
         }
-    },
-    mounted() {
-        this.tab.active_tab = this.list_tabs && this.list_tabs[0];
-        this.first_width(this.list_tabs && this.list_tabs[0] && this.list_tabs[0].name + 0)
     },
     methods: {
         open_tab(tab, new_data){
@@ -47,6 +44,7 @@ export default {
             this.tab.margin = tab == 0 || tab == this.list_tabs.length -1 ? 0 :
                 (block_text_width - text_width) / 2;
             this.tab.active_tab = new_data;
+            console.log(this.list_tabs);
         },
         first_width(name){
             this.tab.width_tab = this.$refs[name] ? this.$refs[name][0].offsetWidth : this.tab.width_tab
@@ -70,7 +68,12 @@ export default {
                 return item;
             }) : [];
             data = JSON.parse(JSON.stringify(data));
-            return data
+            if(!this.tab.active_tab){
+                this.list_tabsStatic2 = data;
+                this.tab.active_tab = data && data[0];
+                this.first_width(data && data[0] && data[0].name + 0)
+            }
+            return this.list_tabsStatic2 ? this.list_tabsStatic2 : data
         }
     },
     watch:{
