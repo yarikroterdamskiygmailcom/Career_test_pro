@@ -160,17 +160,28 @@
             },
             open_modal(item, EVENT){
                 this.EVENT = EVENT;
-                this.data_modal.title       = item && item.title ? item.title : '';
-                this.data_modal.body        = item && item.body  ? item.body  : '';
-                this.data_modal.language_id = this.language_id;
-                this.data_modal.tags        = item && item.tags
-                    ?
+                if( this.EVENT == 'update') {
+                    this.data_modal.title = item && item.title ? item.title : '';
+                    this.data_modal.body = item && item.body ? item.body : '';
+                    this.data_modal.language_id = this.language_id;
+                    this.data_modal.tags = item && item.tags
+                        ?
                         !Array.isArray(item.tags) ? item.tags.split(',').map(item => this.getNewTag(item)) : item.tags
-                    : [];
-                this.data_modal.image       = item && item.image ? item.image : '';
-                this.data_modal.id          = item && item.id    ? item.id    : '';
-                this.image                  = item && item.image && typeof item.image == 'string' ? item.image : '';
-                this.dialog                 = true;
+                        : [];
+                    this.data_modal.image = item && item.image ? item.image : '';
+                    this.data_modal.id = item && item.id ? item.id : '';
+                    this.image = item && item.image && typeof item.image == 'string' ? item.image : '';
+                    this.dialog = true;
+                    return
+                }
+                this.data_modal.title       =  '';
+                this.data_modal.body        =  '';
+                this.data_modal.language_id = this.language_id;
+                this.data_modal.tags        = [];
+                this.data_modal.image       = '';
+                this.data_modal.id          = '';
+                this.image                  = '';
+                this.dialog = true;
             },
             event(){
                 let data = this.data_modal;
