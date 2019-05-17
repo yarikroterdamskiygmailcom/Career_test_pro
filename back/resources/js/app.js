@@ -25,7 +25,8 @@ import {request, response} from './api/iterseptors';
 Vue.http.interceptors.push(request);
 Vue.http.interceptors.push(response);
 import router from './router/index.js'
-
+import UploadButton from 'vuetify-upload-button';
+Vue.use(UploadButton);
 
 /**
  * The following block of code may be used to automatically register your

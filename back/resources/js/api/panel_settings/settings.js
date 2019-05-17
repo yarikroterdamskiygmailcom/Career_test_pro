@@ -52,4 +52,20 @@ export class Settings{
             language_id:data.language_id
         })
     }
+    static get_posts(language_id){
+        http = window.Vue.http;
+        return http.get(`/api/posts?language_id=${language_id}`)
+    }
+    static create_posts(data){
+        http = window.Vue.http;
+        return http.post(`/api/posts`, data)
+    }
+    static update_posts(data, post_id){
+        http = window.Vue.http;
+        return http.put(`/api/posts/${post_id}`, data)
+    }
+    static delete_posts(post_id){
+        http = window.Vue.http;
+        return http.delete(`/api/posts/${post_id}`)
+    }
 }

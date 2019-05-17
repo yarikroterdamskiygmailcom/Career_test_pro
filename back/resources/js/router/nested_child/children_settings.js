@@ -4,9 +4,8 @@ import test_codes from'../../components/panel/component_panel/settings/test_code
 import site from'../../components/panel/component_panel/settings/site.vue';
 import languages from'../../components/panel/component_panel/settings/languages.vue';
 import invoices from'../../components/panel/component_panel/settings/invoices.vue';
-// import panel_test from'../../components/panel/component_panel/test.vue';
-// import panel_report from'../../components/panel/component_panel/report.vue';
-// import panel_settings from'../../components/panel/component_panel/settings.vue';
+import blog from'../../components/panel/component_panel/settings/blog.vue';
+
 
 
 export const settings_children = [
@@ -34,5 +33,9 @@ export const settings_children = [
     {
         path: '/panel/settings/invoices',
         component: invoices
+    },
+    {
+        path: '/panel/settings/blog',
+        component: blog
     }
 ];

@@ -30,6 +30,9 @@
                     }, {
                         name: 'Languages',
                         path: '/panel/settings/languages'
+                    }, {
+                        name: 'Blog',
+                        path: '/panel/settings/blog'
                     }
                 ]
             }

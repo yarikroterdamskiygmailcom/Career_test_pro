@@ -1,3 +1,4 @@
+@import "./../../../node_modules/vue-multiselect/dist/vue-multiselect.min.css";
 .headmenu {
     float: none;
     display: table;
@@ -53,3 +54,4 @@
     background: #000;
     color: #fff;
 }
+
