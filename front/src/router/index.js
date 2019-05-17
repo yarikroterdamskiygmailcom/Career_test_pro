@@ -5,6 +5,8 @@ import faq_page from'../components/faq_page/FaqPage.vue';
 import confirm_page from'../components/process_confirm_page/ProcessConfirmPage.vue';
 import final_page from'../components/final_page/FinalPage.vue';
 import tests_page from'../components/test_page/TestPage.vue';
+import blog_page_home from'../components/blog_page/home/blog_page_home.vue';
+import blog_page_datail from'../components/blog_page/detail/blog_page_datail.vue';
 import Vue from 'vue'
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
@@ -22,6 +24,8 @@ export default new VueRouter({
         { path: '/tests/:steps/:child_step',   component: tests_page },
         { path: '/tests/:steps/',              component: tests_page },
         { path: '/final',                      component: final_page },
+        { path: '/blog',                       component: blog_page_home },
+        { path: '/blog/:detail',               component: blog_page_datail },
     ],
     mode:'history'
 });

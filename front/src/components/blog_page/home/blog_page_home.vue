@@ -1,4 +1,4 @@
-<template src="./blog_page.html"></template>
-<script src="./blog_page.js"></script>
-<style src="./blog_page.scss" scoped lang="scss"></style>
+<template src="./blog_page_home.html"></template>
+<script src="./blog_page_home.js"></script>
+<style src="./blog_page_home.scss" scoped lang="scss"></style>
 
