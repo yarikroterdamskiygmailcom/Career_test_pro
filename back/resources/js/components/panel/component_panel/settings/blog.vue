@@ -76,6 +76,9 @@
                     <img v-if="image"
                          style="max-width: 100%"
                          :src="image">
+                    <v-btn color="primary" flat @click="image = ''">
+                        Clear image
+                    </v-btn>
                 </v-card-text>
                 <v-divider></v-divider>
                 <v-card-actions>
@@ -157,7 +160,6 @@
             },
             open_modal(item, EVENT){
                 this.EVENT = EVENT;
-                console.log(item);
                 this.data_modal.title       = item && item.title ? item.title : '';
                 this.data_modal.body        = item && item.body  ? item.body  : '';
                 this.data_modal.language_id = this.language_id;
@@ -179,6 +181,13 @@
                 Settings.update_posts(this.data_modal, this.data_modal.id)
                     .then(res => {
                         this.get_blocks(this.language_id);
+                        this.data_modal.title       =  '';
+                        this.data_modal.body        =  '';
+                        this.data_modal.language_id = this.language_id;
+                        this.data_modal.tags        = [];
+                        this.data_modal.image       = '';
+                        this.data_modal.id          = '';
+                        this.image                  = '';
                         this.dialog = false;
                     })
             },
@@ -186,6 +195,13 @@
                 Settings.create_posts(this.data_modal)
                     .then(res => {
                         this.get_blocks(this.language_id);
+                        this.data_modal.title       =  '';
+                        this.data_modal.body        =  '';
+                        this.data_modal.language_id = this.language_id;
+                        this.data_modal.tags        = [];
+                        this.data_modal.image       = '';
+                        this.data_modal.id          = '';
+                        this.image                  = '';
                         this.dialog = false;
                     })
             },
@@ -193,6 +209,13 @@
                 Settings.delete_posts(id)
                     .then(res => {
                         this.get_blocks(this.language_id);
+                        this.data_modal.title       =  '';
+                        this.data_modal.body        =  '';
+                        this.data_modal.language_id = this.language_id;
+                        this.data_modal.tags        = [];
+                        this.data_modal.image       = '';
+                        this.data_modal.id          = '';
+                        this.image                  = '';
                         this.dialog = false;
                     })
             },
