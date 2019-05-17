@@ -63,10 +63,11 @@ class TestcodesController extends BaseController
         $newCustomer['price'] = $this->price->value;
         $newCustomer['payment_system'] = 'voucher';
         $newCustomer['secret_link'] = $secretLink;
-        $customer = json_decode(base64_decode($resultData), true);
-        Testcode::where('value', $code)->update(['used' => 1, 'customer' => $customer['email']]);
+        $customerData = json_decode(base64_decode($resultData), true);
+        Testcode::where('value', $code)->update(['used' => 1, 'customer' => $customerData['email']]);
+
         $customer = Customer::create($newCustomer);
-        return redirect()->route('send-pdf', array('customer_id' => $customer->id, 'result_token' => $secretLink));
+        return redirect()->route('send-pdf', array('customer_id' => $customer->id, 'result_token' => $secretLink, 'customer_email' => $customerData['email']));
 
     }
 }

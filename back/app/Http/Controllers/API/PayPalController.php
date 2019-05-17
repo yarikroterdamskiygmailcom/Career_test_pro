@@ -167,9 +167,11 @@ class PayPalController extends Controller
             $newCustomer['price'] = $this->price->value;
             $newCustomer['payment_system'] = 'paypal';
             $newCustomer['secret_link'] = $secretLink;
+            $customerData = json_decode(base64_decode($resultData), true);
+
 
             $customer = Customer::create($newCustomer);
-            return redirect()->route('send-pdf', array('customer_id' => $customer->id, 'result_token' => $secretLink));
+            return redirect()->route('send-pdf', array('customer_id' => $customer->id, 'result_token' => $secretLink, 'customer_email' => $customerData['email']));
         }
         \Session::put('error','Payment failed');
         return Redirect::route('addmoney.paywithpaypal');

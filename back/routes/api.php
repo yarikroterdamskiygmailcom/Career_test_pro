@@ -41,7 +41,10 @@ Route::group([
     Route::post('post/{id}', 'PdfController@pdfCr')->middleware('resultkey');
     Route::get('pdf/{id}', 'PdfController@pdf')->middleware('resultkey');
     Route::get('diagrams/{id_unicum}', 'PdfController@diagrams')->middleware('resultkey');
-
+    Route::get('posts-categories', 'PostsCategoriesController@index');
+    Route::get('posts', 'PostsController@index');
+    Route::get('posts/{id}', 'PostsController@getPost');
+    Route::post('posts-filter', 'PostsController@searching');
 });
 
 
@@ -76,6 +79,14 @@ Route::group([
     Route::get('export-csv/{id}', 'LanguagesController@exportCSV');
     Route::post('import-csv/{id}', 'LanguagesController@importCSV');
     Route::get('invoices', 'InvoicesController@getInvoices');
+    Route::post('posts', 'PostsController@store');
+    Route::put('posts/{id}', 'PostsController@update');
+    Route::delete('posts/{id}', 'PostsController@destroy');
+
+
+    //Route::put('posts-categories/{id}', 'PostsCategoriesController@update');
+    //Route::post('posts-categories', 'LanguagesController@store');
+   // Route::delete('posts-categories/{id}', 'PostsCategoriesController@destroy');
 
     Route::resources([
         'settings' => 'SettingsController',
