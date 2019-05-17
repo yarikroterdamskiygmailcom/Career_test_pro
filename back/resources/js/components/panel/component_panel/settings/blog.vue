@@ -16,7 +16,7 @@
             </v-flex>
         </div>
         <v-btn color="blue" flat @click="open_modal(data_modal, 'save')">
-            Create language
+            Create Post
         </v-btn>
         <v-list two-line v-for="(item, index) in blocks" :key="item + index">
             <template >
