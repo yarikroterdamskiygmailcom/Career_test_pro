@@ -1,0 +1,81 @@
+<div>
+    <div  class="blog-page d-flex flex-column align-items-center">
+        <!--v-if="!screen.active"-->
+        <div class="title_block custom_title text-capitalize vstyle">
+            <!--             v-if="final && final.title"
+             v-html="final.title"-->
+            Blog Page
+        </div>
+        <div class="small_text custom_small_title vstyle">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            <!--v-if="final && final.description"
+             v-html="final.description"-->
+        </div>
+        <div class="check_block_img position-relative">
+            <div class="check_image"></div>
+        </div>
+        <div class="fresh_post d-flex" v-if="posts && posts.data && posts.data[0]">
+            <div class="fresh_content">
+                <div class="post-title"
+                     v-if="posts.data[0].title"
+                     v-html="posts.data[0].title">
+                </div>
+                <div class="post-description"
+                     v-if="posts.data[0].created_at"
+                     >{{posts.data[0].created_at |dateParse('DD.MM.YYYY') | dateFormat('YYYY.MM.DD')}}</div>
+                <div class="post-content vstyle pstyle"
+                     v-if="posts.data[0].body"
+                     v-html="posts.data[0].body.substring(0,220) + '...'">
+                </div>
+                <div class="learn_more">Learn More</div>
+            </div>
+            <div class="fresh_img" v-if="posts.data[0].image">
+                <img :src="posts.data[0].image">
+            </div>
+        </div>
+        <div class="search" v-if="posts && posts.data.length > 1">
+            <input type="search" placeholder="What are you locking for">
+        </div>
+        <div class="search story" v-if="posts && posts.data.length > 1">
+            All Srories
+        </div>
+        <div class="containerPost">
+            <div v-if="posts && posts.data.length > 1" class="fresh_post all_post d-flex" v-for="one in posts.data">
+                <div class="fresh_content-all">
+                    <div class="post-title post-title-all"
+                         v-if="one.title"
+                         v-html="one.title">
+                    </div>
+                    <div class="post-description post-description-all"
+                         v-if="one.created_at">
+                        {{one.created_at |dateParse('DD.MM.YYYY') | dateFormat('YYYY.MM.DD')}}
+                    </div>
+                    <div class="post-content post-content-all pstyle"
+                         v-if="one.body"
+                         v-html="one.body.substring(0,120) + '...'">
+                    </div>
+                    <div class="learn_more">Learn More</div>
+                </div>
+                <div class="fresh_img" v-if="one.image">
+                    <img :src="one.image">
+                </div>
+            </div>
+        </div>
+        <div class="button_to d-flex justify-content-center
+            align-items-center text-decoration-none
+            custom_button vstyle clstyle orange_style"
+             v-if="posts && posts.data.length > 1 && posts.current_page < posts.last_page"
+            @click="downloadPosts()">
+            Load more Stories
+        </div>
+        <div class="fb-share-button"
+             data-href="https://js.devexpress.com/Demos/WidgetsGallery/Demo/TreeList/Paging/Angular/Light/"
+             data-layout="button_count" data-size="small">
+            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+               class="fb-xfbml-parse-ignore">
+                Поделиться
+            </a>
+        </div>
+    </div>
+</div>
+
