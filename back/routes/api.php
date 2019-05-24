@@ -38,7 +38,7 @@ Route::group([
     Route::get('site-blocks', 'SiteController@siteBlocks');
 
 
-    Route::post('post/{id}', 'PdfController@pdfCr')->middleware('resultkey');
+    Route::post('post/{id}', 'PdfController@pdfCr');
     Route::get('pdf/{id}', 'PdfController@pdf')->middleware('resultkey');
     Route::get('diagrams/{id_unicum}', 'PdfController@diagrams')->middleware('resultkey');
     Route::get('posts-categories', 'PostsCategoriesController@index');

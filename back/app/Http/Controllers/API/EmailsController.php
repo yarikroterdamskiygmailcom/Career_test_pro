@@ -19,7 +19,7 @@ class EmailsController extends BaseController
 
     public function __construct()
     {
-        $this->receiver = 'dmglad7@gmail.com';
+        $this->receiver = 'yarik.roterdamskiy@gmail.com';
         $this->when = now()->addSeconds(1);
     }
 
