@@ -16,7 +16,9 @@ if (process.browser) {
         let count = 0;
         for (let i = 0; i < data.questions.length; i + 30) {
             let string_array = data.questions.splice(i, 30);
-            for(let j = 0; j < 3; j++)QuestionStore.saveStep(string_array.splice(0, 10), `${count + 1}-${j+1}`);
+            for(let j = 0; j < 3; j++) {
+                !QuestionStore.getStep(`${count + 1}-${j+1}`) && QuestionStore.saveStep(string_array.splice(0, 10), `${count + 1}-${j+1}`);
+            }
             count++;
         }
     }
@@ -64,8 +66,7 @@ export default {
             questions:'questions/get_questions'
         }),
         disabled_but(){
-            debugger;
-          return this.data_step ? counter.count_disanled_step(this.data_step) : true
+             return this.data_step ? counter.count_disanled_step(this.data_step) : true
         },
         child_disabled_menu(){
              return !this.arr.every(item => typeof item == 'number');
@@ -116,6 +117,7 @@ export default {
             for (let i = 0; i < data.length; i + 30) {
                 let string_array = data.splice(i, 30);
                 for(let j = 0; j < 3; j++){
+                    !QuestionStore.getStep(`${count + 1}-${j+1}`) &&
                     QuestionStore.saveStep(string_array.splice(0, 10), `${count + 1}-${j+1}`);
                 }
                 count++;

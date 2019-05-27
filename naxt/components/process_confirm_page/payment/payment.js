@@ -51,7 +51,7 @@ export default {
         }
     },
 
-    created(){
+    mounted(){
         this.result = counter.count_result(this);
         this.$store.dispatch('multilanguage/action_spinner', {
             data:true,
