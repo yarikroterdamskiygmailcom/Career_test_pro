@@ -5,6 +5,7 @@
     <title>Chart.js Rounded Bar Charts Demo</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400, 500,600,800">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
@@ -14,28 +15,36 @@
 
 <body style="margin: 0px">
 
-<div style="width: 100%; height: 100vh; font-family: 'Montserrat', sans-serif; ">
+<div style="font-family: 'Montserrat', sans-serif; ">
     <style>
         #down {
             text-decoration: none;
             outline: none;
             display: inline-block;
             position: relative;
-            line-height: 88px;
+            line-height: 44px;
             color: #333;
             background-color: #fff;
             text-align: center;
-            height: 88px;
+            height: 44px;
             width: 124%;
             left: -12%;
             top: 36%;
             border: 2px solid #F9892E;
-            border-radius: 44px;
+            border-radius: 22px;
             font-family: 'Montserrat', sans-serif;
             letter-spacing: 2px;
-            font-size: 28px;
+            font-size: 14px;
             font-weight: 600;
-            transition: .5s;
+            transition: .1s;
+        }
+
+        #down:hover {
+            background-color: #FFF0DB;
+        }
+
+        #down:active {
+            background-color: #FFE3CC;
         }
 
         .main {
@@ -113,27 +122,11 @@
             left: 50%;
             transform: translate(-50%, 0px);
         }
-
-        @media (min-width: 768px) {
-            #down {
-                line-height: 44px;
-                height: 44px;
-                border-radius: 22px;
-                letter-spacing: 1px;
-                font-size: 14px;
-            }
-        }
-
-
     </style>
 
     <div class="spin" id="button_spin" style="width: 100%; height: 100%; background: white; position: absolute"></div>
 
-    {{--        <div onclick="" data="http://backcartestpro.qbex.io/api/pdf/22">--}}
-    {{--            wefewfwef--}}
-    {{--        </div>--}}
-
-    <div style="width: 100%; height: 100vh; background: #e5e5e5; position: relative; display: flex; justify-content: center; align-items: center">
+    <div style=" background: #F4F8FF; position: fixed; z-index: 10; display: flex; justify-content: center; align-items: center; width: 100vw; height: 100vh;">
         <div class="main" >
 
             <div class="header">
@@ -183,6 +176,7 @@
      data-four-unicum="{{$four}}"
      data-five-unicum="{{$five}}"
      data-six-unicum="{{$six}}"
+     style="overflow:hidden;"
 >
     <div class="container" style="width: 800px">
         <div class="spin" style="width: 100vw; height: 100vh; background: white; position: absolute"></div>
@@ -405,6 +399,7 @@
 
         var size = [document.documentElement.clientWidth,document.documentElement.clientHeight];
         window.onresize = function(){
+            console.log(document.documentElement.clientWidth/size[0])
             main.style.zoom=document.documentElement.clientWidth/size[0];
         }
 
