@@ -24,6 +24,7 @@
             </div>
         </div>
     </header>
+
     <div>
         <h2 style="font-size: 12px; text-align: center">{!! $reportIds[18] !!}</h2>
 
