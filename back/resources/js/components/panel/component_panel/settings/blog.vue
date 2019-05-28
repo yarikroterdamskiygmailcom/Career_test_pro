@@ -58,6 +58,42 @@
                          @input="getDataEditor($event)"></vue-editor>
                     <br>
                     <multiselect
+                        v-model="data_modal.meta_title"
+                        label="name"
+                        trackBy="code"
+                        tag-placeholder="Add this as new meta_title"
+                        placeholder="Add this as new meta_title"
+                        :options="[]"
+                        :multiple="true"
+                        :taggable="true"
+                        @tag="addTag($event, 'meta_title')">
+                    </multiselect>
+                    <br>
+                    <multiselect
+                        v-model="data_modal.meta_description"
+                        label="name"
+                        trackBy="code"
+                        tag-placeholder="Add this as new meta_description"
+                        placeholder="Add this as new meta_description"
+                        :options="[]"
+                        :multiple="true"
+                        :taggable="true"
+                        @tag="addTag($event, 'meta_description')">
+                    </multiselect>
+                    <br>
+                    <multiselect
+                        v-model="data_modal.meta_keywords"
+                        label="name"
+                        trackBy="code"
+                        tag-placeholder="Add this as new meta_keywords"
+                        placeholder="Add this as new meta_keywords"
+                        :options="[]"
+                        :multiple="true"
+                        :taggable="true"
+                        @tag="addTag($event, 'meta_keywords')">
+                    </multiselect>
+                    <br>
+                    <multiselect
                         v-model="data_modal.tags"
                         label="name"
                         trackBy="code"
@@ -97,7 +133,7 @@
     import {Settings} from "../../../../api/panel_settings/settings";
     import Multiselect from 'vue-multiselect'
     import UploadButton from 'vuetify-upload-button';
-
+    const action = ['tags', 'meta_title','meta_description', 'meta_keywords'];
     export default {
         name: "blog",
         components: {
@@ -122,9 +158,9 @@
                     body:'',
                     id:'',
                     language_id:'',
-                    // meta_title:[],
-                    // meta_description:[],
-                    // meta_keywords: [],
+                    meta_title:[],
+                    meta_description:[],
+                    meta_keywords: [],
                     tags:[],
                     image:{
                         name:''
@@ -160,75 +196,45 @@
             },
             open_modal(item, EVENT){
                 this.EVENT = EVENT;
+                const data = this.data_modal;
                 if( this.EVENT == 'update') {
                     this.data_modal.title = item && item.title ? item.title : '';
                     this.data_modal.body = item && item.body ? item.body : '';
                     this.data_modal.language_id = this.language_id;
-                    this.data_modal.tags = item && item.tags
-                        ?
-                        !Array.isArray(item.tags) ? item.tags.split(',').map(item => this.getNewTag(item)) : item.tags
-                        : [];
+                    action.forEach(type => data[type]
+                        && Array.isArray(data[type])
+                        ? data[type] = item[type].split(',').map(word => this.getNewTag(word)) : null);
                     this.data_modal.image = item && item.image ? item.image : '';
                     this.data_modal.id = item && item.id ? item.id : '';
                     this.image = item && item.image && typeof item.image == 'string' ? item.image : '';
                     this.dialog = true;
                     return
                 }
-                this.data_modal.title       =  '';
-                this.data_modal.body        =  '';
-                this.data_modal.language_id = this.language_id;
-                this.data_modal.tags        = [];
-                this.data_modal.image       = '';
-                this.data_modal.id          = '';
-                this.image                  = '';
+                // this.afterRequest()
                 this.dialog = true;
             },
             event(){
                 let data = this.data_modal;
-                ['tags'].forEach(item => data[item] ? data[item] = data[item].map(tag => tag.name).join(',') : null);
+                action.forEach(item => data[item] ? data[item] = data[item].map(tag => tag.name).join(',') : null);
                 this.EVENT === 'update' ? this.update() : this.create_post();
             },
             update(){
-                Settings.update_posts(this.data_modal, this.data_modal.id)
-                    .then(res => {
-                        this.get_blocks(this.language_id);
-                        this.data_modal.title       =  '';
-                        this.data_modal.body        =  '';
-                        this.data_modal.language_id = this.language_id;
-                        this.data_modal.tags        = [];
-                        this.data_modal.image       = '';
-                        this.data_modal.id          = '';
-                        this.image                  = '';
-                        this.dialog = false;
-                    })
+                Settings.update_posts(this.data_modal, this.data_modal.id).then(() => this.afterRequest())
             },
             create_post(){
-                Settings.create_posts(this.data_modal)
-                    .then(res => {
-                        this.get_blocks(this.language_id);
-                        this.data_modal.title       =  '';
-                        this.data_modal.body        =  '';
-                        this.data_modal.language_id = this.language_id;
-                        this.data_modal.tags        = [];
-                        this.data_modal.image       = '';
-                        this.data_modal.id          = '';
-                        this.image                  = '';
-                        this.dialog = false;
-                    })
+                Settings.create_posts(this.data_modal).then(() => this.afterRequest())
             },
             delete_post(id){
-                Settings.delete_posts(id)
-                    .then(res => {
-                        this.get_blocks(this.language_id);
-                        this.data_modal.title       =  '';
-                        this.data_modal.body        =  '';
-                        this.data_modal.language_id = this.language_id;
-                        this.data_modal.tags        = [];
-                        this.data_modal.image       = '';
-                        this.data_modal.id          = '';
-                        this.image                  = '';
-                        this.dialog = false;
-                    })
+                Settings.delete_posts(id).then(() => this.afterRequest())
+            },
+            afterRequest(){
+                this.get_blocks(this.language_id);
+                const data = this.data_modal;
+                ['title', 'body', 'image', 'id'].forEach(item => data[item] ? data[item] ='' : null);
+                this.data_modal.language_id = this.language_id;
+                this.image                  = '';
+                action.forEach(item => data[item] ? data[item] = [] : null);
+                this.dialog = false;
             },
             getDataEditor(data){
                 this.data_modal.body = data
@@ -244,15 +250,12 @@
                 }
             },
             updateFile (file) {
-                // this.data_modal.image = `data:image/jpeg;base64${window.btoa(file)}`;
-                // this.image = `data:image/jpeg;${window.btoa(file)}`;
                 let reader = new FileReader();
                 reader.onload =  (e) => {
                     this.data_modal.image = e.target.result;
                     this.image = e.target.result;
                 };
                 reader.readAsDataURL(file);
-
             }
         },
     }
