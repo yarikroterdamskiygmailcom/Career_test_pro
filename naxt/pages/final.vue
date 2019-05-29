@@ -90,22 +90,28 @@
 
 <script>
     import {mapGetters} from "vuex";
+    import {Tag} from "../helper/helpTegs";
 
     export default {
-        async fetch({redirect, store}) {
+        async fetch({redirect, store, route}) {
             const data = await store.dispatch('multilanguage/ssrRender');
-            store.dispatch('questions/action_questions', data);
+            await store.dispatch('questions/action_questions', data);
+            const meta = await store.dispatch('meta/action_tegs', {
+                store:store.getters['multilanguage/get_language_now'],
+                page:route.fullPath ? route.fullPath.split('/')[1] : ''
+            })
         },
         head () {
             return {
-                meta:[{content: this.final.description}]
+                meta: Tag.getArrayTags(this.meta),
             }
         },
         name: "FinalPage",
         computed: {
             ...mapGetters({
                 screen: 'modal_data/get_screen',
-                final: 'multilanguage/getFinalSection'
+                final: 'multilanguage/getFinalSection',
+                meta: 'meta/get_meta'
             })
         },
         created(){

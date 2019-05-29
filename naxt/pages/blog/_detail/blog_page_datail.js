@@ -1,19 +1,21 @@
 import {Pasts} from "../../../api/posts";
 import {mapGetters} from "vuex";
+import {Tag} from "../../../helper/helpTegs";
 export default {
     name: 'blog-page',
     components: {},
-    async fetch({redirect, store, params,route}) {
+    async fetch({redirect, store, params,route,commit}) {
         const data = await store.dispatch('multilanguage/ssrRender', 'blog');
         store.dispatch('questions/action_questions', data);
-        return Pasts.get_one_post(params.detail)
+        await Pasts.get_one_post(params.detail)
             .then(res => {
-                res.data.url = `http://localhost:3001/${route.fullPath}`
+                res.data.url = `http://localhost:3001/${route.fullPath}`;
                 if(Object.keys(res.data).length == 0) {
                     redirect('/blog');
                     return
                 }
-                store.dispatch('blog_data/postOne', res.data)
+                store.dispatch('blog_data/postOne', res.data);
+                store.commit('meta/mutation_meta', res.data);
             })
             .catch(err => {
                 redirect('/blog')
@@ -27,11 +29,14 @@ export default {
         ...mapGetters({
             postOne: 'blog_data/get_post',
             sotial_networks: 'multilanguage/get_sotial_networks',
-            screen: 'modal_data/get_screen'
+            screen: 'modal_data/get_screen',
+            meta: 'meta/get_meta'
         })
     },
-    mounted() {
-
+    head () {
+        return {
+            meta: Tag.getArrayTags(this.meta),
+        }
     },
     methods: {
         getHref(type, data){

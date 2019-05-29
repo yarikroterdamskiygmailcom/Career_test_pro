@@ -11,5 +11,9 @@ export default  {
          return axios.get(`/api/site-blocks?language_id=${language_id}`)
              // .then(res => commit('setVariable', res.data))
              // .catch(err => err)
+    },
+    get_meta(language_id) {
+        return axios.get(`/api/metatags?language_id=${language_id}`)
+
     }
 }

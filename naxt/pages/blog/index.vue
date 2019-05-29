@@ -191,6 +191,7 @@
     import VueFilterDateFormat from 'vue-filter-date-format';
     import VueFilterDateParse from 'vue-filter-date-parse';
     import axios from "axios";
+    import {Tag} from "../../helper/helpTegs";
 
     Vue.use(VueFilterDateParse)
     Vue.use(Vue2Filters)
@@ -206,13 +207,22 @@
     });
 
     export default {
-        async fetch({redirect, store}) {
+        async fetch({redirect, store, route}) {
             const data = await store.dispatch('multilanguage/ssrRender', 'blog');
             store.dispatch('questions/action_questions', data);
+            const meta = await store.dispatch('meta/action_tegs', {
+                store:store.getters['multilanguage/get_language_now'],
+                page:route.fullPath ? route.fullPath.split('/')[1] : ''
+            });
             return Pasts.get_posts({language:store.state.multilanguage.language_now.id})
                 .then(res => {
                     store.dispatch('blog_data/action_posts',res.data.data)
                 })
+        },
+        head () {
+            return {
+                meta: Tag.getArrayTags(this.meta),
+            }
         },
         mixins: [Vue2Filters.mixin],
         name: 'blog-page',
@@ -225,6 +235,7 @@
             ...mapGetters({
                 posts: 'blog_data/get_posts',
                 screen: 'modal_data/get_screen',
+                meta: 'meta/get_meta'
             }),
             getScreenData() {
                 switch (this.screen.value) {
