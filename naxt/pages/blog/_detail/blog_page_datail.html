@@ -1,0 +1,42 @@
+<div>
+    <div class="blog-page d-flex justify-center" style="word-break: break-all; justify-content: center">
+
+        <div class="main d-flex flex-column align-items-center">
+            <div class="title_block custom_title text-capitalize vstyle">{{postOne.title}}</div>
+            <div class="container position-relative">
+                <div class="container_sotial_networks" v-if="screen.value > 1180">
+                    <a class="sotial_networks fb-xfbml-parse-ignore"
+                       target="_blank"
+                       v-for="sotial in sotial_networks"
+                       :style="{backgroundImage: `url(${sotial.path})`}"
+                       :href="getHref(sotial.name)"
+                       :data-href="sotial.name === 'facebook'
+                       ? 'https://developers.facebook.com/docs/plugins/' : ''">
+                    </a>
+                </div>
+                <img :src="postOne.image" width="960" height="640"/>
+            </div>
+            <div class="post-description"
+                 v-if="postOne.created_at">
+                {{postOne.created_at | dataMoment}}
+            </div>
+            <div class="align-self-start position-relative">
+                <div class="container_sotial_networks flex-row position-relative"
+                     style="right: auto; left: 0"
+                     v-if="screen.value <= 1180">
+                    <a class="sotial_networks fb-xfbml-parse-ignore"
+                       target="_blank"
+                       style=" margin-right: 24px"
+                       v-for="sotial in sotial_networks"
+                       :style="{backgroundImage: `url(${sotial.path})`}"
+                       :href="getHref(sotial.name)"
+                       :data-href="sotial.name === 'facebook'
+                       ? 'https://developers.facebook.com/docs/plugins/' : ''">
+                    </a>
+                </div>
+            </div>
+            <p class="content pstyle" v-html="postOne.body"></p>
+        </div>
+    </div>
+</div>
+

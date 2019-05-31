@@ -33,6 +33,9 @@
                     }, {
                         name: 'Blog',
                         path: '/panel/settings/blog'
+                    }, {
+                        name: 'Meta',
+                        path: '/panel/settings/meta'
                     }
                 ]
             }

@@ -68,4 +68,21 @@ export class Settings{
         http = window.Vue.http;
         return http.delete(`/api/posts/${post_id}`)
     }
+
+    static get_meta_tags(language_id){
+        http = window.Vue.http;
+        return http.get(`/api/metatags?language_id=${language_id}`)
+    }
+    static create_meta_tag(data){
+        http = window.Vue.http;
+        return http.post(`/api/metatags`, data)
+    }
+    static update_meta_tag(data, id){
+        http = window.Vue.http;
+        return http.put(`/api/metatags/${id}`, data)
+    }
+    static delete_meta_tag(id){
+        http = window.Vue.http;
+        return http.delete(`/api/metatags/${id}`)
+    }
 }

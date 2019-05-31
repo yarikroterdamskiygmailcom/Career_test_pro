@@ -1,0 +1,82 @@
+.blog-page {
+    width:100%
+}
+.main{
+    width: 920px
+}
+div.container {
+    width: 100%;
+    padding: 0;
+    //max-width: 960px;
+    //margin: 0 auto; /* центрируем основной контейнер */
+}
+img {
+    width: 100%; /* ширина картинки */
+    height: auto; /* высота картинки */
+}
+
+.custom_title{
+    margin-top: 88px;
+    margin-bottom: 42px;
+}
+
+.post-description {
+    font-size: 14px;
+    line-height: 80%;
+    font-variant: small-caps;
+    color: #8B8B8B;
+    word-break: break-all;
+    margin-bottom: 52px;
+    margin-top: 10px;
+    align-self: flex-start;
+}
+
+.content {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+}
+.container_sotial_networks{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: space-around;
+    //margin-top: 24px;
+    right: -80px;
+    top: 0;
+}
+.sotial_networks, .payments{
+    width: 24px;
+    height: 24px;
+    margin-bottom: 20px;
+    background-position: center;
+    background-size: contain;
+}
+@media screen and (max-width: 1180px){
+    .main{
+        width: 100%;
+        margin: 0 38px;
+    }
+    .post-description{
+        margin-bottom: 15px;
+    }
+}
+@media screen and (max-width: 500px){
+    .main{
+        width: 100%;
+        margin: 0 15px;
+    }
+    .post-description{
+        margin-bottom: 15px;
+    }
+    .custom_title{
+        font-size: 14px;
+    }
+    .content{
+        font-size: 12px;
+    }
+    .custom_title{
+        margin: 10px 0;
+    }
+}
+
