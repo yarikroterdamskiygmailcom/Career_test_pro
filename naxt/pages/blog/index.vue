@@ -183,6 +183,7 @@
     import VueFilterDateParse from 'vue-filter-date-parse';
     import axios from "axios";
     import {Tag} from "../../helper/helpTegs";
+    import {nuxtServerInit} from "../../store/helpers/initServer";
 
     Vue.use(VueFilterDateParse)
     Vue.use(Vue2Filters)
@@ -198,14 +199,20 @@
     });
 
     export default {
-        async fetch({redirect, store, route}) {
-            const data = await store.dispatch('multilanguage/ssrRender', store.getters['localStorage/language_now']);
+        async fetch({redirect, store, route,commit,req}) {
+            const lang = nuxtServerInit(store,req);
+            if(!lang) return;
+            const data = await store.dispatch('multilanguage/ssrRender', lang);
             store.dispatch('questions/action_questions', data);
-            const meta = await store.dispatch('meta/action_tegs', {
-                store:store.getters['localStorage/language_now'],
+            const res =  await store.dispatch('meta/action_tegs', {
+                store:lang,
                 page:route.fullPath ? route.fullPath.split('/')[1] : ''
             });
-            return Pasts.get_posts({language:store.getters['localStorage/language_now'].id})
+            if(res) store.commit('multilanguage/change_state', {
+                data: true,
+                name: 'active'
+            });
+            return Pasts.get_posts({language:lang.id})
                 .then(res => {
                     store.dispatch('blog_data/action_posts',res.data.data)
                 })
