@@ -1,4 +1,4 @@
-import {QuestionStore} from "../../../store/localStorage";
+import {QuestionStore} from "../../../store/storage";
 import config from "../../../config";
 import counter from "../counter";
 import { mapGetters } from "vuex";
@@ -73,42 +73,6 @@ export default {
         },
     },
     created() {
-        // try{
-        //     const data = this.$store.getters.questions.get_questions().questions;
-        //     let count = 0;
-        //     for (let i = 0; i < data.questions.length; i + 30) {
-        //         let string_array = data.questions.splice(i, 30);
-        //         for(let j = 0; j < 3; j++)QuestionStore.saveStep(string_array.splice(0, 10), `${count + 1}-${j+1}`);
-        //         count++;
-        //     }
-        //     this.process = counter.count_process('state');
-        //     this.step = this.$route.params.steps;
-        //     this.step_child = this.$route.params.child_step;
-        //     this.data_step = QuestionStore.getStep(`${this.step}-${this.step_child}`);
-        //     (this.step < this.first_step) || (this.step > this.last_step) || !this.step_child
-        //         ? this.$router.push( `/tests/1/1`) : null;
-        //     this.toggle_modal();
-        //     this.count_arr_for_disabled();
-        //     this.$router.beforeEach((to, from, next) => {
-        //         this.count_arr_for_disabled();
-        //         let to_back = false;
-        //         if(to.path.split('/')[1] != 'tests' || to.path.split('/').length < 3) return next();
-        //         if(Number(to.params.steps) == this.step && Number(to.params.child_step) < this.step_child) {
-        //             to_back =  !to_back
-        //         } else if(Number(to.params.steps) < this.step && Number(to.params.child_step) >= this.step_child){
-        //             to_back =  !to_back
-        //         }else if(Number(to.params.steps) <= this.step && Number(to.params.child_step) < this.step_child){
-        //             to_back =  !to_back
-        //         }
-        //         if(to_back) {
-        //             next();
-        //             return;
-        //         }
-        //         this.disabled_but ? this.refresh_helper() : next()
-        //     });
-        // } catch (e) {
-        //     return false
-        // }
     },
     mounted() {
             const data = JSON.parse(JSON.stringify(this.questions.questions));
@@ -124,6 +88,7 @@ export default {
             }
 
             this.process = counter.count_process('state');
+
             this.step = this.$route.params.steps;
             this.step_child = this.$route.params.child_step;
             this.data_step = QuestionStore.getStep(`${this.step}-${this.step_child}`);

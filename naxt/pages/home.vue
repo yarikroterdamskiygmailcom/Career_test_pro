@@ -27,14 +27,13 @@
     }
     export default {
         name: "HomePage",
-        async fetch({redirect, store, route}) {
-            const data = await store.dispatch('multilanguage/ssrRender');
+        async fetch({redirect, store, route, $warehouse, $cookies, req}) {
+            const data = await store.dispatch('multilanguage/ssrRender', store.getters['localStorage/language_now']);
             await store.dispatch('questions/action_questions', data);
-            const meta = await store.dispatch('meta/action_tegs', {
-                store:store.getters['multilanguage/get_language_now'],
+            return await store.dispatch('meta/action_tegs', {
+                store:store.getters['localStorage/language_now'],
                 page:route.fullPath ? route.fullPath.split('/')[1] : ''
             })
-            return meta;
         },
         head () {
             return {
@@ -47,6 +46,7 @@
                 meta: 'meta/get_meta'
             })
         },
+
         components:{
             'More_in_your_personality_component':  More_in_your_personality,
             'Goal_and_benefits_component':         Goal_and_benefits,

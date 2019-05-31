@@ -14,11 +14,11 @@
 
     }
     export default {
-        async fetch({redirect, store, test}) {
-            const data = await store.dispatch('multilanguage/ssrRender');
+        async fetch({redirect, store, test, route}) {
+            const data = await store.dispatch('multilanguage/ssrRender', store.getters['localStorage/language_now']);
             await store.dispatch('questions/action_questions', data);
             const meta = await store.dispatch('meta/action_tegs', {
-                store:store.getters['multilanguage/get_language_now'],
+                store:store.getters['localStorage/language_now'],
                 page:route.fullPath ? route.fullPath.split('/')[1] : ''
             })
         },

@@ -1,7 +1,7 @@
 import {mapGetters} from 'vuex';
 import config from "../../../config";
 import stepPage from "../../../components/test_page/steps/steps";
-import {IndexLanguage} from "../../../store/localStorage";
+import {IndexLanguage} from "../../../store/storage";
 export default {
     data() {
         return{

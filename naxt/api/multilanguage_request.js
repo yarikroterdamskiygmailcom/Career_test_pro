@@ -1,6 +1,6 @@
 import axios from "./axios.config";
 import Helper_count from "../store/helpers/count";
-import {IndexLanguage} from "../store/localStorage";
+import {IndexLanguage} from "../store/storage";
 import questions from "./questions";
 
 export default  {

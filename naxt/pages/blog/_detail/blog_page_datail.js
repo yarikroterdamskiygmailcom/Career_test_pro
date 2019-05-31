@@ -5,7 +5,7 @@ export default {
     name: 'blog-page',
     components: {},
     async fetch({redirect, store, params,route,commit}) {
-        const data = await store.dispatch('multilanguage/ssrRender', 'blog');
+        const data = await store.dispatch('multilanguage/ssrRender', store.getters['localStorage/language_now']);
         store.dispatch('questions/action_questions', data);
         await Pasts.get_one_post(params.detail)
             .then(res => {

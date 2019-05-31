@@ -1,5 +1,5 @@
 import Helper_count from "../helpers/count";
-import {IndexLanguage} from "../localStorage";
+import {IndexLanguage} from "../storage";
 import list_language from "../../api/multilanguage_request";
 import questions from "../../api/questions";
 import vuex from 'vuex'
@@ -26,7 +26,7 @@ export default {
     action_spinner({commit}, value){
         commit('change_state', value)
     },
-    ssrRender({commit}){
+    ssrRender({commit, state}, value){
         let data;
         return list_language.list_language()
             .then(response => {
@@ -34,16 +34,17 @@ export default {
                     data: response.data,
                     name: 'language_array'
                 });
-
                 data = Helper_count.find_language_now_in_array(response.data);
                 commit('change_state', {
                     data: data,
                     name: 'language_now'
                 });
-                return list_language.get_site(data.id)
+                return list_language.get_site(value && value.id ?
+                    value.id : data.id)
             }).then(response => {
                 commit('setVariable', response.data);
-                return questions.get_questions(data.id, this, commit);
+                return questions.get_questions(value && value.id ?
+                    value.id : data.id, this, commit);
             }).then(response => {
                 commit('change_state', {
                     data: true,

@@ -171,15 +171,6 @@
                  @click="downloadPosts()">
                 Load more Stories
             </div>
-            <!--<div class="fb-share-button"-->
-            <!--data-href="https://js.devexpress.com/Demos/WidgetsGallery/Demo/TreeList/Paging/Angular/Light/"-->
-            <!--data-layout="button_count" data-size="small">-->
-            <!--<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"-->
-            <!--class="fb-xfbml-parse-ignore">-->
-            <!--Поделиться-->
-            <!--</a>-->
-            <!--</div>-->
-            <!--<a href="https://twitter.com/share?text=hello&url=https://www.devexpress.com/Support/Center/Question/Details/KA18955/a-custom-data-source-does-not-apply-paging-filtering-sorting-and-grouping" class="twitter-share-button" data-show-count="false">Tweet</a>-->
         </div>
     </div>
 </template>
@@ -208,13 +199,13 @@
 
     export default {
         async fetch({redirect, store, route}) {
-            const data = await store.dispatch('multilanguage/ssrRender', 'blog');
+            const data = await store.dispatch('multilanguage/ssrRender', store.getters['localStorage/language_now']);
             store.dispatch('questions/action_questions', data);
             const meta = await store.dispatch('meta/action_tegs', {
-                store:store.getters['multilanguage/get_language_now'],
+                store:store.getters['localStorage/language_now'],
                 page:route.fullPath ? route.fullPath.split('/')[1] : ''
             });
-            return Pasts.get_posts({language:store.state.multilanguage.language_now.id})
+            return Pasts.get_posts({language:store.getters['localStorage/language_now'].id})
                 .then(res => {
                     store.dispatch('blog_data/action_posts',res.data.data)
                 })

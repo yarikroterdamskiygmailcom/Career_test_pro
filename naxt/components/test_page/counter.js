@@ -1,4 +1,4 @@
-import {QuestionStore} from "../../store/localStorage";
+import {QuestionStore} from "../../store/storage";
 import config from "../../config";
 
 

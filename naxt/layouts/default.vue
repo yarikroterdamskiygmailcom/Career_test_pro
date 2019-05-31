@@ -2,7 +2,7 @@
     <div id="app" class="text_style">
         <div v-if="active_status">
             <header-component></header-component>
-            <div class="router">
+            <div class="router" >
                 <nuxt/>
             </div>
             <footer-component></footer-component>
@@ -40,7 +40,7 @@
     import vue from 'vue';
     import list_language from "../api/multilanguage_request";
     import Helper_count from "../store/helpers/count";
-    import {IndexLanguage, QuestionStore} from "../store/localStorage";
+    import {IndexLanguage, QuestionStore} from "../store/storage";
     import questions from "../api/questions";
     import vuex from 'vuex';
 
@@ -130,6 +130,7 @@
     }
     .router{
         padding-top: 86px;
+        min-height: calc(100vh - 295px);
     }
     .text_style{
         font-family: Montserrat;

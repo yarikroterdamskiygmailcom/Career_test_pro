@@ -1,27 +1,13 @@
-export class QuestionStore {
-    static getStep(index) {
-        return !window.localStorage[`step:${index}`] ? null : JSON.parse(window.localStorage[`step:${index}`]);
-    }
 
-    static saveStep(data, index) {
-        window.localStorage[`step:${index}`] = JSON.stringify(data);
-    }
+export const state = () => ({
+    language_now: {}
+});
 
-    static destroyQuestion() {
-        window.localStorage.clear()
+export const mutations = {
+    language_now: (state, value) => {
+        state.language_now = value
     }
-}
-
-export class IndexLanguage {
-    static getLang(index) {
-        return window.localStorage[`lang`] ? JSON.parse(window.localStorage[`lang`]) : null;
-    }
-
-    static saveLang(data, index) {
-        window.localStorage[`lang`] = JSON.stringify(data);
-    }
-
-    static destroyLang() {
-        window.localStorage.removeItem('lang')
-    }
-}
+};
+export const getters = {
+    language_now: (state, value) => state.language_now
+};
