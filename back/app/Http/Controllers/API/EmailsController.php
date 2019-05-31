@@ -41,6 +41,13 @@ class EmailsController extends BaseController
 
     public function pdfLinkEmail() {
         $when = now()->addSeconds(1);
+
+ /*       Mail::send('emails.pdfLink', ['user' => '111'], function ($message) {
+            $message->from('us@example.com', 'Laravel');
+
+            $message->to(Input::get('customer_email'));
+        });
+*/
         Mail::to(Input::get('customer_email'))
             ->later($this->when, new PdfLinkMail('http://backcartestpro.qbex.io/api/diagrams/'.Input::get('customer_id').'?result_key='.Input::get('result_token')));
 
