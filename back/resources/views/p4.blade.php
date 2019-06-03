@@ -33,7 +33,7 @@
 
     <div style="width: 350px; margin: 40px auto;">
         <div>
-            <div style="width: 35px; height: 35px; border: 2px solid #4876D0; border-radius: 50%; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); margin: auto">
+            <div style="width: 35px; height: 35px; border: 2px solid #4876D0; margin: auto">
                 <table>
                     <tr><td style="font-family: montsersemibold; width: 35px; height: 35px; text-align: center">I</td></tr>
                 </table>
@@ -45,7 +45,7 @@
 
         <div style="margin-top: 15px;">
             <div style="width: 27%; float: left;">
-                <div style="width: 35px; height: 35px; border: 2px solid #F59A9A; border-radius: 50%; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); margin: auto;">
+                <div style="width: 35px; height: 35px; border: 2px solid #F59A9A; border-radius: 50%; margin: auto;">
                     <table>
                         <tr><td style="font-family: montsersemibold; width: 35px; height: 35px; text-align: center">R</td></tr>
                     </table>
@@ -53,7 +53,7 @@
 
                 <p style="text-align: center; margin-top: 7px;">{!! $reportIds[62] !!}</p>
 
-                <div style="width: 35px; height: 35px; border: 2px solid #85B1F5; border-radius: 50%; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); margin: auto; margin-top: 15px;">
+                <div style="width: 35px; height: 35px; border: 2px solid #85B1F5; border-radius: 50%; margin: auto; margin-top: 15px;">
                     <table>
                         <tr><td style="font-family: montsersemibold; width: 35px; height: 35px; text-align: center">S</td></tr>
                     </table>
@@ -70,7 +70,7 @@
 
 
             <div style="width: 27%; float: left;">
-                <div style="width: 35px; height: 35px; border: 2px solid #77DCC1; border-radius: 50%; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); margin: auto;">
+                <div style="width: 35px; height: 35px; border: 2px solid #77DCC1; border-radius: 50%; margin: auto;">
                     <table>
                         <tr><td style="font-family: montsersemibold; width: 35px; height: 35px; text-align: center">A</td></tr>
                     </table>
@@ -78,7 +78,7 @@
 
                 <p style="text-align: center; margin-top: 7px;">{!! $reportIds[58] !!}</p>
 
-                <div style="width: 35px; height: 35px; border: 2px solid #F9892E; border-radius: 50%; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); margin: auto; margin-top: 15px;">
+                <div style="width: 35px; height: 35px; border: 2px solid #F9892E; border-radius: 50%; margin: auto; margin-top: 15px;">
                     <table>
                         <tr><td style="font-family: montsersemibold; width: 35px; height: 35px; text-align: center">C</td></tr>
                     </table>
@@ -89,7 +89,7 @@
         </div>
 
         <div style="margin-top: 15px;">
-            <div style="width: 35px; height: 35px; border: 2px solid #FDC572; border-radius: 50%; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); margin: auto">
+            <div style="width: 35px; height: 35px; border: 2px solid #FDC572; border-radius: 50%; margin: auto">
                 <table>
                     <tr><td style="font-family: montsersemibold; width: 35px; height: 35px; text-align: center">E</td></tr>
                 </table>
