@@ -48,10 +48,6 @@ export default {
             }).then(response => {
                 commit('change_state', {
                     data: true,
-                    name: 'active'
-                });
-                commit('change_state', {
-                    data: true,
                     name: 'test'
                 });
                 return response.data;

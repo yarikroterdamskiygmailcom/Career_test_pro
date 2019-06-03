@@ -1,11 +1,14 @@
 import {Pasts} from "../../../api/posts";
 import {mapGetters} from "vuex";
 import {Tag} from "../../../helper/helpTegs";
+import {nuxtServerInit} from "../../../store/helpers/initServer";
 export default {
     name: 'blog-page',
     components: {},
-    async fetch({redirect, store, params,route,commit}) {
-        const data = await store.dispatch('multilanguage/ssrRender', store.getters['localStorage/language_now']);
+    async fetch({redirect, store, params,route,commit, req}) {
+        const lang = nuxtServerInit(store,req);
+        if(lang) return;
+        const data = await store.dispatch('multilanguage/ssrRender', lang);
         store.dispatch('questions/action_questions', data);
         await Pasts.get_one_post(params.detail)
             .then(res => {
@@ -16,6 +19,10 @@ export default {
                 }
                 store.dispatch('blog_data/postOne', res.data);
                 store.commit('meta/mutation_meta', res.data);
+                store.commit('multilanguage/change_state', {
+                    data: true,
+                    name: 'active'
+                });
             })
             .catch(err => {
                 redirect('/blog')
