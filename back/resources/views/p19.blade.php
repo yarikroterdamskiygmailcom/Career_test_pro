@@ -6,11 +6,11 @@
             </div>
         </div>
 
-        <div style="width: 49.9%; text-align: right; font-size: 12px;">
+        <div style="text-align: right; font-size: 12px;">
             <div class="author-box">
                 <span class="author">{{ $customerName }}</span>
                 <br>
-                {!! $reportIds[1] !!}: {{ $datestamp }}
+                <span>{!! $reportIds[1] !!}:{{ $datestamp }}</span>
             </div>
         </div>
     </header>
@@ -20,7 +20,7 @@
             <div style="float: left; width: 95%;">10. {{ $sence[1] }}</div>
 
             <div style="text-align: right; float: right">
-                <div style="width: 30px; height: 30px; border: 2px solid #F9892E; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); border-radius: 50%;">
+                <div style="width: 30px; height: 30px; border: 2px solid #F9892E; border-radius: 50%;">
                     <table>
                         <tr>
                             <td style="width: 30px; height: 30px; text-align: center; font-family: montsersemibold;">{{ $total[1] }}</td>
@@ -55,7 +55,7 @@
         <div style="width: 140px; height: 140px; background: #FCE2E2; border-radius: 50%; float: left; position: relative;">
             <table>
                 <tr>
-                    <td style="width: 140px; height: 140px; text-align: center; font-size: 12px;">
+                    <td style="width: 149px; height: 149px; text-align: center; font-size: 9px; padding: 30px 30px 0;">
                         <span style="font-family: montsersemibold;">{!! $reportIds[12] !!}</span>
 
                         <br>
@@ -72,7 +72,7 @@
         <div style="width: 140px; height: 140px; background: #FFF0DB; border-radius: 50%; float: left; position: relative; margin-left: -5px;">
             <table style="z-index: 3; position: relative">
                 <tr>
-                    <td style="width: 140px; height: 140px; text-align: center; font-size: 12px;">
+                    <td style="width: 149px; height: 149px; text-align: center; font-size: 9px; padding: 30px;">
                         <span style="font-family: montsersemibold;">{!! $reportIds[13] !!}</span>
 
                         <br>
@@ -89,7 +89,7 @@
         <div style="width: 140px; height: 140px; background: #DBF9F1; border-radius: 50%; float: left; position: relative; margin-left: -5px;">
             <table>
                 <tr>
-                    <td style="width: 140px; height: 140px; text-align: center; font-size: 12px;">
+                    <td style="width: 149px; height: 149px; text-align: center; font-size: 9px; padding: 30px;">
                         <span style="font-family: montsersemibold;">{!! $reportIds[14] !!}</span>
 
                         <br>

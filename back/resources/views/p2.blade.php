@@ -20,7 +20,7 @@
             <div class="author-box">
                 <span class="author">{{ $customerName }}</span>
                 <br>
-                {!! $reportIds[1] !!} : {{ $datestamp }}
+                <span>{!! $reportIds[1] !!} </span>: <span>{{ $datestamp }}</span>
             </div>
         </div>
     </header>

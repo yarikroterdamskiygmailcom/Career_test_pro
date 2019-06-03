@@ -10,7 +10,7 @@
             <div class="author-box">
                 <span class="author">{{ $customerName }}</span>
                 <br>
-                {!! $reportIds[1] !!}: {{ $datestamp }}
+                <span>{!! $reportIds[1] !!}</span>: <span>{{ $datestamp }}</span>
             </div>
         </div>
     </header>
@@ -18,7 +18,7 @@
     <div>
         <div style="width: 40%; float: left;">
             <div style="width: 117px; margin: auto;">
-                <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #FDC572; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
+                <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #FDC572; float: left;">
                     <table>
                         <tr>
                             <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[1] }}</td>
@@ -26,7 +26,7 @@
                     </table>
                 </div>
 
-                <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #F9892E; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
+                <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #F9892E; float: left;">
                     <table>
                         <tr>
                             <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[2] }}</td>
@@ -34,7 +34,7 @@
                     </table>
                 </div>
 
-                <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #85B1F5; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
+                <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #85B1F5; float: left;">
                     <table>
                         <tr>
                             <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[0] }}</td>
@@ -58,7 +58,7 @@
 
         <div style="width: 40%; float: right;">
             <div style="width: 117px; margin: auto;">
-                <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #F9892E; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
+                <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #F9892E; float: left;">
                     <table>
                         <tr>
                             <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[2] }}</td>
@@ -66,7 +66,7 @@
                     </table>
                 </div>
 
-                <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #85B1F5; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
+                <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #85B1F5; float: left;">
                     <table>
                         <tr>
                             <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[0] }}</td>
@@ -74,7 +74,7 @@
                     </table>
                 </div>
 
-                <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #FDC572; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); float: left;">
+                <div style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #FDC572; float: left;">
                     <table>
                         <tr>
                             <td style="width: 35px; height: 35px; text-align: center; font-family: montsersemibold;">{{ $total[1] }}</td>

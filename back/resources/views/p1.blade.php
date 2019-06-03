@@ -26,7 +26,7 @@
         height: 50px;
         border-radius: 50%;
         float: left;
-        margin-left: 15px;
+        margin: 0px 8px;
     }
 </style>
 
@@ -42,7 +42,7 @@
             <div class="author-box">
                 <span class="author">{{ $customerName }}</span>
                 <br>
-                {!! $reportIds[1] !!} : {{ $datestamp }}
+                <span>{!! $reportIds[1] !!}</span> :<span>{{ $datestamp }}</span>
             </div>
         </div>
     </header>
@@ -76,7 +76,7 @@
                 <table class="logo-phrase"><tr><td>E</td></tr></table>
             </div>
 
-            <div class="circle" style="border: 2px solid #FDC572">
+            <div class="circle" style="border: 2px solid #F9892E">
                 <table class="logo-phrase"><tr><td>C</td></tr></table>
             </div>
         </div>
