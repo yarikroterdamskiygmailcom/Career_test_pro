@@ -17,7 +17,6 @@
     export default {
         async fetch({redirect, store, test, route, commit,req}) {
             const lang = nuxtServerInit(store,req);
-            if(!lang) return;
             const data = await store.dispatch('multilanguage/ssrRender', lang);
             await store.dispatch('questions/action_questions', data);
             const res =  await store.dispatch('meta/action_tegs', {

@@ -14,7 +14,6 @@
     export default {
         async fetch({redirect, store, route, commit,req}) {
             const lang = nuxtServerInit(store,req);
-            if(!lang) return;
             const data = await store.dispatch('multilanguage/ssrRender', lang);
             await store.dispatch('questions/action_questions', data);
             const step = route.params.steps;
