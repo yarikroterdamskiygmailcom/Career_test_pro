@@ -5,6 +5,7 @@ import site from'../../components/panel/component_panel/settings/site.vue';
 import languages from'../../components/panel/component_panel/settings/languages.vue';
 import invoices from'../../components/panel/component_panel/settings/invoices.vue';
 import blog from'../../components/panel/component_panel/settings/blog.vue';
+import meta from'../../components/panel/component_panel/settings/meta.vue';
 
 
 
@@ -37,5 +38,9 @@ export const settings_children = [
     {
         path: '/panel/settings/blog',
         component: blog
+    },
+    {
+        path: '/panel/settings/meta',
+        component: meta
     }
 ];

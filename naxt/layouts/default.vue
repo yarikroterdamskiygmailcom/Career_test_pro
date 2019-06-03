@@ -2,7 +2,7 @@
     <div id="app" class="text_style">
         <div v-if="active_status">
             <header-component></header-component>
-            <div class="router">
+            <div class="router" >
                 <nuxt/>
             </div>
             <footer-component></footer-component>
@@ -23,9 +23,11 @@
             <div></div>
         </div>
         <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v3.3&appId=285539112041686&autoLogAppEvents=1"></script>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v3.3&appId=285539112041686&autoLogAppEvents=1">
+        </script>
     </div>
-
 </template>
 
 <script>
@@ -38,9 +40,16 @@
     import vue from 'vue';
     import list_language from "../api/multilanguage_request";
     import Helper_count from "../store/helpers/count";
-    import {IndexLanguage, QuestionStore} from "../store/localStorage";
+    import {IndexLanguage, QuestionStore} from "../store/storage";
     import questions from "../api/questions";
     import vuex from 'vuex';
+
+    vue.filter('dataMoment',  (value) => {
+        value = new Date(value);
+        value = new String(value).split(' ');
+        return `${value[1]} ${value[2]}, ${value[3]}`
+    });
+
     if (process.browser) {
         if(vue && vue.$store) {
             vue.$store.dispatch('modal_data/action_screen', {
@@ -121,6 +130,7 @@
     }
     .router{
         padding-top: 86px;
+        min-height: calc(100vh - 295px);
     }
     .text_style{
         font-family: Montserrat;
@@ -380,5 +390,26 @@
     }
     .pstyle > p{
         word-break: break-all!important;
+    }
+    .ql-align-center{
+        width: 100%;
+        text-align: center;
+    }
+    .ql-align-right{
+        width: 100%;
+        text-align: right;
+    }
+    .pstyle p img {
+        max-width: 100%;
+    }
+    @media screen and (max-width: 1200px){
+        .pstyle p img {
+            width: 100%;
+        }
+        .pstyle p.ql-align-center img,
+        .pstyle p.ql-align-right img,
+        .pstyle p.ql-align-left img {
+            width: 60%;
+        }
     }
 </style>

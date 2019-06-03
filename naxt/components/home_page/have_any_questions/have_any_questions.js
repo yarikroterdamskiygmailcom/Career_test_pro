@@ -53,15 +53,15 @@ export default {
             );
             !error.email.errors && !error.name.errors && !error.message.errors
                 ?
-                Request.send_mail(this.data, this).then(response => {
-                    Helper.open_modal(
-                        this,
-                        this.modal && this.modal.send_mail,
-                        'send_message.svg', '32px', '12px', '103px', '148px'
-                    )
-                })
+            Request.send_mail(this.data, this).then(response => {
+                Helper.open_modal(
+                    this,
+                    this.modal && this.modal.send_mail,
+                    'send_message.svg', '32px', '12px', '103px', '148px'
+                )
+            })
                 :
-                this.disabled_button = true
+            this.disabled_button = true
         }
     },
 }

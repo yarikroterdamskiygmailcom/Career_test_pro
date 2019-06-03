@@ -7,14 +7,32 @@
 <script>
     import information_and_start from '../../components/test_page/information_and_start/index.vue';
     import steps from '../../components/test_page/steps/index.vue';
+    import {Tag} from "../../helper/helpTegs";
+    import {mapGetters} from "vuex";
+    import {nuxtServerInit} from "../../store/helpers/initServer";
 
     if (process.browser) {
 
     }
     export default {
-        async fetch({redirect, store}) {
-            const data = await store.dispatch('multilanguage/ssrRender');
-            store.dispatch('questions/action_questions', data);
+        async fetch({redirect, store, test, route, commit,req}) {
+            const lang = nuxtServerInit(store,req);
+            if(!lang) return;
+            const data = await store.dispatch('multilanguage/ssrRender', lang);
+            await store.dispatch('questions/action_questions', data);
+            const res =  await store.dispatch('meta/action_tegs', {
+                store:lang,
+                page:route.fullPath ? route.fullPath.split('/')[1] : ''
+            });
+            if(res) store.commit('multilanguage/change_state', {
+                data: true,
+                name: 'active'
+            });
+        },
+        head () {
+            return {
+                meta: Tag.getArrayTags(this.meta),
+            }
         },
         name: "TestPage",
         components:{
@@ -31,7 +49,10 @@
                     'information_and_start-component'
                     :
                     'steps-component'
-            }
+            },
+            ...mapGetters({
+                meta: 'meta/get_meta'
+            })
         },
     }
 </script>

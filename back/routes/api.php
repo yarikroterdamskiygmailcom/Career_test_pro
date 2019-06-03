@@ -45,6 +45,8 @@ Route::group([
     Route::get('posts', 'PostsController@index');
     Route::get('posts/{id}', 'PostsController@getPost');
     Route::post('posts-filter', 'PostsController@searching');
+    Route::get('metatags', 'MetatagsController@index');
+    Route::get('metatags/{id}', 'MetatagsController@getPage');
 });
 
 
@@ -82,6 +84,10 @@ Route::group([
     Route::post('posts', 'PostsController@store');
     Route::put('posts/{id}', 'PostsController@update');
     Route::delete('posts/{id}', 'PostsController@destroy');
+
+    Route::post('metatags', 'MetatagsController@store');
+    Route::put('metatags/{id}', 'MetatagsController@update');
+    Route::delete('metatags/{id}', 'MetatagsController@destroy');
 
 
     //Route::put('posts-categories/{id}', 'PostsCategoriesController@update');

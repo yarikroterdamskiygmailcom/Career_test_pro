@@ -42,7 +42,7 @@
 
 <script>
     import Info from "./Info";
-    import {QuestionStore} from "../../store/localStorage";
+    import {QuestionStore} from "../../store/storage";
     import counter from "./counter";
 
     export default {

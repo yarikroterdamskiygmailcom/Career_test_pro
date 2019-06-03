@@ -17,10 +17,27 @@
     import Block_with_acordeon from '../components/faq_page/block_with_acordeon/index.vue'
     import Acordeon from '../components/faq_page/acordeon/index.vue'
     import {mapGetters} from "vuex";
+    import {Tag} from "../helper/helpTegs";
+    import {nuxtServerInit} from "../store/helpers/initServer";
     export default {
-        async fetch({redirect, store}) {
-            const data = await store.dispatch('multilanguage/ssrRender');
-            store.dispatch('questions/action_questions', data);
+        async fetch({redirect, store, route, commit,req}) {
+            const lang = nuxtServerInit(store,req);
+            if(!lang) return;
+            const data = await store.dispatch('multilanguage/ssrRender', lang);
+            await store.dispatch('questions/action_questions', data);
+            const res =  await store.dispatch('meta/action_tegs', {
+                store:lang,
+                page:route.fullPath ? route.fullPath.split('/')[1] : ''
+            });
+            if(res) store.commit('multilanguage/change_state', {
+                data: true,
+                name: 'active'
+            });
+        },
+        head () {
+            return {
+                meta: Tag.getArrayTags(this.meta),
+            }
         },
         name: "FaqPage",
         data (){
@@ -38,7 +55,8 @@
         },
         computed:{
             ...mapGetters({
-                faqPage: 'multilanguage/getFaqPageSection'
+                faqPage: 'multilanguage/getFaqPageSection',
+                meta: 'meta/get_meta'
             })
         },
         components:{

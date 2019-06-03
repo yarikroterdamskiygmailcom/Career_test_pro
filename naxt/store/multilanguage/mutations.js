@@ -20,11 +20,11 @@ export default {
         });
 
         state.data.Steps = {
-            'step-1-2' : {name: state.data.Tests.section.Skills,            state: {...state.data.step_1_2.section}},
-            'step-3-4' : {name: state.data.Tests.section.Work_values,       state: {...state.data.step_3_4.section}},
-            'step-5-6' : {name: state.data.Tests.section.Activities,        state: {...state.data.step_5_6.section}},
-            'step-7-8' : {name: state.data.Tests.section.Personal_Behavior, state: {...state.data.step_7_8.section}},
-            'step-9-10' : {name: state.data.Tests.section.Occupations,      state: {...state.data.step_9_10.section}}
+            'step-1-2' :  {name: state.data.Tests.section.Skills,            state: {...state.data.step_1_2.section}},
+            'step-3-4' :  {name: state.data.Tests.section.Work_values,       state: {...state.data.step_3_4.section}},
+            'step-5-6' :  {name: state.data.Tests.section.Activities,        state: {...state.data.step_5_6.section}},
+            'step-7-8' :  {name: state.data.Tests.section.Personal_Behavior, state: {...state.data.step_7_8.section}},
+            'step-9-10' : {name: state.data.Tests.section.Occupations,       state: {...state.data.step_9_10.section}}
         };
         state.data && state.state && state.state.step_1_2 && delete state.state.step_1_2 ;
         state.data && state.state && state.state.step_1_2 && delete state.state.step_3_4 ;

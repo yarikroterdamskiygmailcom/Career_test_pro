@@ -329,5 +329,14 @@ export const data_static = {
             field:[],
             email:[]
         }
+    },
+    blog:{
+        section:{
+            title:[],
+            description:[],
+            input:[],
+            load:[],
+            story:[]
+        }
     }
 };

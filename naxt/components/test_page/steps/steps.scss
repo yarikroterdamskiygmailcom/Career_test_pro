@@ -53,10 +53,16 @@
 .small2 {
     margin-bottom: 40px;
 }
+.spinner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
 .ellips_information{
     margin-bottom: 30px;
     position: sticky;
     top: 87px;
+    padding-top: 30px;
     background-color: white;
 }
 .custom_title{
@@ -148,6 +154,7 @@ a{
 @media screen and (max-width: 750px){
     .ellips_information{
         top: 64px;
+        padding-top: 30px;
     }
 }
 @media screen and (max-width: 640px){
@@ -172,5 +179,6 @@ a{
     .ellips_information{
         top: 64px;
         padding: 10px 0;
+        padding-top: 30px;
     }
 }

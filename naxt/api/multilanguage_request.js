@@ -1,6 +1,6 @@
 import axios from "./axios.config";
 import Helper_count from "../store/helpers/count";
-import {IndexLanguage} from "../store/localStorage";
+import {IndexLanguage} from "../store/storage";
 import questions from "./questions";
 
 export default  {
@@ -11,5 +11,9 @@ export default  {
          return axios.get(`/api/site-blocks?language_id=${language_id}`)
              // .then(res => commit('setVariable', res.data))
              // .catch(err => err)
+    },
+    get_meta(language_id) {
+        return axios.get(`/api/metatags?language_id=${language_id}`)
+
     }
 }

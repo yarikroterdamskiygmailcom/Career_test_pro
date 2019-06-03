@@ -31,7 +31,7 @@ export default {
             confirmDetail:'multilanguage/getConfirmDetailSection'
         })
     },
-    created() {
+    mounted(){
         for(let i = 18; i <= 100; i++){
             this.age.push(i);
             i == 100 && this.age.push('+');

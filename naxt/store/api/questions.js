@@ -1,5 +1,5 @@
 import axios from "./axios.config";
-import {QuestionStore} from "../localStorage";
+import {QuestionStore} from "../storage";
 
 export default  {
     get_questions(index, store, commit){
