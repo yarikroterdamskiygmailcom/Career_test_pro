@@ -153,5 +153,7 @@
         {!! $reportIds[51] !!}
     </p>
 
-    <p style="margin-top: 65px;">{!! $reportIds[2] !!}</p>
+    <div style="margin-top: 65px;">
+        @include('footer')
+    </div>
 </div>

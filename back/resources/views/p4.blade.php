@@ -84,5 +84,7 @@
         </div>
     </div>
 
-    <p style="margin-top: 90px;">{!! $reportIds[2] !!}</p>
+    <div style="margin-top: 90px;">
+        @include('footer')
+    </div>
 </div>

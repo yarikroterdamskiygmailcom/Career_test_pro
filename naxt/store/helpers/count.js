@@ -1,11 +1,8 @@
 export default{
-    find_language_now_in_array(array){
+    find_language_now_in_array(array,lang){
         let data;
-        array.forEach(item =>{
-            if(item.language == 'English') {
-                data = item;
-                return;
-            }
+        array.forEach(item => {
+            typeof lang == 'string' && (item.code == lang.toLowerCase() || item.code == lang.toUpperCase()) ? data = item : null
         });
         return data;
     }

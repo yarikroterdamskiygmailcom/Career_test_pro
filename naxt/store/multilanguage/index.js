@@ -6,6 +6,7 @@ export const state = () => ({
         language: "English",
         code: "en"
     },
+    tests: 0,
     menu_list: [
         {
             name: 'Home',
