@@ -8,7 +8,7 @@
     }
 </style>
 
-<div>
+<div style="height: 100%;">
     @include('header')
 
     <div>
@@ -165,7 +165,6 @@
         </div>
     </div>
 
-    <div style="margin-top: 170px;">
-        @include('footer')
-    </div>
 </div>
+
+@include('footer')

@@ -6,10 +6,11 @@
         font-weight: 800;
         font-style: normal;}
 </style>
-<div >
+<div style="height: 100%;">
     @include('header')
 
-    <h2 style="margin: 0; text-align: center; text-transform: uppercase; font-size: 12px; font-family: monserrmedium;">{!! $reportIds[34] !!}
+    <h2 style="margin: 0; text-align: center; text-transform: uppercase; font-size: 12px; font-family: monserrmedium;">
+        {!! $reportIds[34] !!}
     </h2>
 
     <div style="margin-top: 24px;">
@@ -152,8 +153,6 @@
     <p style="margin-top: 20px; line-height:22px">
         {!! $reportIds[51] !!}
     </p>
-
-    <div style="margin-top: 65px;">
-        @include('footer')
-    </div>
 </div>
+
+@include('footer')

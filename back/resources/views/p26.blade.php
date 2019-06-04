@@ -1,4 +1,4 @@
-<div>
+<div style="height: 100%;">
     @include('header')
 
     <div style="width: 117px; margin: auto;">
@@ -42,8 +42,6 @@
             </div>
         </div>
     </div>
-
-    <div style="margin-top: 60px;">
-        @include('footer')
-    </div>
 </div>
+
+@include('footer')

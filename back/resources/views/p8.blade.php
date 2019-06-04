@@ -1,4 +1,4 @@
-<div>
+<div style="height: 100%;">
     @include('header')
 
     <div>
@@ -97,8 +97,6 @@
     <p style="margin: 15px 0; line-height: 20px;">
         {{$workValuesR}}
     </p>
-
-    <p style="margin-top: 70px;">
-        @include('footer')
-    </p>
 </div>
+
+@include('footer')
