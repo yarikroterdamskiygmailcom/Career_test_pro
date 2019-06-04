@@ -1,5 +1,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-<div>
+<div style="height: 100%;">
     @include('header')
 
     <div style="margin-top: 34px;">
@@ -41,11 +41,6 @@ margin-top: -48px;
         </p>
     </div>
     {{--{{$image}}--}}
-
-    <div style="margin-top: 260px;">
-        @include('footer')
-    </div>
 </div>
-<script>
 
-</script>
+@include('footer')

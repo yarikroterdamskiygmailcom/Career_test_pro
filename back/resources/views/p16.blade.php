@@ -1,4 +1,4 @@
-<div>
+<div style="height: 100%;">
     @include('header')
 
     <p style="margin: 20px 0; line-height: 22px;">
@@ -30,9 +30,8 @@
     </p>
 
     <p style="margin: 20px 0; line-height: 22px;">
-        {!! $reportIds[85] !!}    </p>
-
-    <div style="margin-top: 300px;">
-        @include('footer')
-    </div>
+        {!! $reportIds[85] !!}
+    </p>
 </div>
+
+@include('footer')

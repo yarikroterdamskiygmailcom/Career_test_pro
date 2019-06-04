@@ -1,4 +1,4 @@
-<div>
+<div style="height: 100%;">
     @include('header')
 
     <div>
@@ -96,10 +96,7 @@
 
     <p style="margin: 15px 0; line-height: 20px;">
         {{$skillsR}}
-
     </p>
-
-    <div style="margin-top: 97px;">
-        @include('footer')
-    </div>
 </div>
+
+@include('footer')

@@ -1,5 +1,5 @@
-<div>
 
+<div style="height: 100%;">
     @include('header')
 
     <div style="margin-top: 24px;">
@@ -128,8 +128,6 @@
             </table>
         </div>
     </div>
-
-    <div style="margin-top: 140px">
-        @include('footer')
-    </div>
 </div>
+
+@include('footer')
