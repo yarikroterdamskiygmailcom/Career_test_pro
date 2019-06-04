@@ -7,6 +7,8 @@ use App\Http\Controllers\API\BaseController as BaseController;
 use App\Model\Language;
 use App\Model\SiteDescription;
 use App\Model\ReportBlockDescription;
+use App\Model\LangBuffer;
+
 
 use Validator;
 
@@ -61,17 +63,17 @@ class LanguagesController extends BaseController
         return $this->sendResponse($newLanguage, 'New language added successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+     public function getBuffer()
     {
-        //
+        $getLang = LangBuffer::first();
+        return $this->sendResponse($getLang, 'Success');
     }
 
+    public function setBuffer(Request $request) {
+        LangBuffer::where('id', '1')->update(['lang_id' => $request->lang_id]);
+        return $this->sendResponse($request->lang_id, 'Updated successfully');
+
+    }
     /**
      * Show the form for editing the specified resource.
      *
