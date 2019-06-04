@@ -10,14 +10,14 @@
 
 <script>
     import vue from "vue";
-    import More_in_your_personality from '../components/home_page/More_in_your_personality'
-    import Goal_and_benefits from '../components/home_page/goal_and_benefits'
-    import How_does_it_work from '../components/home_page/how_does_it_work'
-    import All_aptitude_test from '../components/home_page/all_aptitude_test'
-    import Have_any_questions from '../components/home_page/have_any_questions'
+    import More_in_your_personality from '../../../components/home_page/More_in_your_personality'
+    import Goal_and_benefits from '../../../components/home_page/goal_and_benefits'
+    import How_does_it_work from '../../../components/home_page/how_does_it_work'
+    import All_aptitude_test from '../../../components/home_page/all_aptitude_test'
+    import Have_any_questions from '../../../components/home_page/have_any_questions'
     import {mapGetters} from "vuex";
-    import {Tag} from "../helper/helpTegs";
-    import {nuxtServerInit} from "../store/helpers/initServer";
+    import {Tag} from "../../../helper/helpTegs";
+    import {nuxtServerInit} from "../../../store/helpers/initServer";
     if (process.browser) {
         if (vue && vue.$store) {
             vue.$store.dispatch('modal_data/action_screen', {
@@ -28,19 +28,32 @@
     }
     export default {
         name: "HomePage",
-        async fetch({redirect, store, route, $warehouse, $cookies, req, commit}) {
-            const lang = nuxtServerInit(store,req);
-            if(!lang) return;
-            const data = await store.dispatch('multilanguage/ssrRender', lang);
-            await store.dispatch('questions/action_questions', data);
-            const res =  await store.dispatch('meta/action_tegs', {
-                store:lang,
-                page:route.fullPath ? route.fullPath.split('/')[1] : ''
+        async fetch({redirect, store, route, $warehouse, $cookies, req}) {
+            store.commit('multilanguage/change_state', {
+                data: store.getters['multilanguage/get_tests'] + 1,
+                name: 'tests'
             });
-            if(res) store.commit('multilanguage/change_state', {
-                    data: true,
-                    name: 'active'
-                });
+
+            const lang = route.params.lang;
+            console.log(lang)
+            const rout = route && route.fullPath ? route.fullPath.split('/')[2] : '';
+            !rout && redirect('/');
+            !lang && redirect('/');
+            // store.commit('multilanguage/change_state', route.params.lang);
+            console.log(rout)
+            const data = await store.dispatch('multilanguage/ssrRender', {lang, rout, redirect});
+            //
+            await store.dispatch('questions/action_questions', data);
+            //
+            const res =  await store.dispatch('meta/action_tegs', {
+                store:lang ? lang : store.getters['multilanguage/get_language_now'],
+                page:rout
+            });
+            store.commit('multilanguage/change_state', {
+                data: true,
+                name: 'active'
+            });
+            // redirect('/home');
 
         },
         head () {

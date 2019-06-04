@@ -7,6 +7,9 @@ export default  {
     list_language(store){
          return axios.get('api/languages')
     },
+    language_now(){
+        return axios.get('api/_lang-buffer')
+    },
     get_site(language_id, commit) {
          return axios.get(`/api/site-blocks?language_id=${language_id}`)
              // .then(res => commit('setVariable', res.data))
@@ -14,6 +17,5 @@ export default  {
     },
     get_meta(language_id) {
         return axios.get(`/api/metatags?language_id=${language_id}`)
-
     }
 }

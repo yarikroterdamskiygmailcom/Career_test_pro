@@ -7,7 +7,6 @@ export default {
     components: {},
     async fetch({redirect, store, params,route,commit, req}) {
         const lang = nuxtServerInit(store,req);
-        if(lang) return;
         const data = await store.dispatch('multilanguage/ssrRender', lang);
         store.dispatch('questions/action_questions', data);
         await Pasts.get_one_post(params.detail)

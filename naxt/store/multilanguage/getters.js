@@ -1,15 +1,17 @@
 export default {
     get_language_now(state) {
-        return state.language_now
+        return JSON.parse(JSON.stringify(state.language_now))
     },
     get_test(state) {
         return state.test
+    },get_tests(state) {
+        return state.tests
     },
     get_menu_list (state) {
         return state.menu_list
     },
     get_language_array (state) {
-        return state.language_array
+        return JSON.parse(JSON.stringify(state.language_array))
     },
     get_sotial_networks (state) {
         return state.sotial_networks
