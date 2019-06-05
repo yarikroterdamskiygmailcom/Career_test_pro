@@ -16,7 +16,8 @@
         "laravel/tinker": "^1.0",
         "mollie/laravel-mollie": "^2.0",
         "mpdf/mpdf": "^7.1",
-        "paypal/rest-api-sdk-php": "^1.14"
+        "paypal/rest-api-sdk-php": "^1.14",
+        "laravel/cashier": "^4.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
