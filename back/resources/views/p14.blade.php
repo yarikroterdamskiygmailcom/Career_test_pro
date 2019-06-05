@@ -34,7 +34,7 @@
     </p>
 
     <div>
-        <div style="width: 30px; height: 30px; border: 2px solid #85B1F5; box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.7); border-radius: 50%; float: left; font-family: sans;">
+        <div style="width: 30px; height: 30px; border: 2px solid #85B1F5; border-radius: 50%; float: left; font-family: sans;">
             <table>
                 <tr>
                     <td style="width: 30px; height: 30px; text-align: center; font-family: montsersemibold;">S</td>
