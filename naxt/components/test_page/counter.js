@@ -89,7 +89,8 @@ export default  {
             Object.keys(step_array).forEach(item => {
                 config.letters.forEach(letter => {
                     callback(item, letter)
-                })
+                }
+)
             });
         }
         return step_array;
@@ -126,15 +127,9 @@ export default  {
         }
         return null;
     },
-    count_disanled_callback(item){
-        return !item.state
-            ?
-            item.state == 0 ? false : true
-            :
-            item.state.toString() ?
-                item.state.toString() == '0' ? false : false
-                :
-                true
+    count_disanled_callback: (item) =>{
+        if(typeof item['state'] === 'undefined') return true;
+        return item['state'].toString() ? false : true;
     }
 }
 

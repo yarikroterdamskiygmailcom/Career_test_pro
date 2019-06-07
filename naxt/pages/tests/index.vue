@@ -9,21 +9,34 @@
     import steps from '../../components/test_page/steps/index.vue';
     import {Tag} from "../../helper/helpTegs";
     import {mapGetters} from "vuex";
-    import {nuxtServerInit} from "../../store/helpers/initServer";
-
+    import {RETURN_ROUTER} from "../../helper/routerHelp";
+    const {base64encode, base64decode} = require('nodejs-base64');
     if (process.browser) {
 
     }
     export default {
         async fetch({redirect, store, test, route, commit,req}) {
-            const lang = nuxtServerInit(store,req);
-            const data = await store.dispatch('multilanguage/ssrRender', lang);
+            if(store.getters['multilanguage/get_tests']) {
+                store.commit('multilanguage/change_state', {
+                    data: true,
+                    name: 'active'
+                });
+                return;
+            }
+            store.commit('multilanguage/change_state', {
+                data: store.getters['multilanguage/get_tests'] + 1,
+                name: 'tests'
+            });
+            let lang = route.query.lang;
+            const rout = route && route.fullPath ? route.fullPath.split('/')[1] : '';
+            !lang ? lang = 'en' : null;
+            const data = await store.dispatch('multilanguage/ssrRender', {lang, rout, redirect});
             await store.dispatch('questions/action_questions', data);
             const res =  await store.dispatch('meta/action_tegs', {
-                store:lang,
-                page:route.fullPath ? route.fullPath.split('/')[1] : ''
+                store:lang ? lang : store.getters['multilanguage/get_language_now'],
+                page:rout
             });
-            if(res) store.commit('multilanguage/change_state', {
+            store.commit('multilanguage/change_state', {
                 data: true,
                 name: 'active'
             });
@@ -40,6 +53,13 @@
         },
         data () {
             return {}
+        },
+        created(){
+            try {
+                const resRout = RETURN_ROUTER.initRouter(this.$router.history.current);
+                if (resRout) window.location.href = `/?rout=${base64encode(resRout)}`;
+            } catch (e) {
+            }
         },
         computed:{
             component_active(){

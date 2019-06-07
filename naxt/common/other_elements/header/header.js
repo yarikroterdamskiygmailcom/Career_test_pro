@@ -2,15 +2,14 @@ import {mapGetters} from "vuex";
 import list_language from './../../../api/multilanguage_request';
 import stepPage from './../../../components/test_page/steps/steps';
 import {IndexLanguage} from "../../../store/storage";
-
+const {base64encode, base64decode} = require('nodejs-base64');
 export default {
     data() {
         return {
             menu: false,
             active_button: true,
             selected: '',
-            arr: [
-                {
+            arr: [{
                     url: '/blog',
                     item: 'home'
                 },
@@ -25,14 +24,14 @@ export default {
                 {
                     url: '/about-us',
                     item: 'About Us'
-                },
-            ],
+                }],
             test: ''
         }
     },
     created() {
-        let rout = this.$router.history.current.path;
-        this.active_button = rout == '/blog'
+        let rout = this.$router.history.current.fullPath;
+        let routw = this.$router.history.current.path;
+        this.active_button = routw == '/blog'
         this.test = rout.split('/')[1];
         this.selected = rout;
     },
@@ -44,16 +43,18 @@ export default {
                 data: false,
                 name: 'active'
             });
-            // this.$store.dispatch('multilanguage/changeLang', {id:item.id, vue: stepPage});
             this.$store.dispatch('multilanguage/action_spinner', {
                 data: {...item},
                 name: 'language_now'
             });
-            this.$store.commit('localStorage/language_now', this.$store.getters['multilanguage/get_language_now'], {root: true});
-            this.$cookies.set("language_now", btoa(JSON.stringify(this.$store.getters['multilanguage/get_language_now'])));
+            this.$store.commit('localStorage/language_now',
+                this.$store.getters['multilanguage/get_language_now'],
+                {root: true}
+                );
             IndexLanguage.saveLang(item);
-
-            window.location.href = `/${item.code.toLowerCase()}/${location.pathname.split('/')[2]}`
+            const rout = `${location.pathname}?lang=${item.code.toLowerCase()}`;
+            // return this.$router.push(rout);
+            window.location.href = `/?rout=${base64encode(rout)}`
         }
     },
     computed: {
@@ -66,9 +67,9 @@ export default {
         }),
         new_menu_list() {
             const lang = this.language_now;
-            let data = JSON.parse( JSON.stringify( this.menu_list))
+            let data = JSON.parse( JSON.stringify( this.menu_list));
             return this.menu_list ? data.map(item => {
-                item.path = `/${lang.code}${item.path}`;
+                item.path = `${item.path}?lang=${lang.code}`;// `${item.path}?lang=${lang.code}`
                 return item
             }) : [];
         }
@@ -80,7 +81,7 @@ export default {
         '$route'(to, from) {
             this.active_button = to.path == '/blog' || this.$router.history.current.path.split('/')[0] == 'tests';
             this.test = this.$router.history.current.path.split('/')[1];
-            this.selected = to.path;
+            this.selected = to.fullPath;
         }
     },
 }

@@ -12,8 +12,10 @@ export default {
     computed: {
         ...mapGetters({
             testSection: 'multilanguage/getTestsSection',
+            language_now: 'multilanguage/get_language_now'
         }),
         content() {
+            console.log(this.testSection);
             return this.testSection && this.testSection.content
                 ? this.getArrow(this.testSection.content)
                 : ''
@@ -24,16 +26,17 @@ export default {
     },
     methods: {
         start_test(){
-            this.$router.push({path: '/tests/1'})
+            this.$router.push({path: `/tests/1/1?lang=${this.language_now.code}`})
         },
         getArrow(text){
             let data = '';
+            if(!text) return data;
             function callback(newText){
                 data = newText.indexOf('&lt;') > -1
                     || newText.indexOf('&gt;') > -1
                     || newText.indexOf('<p>') > -1
                     || newText.indexOf('</p>') > -1 ?
-                    newText.replace('&lt;', '<').replace('&gt;', '>').replace('<p>', '').replace('</p>', '') : null;
+                    newText.replace('&lt;', '<').replace('&gt;', '>').replace('<p>', '').replace('</p>', '') : newText;
                 if(data.indexOf('&lt;') > -1
                     || data.indexOf('&gt;') > -1
                     || data.indexOf('<p>') > -1

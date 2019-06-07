@@ -198,18 +198,19 @@
                 this.EVENT = EVENT;
                 const data = this.data_modal;
                 if( this.EVENT == 'update') {
-                    this.data_modal.title = item && item.title ? item.title : '';
-                    this.data_modal.body = item && item.body ? item.body : '';
-                    this.data_modal.language_id = this.language_id;
+                    data.title = item && item.title ? item.title : '';
+                    data.body = item && item.body ? item.body : '';
+                    data.language_id = this.language_id;
                     action.forEach(type => data[type]
                         && Array.isArray(data[type])
                         ? data[type] = item[type].split(',').map(word => this.getNewTag(word)) : null);
-                    this.data_modal.image = item && item.image ? item.image : '';
-                    this.data_modal.id = item && item.id ? item.id : '';
+                    data.image = item && item.image ? item.image : '';
+                    data.id = item && item.id ? item.id : '';
                     this.image = item && item.image && typeof item.image == 'string' ? item.image : '';
                     this.dialog = true;
                     return
                 }
+                data.language_id = this.language_id;
                 // this.afterRequest()
                 this.dialog = true;
             },

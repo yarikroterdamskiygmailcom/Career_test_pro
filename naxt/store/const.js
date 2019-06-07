@@ -150,7 +150,14 @@ export const action_static = {
     "Email invalid"             : ['Validation.section.email'],
 
     "Page modal 1, upper text"  : ['Tests.section.upper_text'],
-    "Page modal 1, lower text"  : ['Tests.section.lower_text']
+    "Page modal 1, lower text"  : ['Tests.section.lower_text'],
+
+    "Page blog, section 1"  : ['Blog.section.title'],
+    "Page blog, section 2"  : ['Blog.section.description'],
+    "Page blog, section 3"  : ['Blog.section.learn_more'],
+    "Page blog, section 4"  : ['Blog.section.input'],
+    "Page blog, section 5"  : ['Blog.section.story'],
+    "Page blog, section 6"  : ['Blog.section.load'],
 
 };
 
@@ -330,13 +337,14 @@ export const data_static = {
             email:[]
         }
     },
-    blog:{
+    Blog:{
         section:{
             title:[],
             description:[],
             input:[],
             load:[],
-            story:[]
+            story:[],
+            learn_more:[]
         }
     }
 };

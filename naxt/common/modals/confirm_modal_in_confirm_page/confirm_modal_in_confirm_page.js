@@ -29,7 +29,6 @@ export default {
             let data = {...this.data.data};
             data.language_id = 1;
             data= window.btoa(unescape(encodeURIComponent(JSON.stringify(data))));
-            console.log(`${config.url}/api/testcode-use?result=${data}&code=${this.data.data.code}`);
             switch(payment_key){
                 case 'paypal':payment = 'paywithpaypal';
                     break;
@@ -37,6 +36,8 @@ export default {
                     break;
                 case 'voucher':
                     return window.location.href = `${config.url}api/testcode-use?result=${data}&code=${this.data.data.code}`;
+                case 'stripe':
+                    return window.location.href = `${config.url}api/stripe?result=${data}&code=${this.data.data.code}`;
                 default: payment = payment_key;
             }
             window.location.href = `${config.url}${payment}?result=${data}`

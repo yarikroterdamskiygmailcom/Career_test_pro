@@ -38,18 +38,13 @@
     import Send_message_modal_and_copy from '../common/modals/send_message_modal_and_copy/index.vue'
     import { mapGetters } from "vuex";
     import vue from 'vue';
-    import list_language from "../api/multilanguage_request";
-    import Helper_count from "../store/helpers/count";
     import {IndexLanguage, QuestionStore} from "../store/storage";
-    import questions from "../api/questions";
-    import vuex from 'vuex';
-
+    import {LocalStorage} from "../helper/work-with-storage";
     vue.filter('dataMoment',  (value) => {
         value = new Date(value);
         value = new String(value).split(' ');
         return `${value[1]} ${value[2]}, ${value[3]}`
     });
-
     if (process.browser) {
         if(vue && vue.$store) {
             vue.$store.dispatch('modal_data/action_screen', {
@@ -57,12 +52,7 @@
                 active: window.innerWidth < 1100 ? true : false
             });
             const data = vue.$store.getters.questions.get_questions().questions;
-            let count = 0;
-            for (let i = 0; i < data.questions.length; i + 30) {
-                let string_array = data.questions.splice(i, 30);
-                for(let j = 0; j < 3; j++)QuestionStore.saveStep(string_array.splice(0, 10), `${count + 1}-${j+1}`);
-                count++;
-            }
+            LocalStorage.Local(data)
         }
     }
     export default {
@@ -83,7 +73,7 @@
                     value: window.innerWidth  ,
                     active: window.innerWidth < 1100 ? true : false
                 })
-            }
+            },
         },
         components: {
             'footer-component': Footer,

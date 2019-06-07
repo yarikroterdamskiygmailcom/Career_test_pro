@@ -30,12 +30,12 @@ export default {
         let data;
         return  list_language.list_language()
             .then(response => {
+                // if(!response) return;
                 commit('change_state', {
                     data: response.data,
                     name: 'language_array'
                 });
                 data = Helper_count.find_language_now_in_array(response.data, lang);
-                !data && redirect(`/${response.data[0].code}/${rout}`);
                 commit('change_state', {
                     data: data,
                     name: 'language_now'

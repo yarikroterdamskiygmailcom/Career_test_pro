@@ -1,14 +1,25 @@
 import {Pasts} from "../../../api/posts";
 import {mapGetters} from "vuex";
 import {Tag} from "../../../helper/helpTegs";
-import {nuxtServerInit} from "../../../store/helpers/initServer";
+import {RETURN_ROUTER} from "../../../helper/routerHelp";
+const {base64encode, base64decode} = require('nodejs-base64');
 export default {
     name: 'blog-page',
     components: {},
     async fetch({redirect, store, params,route,commit, req}) {
-        const lang = nuxtServerInit(store,req);
-        const data = await store.dispatch('multilanguage/ssrRender', lang);
-        store.dispatch('questions/action_questions', data);
+        if(store.getters['multilanguage/get_tests']) {
+
+        } else {
+            store.commit('multilanguage/change_state', {
+                data: store.getters['multilanguage/get_tests'] + 1,
+                name: 'tests'
+            });
+            let lang = route.query.lang;
+            const rout = route && route.fullPath ? route.fullPath.split('/')[1] : '';
+            !lang ? lang = 'en' : null;
+            const data = await store.dispatch('multilanguage/ssrRender', {lang, rout, redirect});
+            await store.dispatch('questions/action_questions', data);
+        }
         await Pasts.get_one_post(params.detail)
             .then(res => {
                 res.data.url = `http://localhost:3001/${route.fullPath}`;
@@ -55,6 +66,13 @@ export default {
                     return `http://www.linkedin.com/shareArticle?mini=true&url=${this.postOne.url}&text=${this.postOne.body.replace(/(<([^>]+)>)/g,'')}&summary=some%20summary%20if%20you%20want`
             }
         }
-    }
+    },
+    created(){
+        try {
+            const resRout = RETURN_ROUTER.initRouter(this.$router.history.current);
+            // if (resRout) window.location.href = `/?rout=${base64encode(resRout)}`;
+        } catch (e) {
+        }
+    },
 }
 

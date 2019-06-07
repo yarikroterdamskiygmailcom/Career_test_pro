@@ -6,6 +6,7 @@ import Info from "../Info";
 import vue from "vue";
 import Menu from "../Menu";
 import Helper from "../../../helper/active_other_modal";
+import {LocalStorage} from "../../../helper/work-with-storage";
 if (process.browser) {
     if(vue && vue.$store) {
         vue.$store.dispatch('modal_data/action_screen', {
@@ -13,14 +14,7 @@ if (process.browser) {
             active: window.innerWidth < 1100
         });
         const data = vue.$store.getters.questions.get_questions().questions;
-        let count = 0;
-        for (let i = 0; i < data.questions.length; i + 30) {
-            let string_array = data.questions.splice(i, 30);
-            for(let j = 0; j < 3; j++) {
-                !QuestionStore.getStep(`${count + 1}-${j+1}`) && QuestionStore.saveStep(string_array.splice(0, 10), `${count + 1}-${j+1}`);
-            }
-            count++;
-        }
+        LocalStorage.Local(data)
     }
 }
 export default {
@@ -63,7 +57,8 @@ export default {
             steps_names: 'multilanguage/getStepsNameSection',
             modal: 'multilanguage/getOtherModal',
             test: 'multilanguage/get_test',
-            questions:'questions/get_questions'
+            questions:'questions/get_questions',
+            language_now: 'multilanguage/get_language_now'
         }),
         disabled_but(){
              return this.data_step ? counter.count_disanled_step(this.data_step) : true
@@ -73,51 +68,50 @@ export default {
         },
     },
     created() {
-    },
-    mounted() {
+        try {
             const data = JSON.parse(JSON.stringify(this.questions.questions));
 
-            let count = 0;
-            for (let i = 0; i < data.length; i + 30) {
-                let string_array = data.splice(i, 30);
-                for(let j = 0; j < 3; j++){
-                    !QuestionStore.getStep(`${count + 1}-${j+1}`) &&
-                    QuestionStore.saveStep(string_array.splice(0, 10), `${count + 1}-${j+1}`);
-                }
-                count++;
-            }
+            LocalStorage.Local(data);
 
             this.process = counter.count_process('state');
 
             this.step = this.$route.params.steps;
             this.step_child = this.$route.params.child_step;
-            this.data_step = QuestionStore.getStep(`${this.step}-${this.step_child}`);
+            // debugger;
+            this.data_step = QuestionStore.getStep(`${this.step}-${this.step_child}`) || [];
             (this.step < this.first_step) || (this.step > this.last_step) || !this.step_child
-                ? this.$router.push( `/tests/1/1`) : null;
+                ? this.$router.push(`/tests/1/1?lang=${this.language_now.code}`) : null;
+            if(window.location.pathname.split('/').length < 4) this.$router.push(`/tests/1/1?lang=${this.language_now.code}`)
             this.toggle_modal();
             this.count_arr_for_disabled();
             this.$router.beforeEach((to, from, next) => {
                 this.count_arr_for_disabled();
                 let to_back = false;
-                if(to.path.split('/')[1] != 'tests' || to.path.split('/').length < 3) return next();
-                if(Number(to.params.steps) == this.step && Number(to.params.child_step) < this.step_child) {
-                    to_back =  !to_back
-                } else if(Number(to.params.steps) < this.step && Number(to.params.child_step) >= this.step_child){
-                    to_back =  !to_back
-                }else if(Number(to.params.steps) <= this.step && Number(to.params.child_step) < this.step_child){
-                    to_back =  !to_back
+                if (to.path.split('/')[1] != 'tests' || to.path.split('/').length < 3) return next();
+                if (Number(to.params.steps) == this.step && Number(to.params.child_step) < this.step_child) {
+                    to_back = !to_back
+                } else if (Number(to.params.steps) < this.step && Number(to.params.child_step) >= this.step_child) {
+                    to_back = !to_back
+                } else if (Number(to.params.steps) <= this.step && Number(to.params.child_step) < this.step_child) {
+                    to_back = !to_back
                 }
-                if(to_back) {
-                    next();
-                    return;
-                }
+                if (to_back) return next();
+
                 this.disabled_but ? this.refresh_helper() : next()
             });
+        } catch (e) {
+        }
+    },
+    mounted() {
     },
     destroyed(){
        this.$router.beforeHooks = []
     },
     methods: {
+        dataLength(type){
+            if(type == '>') return this.data_step && Array.isArray(this.data_step) && this.data_step.length > 0;
+            return this.data_step && Array.isArray(this.data_step) && this.data_step.length == 0
+        },
         refresh_helper(){
             Helper.open_modal(
                 this,
@@ -139,41 +133,34 @@ export default {
             let data = null;
             Object.keys(array).forEach( item => {
                 let arr = item.split('-');
-                if(flag) {
-                    arr[1] == this.step ? data = item : null;
-                } else {
-                    arr[1] == this.step || arr[2] == this.step ? data = item : null;
-                }
+                if(flag) arr[1] == this.step ? data = item : null;
+                else arr[1] == this.step || arr[2] == this.step ? data = item : null;
             });
             return data;
         },
         go_next(value, index = false, next=false, child){
             this.count_arr_for_disabled();
-            if(value){
-                if(index) {
-                 this.refresh_helper()
-                }
-            }
+            value && index && this.refresh_helper();
         },
         next(){
             // let result = this.data_step ?  this.disabled_but : null;
             // if(result) return `/tests/${Number(this.step)}/${Number(this.step_child)}`;
             if(this.step == 10 && this.step_child == 3){
                 let res = counter.count_button_disabled_before_result();
-                if(res) return `/tests/${Number(this.step)}/${Number(this.step_child)}`;
+                if(res) return `/tests/${Number(this.step)}/${Number(this.step_child)}?lang=${this.language_now.code}`;
             }
             if(this.step == this.last_step - 1){
                 if(this.step_child < 3){
-                    return `/tests/${Number(this.step)}/${Number(this.step_child) + 1}`;
+                    return `/tests/${Number(this.step)}/${Number(this.step_child) + 1}?lang=${this.language_now.code}`;
                 } else {
-                    return `/confirm-detail`
+                    return `/confirm-detail?lang=${this.language_now.code}`
                 }
             } else {
                if(this.step_child < 3){
-                   return `/tests/${Number(this.step)}/${Number(this.step_child) + 1}`;
+                   return `/tests/${Number(this.step)}/${Number(this.step_child) + 1}?lang=${this.language_now.code}`;
                }
                 else{
-                   return `/tests/${Number(this.step) + 1}/${1}`;
+                   return `/tests/${Number(this.step) + 1}/${1}?lang=${this.language_now.code}`;
                }
             }
         },
@@ -181,12 +168,12 @@ export default {
             const disabled = Number(this.step) == this.first_step || Number(this.step) < this.first_step;
             if(disabled){
                  return this.step_child < 2
-                     ? '/tests/1/1'
-                     :`/tests/${Number(this.step)}/${Number(this.step_child) - 1}`
+                     ? '/tests/1/1?lang=${this.language_now.code}'
+                     :`/tests/${Number(this.step)}/${Number(this.step_child) - 1}?lang=${this.language_now.code}`
             } else {
                 return this.step_child < 2
-                    ? `/tests/${Number(this.step -1)}/3`
-                    :`/tests/${Number(this.step)}/${Number(this.step_child) - 1}`
+                    ? `/tests/${Number(this.step -1)}/3?lang=${this.language_now.code}`
+                    :`/tests/${Number(this.step)}/${Number(this.step_child) - 1}?lang=${this.language_now.code}`
             }
         },
         toggle_modal(){
@@ -234,6 +221,9 @@ export default {
                 name: 'active'
             });
         },
+        'data_step'(val){
+            // debugger;
+        }
     },
     directives: {
         disabled_button_back: {
@@ -281,7 +271,7 @@ export default {
                         result?
                             el.setAttribute('disabled', true)
                             :
-                            el.removeAttribute('disabled')
+                            el.removeAttribute('disabled');
                         if(binding.value.step == 10 && binding.value.step_child == 3){
                             let res = counter.count_button_disabled_before_result();
                             res?

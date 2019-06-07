@@ -44,6 +44,7 @@
     import Info from "./Info";
     import {QuestionStore} from "../../store/storage";
     import counter from "./counter";
+    import {mapGetters} from "vuex";
 
     export default {
         props: ['menu_array',
@@ -59,22 +60,16 @@
                 _disabled: false
             }
         },
+        computed:{
+            ...mapGetters({
+                language_now: 'multilanguage/get_language_now'
+            })
+        },
         created(){
             let step = Number(this.step);
-            // console.log( step % 2)
-            // debugger;
-            if(step == 10) {
-                this.mobile_arr = [step - 1, step];
-                return;
-            } else if( this.step == 1) {
-                this.mobile_arr = [step, step  + 1];
-                return;
-            }
-            if(step % 2){
-                this.mobile_arr = [step, step  + 1];
-            } else {
-                this.mobile_arr = [step - 1, step ];
-            }
+            if(step == 10) return this.mobile_arr = [step - 1, step];
+            else if( this.step == 1) return this.mobile_arr = [step, step  + 1];
+            step % 2 ? this.mobile_arr = [step, step  + 1] : this.mobile_arr = [step - 1, step ];
         },
         methods:{
             toggle(type){
@@ -88,14 +83,15 @@
                 return this.mobile_arr.some(item => item <= Number(this.step))
             },
             width_active(index){
-                return this.mobile_arr.every(item => item <= Number(this.step)) ?  index == 2 : index == 1
+                return this.mobile_arr.every(item => item <= Number(this.step)) ?  index == 2 : index == 1;
             },
             to(item){
                 let before_block = counter.count_block_menu();
-                if(!before_block) return `/tests/${item}/1`;
+                if(!before_block) return `/tests/${item}/1?lang=${this.language_now.code}`;
                 return  this.child_disabled_menu && item >= before_block ?
-                    `/tests/${before_block}/1` :
-                    item > before_block ? `/tests/${before_block}/1` : `/tests/${item}/1`
+                    `/tests/${before_block}/1?lang=${this.language_now.code}` :
+                    item > before_block ? `/tests/${before_block}/1?lang=${this.language_now.code}`
+                        : `/tests/${item}/1?lang=${this.language_now.code}`
             }
         },
         watch:{
@@ -103,17 +99,14 @@
                 let step = Number(this.step);
                 let to_ = to.params.steps;
                 let from_ = from.params.steps;
-                if(step == 10) {
-                    this.mobile_arr = [step - 1, step];
-                    return;
-                }
-                if(step == 1) {
-                    this.mobile_arr = [step, step  + 1];
-                    return;
-                }
+                if(step == 10) return this.mobile_arr = [step - 1, step];
+                if(step == 1) return this.mobile_arr = [step, step  + 1];
                 this.mobile_arr =  this.mobile_arr.some(item => item == step) ?
                     this.mobile_arr :
                     from_ > to_? [step - 1, step] : [step , step + 1];
+            },
+            screen(){
+                // this.mobile_arr = [Number(this.step), Number(this.step) + 1]
             }
         },
     }
@@ -132,11 +125,11 @@
     .nav_step{
         width: 890px;
         margin-bottom: 25px;
-    //padding: 18px 36px;
+    /*padding: 18px 36px;*/
         font-weight: 600;
         line-height: normal;
         font-size: 20px;
-    //box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
+    /*box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);*/
     }
     .stepped{
         z-index: 10;

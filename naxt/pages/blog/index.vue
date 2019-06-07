@@ -2,15 +2,13 @@
     <div>
         <div class="blog-page d-flex flex-column align-items-center">
             <!--v-if="!screen.active"-->
-            <div class="title_block custom_title text-capitalize vstyle">
-                <!--             v-if="final && final.title"
-                 v-html="final.title"-->
-                Blog Page
+            <div class="title_block custom_title text-capitalize vstyle"
+                 v-if="blog && blog.title"
+                 v-html="blog.title">
             </div>
-            <div class="small_text custom_small_title vstyle">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-                <!--v-if="final && final.description"
-                 v-html="final.description"-->
+            <div class="small_text custom_small_title vstyle"
+                 v-if="blog && blog.description"
+                 v-html="blog.description">
             </div>
             <div class="check_block_img position-relative">
                 <div class="check_image"></div>
@@ -31,8 +29,9 @@
                     </div>
                     <div class="d-flex flex-grow-1">
 
-                        <router-link :to="`/blog/${posts.data[0].id}`" class="learn_more" style="cursor: pointer">
-                            Learn More
+                        <router-link :to="`/blog/${posts.data[0].id}`" class="learn_more" style="cursor: pointer"
+                                     v-if="blog && blog.learn_more"
+                                     v-html="blog.learn_more">
                         </router-link>
 
                     </div>
@@ -56,23 +55,25 @@
                     {{posts.data[0].created_at | dataMoment}}
                 </div>
                 <!--<div class="fresh_img" v-if="posts.data[0].image">-->
-                <img style="width: 100%; margin-bottom: 30px" v-if="posts.data[0].image" :src="posts.data[0].image" >
+                <img style="width: 100%; margin-bottom: 30px"
+                     v-if="posts.data[0].image" :src="posts.data[0].image" >
                 <!--</div>-->
                 <div class="post-content vstyle pstyle"
                      v-if="posts.data[0].body"
                      v-html="getScreenData">
                 </div>
 
-                <router-link :to="`/blog/${posts.data[0].id}`" class="learn_more" style="cursor: pointer">
-                    Learn More
+                <router-link :to="`/blog/${posts.data[0].id}`" class="learn_more" style="cursor: pointer"
+                             v-if="blog && blog.learn_more"
+                             v-html="blog.learn_more">
                 </router-link>
 
             </div>
-            <div class="search" v-if="posts && posts.data.length > 1">
-                <input type="search" placeholder="What are you locking for">
+            <div class="search" v-if="posts && posts.data.length > 1 && blog && blog.input">
+                <input type="search" :placeholder="blog.input">
             </div>
-            <div class="search story" v-if="posts && posts.data.length > 1">
-                All Srories
+            <div class="search story" v-if="posts && posts.data.length > 1 && blog && blog.story"
+                 v-html="blog.story">
             </div>
             <!--<div class="containerPost">-->
             <div v-for="(one, index) in posts.data"
@@ -92,8 +93,9 @@
                          v-html="one.body.substring(0,120) + '...'">
                     </div>
 
-                    <router-link :to="`/blog/${one.id}`" class="learn_more" style="cursor: pointer">
-                        Learn More
+                    <router-link :to="`/blog/${one.id}`" class="learn_more" style="cursor: pointer"
+                                 v-if="blog && blog.learn_more"
+                                 v-html="blog.learn_more">
                     </router-link>
 
                 </div>
@@ -123,8 +125,9 @@
                          v-html="one.body.substring(0,120) + '...'">
                     </div>
 
-                    <router-link :to="`/blog/${one.id}`" class="learn_more" style="cursor: pointer">
-                        Learn More
+                    <router-link :to="`/blog/${one.id}`" class="learn_more" style="cursor: pointer"
+                                 v-if="blog && blog.learn_more"
+                                 v-html="blog.learn_more">
                     </router-link>
 
                 </div>
@@ -158,8 +161,9 @@
                      v-html="one.body.substring(0,320) + '...'" style="margin-bottom: 10px">
                 </div>
 
-                <router-link :to="`/blog/${one.id}`" class="learn_more" style="margin-bottom: 30px;cursor: pointer">
-                    Learn More
+                <router-link :to="`/blog/${one.id}`" class="learn_more" style="margin-bottom: 30px;cursor: pointer"
+                             v-if="blog && blog.learn_more"
+                             v-html="blog.learn_more">
                 </router-link>
 
             </div>
@@ -167,9 +171,9 @@
             <div class="button_to d-flex justify-content-center
             align-items-center text-decoration-none
             custom_button vstyle clstyle orange_style load"
-                 v-if="posts && posts.data.length > 1 && posts.current_page < posts.last_page"
+                 v-if="posts && posts.data.length > 1 && posts.current_page < posts.last_page && blog && blog.load"
+                 v-html="blog.load"
                  @click="downloadPosts()">
-                Load more Stories
             </div>
         </div>
     </div>
@@ -183,8 +187,8 @@
     import VueFilterDateParse from 'vue-filter-date-parse';
     import axios from "axios";
     import {Tag} from "../../helper/helpTegs";
-    import {nuxtServerInit} from "../../store/helpers/initServer";
-
+    import {RETURN_ROUTER} from "../../helper/routerHelp";
+    const {base64encode, base64decode} = require('nodejs-base64');
     Vue.use(VueFilterDateParse)
     Vue.use(Vue2Filters)
     Vue.use(VueFilterDateFormat, {
@@ -200,20 +204,31 @@
 
     export default {
         async fetch({redirect, store, route,commit,req}) {
-            const lang = nuxtServerInit(store,req);
-            const data = await store.dispatch('multilanguage/ssrRender', lang);
-            store.dispatch('questions/action_questions', data);
-            const res =  await store.dispatch('meta/action_tegs', {
-                store:lang,
-                page:route.fullPath ? route.fullPath.split('/')[1] : ''
-            });
-            if(res) store.commit('multilanguage/change_state', {
-                data: true,
-                name: 'active'
-            });
-            return Pasts.get_posts({language:lang.id})
+            let lang = route.query.lang;
+            !lang ? lang = 'en' : null;
+            if(store.getters['multilanguage/get_tests']) {}
+            else {
+                store.commit('multilanguage/change_state', {
+                    data: store.getters['multilanguage/get_tests'] + 1,
+                    name: 'tests'
+                });
+                const rout = route && route.fullPath ? route.fullPath.split('/')[3] : '';
+
+                const data = await store.dispatch('multilanguage/ssrRender', {lang, rout, redirect});
+                await store.dispatch('questions/action_questions', data);
+                const res =  await store.dispatch('meta/action_tegs', {
+                    store:lang ? lang : store.getters['multilanguage/get_language_now'],
+                    page:rout
+                });
+            }
+            const id = store.getters['multilanguage/get_language_now'].id;
+            return Pasts.get_posts({language:id ? id : 1})
                 .then(res => {
-                    store.dispatch('blog_data/action_posts',res.data.data)
+                    store.dispatch('blog_data/action_posts',res.data.data);
+                    store.commit('multilanguage/change_state', {
+                        data: true,
+                        name: 'active'
+                    });
                 })
         },
         head () {
@@ -232,7 +247,8 @@
             ...mapGetters({
                 posts: 'blog_data/get_posts',
                 screen: 'modal_data/get_screen',
-                meta: 'meta/get_meta'
+                meta: 'meta/get_meta',
+                blog: 'multilanguage/getBlog',
             }),
             getScreenData() {
                 switch (this.screen.value) {
@@ -247,6 +263,13 @@
                     default:
                         return this.getDataScreen(220);
                 }
+            }
+        },
+        created(){
+            try {
+                const resRout = RETURN_ROUTER.initRouter(this.$router.history.current);
+                if (resRout) window.location.href = `/?rout=${base64encode(resRout)}`;
+            } catch (e) {
             }
         },
         methods: {

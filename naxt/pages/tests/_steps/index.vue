@@ -9,21 +9,42 @@
     import steps from '../../../components/test_page/steps/index.vue';
     import {Tag} from "../../../helper/helpTegs";
     import {mapGetters} from "vuex";
-    import {nuxtServerInit} from "../../../store/helpers/initServer";
-
+    import {RETURN_ROUTER} from "../../../helper/routerHelp";
+    const {base64encode, base64decode} = require('nodejs-base64');
     export default {
         async fetch({redirect, store, route, commit,req}) {
-            const lang = nuxtServerInit(store,req);
-            const data = await store.dispatch('multilanguage/ssrRender', lang);
-            await store.dispatch('questions/action_questions', data);
+            if(store.getters['multilanguage/get_tests']) {
+                store.commit('multilanguage/change_state', {
+                    data: true,
+                    name: 'active'
+                });
+                return;
+            }
             const step = route.params.steps;
             const step_child = route.params.child_step;
-            !step_child && redirect(`/tests/${step}/1`);
-            const res =  await store.dispatch('meta/action_tegs', {
-                store:lang,
-                page:route.fullPath ? route.fullPath.split('/')[1] : ''
+            let lang = route.query.lang;
+            const rout = route && route.fullPath ? route.fullPath.split('/')[1] : '';
+            !lang ? lang = 'en' : null;
+            !step_child && redirect(`/tests/${step}/1?lang=${lang}`);
+            if(store.getters['multilanguage/get_tests']) {
+                store.commit('multilanguage/change_state', {
+                    data: true,
+                    name: 'active'
+                });
+                return;
+            }
+            store.commit('multilanguage/change_state', {
+                data: store.getters['multilanguage/get_tests'] + 1,
+                name: 'tests'
             });
-            if(res) store.commit('multilanguage/change_state', {
+
+            const data = await store.dispatch('multilanguage/ssrRender', {lang, rout, redirect});
+            await store.dispatch('questions/action_questions', data);
+            const res =  await store.dispatch('meta/action_tegs', {
+                store:lang ? lang : store.getters['multilanguage/get_language_now'],
+                page:rout
+            });
+            store.commit('multilanguage/change_state', {
                 data: true,
                 name: 'active'
             });
@@ -40,6 +61,13 @@
         },
         data () {
             return {}
+        },
+        created(){
+            try {
+                const resRout = RETURN_ROUTER.initRouter(this.$router.history.current);
+                if (resRout) window.location.href = `/?rout=${base64encode(resRout)}`;
+            } catch (e) {
+            }
         },
         computed:{
             component_active(){

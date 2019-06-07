@@ -4,6 +4,8 @@ require('dotenv').config()
 
 module.exports = {
     mode: 'universal',
+    debug: true,
+    cssSourceMap: true,
 
     /*
     ** Headers of the page
@@ -54,40 +56,17 @@ module.exports = {
     ** Nuxt.js modules
     */
     modules: [
-        // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
         '@nuxtjs/dotenv',
-        ['nuxt-vuex-localstorage', {
-            mode: 'debug',
-            localStorage: ['localStorage']
-        }],
-        ["cookie-universal-nuxt"],
-        ['vue-warehouse/nuxt',
-            {
-                vuex: true,
-                // plugins: [
-                //     'store/plugins/expire',
-                //     'store/plugins/defaults'
-                // ],
-                // storages: [
-                //     'store/storages/localStorage',
-                //     'store/storages/cookieStorage'
-                // ]
-            }
-        ],
     ],
-    /*
-    ** Axios module configuration
-    */
+    // router: {
+    //     middleware: ['redirect']
+    // },
     axios: {
-        // See https://github.com/nuxt-community/axios-module#options
-        // baseURL: 'https://id.hubculture.com',
         baseURL: process.env.baseURL
     },
     lintOnSave: process.env.NODE_ENV !== 'production',
-    /*
-    ** Build configuration
-    */
+
     build: {
         transpile: ['vuetify/lib','nuxt-vuex-localstorage'],
         plugins: [new VuetifyLoaderPlugin()],
@@ -97,9 +76,7 @@ module.exports = {
             }
         },
         vendor: ['aframe'],
-        /*
-        ** You can extend webpack config here
-        */
+
         extend(config, ctx) {
         }
     }

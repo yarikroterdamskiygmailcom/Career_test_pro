@@ -2,9 +2,13 @@ export default {
     get_language_now(state) {
         return JSON.parse(JSON.stringify(state.language_now))
     },
+    lang(state) {
+        return state.lang
+    },
     get_test(state) {
         return state.test
-    },get_tests(state) {
+    },
+    get_tests(state) {
         return state.tests
     },
     get_menu_list (state) {
@@ -82,5 +86,8 @@ export default {
     },
     getOneModal(state){
         return state.data &&state.data.Modal && state.data.Modal.one
+    },
+    getBlog(state){
+        return state.data &&state.data.Blog && state.data.Blog.section
     }
 };
