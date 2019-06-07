@@ -50,6 +50,9 @@ Route::group([
     Route::get('lang-buffer', 'LanguagesController@getBuffer');
     Route::post('lang-buffer', 'LanguagesController@setBuffer');
 
+    Route::get('stripe', 'StripePaymentController@stripe');
+    Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
+
 });
 
 
