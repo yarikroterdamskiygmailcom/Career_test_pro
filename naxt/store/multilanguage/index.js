@@ -6,6 +6,7 @@ export const state = () => ({
         language: "English",
         code: "en"
     },
+    lang: 'eee',
     tests: 0,
     menu_list: [
         {

@@ -33,10 +33,10 @@ export default {
         state.data && state.state && state.state.step_1_2 && delete state.state.step_9_10;
 
         state.data.Step_name = {
-            'step:1'  : {name: state.data.Tests.section.Skills,            amount: '1-30',},
-            'step:2'  : {name: state.data.Tests.section.Skills,            amount: '31-60',},
-            'step:3'  : {name: state.data.Tests.section.Work_values,       amount: '61-90',},
-            'step:4'  : {name: state.data.Tests.section.Work_values,       amount: '91-120',},
+            'step:1'  : {name: state.data.Tests.section.Skills,            amount: '1-30'   },
+            'step:2'  : {name: state.data.Tests.section.Skills,            amount: '31-60'  },
+            'step:3'  : {name: state.data.Tests.section.Work_values,       amount: '61-90'  },
+            'step:4'  : {name: state.data.Tests.section.Work_values,       amount: '91-120' },
             'step:5'  : {name: state.data.Tests.section.Activities,        amount: '121-150'},
             'step:6'  : {name: state.data.Tests.section.Activities,        amount: '151-180'},
             'step:7'  : {name: state.data.Tests.section.Personal_Behavior, amount: '181-210'},

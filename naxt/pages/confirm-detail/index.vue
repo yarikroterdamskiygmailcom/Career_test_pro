@@ -29,27 +29,34 @@
 </template>
 
 <script>
-    import Input_information from '../../../components/process_confirm_page/input_information/index.vue'
+    import Input_information from '../../components/process_confirm_page/input_information/index.vue'
     import {mapGetters} from "vuex";
-    import {Tag} from "../../../helper/helpTegs";
-    import {nuxtServerInit} from "../../../store/helpers/initServer";
+    import {Tag} from "../../helper/helpTegs";
+    import {RETURN_ROUTER} from "../../helper/routerHelp";
+    const {base64encode, base64decode} = require('nodejs-base64');
     export default {
         async fetch({redirect, store, route, commit,req}) {
-            const lang = route.params.lang;
-            const rout = route && route.fullPath ? route.fullPath.split('/')[2] : '';
-            !rout && redirect('/');
-            !lang && redirect('/');
-            // store.commit('multilanguage/change_state', route.params.lang);
-
+            if(store.getters['multilanguage/get_tests']) {
+                store.commit('multilanguage/change_state', {
+                    data: true,
+                    name: 'active'
+                });
+                return;
+            }
+            store.commit('multilanguage/change_state', {
+                data: store.getters['multilanguage/get_tests'] + 1,
+                name: 'tests'
+            });
+            let lang = route.query.lang;
+            const rout = route && route.fullPath ? route.fullPath.split('/')[1] : '';
+            !lang ? lang = 'en' : null;
             const data = await store.dispatch('multilanguage/ssrRender', {lang, rout, redirect});
-            //
             await store.dispatch('questions/action_questions', data);
-            //
             const res =  await store.dispatch('meta/action_tegs', {
                 store:lang ? lang : store.getters['multilanguage/get_language_now'],
                 page:rout
             });
-            if(res) store.commit('multilanguage/change_state', {
+            store.commit('multilanguage/change_state', {
                 data: true,
                 name: 'active'
             });
@@ -59,14 +66,16 @@
                 meta: Tag.getArrayTags(this.meta),
             }
         },
+        created(){
+            try {
+                const resRout = RETURN_ROUTER.initRouter(this.$router.history.current);
+                if (resRout) window.location.href = `/?rout=${base64encode(resRout)}`;
+            } catch (e) {
+            }
+        },
         name: "ProcessConfirmPage",
         components:{
             'input_information_component': Input_information,
-        },
-        watch:{
-            '$route' (to, from) {
-                console.log(to, from)
-            }
         },
         computed:{
             ...mapGetters({

@@ -26,7 +26,7 @@
                 :width="'890px'"
                 :screen="'desktop'"
                 :func="go_next"
-        :child_disabled_menu="child_disabled_menu">
+                :child_disabled_menu="child_disabled_menu">
         </menu_component>
         <menu_component
                 v-if="screen.active && (screen.value < 1200 && screen.value > 640)"
@@ -67,7 +67,7 @@
         </div>
         <div class="step_content d-flex flex-column">
             <div class="step_content d-flex justify-content-end ellips_information" style="margin-bottom: 30px"
-                 :class="screen.value < 640 ?'justify-content-between' : 'justify-content-end'" v-if="data_step.length > 0">
+                 :class="screen.value < 640 ?'justify-content-between' : 'justify-content-end'" v-if="dataLength('>')">
                 <info v-if="screen.value < 640"
                       class="info" :active="step"></info>
                 <div class="select_questions d-flex justify-content-between">
@@ -95,7 +95,7 @@
                 </div>
             </div>
             <div class="questions">
-                <div class="spinner d-flex justify-content-center align-items-center" v-if="data_step.length == 0">
+                <div class="spinner d-flex justify-content-center align-items-center" v-if="dataLength('=')">
                     <div></div>
                 </div>
                 <div class="item_question d-flex justify-content-between" v-for="(item, index) in data_step">
@@ -121,7 +121,7 @@
             <div class="d-flex justify-content-between"
                  ref="back"
                  style=" margin-top: 30px; margin-bottom: 254px"
-                 v-if="data_step.length > 0">
+                 v-if="dataLength('>')">
                 <router-link
                         :to="back()"
                         class="button_to custom_button

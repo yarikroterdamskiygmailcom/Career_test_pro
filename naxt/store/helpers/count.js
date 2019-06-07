@@ -1,9 +1,10 @@
 export default{
     find_language_now_in_array(array,lang){
         let data;
+        Array.isArray(lang) ? lang = lang[0] : lang = lang ? lang :'';
         array.forEach(item => {
-            typeof lang == 'string' && (item.code == lang.toLowerCase() || item.code == lang.toUpperCase()) ? data = item : null
+            item.code.indexOf(lang.toLowerCase()) > -1 || item.code.indexOf(lang.toUpperCase()) > -1 ? data = item : null
         });
-        return data;
+        return data ? data : array[0];
     }
 }

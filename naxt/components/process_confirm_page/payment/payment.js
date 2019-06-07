@@ -8,16 +8,16 @@ export default {
     data() {
         return {
             cards: [
-                {
-                    name:'PayPal',
-                    status: false,
-                    card:['paypal']
-                },
-                {
-                    name: 'Credit/Debit Card',
-                    status: false,
-                    card:['visa', 'maestro', 'mastercard', 'discover']
-                },
+                // {
+                //     name:'PayPal',
+                //     status: false,
+                //     card:['paypal']
+                // },
+                // {
+                //     name: 'Credit/Debit Card',
+                //     status: false,
+                //     card:['visa', 'maestro', 'mastercard', 'discover']
+                // },
                 {
                     name:'Voucher',
                     status: false,
@@ -25,15 +25,20 @@ export default {
                 }
             ],
             cards1: [
+                // {
+                //     name: 'Mollie',
+                //     status: false,
+                //     card:['visa', 'maestro', 'mastercard', 'discover']
+                // },
+                // {
+                //     name: 'Braintree',
+                //     status: false,
+                //     card:['visa']
+                // },
                 {
-                    name: 'Mollie',
+                    name: 'Stripe',
                     status: false,
                     card:['visa', 'maestro', 'mastercard', 'discover']
-                },
-                {
-                    name: 'Braintree',
-                    status: false,
-                    card:['visa']
                 }
             ],
             data:{
@@ -45,6 +50,7 @@ export default {
                     errors: false
                 }
             },
+            data_vue: this,
             disabled_button:false,
             result: null,
             base_url:config.url
@@ -145,9 +151,7 @@ export default {
         },
         count(arr) {
             let name = null;
-            arr.forEach(item => {
-                if(item.status) name = item.name;
-            });
+            arr.forEach(item => item.status ? name = item.name : null);
             return name;
         },
     },
@@ -163,9 +167,14 @@ export default {
             data_vue:this,
             methods:{
                 element_munipulation(el, binding){
-                    const self = binding.def.data_vue.a;
-                    const values = self.methods.count(binding.value);
-                    values != 'Voucher' ? el.setAttribute('disabled', true): el.removeAttribute('disabled');
+                    try {
+                        const self = binding.value.self;
+                        const values = self.count(binding.value.value);
+                        values != 'Voucher' ? el.setAttribute('disabled', true): el.removeAttribute('disabled');
+                    } catch (e){
+                        return false
+                    }
+
                 }
             },
             bind: function (el, binding, vnode) {

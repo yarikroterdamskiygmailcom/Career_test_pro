@@ -13,7 +13,7 @@
                 </li>
             </ul>
         </nav>
-        <router-link to="/tests"
+        <router-link :to="'/tests?lang=' + language_now.code"
              v-if="screen.value > 1100 && firstSection && firstSection.testButton"
              @click="menu = false"
              class="button_to
@@ -25,7 +25,7 @@
                  v-html="firstSection.testButton">
 
         </router-link>
-        <router-link to="/tests"
+        <router-link :to="'/tests?lang=' + language_now.code"
              v-if="test != 'home' && screen.value <= 1100 && firstSection && firstSection.testButton"
              @click="menu = false"
              class="button_to
@@ -108,7 +108,7 @@
                         </b-dropdown>
                     </div>
                     <li @click="menu = false">
-                        <router-link :to="'/tests'" class="button_to text_style custom_button d-flex
+                        <router-link :to="'/tests?lang=' + language_now.code" class="button_to text_style custom_button d-flex
                         justify-content-center align-items-center vstyle clstyle"
                              v-if="firstSection && firstSection.testButton"
                              v-html="firstSection.testButton" >
