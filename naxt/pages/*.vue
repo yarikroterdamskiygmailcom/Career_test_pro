@@ -14,7 +14,7 @@
             if(route.query && route.query.rout) {
                 return redirect(base64decode(route.query.rout));
             }
-            redirect(`/home?lang=${lang}`);
+            redirect(`/home/${lang}`);
             function getParams (str) {
                 let queryString = str || '';
                 let keyValPairs = [];

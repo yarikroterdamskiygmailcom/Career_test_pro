@@ -46,7 +46,7 @@ export default {
                 {root: true}
             );
             IndexLanguage.saveLang(item);
-            const rout = `${location.pathname}?lang=${item.code.toLowerCase()}`;
+            const rout = `${location.pathname}/${item.code.toLowerCase()}`;
             // return this.$router.push(rout);
             window.location.href = `/?rout=${base64encode(rout)}`
         },
@@ -72,7 +72,7 @@ export default {
             const lang = this.language_now;
             let data = JSON.parse( JSON.stringify( this.menu_list));
             return this.menu_list ? data.map(item => {
-                item.path = `${item.path}?lang=${lang.code}`;// `${item.path}?lang=${lang.code}`
+                item.path = `${item.path}/${lang.code}`;// `${item.path}?lang=${lang.code}`
                 return item
             }) : [];
         }

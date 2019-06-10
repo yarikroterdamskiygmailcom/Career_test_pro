@@ -28,7 +28,8 @@ export default {
     },
     computed:{
         ...mapGetters({
-            confirmDetail:'multilanguage/getConfirmDetailSection'
+            confirmDetail:'multilanguage/getConfirmDetailSection',
+            price: 'multilanguage/price'
         })
     },
     mounted(){
@@ -40,6 +41,7 @@ export default {
     },
     updated(){
         this.setAgeGender();
+        this.data.price = this.price.value
     },
     methods: {
         errors: function(data){

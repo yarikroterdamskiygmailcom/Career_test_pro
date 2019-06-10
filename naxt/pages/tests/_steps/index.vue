@@ -22,10 +22,11 @@
             }
             const step = route.params.steps;
             const step_child = route.params.child_step;
-            let lang = route.query.lang;
+            let lang = route && route.params && route.params.lang ? route.params.lang : '';
             const rout = route && route.fullPath ? route.fullPath.split('/')[1] : '';
             !lang ? lang = 'en' : null;
-            !step_child && redirect(`/tests/${step}/1?lang=${lang}`);
+            Number(step) && redirect(`/tests/${step}/1/${lang}`);
+            // !step_child && redirect(`/tests/${step}/1?lang=${lang}`);
             if(store.getters['multilanguage/get_tests']) {
                 store.commit('multilanguage/change_state', {
                     data: true,
@@ -71,11 +72,7 @@
         },
         computed:{
             component_active(){
-                return Object.keys(this.$route.params).length == 0
-                    ?
-                    'information_and_start-component'
-                    :
-                    'steps-component'
+                return Number(this.$route.params.steps) ? 'steps-component' : 'information_and_start-component'
             },
             ...mapGetters({
                 meta: 'meta/get_meta'

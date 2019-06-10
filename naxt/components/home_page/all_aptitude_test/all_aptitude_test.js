@@ -14,7 +14,8 @@ export default {
     computed:{
         ...mapGetters({
             screen: 'modal_data/get_screen',
-            fourSection: 'multilanguage/getHomeFourSection'
+            fourSection: 'multilanguage/getHomeFourSection',
+            price: 'multilanguage/price'
         }),
     }
 }

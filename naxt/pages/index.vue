@@ -4,10 +4,13 @@
 
     export default {
         async fetch({redirect, store, route, $warehouse, $cookies, req}) {
+
             if (route.query && route.query.rout) {
                 let url = base64decode(route.query.rout);
-                let params = getParams(url);
-                let lang = params['lang'][0];
+                let lang = url.substring(url.lastIndexOf()) ?  url.substring(url.lastIndexOf()) : 'en';
+                // let url = base64decode(route.query.rout);
+                // let params = getParams(url);
+                // let lang = params['lang'][0];
                 store.commit('multilanguage/change_state', {
                     data: lang,
                     name: 'lang'
@@ -18,8 +21,7 @@
                 data: 'en',
                 name: 'lang'
             });
-
-            return redirect(`/home?lang=en`)
+            return redirect(`/home/en`)
         },
     }
 

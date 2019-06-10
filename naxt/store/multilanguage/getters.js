@@ -5,6 +5,9 @@ export default {
     lang(state) {
         return state.lang
     },
+    price(state) {
+        return state.price
+    },
     get_test(state) {
         return state.test
     },

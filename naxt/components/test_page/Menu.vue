@@ -87,11 +87,11 @@
             },
             to(item){
                 let before_block = counter.count_block_menu();
-                if(!before_block) return `/tests/${item}/1?lang=${this.language_now.code}`;
+                if(!before_block) return `/tests/${item}/1/${this.language_now.code}`;
                 return  this.child_disabled_menu && item >= before_block ?
-                    `/tests/${before_block}/1?lang=${this.language_now.code}` :
-                    item > before_block ? `/tests/${before_block}/1?lang=${this.language_now.code}`
-                        : `/tests/${item}/1?lang=${this.language_now.code}`
+                    `/tests/${before_block}/1/${this.language_now.code}` :
+                    item > before_block ? `/tests/${before_block}/1/${this.language_now.code}`
+                        : `/tests/${item}/1/${this.language_now.code}`
             }
         },
         watch:{

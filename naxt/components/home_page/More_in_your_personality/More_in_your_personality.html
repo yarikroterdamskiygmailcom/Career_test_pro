@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="d-flex justify-content-between">
-                        <router-link :to="'tests'"
+                        <router-link :to="'/tests/' + language_now.code"
                              class="button_to d-flex justify-content-center
                              align-items-center text-decoration-none
                              custom_button vstyle clstyle"
@@ -54,7 +54,7 @@
                          v-html="firstSection.description">
                     </div>
                     <div class="d-flex justify-content-between block_button">
-                        <router-link :to="'tests'" class="button_to d-flex justify-content-center
+                        <router-link :to="'/tests/' + language_now.code" class="button_to d-flex justify-content-center
                              align-items-center text-decoration-none
                              custom_button vstyle clstyle"
                              v-if="firstSection && firstSection.testButton"

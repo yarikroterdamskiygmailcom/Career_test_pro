@@ -127,9 +127,11 @@ export default  {
         }
         return null;
     },
-    count_disanled_callback: (item) =>{
-        if(typeof item['state'] === 'undefined') return true;
-        return item['state'].toString() ? false : true;
+    count_disanled_callback (item) {
+        let state = false;
+        Object.keys(item).forEach(item => item ==='state' ? state = !state : null)
+        const step = item && state && `${item.state}` ? `${item['state']}` : null;
+        return step ? false : true;
     }
 }
 

@@ -15,7 +15,6 @@ export default {
             language_now: 'multilanguage/get_language_now'
         }),
         content() {
-            console.log(this.testSection);
             return this.testSection && this.testSection.content
                 ? this.getArrow(this.testSection.content)
                 : ''
@@ -26,7 +25,7 @@ export default {
     },
     methods: {
         start_test(){
-            this.$router.push({path: `/tests/1/1?lang=${this.language_now.code}`})
+            this.$router.push({path: `/tests/1/1/${this.language_now.code}`})
         },
         getArrow(text){
             let data = '';

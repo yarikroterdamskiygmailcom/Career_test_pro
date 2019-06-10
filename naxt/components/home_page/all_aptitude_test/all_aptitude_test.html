@@ -33,7 +33,8 @@
                 <div class="best_value text-center">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="m-2" style="font-weight: 600;">$</div>
-                        <div class="m-2">39.95</div>
+                        <div class="m-2" v-if="price && price.value"
+                             v-html="price.value ?price.value: 39.95"></div>
                     </div>
                     <div class="small_text best_value_text text-center vstyle"
                          v-if="fourSection && fourSection.value"
@@ -80,7 +81,8 @@
                         <div class=" dollar" style="color : #333333">
                             $
                         </div>
-                        <div style="color : #333333">39.95</div>
+                        <div style="color : #333333" v-if="price && price.value"
+                             v-html="price.value ?price.value: 39.95"></div>
                     </div>
                     <div class="small_text best_value_text text-center vstyle"
                          v-if="fourSection && fourSection.value"
