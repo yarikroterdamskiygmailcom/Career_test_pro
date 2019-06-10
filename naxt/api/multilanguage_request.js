@@ -17,5 +17,8 @@ export default  {
     },
     get_meta(language_id) {
         return axios.get(`/api/metatags?language_id=${language_id}`)
+    },
+    get_price(language_id) {
+        return axios.get(`/api/price?language_id=${language_id}`)
     }
 }

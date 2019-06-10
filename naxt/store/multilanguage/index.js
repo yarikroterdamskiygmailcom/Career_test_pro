@@ -50,6 +50,7 @@ export const state = () => ({
             path: 'http://backcartestpro.qbex.io/assets/facebook.png'
         },
     ],
+    price:{},
     data:{},
     test: false
 });

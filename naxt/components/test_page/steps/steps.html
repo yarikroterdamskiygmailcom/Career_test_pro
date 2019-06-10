@@ -122,20 +122,20 @@
                  ref="back"
                  style=" margin-top: 30px; margin-bottom: 254px"
                  v-if="dataLength('>')">
-                <router-link
-                        :to="back()"
+                <span
+                        @click.prevent.stop="$router.push(back())"
                         class="button_to custom_button
                          d-flex justify-content-center align-items-center vstyle"
-                         v-disabled_button_back="{step:step, child: step_child}"
-                         v-if="testSection && testSection.Back"
-                         v-html="testSection.Back"></router-link>
-                <router-link
-                        :to="next()"
+                        v-disabled_button_back="{step:step, child: step_child}"
+                        v-if="testSection && testSection.Back"
+                         v-html="testSection.Back"></span>
+                <span
+                        @click.prevent.stop="!disabled_but ? $router.push(next()): refresh_helper()"
                         class="button_to custom_button
                         d-flex justify-content-center align-items-center vstyle"
                          v-disabled_button_next="{step:step, array: data_step, child: step_child}"
                          v-if="testSection && testSection.Next"
-                         v-html="testSection.Next"></router-link>
+                         v-html="testSection.Next"></span>
             </div>
         </div>
     </section>

@@ -81,11 +81,12 @@ export default {
             this.data_step = QuestionStore.getStep(`${this.step}-${this.step_child}`) || [];
             (this.step < this.first_step) || (this.step > this.last_step) || !this.step_child
                 ? this.$router.push(`/tests/1/1?lang=${this.language_now.code}`) : null;
-            if(window.location.pathname.split('/').length < 4) this.$router.push(`/tests/1/1?lang=${this.language_now.code}`)
+            if(window.location.pathname.split('/').length < 4) this.$router.push(`/tests/1/1?lang=${this.language_now.code}`);
             this.toggle_modal();
             this.count_arr_for_disabled();
             this.$router.beforeEach((to, from, next) => {
                 this.count_arr_for_disabled();
+
                 let to_back = false;
                 if (to.path.split('/')[1] != 'tests' || to.path.split('/').length < 3) return next();
                 if (Number(to.params.steps) == this.step && Number(to.params.child_step) < this.step_child) {
@@ -95,9 +96,10 @@ export default {
                 } else if (Number(to.params.steps) <= this.step && Number(to.params.child_step) < this.step_child) {
                     to_back = !to_back
                 }
-                if (to_back) return next();
-
-                this.disabled_but ? this.refresh_helper() : next()
+                // if (to_back)
+                    return next();
+console.log('33')
+//                 this.disabled_but ? this.refresh_helper() : next()
             });
         } catch (e) {
         }
@@ -147,20 +149,20 @@ export default {
             // if(result) return `/tests/${Number(this.step)}/${Number(this.step_child)}`;
             if(this.step == 10 && this.step_child == 3){
                 let res = counter.count_button_disabled_before_result();
-                if(res) return `/tests/${Number(this.step)}/${Number(this.step_child)}?lang=${this.language_now.code}`;
+                if(res) return `/tests/${Number(this.step)}/${Number(this.step_child)}/${this.language_now.code}`;
             }
             if(this.step == this.last_step - 1){
                 if(this.step_child < 3){
-                    return `/tests/${Number(this.step)}/${Number(this.step_child) + 1}?lang=${this.language_now.code}`;
+                    return `/tests/${Number(this.step)}/${Number(this.step_child) + 1}/${this.language_now.code}`;
                 } else {
                     return `/confirm-detail?lang=${this.language_now.code}`
                 }
             } else {
                if(this.step_child < 3){
-                   return `/tests/${Number(this.step)}/${Number(this.step_child) + 1}?lang=${this.language_now.code}`;
+                   return `/tests/${Number(this.step)}/${Number(this.step_child) + 1}/${this.language_now.code}`;
                }
                 else{
-                   return `/tests/${Number(this.step) + 1}/${1}?lang=${this.language_now.code}`;
+                   return `/tests/${Number(this.step) + 1}/${1}/${this.language_now.code}`;
                }
             }
         },
@@ -168,12 +170,12 @@ export default {
             const disabled = Number(this.step) == this.first_step || Number(this.step) < this.first_step;
             if(disabled){
                  return this.step_child < 2
-                     ? '/tests/1/1?lang=${this.language_now.code}'
-                     :`/tests/${Number(this.step)}/${Number(this.step_child) - 1}?lang=${this.language_now.code}`
+                     ? `/tests/1/1/${this.language_now.code}`
+                     :`/tests/${Number(this.step)}/${Number(this.step_child) - 1}/${this.language_now.code}`
             } else {
                 return this.step_child < 2
-                    ? `/tests/${Number(this.step -1)}/3?lang=${this.language_now.code}`
-                    :`/tests/${Number(this.step)}/${Number(this.step_child) - 1}?lang=${this.language_now.code}`
+                    ? `/tests/${Number(this.step -1)}/3/${this.language_now.code}`
+                    :`/tests/${Number(this.step)}/${Number(this.step_child) - 1}/${this.language_now.code}`
             }
         },
         toggle_modal(){

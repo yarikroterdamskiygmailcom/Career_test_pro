@@ -1,7 +1,7 @@
-import {Pasts} from "../../../api/posts";
+import {Pasts} from "../../../../api/posts";
 import {mapGetters} from "vuex";
-import {Tag} from "../../../helper/helpTegs";
-import {RETURN_ROUTER} from "../../../helper/routerHelp";
+import {Tag} from "../../../../helper/helpTegs";
+import {RETURN_ROUTER} from "../../../../helper/routerHelp";
 const {base64encode, base64decode} = require('nodejs-base64');
 export default {
     name: 'blog-page',
@@ -20,7 +20,8 @@ export default {
             const data = await store.dispatch('multilanguage/ssrRender', {lang, rout, redirect});
             await store.dispatch('questions/action_questions', data);
         }
-        await Pasts.get_one_post(params.detail)
+        console.log(params)
+        await Pasts.get_one_post(params.lang)
             .then(res => {
                 res.data.url = `http://localhost:3001/${route.fullPath}`;
                 if(Object.keys(res.data).length == 0) {
@@ -57,13 +58,14 @@ export default {
     },
     methods: {
         getHref(type, data){
+            let text = this.postOne && this.postOne.body ? this.postOne.body.replace(/(<([^>]+)>)/g,'') : ''
             switch (type) {
                 case 'twitter':
-                    return `https://twitter.com/share?text=${this.postOne.body.replace(/(<([^>]+)>)/g,'')}`;
+                    return `https://twitter.com/share?text=${text}`;
                 case 'facebook':
-                    return `https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=${this.postOne.url}&display=popup&ref=plugin&src=share_button&text=${this.postOne.body.replace(/(<([^>]+)>)/g,'')}`;
+                    return `https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=${this.postOne.url}&display=popup&ref=plugin&src=share_button&text=${text}`;
                 case 'linkedin':
-                    return `http://www.linkedin.com/shareArticle?mini=true&url=${this.postOne.url}&text=${this.postOne.body.replace(/(<([^>]+)>)/g,'')}&summary=some%20summary%20if%20you%20want`
+                    return `http://www.linkedin.com/shareArticle?mini=true&url=${this.postOne.url}&text=${text}&summary=some%20summary%20if%20you%20want`
             }
         }
     },

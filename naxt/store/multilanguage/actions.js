@@ -2,6 +2,7 @@ import Helper_count from "../helpers/count";
 import {IndexLanguage} from "../storage";
 import list_language from "../../api/multilanguage_request";
 import questions from "../../api/questions";
+import axios from "../api/axios.config";
 import vuex from 'vuex'
 export default {
     action_change_state({commit}, value){
@@ -36,12 +37,20 @@ export default {
                     name: 'language_array'
                 });
                 data = Helper_count.find_language_now_in_array(response.data, lang);
+
                 commit('change_state', {
                     data: data,
                     name: 'language_now'
                 });
                 // store.commit('localStorage/language_now', data, {root: true});
-                return list_language.get_site(  data.id )//value && value.id ? value.id : data.id
+                //value && value.id ? value.id : data.id
+                return list_language.get_price(  data.id  )
+            }).then(response => {
+                commit('change_state', {
+                    data: response.data,
+                    name: 'price'
+                });
+                return list_language.get_site(  data.id  )
             }).then(response => {
                 commit('setVariable', response.data);
                 return questions.get_questions(  data.id, this, commit);
@@ -53,5 +62,5 @@ export default {
                 return response.data;
             })
             .catch(err => console.log(err));
-    }
+    },
 };

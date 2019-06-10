@@ -22,11 +22,11 @@
             }
             const step = route.params.steps;
             const step_child = route.params.child_step;
-            let lang = route.query.lang;
+            let lang = route && route.params && route.params.lang ? route.params.lang : '';
             const rout = route && route.fullPath ? route.fullPath.split('/')[1] : '';
             !lang ? lang = 'en' : null;
             // console.log(route.query.lang, lang);
-            !step_child && redirect(`/tests/${step}/1?lang=${lang}`);
+            !step_child && redirect(`/tests/${step}/1?/${lang}`);
             if(store.getters['multilanguage/get_tests']) {
                 store.commit('multilanguage/change_state', {
                     data: true,

@@ -12,30 +12,10 @@
     const {base64encode, base64decode} = require('nodejs-base64');
     export default {
         async fetch({redirect, store, route, commit,req}) {
-            if(store.getters['multilanguage/get_tests']) {
-                store.commit('multilanguage/change_state', {
-                    data: true,
-                    name: 'active'
-                });
-                return;
-            }
-            store.commit('multilanguage/change_state', {
-                data: store.getters['multilanguage/get_tests'] + 1,
-                name: 'tests'
-            });
-            let lang = route.query.lang;
-            const rout = route && route.fullPath ? route.fullPath.split('/')[1] : '';
-            !lang ? lang = 'en' : null;
-            const data = await store.dispatch('multilanguage/ssrRender', {lang, rout, redirect});
-            await store.dispatch('questions/action_questions', data);
-            const res =  await store.dispatch('meta/action_tegs', {
-                store:lang ? lang : store.getters['multilanguage/get_language_now'],
-                page:rout
-            });
-            store.commit('multilanguage/change_state', {
-                data: true,
-                name: 'active'
-            });
+            let lang = route && route.params && route.params.lang ? route.params.lang : '';
+            const rout = route && route.path ? route.path.split('/')[1] : '';
+            !lang ? lang = 'en': null;
+            redirect(`/${rout}/${lang}`)
         },
         created(){
             try {

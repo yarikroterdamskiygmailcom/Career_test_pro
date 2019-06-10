@@ -29,7 +29,8 @@
                     </div>
                     <div class="d-flex flex-grow-1">
 
-                        <router-link :to="`/blog/${posts.data[0].id}`" class="learn_more" style="cursor: pointer"
+                        <router-link :to="`/blog/${posts.data[0].id}/${$store.state.multilanguage.language_now.code}`"
+                                     class="learn_more" style="cursor: pointer"
                                      v-if="blog && blog.learn_more"
                                      v-html="blog.learn_more">
                         </router-link>
@@ -63,7 +64,8 @@
                      v-html="getScreenData">
                 </div>
 
-                <router-link :to="`/blog/${posts.data[0].id}`" class="learn_more" style="cursor: pointer"
+                <router-link :to="`/blog/${posts.data[0].id}/${$store.state.multilanguage.language_now.code}`"
+                             class="learn_more" style="cursor: pointer"
                              v-if="blog && blog.learn_more"
                              v-html="blog.learn_more">
                 </router-link>
@@ -93,7 +95,8 @@
                          v-html="one.body.substring(0,120) + '...'">
                     </div>
 
-                    <router-link :to="`/blog/${one.id}`" class="learn_more" style="cursor: pointer"
+                    <router-link :to="`/blog/${one.id}/${$store.state.multilanguage.language_now.code}`"
+                                 class="learn_more" style="cursor: pointer"
                                  v-if="blog && blog.learn_more"
                                  v-html="blog.learn_more">
                     </router-link>
@@ -125,7 +128,8 @@
                          v-html="one.body.substring(0,120) + '...'">
                     </div>
 
-                    <router-link :to="`/blog/${one.id}`" class="learn_more" style="cursor: pointer"
+                    <router-link :to="`/blog/${one.id}/${$store.state.multilanguage.language_now.code}`"
+                                 class="learn_more" style="cursor: pointer"
                                  v-if="blog && blog.learn_more"
                                  v-html="blog.learn_more">
                     </router-link>
@@ -161,7 +165,8 @@
                      v-html="one.body.substring(0,320) + '...'" style="margin-bottom: 10px">
                 </div>
 
-                <router-link :to="`/blog/${one.id}`" class="learn_more" style="margin-bottom: 30px;cursor: pointer"
+                <router-link :to="`/blog/${one.id}/${$store.state.multilanguage.language_now.code}`"
+                             class="learn_more" style="margin-bottom: 30px;cursor: pointer"
                              v-if="blog && blog.learn_more"
                              v-html="blog.learn_more">
                 </router-link>
@@ -179,15 +184,15 @@
     </div>
 </template>
 <script>
-    import {Pasts} from "../../api/posts";
+    import {Pasts} from "../../../api/posts";
     import {mapGetters} from "vuex";
     import Vue from 'vue'
     import Vue2Filters from 'vue2-filters'
     import VueFilterDateFormat from 'vue-filter-date-format';
     import VueFilterDateParse from 'vue-filter-date-parse';
     import axios from "axios";
-    import {Tag} from "../../helper/helpTegs";
-    import {RETURN_ROUTER} from "../../helper/routerHelp";
+    import {Tag} from "../../../helper/helpTegs";
+    import {RETURN_ROUTER} from "../../../helper/routerHelp";
     const {base64encode, base64decode} = require('nodejs-base64');
     Vue.use(VueFilterDateParse)
     Vue.use(Vue2Filters)
@@ -205,9 +210,22 @@
     export default {
         async fetch({redirect, store, route,commit,req}) {
             let lang = route && route.params && route.params.lang ? route.params.lang : '';
-            const rout = route && route.path ? route.path.split('/')[1] : '';
-            !lang ? lang = 'en': null;
-            redirect(`/${rout}/${lang}`);
+            !lang ? lang = 'en' : null;
+            if(store.getters['multilanguage/get_tests']) {}
+            else {
+                store.commit('multilanguage/change_state', {
+                    data: store.getters['multilanguage/get_tests'] + 1,
+                    name: 'tests'
+                });
+                const rout = route && route.fullPath ? route.fullPath.split('/')[1] : '';
+
+                const data = await store.dispatch('multilanguage/ssrRender', {lang, rout, redirect});
+                await store.dispatch('questions/action_questions', data);
+                const res =  await store.dispatch('meta/action_tegs', {
+                    store:lang ? lang : store.getters['multilanguage/get_language_now'],
+                    page:rout
+                });
+            }
             const id = store.getters['multilanguage/get_language_now'].id;
             return Pasts.get_posts({language:id ? id : 1})
                 .then(res => {

@@ -81,8 +81,9 @@
                  v-html="confirmDetail.totalPrice"></div>
             <div class="justify-content-end" style="width: 100%">
                 <input type="text"
-                       v-model="data.price"
-                       disabled="true"
+                       v-if="price && price.value"
+                       :value="price && price.value ?price.value: 39.95"
+                       disabled
                        style="font-weight: 600">
             </div>
         </div>

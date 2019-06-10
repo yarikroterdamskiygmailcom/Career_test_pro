@@ -106,21 +106,14 @@ export default {
             let data = null;
             Object.keys(array).forEach( item => {
                 let arr = item.split('-');
-                if(flag) {
-                    arr[1] == this.step ? data = item : null;
-                } else {
-                    arr[1] == this.step || arr[2] == this.step ? data = item : null;
-                }
+                if(flag) arr[1] == this.step ? data = item : null;
+                else arr[1] == this.step || arr[2] == this.step ? data = item : null;
             });
             return data;
         },
         go_next(value, index = false, next=false, child){
             this.count_arr_for_disabled();
-            if(value){
-                if(index) {
-                 this.refresh_helper()
-                }
-            }
+            value && index && this.refresh_helper()
         },
         next(){
             // let result = this.data_step ?  this.disabled_but : null;
@@ -195,7 +188,6 @@ export default {
             this.toggle_modal();
         },
         test(to, from){
-            debugger;
             this.data_step = to && QuestionStore.getStep(`${this.step}-${this.step_child}`);
             to && this.$store.dispatch('multilanguage/action_spinner', {
                 data:true,
@@ -208,16 +200,18 @@ export default {
             data_vue:this,
             methods:{
                 element_munipulation(el, binding, vnode){
-                    const self = binding.def.data_vue.a;
-                    if(binding.value.step == 1){
-                        // debugger;
-                        Number(binding.value.child< 2) ?
-                            el.setAttribute('disabled', true)
-                            :
+                    try {
+                        const self = binding.def.data_vue.a;
+                        if(binding.value.step == 1){
+                            // debugger;
+                            Number(binding.value.child< 2) ?
+                                el.setAttribute('disabled', true)
+                                :
+                                el.removeAttribute('disabled')
+                        } else {
                             el.removeAttribute('disabled')
-                    } else {
-                        el.removeAttribute('disabled')
-                    }
+                        }
+                    } catch(e){}
                 }
             },
             bind: function (el, binding, vnode) {
@@ -231,23 +225,23 @@ export default {
             data_vue:this,
             methods:{
                 element_munipulation(el, binding, vnode){
-                    const self = binding.def.data_vue.a;
-                    const value = binding.value.array;
-                    let result = null;
-                    if(value) {
-                        result = counter.count_disanled_step(value)
-                    }
-                    result?
-                        el.setAttribute('disabled', true)
-                        :
-                        el.removeAttribute('disabled')
-                    if(binding.value.step == 10 && binding.value.step_child == 3){
-                        let res = counter.count_button_disabled_before_result();
-                        res?
+                    try {
+                        const self = binding.def.data_vue.a;
+                        const value = binding.value.array;
+                        let result = null;
+                        if (value) result = counter.count_disanled_step(value)
+                        result ?
                             el.setAttribute('disabled', true)
                             :
                             el.removeAttribute('disabled')
-                    }
+                        if (binding.value.step == 10 && binding.value.step_child == 3) {
+                            let res = counter.count_button_disabled_before_result();
+                            res ?
+                                el.setAttribute('disabled', true)
+                                :
+                                el.removeAttribute('disabled')
+                        }
+                    } catch(e){}
 
                 }
             },
