@@ -189,20 +189,20 @@
         top:19px
     }
     .arrow_back{
-        background-image: url("http://backcartestpro.qbex.io/assets/arrow/no_active_arrow.svg");
+        background-image: url("http://admin.careertestpro.com/assets/arrow/no_active_arrow.svg");
         left: -42px;
     }
     .arrow_back:hover{
-        background-image: url("http://backcartestpro.qbex.io/assets/arrow/active_arrow.svg");
+        background-image: url("http://admin.careertestpro.com/assets/arrow/active_arrow.svg");
         transform: rotate(-180deg);
     }
     .arrow_next{
-        background-image: url("http://backcartestpro.qbex.io/assets/arrow/no_active_arrow.svg");
+        background-image: url("http://admin.careertestpro.com/assets/arrow/no_active_arrow.svg");
         transform: rotate(-180deg);
         right: -42px;
     }
     .arrow_next:hover{
-        background-image: url("http://backcartestpro.qbex.io/assets/arrow/active_arrow.svg");
+        background-image: url("http://admin.careertestpro.com/assets/arrow/active_arrow.svg");
         transform: rotate(0deg);
     }
 </style>

@@ -292,7 +292,7 @@
     .check_image {
         width: 212px;
         height: 212px;
-        background-image: url("http://backcartestpro.qbex.io/assets/blog_page/blog_page.svg");
+        background-image: url("http://admin.careertestpro.com/assets/blog_page/blog_page.svg");
         background-repeat: no-repeat;
         background-position: center;
         margin-bottom: 80px;
@@ -394,7 +394,7 @@
         box-sizing: border-box;
         border-radius: 22px;
         width: 400px;
-        background-image: url("http://backcartestpro.qbex.io/assets/blog_page/search.svg");
+        background-image: url("http://admin.careertestpro.com/assets/blog_page/search.svg");
         background-size: 16px;
         background-repeat: no-repeat;
         background-position: 34px 13px;
