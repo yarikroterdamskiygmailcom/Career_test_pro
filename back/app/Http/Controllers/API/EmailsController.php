@@ -49,7 +49,7 @@ class EmailsController extends BaseController
         });
 */
         Mail::to(Input::get('customer_email'))
-            ->later($this->when, new PdfLinkMail('http://backcartestpro.qbex.io/api/diagrams/'.Input::get('customer_id').'?result_key='.Input::get('result_token')));
+            ->later($this->when, new PdfLinkMail('http://admin.careertestpro.com/api/diagrams/'.Input::get('customer_id').'?result_key='.Input::get('result_token')));
 
         return redirect('http://cartestpro.qbex.io/final');
 

@@ -12,7 +12,7 @@ window.Vue = Vue;
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
 
-Vue.http.options.root = 'http://backcartestpro.qbex.io';
+Vue.http.options.root = 'http://admin.careertestpro.com';
 // Vue.http.options.credentials = true;
 import Vuetify from 'vuetify'
 

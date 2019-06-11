@@ -41,7 +41,7 @@
             #down {background-position: right center;}
         </style>
         <div class="spin" id="button_spin" style="width: 100%; height: 100%; background: white; position: absolute"></div>
-        <a href="http://backcartestpro.qbex.io/api/pdf/22" id="down">Download</a>
+        <a href="http://admin.careertestpro.com/api/pdf/22" id="down">Download</a>
     </div>
     <div class="container" style="width: 800px">
         <div class="spin" style="width: 100vw; height: 100vh; background: white; position: absolute"></div>

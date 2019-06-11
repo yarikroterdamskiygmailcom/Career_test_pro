@@ -18,7 +18,7 @@
                     @endif
                     <div class="panel-heading">Paywith Paypal</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" method="GET" id="payment-form" role="form" action="{{ url('http://backcartestpro.qbex.io/paypal') }}" >
+                        <form class="form-horizontal" method="GET" id="payment-form" role="form" action="{{ url('http://admin.careertestpro.com/paypal') }}" >
 
                             {{ csrf_field() }}
                             <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">

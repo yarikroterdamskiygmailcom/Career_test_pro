@@ -67,7 +67,7 @@ class PasswordResetController extends Controller
             ], 400);
         }
         //return response()->json($passwordReset);
-        return redirect('http://backcartestpro.qbex.io/admin/password-confirm?token='.$passwordReset->token.'&email='.$passwordReset->email);
+        return redirect('http://admin.careertestpro.com/admin/password-confirm?token='.$passwordReset->token.'&email='.$passwordReset->email);
 
     }
      /**
