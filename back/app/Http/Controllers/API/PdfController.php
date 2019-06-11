@@ -90,6 +90,7 @@ class PdfController extends Controller
         $userData = json_decode(base64_decode($customer->customer), true);
         //dd($userData);
         $datestamp = Carbon::today()->format('d/m/Y');
+        $datestamp = strip_tags($datestamp);
 
         $skillsR = $this->getResultText('1', 'R', $userData['result']['skills']['R']);
         $skillsI = $this->getResultText('1', 'I', $userData['result']['skills']['I']);
@@ -285,6 +286,7 @@ class PdfController extends Controller
             } else {
                 $repId[$r] = $this->repVal($r, $curLang);
             }
+            $repId[$r] = strip_tags($repId[$r]);
         }
 
         $letterDescription['R'] = $repId[8];

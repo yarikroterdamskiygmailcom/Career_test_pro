@@ -51,7 +51,6 @@
         <div style="height: 17px; width: 69px; margin: 0 auto; background-position: center; background-repeat: no-repeat; background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjkiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCA2OSAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYwLjA3NTEgMTdIOC45MjQ4OUM0LjAzMDU5IDE3IDAgMTMuMTYxMyAwIDguNDk5OTlDMCAzLjgzODcgNC4wMzA1OSAwIDguOTI0ODkgMEg2MC4wNzUxQzY0Ljk2OTQgMCA2OSAzLjgzODcgNjkgOC40OTk5OUM2OSAxMy4yNTI3IDY0Ljk2OTQgMTcgNjAuMDc1MSAxN1oiIGZpbGw9IiNGOTg5MkUiLz4KPC9zdmc+Cg==)">
         </div>
     </div>
-
     <p style="margin-top: 50px;">
         {!! $reportIds[135] !!}
     </p>

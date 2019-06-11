@@ -47,6 +47,12 @@ Route::group([
     Route::post('posts-filter', 'PostsController@searching');
     Route::get('metatags', 'MetatagsController@index');
     Route::get('metatags/{id}', 'MetatagsController@getPage');
+    Route::get('lang-buffer', 'LanguagesController@getBuffer');
+    Route::post('lang-buffer', 'LanguagesController@setBuffer');
+
+    Route::get('stripe', 'StripePaymentController@stripe');
+    Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
+
 });
 
 

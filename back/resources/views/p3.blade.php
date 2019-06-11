@@ -153,6 +153,7 @@
     <p style="margin-top: 20px; line-height:22px">
         {!! $reportIds[51] !!}
     </p>
+
 </div>
 
 @include('footer')
