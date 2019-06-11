@@ -6,13 +6,13 @@ export default {
         return {
             information_benefits_list_static: [
                 {
-                    path_image: 'http://backcartestpro.qbex.io/assets/home_page/over25_report.svg'
+                    path_image: 'http://admin.careertestpro.com/assets/home_page/over25_report.svg'
                 },{
-                    path_image: 'http://backcartestpro.qbex.io/assets/home_page/riasec_method.svg'
+                    path_image: 'http://admin.careertestpro.com/assets/home_page/riasec_method.svg'
                 },{
-                    path_image: 'http://backcartestpro.qbex.io/assets/home_page/fully_anonymous.svg'
+                    path_image: 'http://admin.careertestpro.com/assets/home_page/fully_anonymous.svg'
                 },{
-                    path_image: 'http://backcartestpro.qbex.io/assets/home_page/time_matters.svg'
+                    path_image: 'http://admin.careertestpro.com/assets/home_page/time_matters.svg'
                 },
             ]
         }

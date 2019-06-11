@@ -305,7 +305,7 @@
         border: 1px solid #FD5656!important;
     }
     .spinner > div{
-        background-image: url("http://backcartestpro.qbex.io/assets/spinner.svg");
+        background-image: url("http://admin.careertestpro.com/assets/spinner.svg");
         width: 100px;
         height: 100px;
         background-size: contain;

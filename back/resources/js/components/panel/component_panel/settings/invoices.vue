@@ -169,7 +169,7 @@
                 this.$refs[this.dataGridRefName].instance.refresh()
             },
             linkGenerate(data){
-               return `http://backcartestpro.qbex.io/api/pdf/${data.id}?result_key=${data.key}`
+               return `http://admin.careertestpro.com/api/pdf/${data.id}?result_key=${data.key}`
             }
         },
         components: {

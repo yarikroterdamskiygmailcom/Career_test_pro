@@ -6,13 +6,13 @@ export default {
         return {
             information_how_does_it_work_static:[
                 {
-                    path_image: 'http://backcartestpro.qbex.io/assets/home_page/click_take_the_test.svg',
+                    path_image: 'http://admin.careertestpro.com/assets/home_page/click_take_the_test.svg',
                     order: 1
                 },{
-                    path_image: 'http://backcartestpro.qbex.io/assets/home_page/start_marking.png',
+                    path_image: 'http://admin.careertestpro.com/assets/home_page/start_marking.png',
                     order: -1,
                 },{
-                    path_image: 'http://backcartestpro.qbex.io/assets/home_page/get_report.svg',
+                    path_image: 'http://admin.careertestpro.com/assets/home_page/get_report.svg',
                     order: 1
                 },
             ]

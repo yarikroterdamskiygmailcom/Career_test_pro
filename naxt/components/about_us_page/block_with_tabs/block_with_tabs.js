@@ -8,13 +8,13 @@ export default {
         return {
             list_tabsStatic: [
                 {
-                    path:'http://backcartestpro.qbex.io/assets/about_us/our_service.png',
+                    path:'http://admin.careertestpro.com/assets/about_us/our_service.png',
                 },
                 {
-                    path:'http://backcartestpro.qbex.io/assets/about_us/our_mission.png'
+                    path:'http://admin.careertestpro.com/assets/about_us/our_mission.png'
                 },
                 {
-                    path:'http://backcartestpro.qbex.io/assets/about_us/our_team.png',
+                    path:'http://admin.careertestpro.com/assets/about_us/our_team.png',
                     style:{
                         top: '-2px',
                         left: '1px'

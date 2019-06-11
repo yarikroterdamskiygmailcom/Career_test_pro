@@ -155,7 +155,7 @@
     .check_image{
         width: 243.85px;
         height: 459.65px;
-        background-image: url("http://backcartestpro.qbex.io/assets/check_email/check_email.png");
+        background-image: url("http://admin.careertestpro.com/assets/check_email/check_email.png");
         background-repeat: no-repeat;
         background-position: center;
         top: -53px;
