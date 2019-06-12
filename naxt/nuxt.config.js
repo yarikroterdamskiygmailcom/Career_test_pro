@@ -75,9 +75,34 @@ module.exports = {
                 import: ['~assets/main.css'],
             }
         },
+        // postcss: {
+        //     // Add plugin names as key and arguments as value
+        //     // Install them before as dependencies with npm or yarn
+        //     plugins: {
+        //         // Disable a plugin by passing false as value
+        //         'postcss-url': false,
+        //         'postcss-nested': {},
+        //         'postcss-responsive-type': {},
+        //         'postcss-hexrgba': {}
+        //     },
+        //     preset: {
+        //         // Change the postcss-preset-env settings
+        //         autoprefixer: true
+        //             // grid: true
+        //
+        //     }
+        // },
+        postcss: {
+            'postcss-cssnext': {
+                browsers: ['last 2 versions', 'ie >= 9']
+            },
+            'autoprefixer':{
+                browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4']
+            },
+        },
         vendor: ['aframe'],
 
         extend(config, ctx) {
         }
     }
-}
+};
