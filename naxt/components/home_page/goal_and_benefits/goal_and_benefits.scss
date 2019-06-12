@@ -5,7 +5,10 @@
     background: #F4F8FF no-repeat center;
     background-size: contain;
 }
-
+.elem_elipse{
+    height: 531px;
+    -webkit-clip-path: ellipse(75% 48% at 50% -30%);
+}
 .container_benefits{
     padding-top: 171px;
     padding-bottom: 30px;
@@ -28,6 +31,7 @@
     width: 48.5%;
     padding:30px 34px;
     background: white;
+    -webkit-box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.07);
     box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.07);
     border-radius: 20px;
     margin-bottom: 30px;
@@ -67,8 +71,8 @@
     margin: 0;
 }
 .description_for_information{
-     line-height: 23px;
-     font-size: 14px;
+    line-height: 23px;
+    font-size: 14px;
 }
 .item_block_information_text{
     margin-left: 24px
@@ -84,6 +88,8 @@
     }
     .container_benefits {
         padding-top: 110px;padding-bottom: 78px;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
     }
     .item_block_information{
@@ -118,6 +124,9 @@
 }
 @media screen and (max-width:580px){
     .item_block_information{
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
         text-align: center;
         width: 58%;
@@ -148,6 +157,9 @@
 }
 @media screen and (max-width:560px){
     .item_block_information{
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
         text-align: center;
         width: 90%;
