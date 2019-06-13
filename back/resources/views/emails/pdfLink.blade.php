@@ -10,7 +10,7 @@
 
         <div style="text-align: center; box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1); border-radius: 10px; background-color: #fff; padding: 50px 0 125px; width: 500px; margin: 0 auto;" >
             <img style="height: 90px;" src="http://admin.careertestpro.com/assets/Group.png" alt="like">
-            <h2 style=" margin-top: 40px; font-weight: 600; font-size: 14px;">Thank you, John Dou!</h2>
+            <h2 style=" margin-top: 40px; font-weight: 600; font-size: 14px;">Thank you, {{ $userName  }}!</h2>
             <p style="margin-top: 60px;  font-size: 12px; line-height: 210%;">We’re happy to give you a link with your test report.<br/>Click it below to download.</p>
             <a style="display: inline-block; margin-top: 90px; text-decoration: none; font-weight: 600; color: #4876D0; font-size: 12px;" href="{{ $testResult }}">{{ $testResult }}</a>
             <a style="display: inline-block; margin-top: 90px; text-decoration: none; font-weight: 600; color: #4876D0; font-size: 12px;" href="#">Download Page</a>

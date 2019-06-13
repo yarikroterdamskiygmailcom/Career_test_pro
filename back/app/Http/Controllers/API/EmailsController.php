@@ -19,7 +19,7 @@ class EmailsController extends BaseController
 
     public function __construct()
     {
-        $this->receiver = 'yarik.roterdamskiy@gmail.com';
+        $this->receiver = 'dmglad7@gmail.com';
         $this->when = now()->addSeconds(1);
     }
 
@@ -49,9 +49,9 @@ class EmailsController extends BaseController
         });
 */
         Mail::to(Input::get('customer_email'))
-            ->later($this->when, new PdfLinkMail('http://admin.careertestpro.com/api/diagrams/'.Input::get('customer_id').'?result_key='.Input::get('result_token')));
+            ->later($this->when, new PdfLinkMail('http://admin.careertestpro.com/api/diagrams/'.Input::get('customer_id').'?result_key='.Input::get('result_token'), Input::get('user_name')));
 
-        return redirect('http://cartestpro.qbex.io/final');
+        return redirect('http://careertestpro.com/final');
 
     }
 }

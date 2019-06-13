@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Session;
 use Stripe;
+use Helper;
 use Illuminate\Support\Facades\Input;
 use App\Model\Customer;
 use App\Model\Price;
@@ -21,9 +22,9 @@ class StripePaymentController extends Controller
     public function stripe()
     {
         $resultData = Input::get('result');
-        //$customerData = json_decode(base64_decode($resultData));
-        //return $customerData->name;
-        Session::put('result', $resultData);
+	$saveResult = fopen(storage_path('testhash.txt'), "w");
+	fwrite($saveResult, $resultData);
+	fclose($saveResult);
         return view('stripe');
     }
 
@@ -34,9 +35,10 @@ class StripePaymentController extends Controller
      */
     public function stripePost(Request $request)
     {
-        $resultData = Session::get('result');
+        //$resultData =  Session::get('result');
+	$resultData = file_get_contents(storage_path('testhash.txt'));
         $customerData = json_decode(base64_decode($resultData), true);
-
+	
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         Stripe\Charge::create ([
             "amount" => $customerData['price']*100,
@@ -44,7 +46,7 @@ class StripePaymentController extends Controller
             "source" => $request->stripeToken,
             "description" => "Payment for careertestpro PDF report"
         ]);
-        Session::forget('result');
+        //Session::forget('result');
         $secretLink = md5($resultData . md5($resultData));
         $newCustomer['customer'] = $resultData;
         $newCustomer['price'] = $customerData['price'];
@@ -52,7 +54,7 @@ class StripePaymentController extends Controller
         $newCustomer['secret_link'] = $secretLink;
 
         $customer = Customer::create($newCustomer);
-        return redirect()->route('send-pdf', array('customer_id' => $customer->id, 'result_token' => $secretLink, 'customer_email' => $customerData['email']));
+        return redirect()->route('send-pdf', array('customer_id' => $customer->id, 'result_token' => $secretLink, 'customer_email' => $customerData['email'], 'user_name' => $customerData['name']));
 
         //Session::flash('success', 'Payment successful!');
         //return back();

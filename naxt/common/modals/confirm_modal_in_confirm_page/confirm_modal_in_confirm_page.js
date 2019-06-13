@@ -25,7 +25,7 @@ export default {
         },
         confirm(){
             const payment_key = this.data.data.card.toLowerCase();
-            let payment;
+            let payment; debugger;
             let data = {...this.data.data};
             data.language_id = 1;
             data= window.btoa(unescape(encodeURIComponent(JSON.stringify(data))));
