@@ -152,6 +152,10 @@ export const action_static = {
     "Page modal 1, upper text"  : ['Tests.section.upper_text'],
     "Page modal 1, lower text"  : ['Tests.section.lower_text'],
 
+    "FALSE"                     : ['Tests.section.Like7_8'],
+    "NEITHER TRUE NOR FALSE"    : ['Tests.section.Middle7_8'],
+    "TRUE"                      : ['Tests.section.Dislike7_8'],
+
     "Page blog, section 1"  : ['Blog.section.title'],
     "Page blog, section 2"  : ['Blog.section.description'],
     "Page blog, section 3"  : ['Blog.section.learn_more'],
@@ -236,6 +240,9 @@ export const data_static = {
             Like:[],
             Middle:[],
             Dislike:[],
+            Like7_8:[],
+            Middle7_8:[],
+            Dislike7_8:[],
             STEP:[],
             Skills:[],
             Work_values:[],

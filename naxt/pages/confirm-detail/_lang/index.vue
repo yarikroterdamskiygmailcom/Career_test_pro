@@ -3,7 +3,7 @@
         <div class="content">
             <div class="step">
                 <router-link class="vstyle"
-                        to="tests/10/3"
+                        :to="`tests/10/3/${language_now.code}`"
                          v-if="confirmDetail && confirmDetail.lastStep"
                          v-html="confirmDetail.lastStep"></router-link>
                 /
@@ -80,7 +80,8 @@
         computed:{
             ...mapGetters({
                 confirmDetail:'multilanguage/getConfirmDetailSection',
-                meta: 'meta/get_meta'
+                meta: 'meta/get_meta',
+                language_now: 'multilanguage/get_language_now'
             })
         }
     }

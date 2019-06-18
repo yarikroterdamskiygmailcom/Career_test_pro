@@ -22,7 +22,7 @@ export default {
                 age:{},
                 gender:{},
             },
-            gender:['male', 'female'],
+            gender:['Male', 'Female', 'Rather not say'],
             age: []
         }
     },

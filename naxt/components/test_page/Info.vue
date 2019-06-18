@@ -9,7 +9,16 @@
             <div class="position-relative">
                 <div class="ellipse position-absolute" :style="{background : '#77DCC1'}"></div>
                 <div v-if="title_data_step.state">
-                    <span style="font-weight: 600" class="vstyle" v-html="textClick[0]"></span>
+                    <span style="font-weight: 600"
+                          class="vstyle"
+                          v-html="textClick[0]"
+                          v-if="!(active == 7 || active == 8)">
+                    </span>
+                    <span style="font-weight: 600"
+                          class="vstyle"
+                          v-html="testSection && testSection.Like7_8"
+                          v-if="(active == 7 || active == 8) && testSection && testSection.Like7_8" >
+                    </span>
                     -<span class="vstyle"
                             v-if="title_data_step && title_data_step.state && title_data_step.state.like"
                             v-html="title_data_step.state.like">
@@ -20,20 +29,41 @@
             <div class="position-relative">
                 <div class="ellipse position-absolute" :style="{background : '#FDC572'}"></div>
                 <div  v-if="title_data_step.state">
-                    <span style="font-weight: 600" class="vstyle" v-html="textClick[1]">}</span>
+                    <span  v-if="!(active == 7 || active == 8)"
+                           style="font-weight: 600"
+                           class="vstyle"
+                           v-html="textClick[1]">
+                    </span>
+                    <span
+                          style="font-weight: 600"
+                          class="vstyle"
+                          v-if="(active == 7 || active == 8) && testSection && testSection.Middle7_8"
+                          v-html="testSection.Middle7_8">
+                    </span >
                     - <span class="vstyle"
                             v-if="title_data_step && title_data_step.state && title_data_step.state.middle"
-                            v-html="title_data_step.state.middle"></span>
+                            v-html="title_data_step.state.middle">
+                     </span>
                 </div>
             </div><br>
 
             <div class="position-relative">
                 <div class="ellipse position-absolute" :style="{background : '#F59A9A'}"></div>
                 <div  v-if="title_data_step.state">
-                    <span style="font-weight: 600" class="vstyle" v-html="textClick[2]"></span>
+                    <span style="font-weight: 600"
+                          v-if="!(active == 7 || active == 8)"
+                          class="vstyle"
+                          v-html="textClick[2]">
+                    </span>
+                    <span style="font-weight: 600"
+                          class="vstyle"
+                          v-if="(active == 7 || active == 8) && testSection && testSection.Dislike7_8"
+                          v-html="testSection.Dislike7_8">
+                    </span>
                     - <span class="vstyle"
                             v-if="title_data_step && title_data_step.state && title_data_step.state.dislike"
-                            v-html="title_data_step.state.dislike"></span>
+                            v-html="title_data_step.state.dislike">
+                    </span>
                 </div>
             </div>
         </div>

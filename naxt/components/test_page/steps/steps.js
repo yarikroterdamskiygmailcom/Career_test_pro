@@ -81,7 +81,10 @@ export default {
             this.data_step = QuestionStore.getStep(`${this.step}-${this.step_child}`) || [];
             (this.step < this.first_step) || (this.step > this.last_step) || !this.step_child
                 ? this.$router.push(`/tests/1/1?lang=${this.language_now.code}`) : null;
-            if(window.location.pathname.split('/').length < 4) this.$router.push(`/tests/1/1?lang=${this.language_now.code}`);
+            if(window.location.pathname.split('/').length < 4) {
+                this.$router.push(`/tests/1/1?lang=${this.language_now.code}`);
+                return;
+            }
             this.toggle_modal();
             this.count_arr_for_disabled();
             this.$router.beforeEach((to, from, next) => {
@@ -96,15 +99,10 @@ export default {
                 } else if (Number(to.params.steps) <= this.step && Number(to.params.child_step) < this.step_child) {
                     to_back = !to_back
                 }
-                // if (to_back)
-                    return next();
-console.log('33')
-//                 this.disabled_but ? this.refresh_helper() : next()
+                return next();
             });
         } catch (e) {
         }
-    },
-    mounted() {
     },
     destroyed(){
        this.$router.beforeHooks = []
