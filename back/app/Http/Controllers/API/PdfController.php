@@ -301,13 +301,20 @@ class PdfController extends Controller
         $sence[2] = $letterDescription[$totals[2]];
         //dd($totals, $repId);
 
+	$customerName = mb_convert_case($customerName, MB_CASE_TITLE, "UTF-8");
+	$customerNameExpl = explode(" ", $customerName);
+	$customerNameLetters = '';
+	foreach($customerNameExpl as $customerNamePart) {
+	    $customerNameLetters .= substr($customerNamePart, 0, 1);
+	}
+
         $mpdf->WriteHTML(view('p1', compact('customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p2', compact('customerName', 'datestamp'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
-        $mpdf->WriteHTML(view('p3', compact('customerName', 'datestamp', 'customerAge', 'customerGender'))->with('reportIds', $repId));
+        $mpdf->WriteHTML(view('p3', compact('customerName', 'datestamp', 'customerAge', 'customerGender', 'customerNameLetters'))->with('reportIds', $repId));
 
         $mpdf->AddPage();
         $mpdf->WriteHTML(view('p4', compact('customerName', 'datestamp'))->with('reportIds', $repId));
@@ -431,12 +438,16 @@ class PdfController extends Controller
         $customer = Customer::where('secret_link', $request->result_key)->first();
         $userData = json_decode(base64_decode($customer->customer), true);
 
+        $datestamp = Carbon::today()->format('d/m/Y');
+        $datestamp = strip_tags($datestamp);
+
         $one = implode(',', $userData['result']['skills']);
         $two = implode(',', $userData['result']['work_values']);
         $three = implode(',', $userData['result']['activities']);
         $four = implode(',', $userData['result']['personal_behavior']);
         $five = implode(',', $userData['result']['occupations_professions']);
         $six = implode(',', $userData['result']['total']);
-        return view('first_page', compact('id_unicum', 'one', 'two', 'three', 'four', 'five', 'six'));
+	$username = $userData['name'];
+        return view('first_page', compact('id_unicum', 'one', 'two', 'three', 'four', 'five', 'six', 'datestamp', 'username'));
     }
 }

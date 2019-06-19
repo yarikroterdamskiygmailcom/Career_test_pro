@@ -1,5 +1,5 @@
 
-<div style="height: 100%;">
+<div style="height: 98%; border: 1px dotted white">
     @include('header')
 
     <div style="margin-top: 24px;">
@@ -130,3 +130,5 @@
 </div>
 
 @include('footer')
+
+<p style="text-align: center">17</p>

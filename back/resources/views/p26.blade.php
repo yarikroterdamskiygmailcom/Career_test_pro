@@ -1,5 +1,5 @@
 
-<div style="height: 100%;">
+<div style="height: 98%; border: 1px dotted white">
     @include('header')
 
     <div style="width: 117px; margin: auto;">
@@ -31,9 +31,9 @@
     <div style="margin-top: 15px;">
         <div style="width: 100%; float: left;">
             <div style="font-size: 12px; line-height: 22px; width: 85%; float: left;">
-            @foreach($profListOne as $firstListCareer)
+        	@foreach($profListOne as $firstListCareer)
                     {{ $firstListCareer['career_description']['career'] }}<br>
-            @endforeach
+    	        @endforeach
             </div>
 
             <div style="font-size: 12px; line-height: 22px; text-align: right;">
@@ -46,3 +46,5 @@
 </div>
 
 @include('footer')
+
+<p style="text-align: center">26</p>

@@ -1,5 +1,5 @@
-<div style="height: 100%;">
-    @include('footer')
+<div style="height: 98%;">
+    @include('header')
 
     <div style="margin-top: 24px;">
         <div style="font-size: 12px; font-family: montsersemibold; border-bottom: 1px solid #DFDFDF; padding-bottom: 5px;">
@@ -29,3 +29,5 @@
 </div>
 
 @include('footer')
+
+<p style="text-align: center">23</p>
