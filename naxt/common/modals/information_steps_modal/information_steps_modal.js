@@ -6,7 +6,8 @@ export default {
     props: ['data'],
     data() {
         return {
-            transitions: false
+            transitions: false,
+            active: 0
         }
     },
     computed: {
@@ -24,12 +25,15 @@ export default {
             return this.testSection && this.testSection.click ? this.testSection.click.split(',') : [];
         }
     },
+    created(){
+        this.active =  this.$router.history.current.params.steps
+    },
     mounted() {
         setTimeout(v => this.transitions = !this.transitions, 200)
     },
     methods: {
         close_modal(){
-            this.transition = !this.transition
+            this.transition = !this.transition;
             this.$store.dispatch('modal_data/action_active_modal', {
                 name: 'test_modal',
                 active: false,

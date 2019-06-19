@@ -75,22 +75,38 @@
                         <div class="ellipse position-relative"
                              :style="{background : '#77DCC1', width: '24px', height: '24px', left: 0}"></div>
                         <div class="info_ellipse position-absolute vstyle clstyle"
-                             v-if="testSection && testSection.Like"
-                             v-html="testSection.Like"></div>
+                             v-if="!(step == 7 || step == 8) && testSection && testSection.Like"
+                             v-html="testSection.Like">
+                        </div>
+                        <div class="info_ellipse position-absolute vstyle clstyle"
+                             v-if="(step == 7 || step == 8) && testSection && testSection.Like7_8"
+                             v-html="testSection.Like7_8">
+                        </div>
                     </div>
                     <div class="borders d-flex align-items-center justify-content-center position-relative" style="border: none">
                         <div class="ellipse position-relative"
-                             :style="{background : '#FDC572', width: '24px', height: '24px', left: 0}"></div>
+                             :style="{background : '#FDC572', width: '24px', height: '24px', left: 0}">
+                        </div>
                         <div class="info_ellipse position-absolute vstyle clstyle"
-                             v-if="testSection && testSection.Middle"
-                             v-html="testSection.Middle"></div>
+                             v-if="!(step == 7 || step == 8)&& testSection && testSection.Middle"
+                             v-html="testSection.Middle">
+                        </div>
+                        <div class="info_ellipse position-absolute vstyle clstyle"
+                             v-if="(step == 7 || step == 8) && testSection && testSection.Middle7_8"
+                             v-html="testSection.Middle7_8">
+                        </div>
                     </div>
                     <div class="borders d-flex align-items-center justify-content-center position-relative" style="border: none">
                         <div class="ellipse position-relative"
                              :style="{background : '#F59A9A', width: '24px', height: '24px', left: 0}"></div>
                         <div class="info_ellipse position-absolute vstyle clstyle"
-                             v-if="testSection && testSection.Dislike"
-                             v-html="testSection.Dislike"></div>
+                             v-if="!(step == 7 || step == 8) && testSection && testSection.Dislike"
+                             v-html="testSection.Dislike">
+                        </div>
+                        <div class="info_ellipse position-absolute vstyle clstyle"
+                             v-if="(step == 7 || step == 8) && testSection && testSection.Dislike7_8"
+                             v-html="testSection.Dislike7_8">
+                        </div>
                     </div>
                 </div>
             </div>

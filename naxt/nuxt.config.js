@@ -29,6 +29,14 @@ module.exports = {
                 href:
                     'https://fonts.googleapis.com/css?family=Montserrat:400, 500,600,800'
             },
+        ],
+        script:[
+            {src:'https://www.googletagmanager.com/gtag/js?id=UA-55124523-5', async:true},
+            {innerHTML:'window.dataLayer = window.dataLayer || [];\n' +
+                    ' function gtag(){dataLayer.push(arguments);}\n' +
+                    ' gtag(\'js\', new Date());\n' +
+                    '\n' +
+                    ' gtag(\'config\', \'UA-55124523-5\');'}
         ]
     },
     /*
