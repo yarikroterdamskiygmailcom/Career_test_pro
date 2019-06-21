@@ -41,7 +41,7 @@
                         class=" border btn-lang-border confirm_input">
                 <b-dropdown-item
                         v-for="item in gender"
-                        @click="data.gender = item"
+                        @click="test(item)"
                         active-class="dropdown-item"
                         :key="item">
                     {{item}}
@@ -82,7 +82,7 @@
             <div class="justify-content-end" style="width: 100%">
                 <input type="text"
                        v-if="price && price.value"
-                       :value="price && price.value ?price.value: 39.95"
+                       :value="price && price.value && price.currency ? `${price.currency} ${price.value}` : '$39.95'"
                        disabled
                        style="font-weight: 600">
             </div>
