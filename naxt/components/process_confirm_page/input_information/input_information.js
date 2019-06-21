@@ -49,12 +49,17 @@ export default {
             this.error = {...data};
         },
         setAgeGender(){
-            this.data.gender = this.data.gender === 'male' || this.data.gender === 'female'
+            this.data.gender = this.data.gender === 'Male' ||
+            this.data.gender === 'Female'||
+            this.data.gender === 'Rather not say'
                 ? this.data.gender
                 : this.confirmDetail && this.confirmDetail.gender.replace(/(<([^>]+)>)/g,'');
             this.data.age    = typeof this.data.age === 'number'
                 ? this.data.age
                 : this.confirmDetail && this.confirmDetail.age.replace(/(<([^>]+)>)/g,'');
+        },
+        test(item){
+            this.data.gender = item;
         }
     }
 }

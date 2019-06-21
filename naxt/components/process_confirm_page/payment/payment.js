@@ -36,7 +36,7 @@ export default {
                 //     card:['visa']
                 // },
                 {
-                    name: 'Stripe',
+                    name: 'Payment',
                     status: false,
                     card:['visa', 'maestro', 'mastercard', 'discover']
                 }
@@ -83,6 +83,7 @@ export default {
         },
 
         open_confirm_modal() {
+            debugger
             const inf = this.data_in_input_information;
             const error = this.error;
             inf.code = this.data.code;

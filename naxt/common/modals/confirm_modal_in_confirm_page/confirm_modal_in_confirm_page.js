@@ -13,7 +13,7 @@ export default {
         }
     },
     mounted(){
-        setTimeout(v => this.transitions = !this.transitions, 200)
+        setTimeout(() => this.transitions = !this.transitions, 200)
     },
     methods: {
         close_modal(){
@@ -27,8 +27,9 @@ export default {
             const payment_key = this.data.data.card.toLowerCase();
             let payment; debugger;
             let data = {...this.data.data};
-            data.language_id = 1;
-            data= window.btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+            data.language_id = this.$store.getters['multilanguage/get_language_now'].id;
+            data.language_id = data.language_id ? data.language_id : 1;
+            data = window.btoa(unescape(encodeURIComponent(JSON.stringify(data))));
             switch(payment_key){
                 case 'paypal':payment = 'paywithpaypal';
                     break;
@@ -36,7 +37,7 @@ export default {
                     break;
                 case 'voucher':
                     return window.location.href = `${config.url}api/testcode-use?result=${data}&code=${this.data.data.code}`;
-                case 'stripe':
+                case 'payment':
                     return window.location.href = `${config.url}api/stripe?result=${data}&code=${this.data.data.code}`;
                 default: payment = payment_key;
             }
