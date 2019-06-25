@@ -47,7 +47,7 @@
                         v-for="lang in language_array"
                         active-class="dropdown-item"
                         @click="language(lang)"
-                        v-if="lang.status === 1"
+                        v-if="lang.status == 1"
                         :key="lang.name + lang.language">
                     {{lang.language}}
                 </b-dropdown-item>
@@ -76,7 +76,7 @@
                         menu-class="rounded-menu"  class="m-2 border btn-lang-border">
                 <b-dropdown-item v-for="lang in language_array" active-class="dropdown-item"
                                  @click="language(lang)" :key="lang.name + lang.language"
-                                 v-if="lang.status === 1">
+                                 v-if="lang.status == 1">
                     {{lang.language}}
                 </b-dropdown-item>
             </b-dropdown>
@@ -102,7 +102,7 @@
                                     menu-class="rounded-menu"  class="border btn-lang-border">
                             <b-dropdown-item v-for="lang in language_array" active-class="dropdown-item"
                                              @click="language(lang)" :key="lang.name + lang.language"
-                                             v-if="lang.status === 1">
+                                             v-if="lang.status == 1">
                                 {{lang.language}}
                             </b-dropdown-item>
                         </b-dropdown>
