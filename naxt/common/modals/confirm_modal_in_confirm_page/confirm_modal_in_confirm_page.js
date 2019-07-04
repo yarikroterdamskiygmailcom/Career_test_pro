@@ -25,7 +25,7 @@ export default {
         },
         confirm(){
             const payment_key = this.data.data.card.toLowerCase();
-            let payment;
+            let payment; debugger;
             let data = {...this.data.data};
             data.language_id = this.$store.getters['multilanguage/get_language_now'].id;
             data.language_id = data.language_id ? data.language_id : 1;

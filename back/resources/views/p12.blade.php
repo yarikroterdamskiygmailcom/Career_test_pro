@@ -1,4 +1,4 @@
-<div style="height: 100%;">
+<div style="height: 98%; border: 1px dotted white ">
     @include('header')
 
     <div>
@@ -13,7 +13,7 @@
         <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">{!! $reportIds[4] !!}</td></tr></table>
     </div>
 
-    <p style="margin: 15px 0; line-height: 20px;">
+    <p style="margin: 10px 0 15px; line-height: 20px;">
         {{ $personalBehaviorO }}
     </p>
 
@@ -29,7 +29,7 @@
         <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">{!! $reportIds[7] !!}</td></tr></table>
     </div>
 
-    <p style="margin: 15px 0; line-height: 20px;">
+    <p style="margin: 10px 0 15px; line-height: 20px;">
         {{ $personalBehaviorI }}
     </p>
 
@@ -45,7 +45,7 @@
         <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">{!! $reportIds[6] !!}</td></tr></table>
     </div>
 
-    <p style="margin: 15px 0; line-height: 20px;">
+    <p style="margin: 10px 0 15px; line-height: 20px;">
         {{ $personalBehaviorS }}
     </p>
 
@@ -61,7 +61,7 @@
         <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">{!! $reportIds[5] !!}</td></tr></table>
     </div>
 
-    <p style="margin: 15px 0; line-height: 20px;">
+    <p style="margin: 10px 0 15px; line-height: 20px;">
         {{ $personalBehaviorC }}
 
     </p>
@@ -78,7 +78,7 @@
         <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">{!! $reportIds[226] !!}</td></tr></table>
     </div>
 
-    <p style="margin: 15px 0; line-height: 20px;">
+    <p style="margin: 10px 0 15px; line-height: 20px;">
         {{ $personalBehaviorA }}
     </p>
 
@@ -94,9 +94,13 @@
         <table><tr><td style="font-family: montsersemibold; height: 30px; width: 300px; padding-left: 15px;">{!! $reportIds[8] !!}</td></tr></table>
     </div>
 
-    <p style="margin: 15px 0; line-height: 20px;">
+    <p style="margin: 10px 0 15px; line-height: 20px;">
         {{ $personalBehaviorR }}
     </p>
+    
+
 </div>
 
 @include('footer')
+
+<p style="text-align: center; ">12</p>

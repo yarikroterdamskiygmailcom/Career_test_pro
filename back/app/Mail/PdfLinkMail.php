@@ -12,14 +12,16 @@ class PdfLinkMail extends Mailable
     use Queueable, SerializesModels;
 
     public $mailText;
+    public $userName;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($mailTextData)
+    public function __construct($mailTextData, $user)
     {
         $this->mailText = $mailTextData;
+	$this->userName = $user;
     }
 
     /**
@@ -31,6 +33,6 @@ class PdfLinkMail extends Mailable
     {
         return $this->from('develyour@gmail.com', 'Carrertest support')
             ->subject('Test result link')
-            ->view('emails.pdfLink')->with('testResult',$this->mailText);
+            ->view('emails.pdfLink')->with('testResult',$this->mailText)->with('userName', $this->userName);
     }
 }

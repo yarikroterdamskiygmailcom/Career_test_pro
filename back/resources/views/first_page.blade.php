@@ -137,10 +137,10 @@
                 </div>
                 <div class="header__name_and_date">
                     <div class="name">
-                        John Smith
+                        {{ $username }}
                     </div>
                     <div class="date">
-                        Date: 20/03/2019
+                        Date: {{ $datestamp }}
                     </div>
                 </div>
             </div>

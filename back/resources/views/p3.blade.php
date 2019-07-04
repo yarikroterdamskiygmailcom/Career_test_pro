@@ -6,7 +6,7 @@
         font-weight: 800;
         font-style: normal;}
 </style>
-<div style="height: 100%;">
+<div style="height: 98%; border: 1px dotted white">
     @include('header')
 
     <h2 style="margin: 0; text-align: center; text-transform: uppercase; font-size: 12px; font-family: monserrmedium;">
@@ -22,7 +22,7 @@
             <div style="width: 44px; height: 44px; border-radius: 50%; background: #F4F8FF; float: left;">
                 <table style="color: #4876D0; font-size: 14px; font-family: montsersemibold; text-align: center;">
                     <tr>
-                        <td style="width: 44px; height: 44px;">JS</td>
+                        <td style="width: 44px; height: 44px;">{{ $customerNameLetters }}</td>
                     </tr>
                 </table>
             </div>
@@ -157,3 +157,5 @@
 </div>
 
 @include('footer')
+
+<p style="text-align: center">3</p>

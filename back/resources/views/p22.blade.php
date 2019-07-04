@@ -1,4 +1,4 @@
-<div style="height: 100%;">
+<div style="height: 98%; border: 1px dotted white">
     @include('header')
 
     <p style="margin-top: 20px; line-height: 22px; font-family: montsersemibold;">
@@ -60,3 +60,5 @@
 </div>
 
 @include('footer')
+
+<p style="text-align: center">22</p>

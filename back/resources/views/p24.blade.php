@@ -1,6 +1,6 @@
 
-<div style="height: 100%;">
-    @include('footer')
+<div style="height: 98%; border: 1px dotted white">
+    @include('header')
 
     <div style="height: 60px; margin-top: 20px;">
         <div style="width: 85%; float: left">
@@ -215,3 +215,5 @@
 </div>
 
 @include('footer')
+
+<p style="text-align: center">24</p>

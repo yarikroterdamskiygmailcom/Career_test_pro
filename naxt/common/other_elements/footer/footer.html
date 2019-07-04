@@ -29,7 +29,7 @@
                         active-class="dropdown-item"
                         :key="lang.name + lang.language"
                         @click="language(lang)"
-                        v-if="lang.status === 1">
+                        v-if="lang.status == 1">
                     {{lang.language}}
                 </b-dropdown-item>
             </b-dropdown>
@@ -62,7 +62,7 @@
                             active-class="dropdown-item"
                             :key="lang.name + lang.language"
                             @click="language(lang)"
-                            v-if="lang.status === 1">
+                            v-if="lang.status == 1">
                         {{lang.language}}
                     </b-dropdown-item>
                 </b-dropdown>
@@ -87,7 +87,7 @@
                         active-class="dropdown-item"
                         :key="lang.name + lang.language"
                         @click="language(lang)"
-                        v-if="lang.status === 1">
+                        v-if="lang.status == 1">
                     {{lang.language}}
                 </b-dropdown-item>
             </b-dropdown>

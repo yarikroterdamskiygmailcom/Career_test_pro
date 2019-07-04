@@ -60,7 +60,7 @@ class LanguagesController extends BaseController
             ['language' => $request->language, 'code' => $request->code, 'status' => $request->status]
         );
 
-        return $this->sendResponse($newLanguage, 'New language added successfully.');
+        return $this->sendResponse($newLanguage, 'Language modified successfully.');
     }
 
      public function getBuffer()
