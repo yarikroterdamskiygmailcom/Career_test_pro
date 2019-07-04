@@ -99,7 +99,8 @@ export default  {
         const self = this;
         for(let i = 1; i < count_i ;i++){
             for (let j = 0; j < count_j; j++) {
-                QuestionStore.getStep(`${i}-${j+1}`).forEach(step => func(step, i, self));
+                const step =  QuestionStore.getStep(`${i}-${j+1}`);
+                step && step.forEach(step => func(step, i, self));
             }
         }
     },
@@ -110,7 +111,6 @@ export default  {
         return self.some(this.count_disanled_callback);
     },
     count_block_menu(count_i = count_step, count_j = count_in_one_step){
-        const self = this;
         let number = null;
         try {
             for(let i = 1; i < count_i ;i++){
@@ -129,7 +129,7 @@ export default  {
     },
     count_disanled_callback (item) {
         let state = false;
-        Object.keys(item).forEach(item => item ==='state' ? state = !state : null)
+        Object.keys(item).forEach(item => item ==='state' ? state = !state : null);
         const step = item && state && `${item.state}` ? `${item['state']}` : null;
         return step ? false : true;
     }

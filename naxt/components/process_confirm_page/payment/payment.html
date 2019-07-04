@@ -4,7 +4,8 @@
          v-html="confirmDetail.payment"></div>
     <form class="card_and_mobile_container d-flex justify-content-between" >
         <div class="card_block">
-            <div class="styled-input-single d-flex align-items-center" v-for="(item, index) in cards" >
+            <div class="styled-input-single d-flex align-items-center"
+                 v-for="(item, index) in cards" v-if="isPayment(item)">
                 <input type="radio" name="fieldset-1"
                        :id="'radio-example-one'+index" @change="radio_count(item, cards)"
                        :checked="item.status"/>
@@ -34,7 +35,7 @@
         </div>
         <div class="mobile">
             <div class="styled-input-single d-flex align-items-center"
-                v-for="(item, index) in cards1">
+                v-for="(item, index) in cards1" v-if="isPayment(item)">
                 <input type="radio" name="fieldset-1" @change="radio_count(item, cards1)"
                        :id="'radio-example-two'+ (index + cards.length )" :checked="item.status"/>
                 <label :for="'radio-example-two'+(index + cards.length )">

@@ -44,7 +44,6 @@ export default {
             'step:9'  : {name: state.data.Tests.section.Occupations,       amount: '241-270'},
             'step:10' : {name: state.data.Tests.section.Occupations,       amount: '271-300'}
         };
-
         state.menu_list = state.menu_list.map((item, index) => {
             return {
                 name: object.menu_list[index],

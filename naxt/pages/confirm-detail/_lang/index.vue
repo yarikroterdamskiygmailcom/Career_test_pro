@@ -47,7 +47,7 @@
                 data: store.getters['multilanguage/get_tests'] + 1,
                 name: 'tests'
             });
-            let lang = route.query.lang;
+            let lang = route.params.lang;
             const rout = route && route.fullPath ? route.fullPath.split('/')[1] : '';
             !lang ? lang = 'en' : null;
             const data = await store.dispatch('multilanguage/ssrRender', {lang, rout, redirect});

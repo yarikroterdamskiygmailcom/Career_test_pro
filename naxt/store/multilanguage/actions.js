@@ -31,19 +31,17 @@ export default {
         let data;
         return  list_language.list_language()
             .then(response => {
-                // if(!response) return;
                 commit('change_state', {
                     data: response.data,
                     name: 'language_array'
                 });
+                console.log(response.data)
                 data = Helper_count.find_language_now_in_array(response.data, lang);
 
                 commit('change_state', {
                     data: data,
                     name: 'language_now'
                 });
-                // store.commit('localStorage/language_now', data, {root: true});
-                //value && value.id ? value.id : data.id
                 return list_language.get_price(  data.id  )
             }).then(response => {
                 commit('change_state', {

@@ -8,20 +8,29 @@ export default {
     data() {
         return {
             cards: [
-                // {
-                //     name:'PayPal',
-                //     status: false,
-                //     card:['paypal']
-                // },
-                // {
-                //     name: 'Credit/Debit Card',
-                //     status: false,
-                //     card:['visa', 'maestro', 'mastercard', 'discover']
-                // },
+                {
+                    name:'PayPal',
+                    status: false,
+                    card:['paypal'],
+                    code:'NL'
+                },
+                {
+                    name: 'American express',
+                    status: false,
+                    card:['am'],//, 'maestro', 'mastercard', 'discover'
+                    code: 'NL'
+                },
+                {
+                    name: 'Bancontact',
+                    status: false,
+                    card:['bancontact'],//, 'maestro', 'mastercard', 'discover'
+                    code:'NL'
+                },
                 {
                     name:'Voucher',
                     status: false,
-                    card: []
+                    card: [],
+                    code: 'ALL'
                 }
             ],
             cards1: [
@@ -36,9 +45,28 @@ export default {
                 //     card:['visa']
                 // },
                 {
+                    name: 'Visa',
+                    status: false,
+                    card:['visa'],
+                    code: 'NL'
+                },
+                {
+                    name: 'Mastercard',
+                    status: false,
+                    card:['mastercard'],
+                    code: 'NL'
+                },
+                {
+                    name: 'Ideal',
+                    status: false,
+                    card:['ideal'],
+                    code: 'NL'
+                },
+                {
                     name: 'Payment',
                     status: false,
-                    card:['visa', 'maestro', 'mastercard', 'discover']
+                    card:['visa', 'maestro', 'mastercard', 'discover'],
+                    code:  'ALL!NL'
                 }
             ],
             data:{
@@ -83,7 +111,6 @@ export default {
         },
 
         open_confirm_modal() {
-            debugger
             const inf = this.data_in_input_information;
             const error = this.error;
             inf.code = this.data.code;
@@ -155,12 +182,22 @@ export default {
             arr.forEach(item => item.status ? name = item.name : null);
             return name;
         },
+        isPayment(item){
+            const nl = (this.language_now.code.toUpperCase() == item.code.toString().toUpperCase() ||
+                this.language_now.code.toLowerCase()  == item.code.toString().toLowerCase());
+            const NL_NO =  this.language_now.code.toLowerCase() == 'nl' && item.code.indexOf('!NL') > -1;
+            if(NL_NO) return !NL_NO;
+            const all =  item.code.indexOf('ALL') > -1;
+            if(all) return all;
+            return nl;
+        }
     },
     computed:{
         ...mapGetters({
             screen: 'modal_data/get_screen',
             confirmDetail:'multilanguage/getConfirmDetailSection',
             validation:'multilanguage/getValidation',
+            language_now: 'multilanguage/get_language_now'
         })
     },
     directives: {
