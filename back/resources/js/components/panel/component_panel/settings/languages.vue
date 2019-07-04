@@ -28,7 +28,7 @@
                     <v-btn color="primary"
                            v-if="index != 0"
                         flat
-                        @click="edit_status(item.language, item.code,  item.status ? 0 : 1)">
+                        @click="edit_status(item.language, item.code,  item.status)">
                         Edit status
                     </v-btn>
                 </td>
@@ -203,9 +203,9 @@
                     })
             },
             edit_status(language, code, status){
-                this.data.language = language;
+		this.data.language = language;
                 this.data.code = code;
-                this.data.status = status;
+                this.data.status = Number(status) ? 0 : 1;
                 this.addOrUpdateLanguage()
                     .then(res => {
                         this.data.language = '';

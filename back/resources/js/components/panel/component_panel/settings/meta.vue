@@ -122,6 +122,7 @@
             }
         },
         created(){
+console.log(111111);
             Settings.list_language()
                 .then(res => {
                     this.languages = res.body.map(item => item.language);
